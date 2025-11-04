@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 6: Competition & Strategy | Managerial Economics</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.top-nav {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #667eea;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #667eea;
+}
+
+.nav-session-selector {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-session-selector:hover {
+  border-color: #667eea;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.session-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.session-number {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.session-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.session-description {
+  font-size: 1.125rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.content-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title i {
+  color: #667eea;
+}
+
+.subsection-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.key-concepts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.concept-card {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.concept-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 0.925rem;
+}
+
+.example-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #10b981;
+  margin: 1.5rem 0;
+}
+
+.example-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.warning-box {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #ef4444;
+  margin: 1.5rem 0;
+}
+
+.warning-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+  margin: 1.5rem 0;
+}
+
+.highlight-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.key-insight {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.key-insight-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-top: 0.75rem;
+  line-height: 1.8;
+}
+
+li {
+  margin: 0.5rem 0;
+  color: #374151;
+}
+
+strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.force-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid;
+  margin-bottom: 1.5rem;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.nav-btn.secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.nav-btn.secondary:hover {
+  background: #f9fafb;
+}
+
+.porter-diagram {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+/* Enhanced Title Styles */
+.major-section-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin: 3rem 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subsection-title-enhanced {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 6px solid #667eea;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 1.5rem 0;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.subsection-title-enhanced i {
+  color: #667eea;
+  font-size: 1.75rem;
+}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <i class="fas fa-graduation-cap"></i>
+      Managerial Economics
+    </a>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <select class="nav-session-selector" onchange="if(this.value) window.location.href=this.value">
+        <option value="">Jump to Session...</option>
+        <option value="session1.html">Session 1: Thinking Like an Economist</option>
+        <option value="session2.html">Session 2: How Markets Work</option>
+        <option value="session3.html">Session 3: S&D Case Studies</option>
+        <option value="session4.html">Session 4: Pricing Strategies</option>
+        <option value="session5.html">Session 5: Cost and Supply</option>
+        <option value="session6.html" selected>Session 6: Competition & Strategy</option>
+        <option value="session7.html">Session 7: Dominant Firms</option>
+      </select>
+      <a href="problem_sets_with_answers.html"><i class="fas fa-list-check"></i> All Problem Sets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Container -->
+<div class="container">
+
+  <!-- Session Header -->
+  <div class="session-header">
+    <div class="session-number">Session 6</div>
+    <h1>⚔️ Competition & Strategy</h1>
+    <p class="session-description">
+      Examine competitive dynamics using Porter's Five Forces framework and explore the relationship between market structure and innovation incentives.
+    </p>
+  </div>
+
+  <!-- Learning Objectives -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-bullseye"></i>
+      Learning Objectives
+    </h2>
+    <div class="key-concepts">
+      <div class="concept-card">
+        <h4>Master Porter's Five Forces</h4>
+        <p>Learn to analyze industry competitiveness using a systematic framework.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Assess Industry Attractiveness</h4>
+        <p>Determine which industries offer high profit potential and why.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Innovation Incentives</h4>
+        <p>Understand the debate: Do monopolies or competitive firms innovate more?</p>
+      </div>
+      <div class="concept-card">
+        <h4>Strategic Positioning</h4>
+        <p>Apply competitive analysis to real-world business strategy decisions.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Concepts -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-brain"></i>
+      Strategic Analysis of Competition
+    </h2>
+
+    <p>Understanding competition requires looking beyond just "how many competitors?" We need a framework that captures <em>all</em> the forces that squeeze profits out of an industry.</p>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-chess"></i> 1. Porter's Five Forces Framework</div>
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-layer-group"></i>
+        <span>Michael Porter's Five Forces</span>
+      </div>
+      <p>A strategic tool for analyzing the <strong>intensity of competition</strong> and the <strong>profitability potential</strong> of an industry by examining five key competitive forces.</p>
+    </div>
+
+    <div class="porter-diagram">
+      <h4 style="text-align: center; margin-bottom: 2rem; color: #667eea;">The Five Forces Model</h4>
+
+      <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; grid-template-rows: auto auto auto; gap: 1rem; align-items: center;">
+
+        <!-- Top: New Entrants -->
+        <div></div>
+        <div style="background: rgba(52, 152, 219, 0.1); border: 2px solid #3498db; border-radius: 8px; padding: 1rem; text-align: center;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🚪</div>
+          <strong style="color: #3498db;">Threat of New Entrants</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #6b7280;">Barriers to entry?</p>
+        </div>
+        <div></div>
+
+        <!-- Middle Row -->
+        <div style="background: rgba(46, 204, 113, 0.1); border: 2px solid #2ecc71; border-radius: 8px; padding: 1rem; text-align: center;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🚚</div>
+          <strong style="color: #2ecc71;">Supplier Power</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #6b7280;">Few suppliers?</p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: 3px solid #667eea; border-radius: 12px; padding: 1.5rem; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚔️</div>
+          <strong style="color: white; font-size: 1.2rem;">Industry Rivalry</strong>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem; color: white;">(Profitability)</p>
+        </div>
+
+        <div style="background: rgba(155, 89, 182, 0.1); border: 2px solid #9b59b6; border-radius: 8px; padding: 1rem; text-align: center;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🛒</div>
+          <strong style="color: #9b59b6;">Buyer Power</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #6b7280;">Concentrated buyers?</p>
+        </div>
+
+        <!-- Bottom: Substitutes -->
+        <div></div>
+        <div style="background: rgba(230, 126, 34, 0.1); border: 2px solid #e67e22; border-radius: 8px; padding: 1rem; text-align: center;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔄</div>
+          <strong style="color: #e67e22;">Threat of Substitutes</strong>
+          <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #6b7280;">Alternative products?</p>
+        </div>
+        <div></div>
+      </div>
+
+      <p style="text-align: center; margin-top: 1.5rem; padding: 1rem; background: rgba(127, 140, 141, 0.08); border-radius: 8px; font-weight: 600; color: #6b7280;">
+        All 5 forces squeeze industry profitability from all sides
+      </p>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-shield-alt"></i> 2. The Five Forces Explained</div>
+
+    <div class="force-card" style="background: rgba(102, 126, 234, 0.1); border-color: #667eea;">
+      <h4 style="color: #667eea; margin-bottom: 0.75rem;">
+        <i class="fas fa-users"></i> 1. Rivalry Among Existing Competitors
+      </h4>
+      <p><strong>Question:</strong> How intense is the competition between current players?</p>
+      <p style="margin-top: 0.5rem;"><strong>Example:</strong> Coke vs. Pepsi — intense advertising wars, price competition</p>
+      <p style="margin-top: 0.5rem; color: #ef4444;"><strong>High rivalry = Lower profits</strong></p>
+    </div>
+
+    <div class="force-card" style="background: rgba(52, 152, 219, 0.1); border-color: #3498db;">
+      <h4 style="color: #3498db; margin-bottom: 0.75rem;">
+        <i class="fas fa-door-open"></i> 2. Threat of New Entrants
+      </h4>
+      <p><strong>Question:</strong> How easy is it for new competitors to enter?</p>
+      <p style="margin-top: 0.5rem;"><strong>Example:</strong> Airlines have high barriers (capital, regulations); software has low barriers</p>
+      <p style="margin-top: 0.5rem; color: #ef4444;"><strong>Low barriers = More threat</strong></p>
+    </div>
+
+    <div class="force-card" style="background: rgba(230, 126, 34, 0.1); border-color: #e67e22;">
+      <h4 style="color: #e67e22; margin-bottom: 0.75rem;">
+        <i class="fas fa-exchange-alt"></i> 3. Threat of Substitute Products
+      </h4>
+      <p><strong>Question:</strong> Can customers satisfy their needs differently?</p>
+      <p style="margin-top: 0.5rem;"><strong>Example:</strong> Video conferencing (Zoom) substitutes for business travel</p>
+      <p style="margin-top: 0.5rem; color: #ef4444;"><strong>More substitutes = Less pricing power</strong></p>
+    </div>
+
+    <div class="force-card" style="background: rgba(155, 89, 182, 0.1); border-color: #9b59b6;">
+      <h4 style="color: #9b59b6; margin-bottom: 0.75rem;">
+        <i class="fas fa-shopping-cart"></i> 4. Bargaining Power of Buyers
+      </h4>
+      <p><strong>Question:</strong> How much leverage do customers have?</p>
+      <p style="margin-top: 0.5rem;"><strong>Example:</strong> Walmart can demand low prices from suppliers due to its massive purchasing volume</p>
+      <p style="margin-top: 0.5rem; color: #ef4444;"><strong>Strong buyers = Squeezed margins</strong></p>
+    </div>
+
+    <div class="force-card" style="background: rgba(46, 204, 113, 0.1); border-color: #2ecc71;">
+      <h4 style="color: #2ecc71; margin-bottom: 0.75rem;">
+        <i class="fas fa-truck"></i> 5. Bargaining Power of Suppliers
+      </h4>
+      <p><strong>Question:</strong> How much leverage do suppliers have?</p>
+      <p style="margin-top: 0.5rem;"><strong>Example:</strong> Microsoft has power over PC makers who need Windows licenses</p>
+      <p style="margin-top: 0.5rem; color: #ef4444;"><strong>Strong suppliers = Higher input costs</strong></p>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-trophy"></i> 3. What Makes a Market "Highly Competitive"?</div>
+
+    <div class="highlight-box">
+      <h4><i class="fas fa-lightbulb"></i> Key Insight</h4>
+      <p>A market is "highly competitive" when <strong>ALL five forces are strong</strong>. This drives economic profits toward zero.</p>
+    </div>
+
+    <div class="comparison-grid">
+      <div class="warning-box">
+        <h4><i class="fas fa-fire"></i> Highly Competitive = Tough for Firms</h4>
+        <ul style="font-size: 0.95rem;">
+          <li>✓ Many fierce rivals</li>
+          <li>✓ Easy for new firms to enter</li>
+          <li>✓ Lots of substitutes available</li>
+          <li>✓ Buyers have strong negotiating power</li>
+          <li>✓ Suppliers can demand high prices</li>
+        </ul>
+        <p style="margin-top: 1rem;"><strong>Result:</strong> Profits squeezed to zero</p>
+      </div>
+
+      <div class="example-box">
+        <h4><i class="fas fa-trophy"></i> Attractive Industry = Good for Firms</h4>
+        <ul style="font-size: 0.95rem;">
+          <li>✓ Few competitors (or cooperation)</li>
+          <li>✓ High barriers to entry</li>
+          <li>✓ Few substitutes</li>
+          <li>✓ Fragmented buyers (no power)</li>
+          <li>✓ Fragmented suppliers</li>
+        </ul>
+        <p style="margin-top: 1rem;"><strong>Result:</strong> Firms can earn high profits</p>
+      </div>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-lightbulb"></i> 4. Market Structure & Innovation Incentives</div>
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-question-circle"></i>
+        <span>The Great Debate: Who Innovates More?</span>
+      </div>
+      <p>Does a monopolist or a competitive firm have more incentive to innovate? Economics gives us two opposing arguments!</p>
+    </div>
+
+    <div class="comparison-grid">
+      <div style="background: rgba(155, 89, 182, 0.1); border: 2px solid #9b59b6; border-radius: 12px; padding: 1.5rem;">
+        <h4 style="color: #9b59b6; margin-bottom: 1rem;">👑 The Monopoly Arguments</h4>
+
+        <div style="background: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+          <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">😴</p>
+          <strong>"Sleepy Monopolist"</strong>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;">Already dominates — why innovate? Less incentive to change.</p>
+        </div>
+
+        <div style="background: white; padding: 1rem; border-radius: 8px;">
+          <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">🛡️</p>
+          <strong>"Protective Monopolist"</strong>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;">Innovates to <em>protect</em> monopoly position and maintain barriers to entry.</p>
+        </div>
+      </div>
+
+      <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 12px; padding: 1.5rem;">
+        <h4 style="color: #10b981; margin-bottom: 1rem;">🏭 The Competition Arguments</h4>
+
+        <div style="background: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+          <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">💪</p>
+          <strong>"Survival Pressure"</strong>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;"><em>Must</em> innovate or die — competitors will eat your lunch.</p>
+        </div>
+
+        <div style="background: white; padding: 1rem; border-radius: 8px;">
+          <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">🎯</p>
+          <strong>"Profit Opportunity"</strong>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem;">Small cost advantage (lower MC) = capture entire market temporarily.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 1.5rem;">
+      <h4><i class="fas fa-chart-bar"></i> Empirical Reality</h4>
+      <p><strong>Both can innovate!</strong> Context matters — some monopolies (e.g., Google, Apple) innovate heavily; some competitive industries (e.g., restaurants) innovate constantly. The debate continues!</p>
+    </div>
+
+  </div>
+
+  <!-- Key Takeaway -->
+  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);">
+    <h3 style="margin: 0 0 1.5rem 0; color: white; font-size: 1.5rem; text-align: center;">
+      <i class="fas fa-star"></i> Session 6 Key Takeaway
+    </h3>
+    <p style="margin: 0; text-align: center; font-size: 1.15rem; line-height: 1.8;">
+      Industry attractiveness isn't just about the number of competitors. Use Porter's Five Forces to systematically analyze all sources of competitive pressure. The most profitable industries have weak forces across all five dimensions, creating sustainable profit opportunities.
+    </p>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <a href="session5.html" class="nav-btn secondary">
+      <i class="fas fa-arrow-left"></i> Session 5: Cost and Supply
+    </a>
+    <a href="index.html" class="nav-btn secondary">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="session7.html" class="nav-btn">
+      Session 7: Dominant Firms <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 5: Cost and Supply | Managerial Economics</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.top-nav {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #667eea;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #667eea;
+}
+
+.nav-session-selector {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-session-selector:hover {
+  border-color: #667eea;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.session-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.session-number {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.session-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.session-description {
+  font-size: 1.125rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.content-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title i {
+  color: #667eea;
+}
+
+.subsection-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.key-concepts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.concept-card {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.concept-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 0.925rem;
+}
+
+.formula-box {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+  margin: 1.5rem 0;
+}
+
+.formula-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.example-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #10b981;
+  margin: 1.5rem 0;
+}
+
+.example-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.warning-box {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #ef4444;
+  margin: 1.5rem 0;
+}
+
+.warning-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.graph-container {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.graph-title {
+  font-weight: 600;
+  color: #374151;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+canvas {
+  max-width: 100%;
+  height: 400px !important;
+}
+
+.problem-set-section {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border: 3px solid #667eea;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin: 3rem 0;
+}
+
+.problem-set-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #667eea;
+}
+
+.problem-set-icon {
+  font-size: 3rem;
+}
+
+.problem-set-title {
+  flex: 1;
+}
+
+.problem-set-title h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.problem-set-title p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.question-block {
+  background: white;
+  border-left: 4px solid #667eea;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.question-number {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.answer-block {
+  background: #f0fdf4;
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.answer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.key-insight {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.key-insight-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-top: 0.75rem;
+  line-height: 1.8;
+}
+
+li {
+  margin: 0.5rem 0;
+  color: #374151;
+}
+
+strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.nav-btn.secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.nav-btn.secondary:hover {
+  background: #f9fafb;
+}
+
+blockquote {
+  border-left: 4px solid #667eea;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+/* Enhanced Title Styles */
+.major-section-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin: 3rem 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subsection-title-enhanced {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 6px solid #667eea;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 1.5rem 0;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.subsection-title-enhanced i {
+  color: #667eea;
+  font-size: 1.75rem;
+}
+
+/* Collapsible Answer Styles */
+.question-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.question-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.question-number-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.question-text {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.show-answer-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.show-answer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.show-answer-btn i {
+  transition: transform 0.3s ease;
+}
+
+.show-answer-btn.active i {
+  transform: rotate(180deg);
+}
+
+.answer-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.answer-content.show {
+  max-height: 8000px;
+}
+
+.answer-inner {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.answer-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #059669;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.answer-label i {
+  font-size: 1.3rem;
+}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <i class="fas fa-graduation-cap"></i>
+      Managerial Economics
+    </a>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <select class="nav-session-selector" onchange="if(this.value) window.location.href=this.value">
+        <option value="">Jump to Session...</option>
+        <option value="session1.html">Session 1: Thinking Like an Economist</option>
+        <option value="session2.html">Session 2: How Markets Work</option>
+        <option value="session3.html">Session 3: S&D Case Studies</option>
+        <option value="session4.html">Session 4: Pricing Strategies</option>
+        <option value="session5.html" selected>Session 5: Cost and Supply</option>
+        <option value="session6.html">Session 6: Competition & Strategy</option>
+        <option value="session7.html">Session 7: Dominant Firms</option>
+      </select>
+      <a href="problem_sets_with_answers.html"><i class="fas fa-list-check"></i> All Problem Sets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Container -->
+<div class="container">
+
+  <!-- Session Header -->
+  <div class="session-header">
+    <div class="session-number">Session 5</div>
+    <h1>📈 Cost and Supply - How Firms Behave</h1>
+    <p class="session-description">
+      Explore how firms make production decisions, the power of marginal thinking, and how near-zero marginal costs are revolutionizing entire industries through the sharing economy.
+    </p>
+  </div>
+
+  <!-- Learning Objectives -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-bullseye"></i>
+      Learning Objectives
+    </h2>
+    <div class="key-concepts">
+      <div class="concept-card">
+        <h4>Master Marginal Analysis</h4>
+        <p>Understand the golden rule: produce where MR = MC to maximize profits.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Zero Marginal Cost Economics</h4>
+        <p>Analyze how digital platforms transform business models when MC ≈ 0.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Sharing Economy Revolution</h4>
+        <p>Explore how platforms unleash underused assets and labor through technology.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Platform Business Models</h4>
+        <p>Study Uber as a case of two-sided markets, surge pricing, and regulatory challenges.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Concepts -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-brain"></i>
+      Core Concepts
+    </h2>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-calculator"></i> 1. Marginal Analysis: The Core Principle</div>
+    <p>The secret to understanding firm behavior? Think <strong>at the margin</strong>. Firms don't ask "Should we produce?" but rather "Should we produce <em>one more unit</em>?"</p>
+
+    <div class="key-concepts">
+      <div class="concept-card">
+        <h4>Marginal Revenue (MR)</h4>
+        <p>The <strong>extra revenue</strong> from selling one additional unit</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Example: If selling 100 units brings $1,000 and selling 101 units brings $1,009, then MR = $9</p>
+      </div>
+      <div class="concept-card">
+        <h4>Marginal Cost (MC)</h4>
+        <p>The <strong>extra cost</strong> of producing one additional unit</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Example: If producing 100 units costs $800 and 101 units costs $805, then MC = $5</p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <h4><i class="fas fa-trophy"></i> The Golden Rule: Profit Maximization</h4>
+      <p style="text-align: center; font-size: 2rem; font-weight: 800; color: #667eea; margin: 1rem 0;">MR = MC</p>
+      <ul style="margin-top: 1rem;">
+        <li><strong>If MR > MC:</strong> Produce more! You're making profit on each additional unit</li>
+        <li><strong>If MR < MC:</strong> Produce less! You're losing money on each additional unit</li>
+        <li><strong>If MR = MC:</strong> Perfect! Profit is maximized</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-dollar-sign"></i> 2. The Power of Near-Zero Marginal Cost</div>
+
+    <div class="warning-box">
+      <h4><i class="fas fa-lightbulb"></i> Revolutionary Insight</h4>
+      <p>When MC ≈ 0, the economics of business completely transform. Technology has created entire industries where producing "one more" costs almost nothing!</p>
+    </div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-rocket"></i> Three Drivers of Zero-MC Economics</h4>
+      <p><strong>1. Digitalization</strong></p>
+      <ul>
+        <li>The MC of copying digital goods is zero</li>
+        <li>Examples: Software, music streaming, e-books, online courses</li>
+        <li>Spotify can serve 1 or 1 million users with nearly the same cost</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>2. Platform Matching</strong></p>
+      <ul>
+        <li>The MC of connecting one more pair is near-zero</li>
+        <li>Examples: Uber (riders ↔ drivers), Airbnb (guests ↔ hosts), Amazon Marketplace</li>
+        <li>The algorithm does the work; each match costs essentially nothing</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>3. Idle Asset Utilization</strong></p>
+      <ul>
+        <li>The MC of using an already-existing asset is near-zero</li>
+        <li>Examples: Parked cars, spare rooms, unused equipment</li>
+        <li>The asset exists anyway—using it costs almost nothing extra</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-share-nodes"></i> 3. The Sharing Economy Revolution</div>
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-share-nodes"></i>
+        <span>Definition: Sharing Economy</span>
+      </div>
+      <p>A disruptive economic model that <strong>"unleashes new sources of supply"</strong> by tapping into underused assets or labor via internet platforms, powered by near-zero marginal costs.</p>
+    </div>
+
+    <div class="key-concepts">
+      <div class="concept-card">
+        <h4>🏠 Asset-Light</h4>
+        <p>Companies don't own physical assets—they coordinate existing ones</p>
+      </div>
+      <div class="concept-card">
+        <h4>🌐 Platform-Based</h4>
+        <p>Technology connects two sides of a market efficiently</p>
+      </div>
+      <div class="concept-card">
+        <h4>⚡ Disrupts Regulation</h4>
+        <p>Often operates in gray areas of existing rules</p>
+      </div>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-car"></i> 4. Case Study: Uber's Economic Model</div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-car"></i> Key Insight</h4>
+      <p>Uber is <em>not</em> a taxi company. It's a technology platform that coordinates a market.</p>
+    </div>
+
+    <p><strong>Uber's Value Proposition:</strong></p>
+    <ul>
+      <li><strong>Convenience:</strong> Request rides with one tap</li>
+      <li><strong>Transparency:</strong> See price, driver, and ETA upfront</li>
+      <li><strong>Reliability:</strong> Cars available within minutes</li>
+      <li><strong>Cashless:</strong> Automatic payment, no tipping hassle</li>
+    </ul>
+
+    <div class="warning-box">
+      <h4><i class="fas fa-chart-line"></i> Dynamic Pricing (Surge Pricing)</h4>
+      <p>When <strong>Demand > Supply</strong> (rush hour, bad weather):</p>
+      <ol>
+        <li><strong>Prices rise</strong> (surge multiplier: 1.5x, 2x, 3x)</li>
+        <li><strong>More drivers come online</strong> (attracted by higher earnings)</li>
+        <li><strong>Market balances</strong> (supply increases to meet demand)</li>
+      </ol>
+      <p style="margin-top: 1rem;"><strong>Economic Principle:</strong> Price acts as a signal to allocate scarce resources efficiently</p>
+    </div>
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-balance-scale"></i>
+        <span>The Regulatory Challenge</span>
+      </div>
+      <p><strong>Strategy:</strong> "Move fast and break things" — operate first, negotiate regulations later</p>
+      <p style="margin-top: 0.75rem;"><strong>Core Debate:</strong> Are drivers <em>employees</em> (deserving benefits, minimum wage) or <em>independent contractors</em> (flexible but fewer protections)?</p>
+    </div>
+
+  </div>
+
+  <!-- Problem Set 5 -->
+  <div class="problem-set-section">
+    <div class="problem-set-header">
+      <div class="problem-set-icon">📝</div>
+      <div class="problem-set-title">
+        <h2>Problem Set 5: Platform Economics & Uber Case</h2>
+        <p>Apply marginal analysis and platform economics to the sharing economy</p>
+      </div>
+    </div>
+
+    <!-- Question 1: Uber's Evolution -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-number-badge">1</div>
+        <div class="question-text">
+          <strong>Uber's Evolution and Competitive Advantage</strong><br>
+          Describe how Uber has evolved and why Uber is changing.
+        </div>
+      </div>
+
+      <button class="show-answer-btn" onclick="toggleAnswer(this)">
+        <i class="fas fa-chevron-down"></i> Show Answer
+      </button>
+
+      <div class="answer-content">
+        <div class="answer-inner">
+          <div class="answer-label">
+            <i class="fas fa-check-circle"></i>
+            <span>Answer</span>
+          </div>
+
+        <p><strong>Uber's Evolution:</strong></p>
+        <ol>
+          <li><strong>2009-2012: Luxury black car service</strong>
+            <ul>
+              <li>UberBlack: Professional drivers, luxury cars</li>
+              <li>Premium pricing</li>
+              <li>Small market segment</li>
+            </ul>
+          </li>
+          <li><strong>2012-2014: Mass market expansion</strong>
+            <ul>
+              <li>UberX: Anyone with car can drive</li>
+              <li>Lower prices → Larger market</li>
+              <li>Shifted from luxury to convenience</li>
+            </ul>
+          </li>
+          <li><strong>2014-2016: Diversification</strong>
+            <ul>
+              <li><strong>UberPool:</strong> Shared rides (lower cost)</li>
+              <li><strong>UberEats:</strong> Food delivery (leverage driver network)</li>
+              <li><strong>UberFreight:</strong> Trucking logistics</li>
+            </ul>
+          </li>
+          <li><strong>2016+: Technology & Future Mobility</strong>
+            <ul>
+              <li>Driverless car initiative (eliminate largest cost: driver)</li>
+              <li>Flying taxis (Uber Elevate)</li>
+              <li>Public transit partnerships</li>
+            </ul>
+          </li>
+        </ol>
+
+        <p style="margin-top: 1.5rem;"><strong>Why is Uber Changing?</strong></p>
+        <ul>
+          <li><strong>"Move fast and break things" strategy</strong>
+            <ul>
+              <li>Rapid iteration prevents competitors from catching up</li>
+              <li>Lyft, Didi, Grab must constantly react</li>
+              <li>First-mover advantage in each segment</li>
+            </ul>
+          </li>
+          <li><strong>Network effects:</strong>
+            <ul>
+              <li>More riders → More drivers attracted (higher earnings)</li>
+              <li>More drivers → Faster pickup times → More riders</li>
+              <li>Virtuous cycle creates winner-take-most dynamics</li>
+            </ul>
+          </li>
+          <li><strong>Platform leverage:</strong>
+            <ul>
+              <li>Uber has drivers + GPS infrastructure</li>
+              <li>Marginal cost of adding UberEats, UberFreight ≈ 0</li>
+              <li>Maximize utilization of existing assets</li>
+            </ul>
+          </li>
+          <li><strong>Competitive pressure:</strong>
+            <ul>
+              <li>Rideshare market becoming commoditized</li>
+              <li>Need new revenue sources</li>
+              <li>Move into higher-margin businesses (food delivery, freight)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="graph-container">
+          <div class="graph-title">Uber's Evolution Timeline</div>
+          <canvas id="uberEvolutionGraph"></canvas>
+        </div>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-rocket"></i>
+            <span>Competitive Advantage from Speed</span>
+          </div>
+          <p>"Move fast and break things" gives Uber an edge because:</p>
+          <ul>
+            <li>Competitors must play catch-up (reactive, not proactive)</li>
+            <li>Uber learns faster (more experiments → more data)</li>
+            <li>Regulatory arbitrage: Launch first, negotiate regulations later</li>
+            <li>Brand becomes synonymous with category ("Uber for X")</li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2a: Sharing Economy -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-number-badge">2a</div>
+        <div class="question-text">
+          <strong>Is Uber Representative of the Sharing Economy?</strong><br>
+          What is the sharing economy? Does Uber fit?
+        </div>
+      </div>
+
+      <button class="show-answer-btn" onclick="toggleAnswer(this)">
+        <i class="fas fa-chevron-down"></i> Show Answer
+      </button>
+
+      <div class="answer-content">
+        <div class="answer-inner">
+          <div class="answer-label">
+            <i class="fas fa-check-circle"></i>
+            <span>Answer</span>
+          </div>
+
+        <p><strong>Richard Waters' Definition (FT article):</strong></p>
+        <blockquote>
+          "It is a disruptive economic form that unleashes new sources of supply. Whether this involves underused assets (private cars, spare bedrooms) or labour (people willing to fill in a few hours as taxi drivers, personal shoppers or couriers), it taps resources that could not be effectively organised before."
+        </blockquote>
+
+        <p style="margin-top: 1.5rem;"><strong>Does Uber Fit? YES - on multiple dimensions:</strong></p>
+
+        <p><strong>1. Underused Assets (Private Cars)</strong></p>
+        <ul>
+          <li>Average car sits idle 95% of the time</li>
+          <li>UberX allows car owners to monetize idle capacity</li>
+          <li>This is <strong>supply side</strong> of sharing economy</li>
+        </ul>
+
+        <p><strong>2. Flexible Labour</strong></p>
+        <ul>
+          <li>Part-time drivers: Students, retirees, people with day jobs</li>
+          <li>"Fill in a few hours" → Can drive during peak hours only</li>
+          <li>Reduces labor market friction (match people with flexible supply to variable demand)</li>
+        </ul>
+
+        <p><strong>3. Platform Coordination</strong></p>
+        <ul>
+          <li>Before Uber: Couldn't organize thousands of part-time drivers</li>
+          <li>GPS + smartphones + algorithms made coordination possible</li>
+          <li><strong>Technology unlocked latent supply</strong></li>
+        </ul>
+
+        <div class="graph-container">
+          <div class="graph-title">Sharing Economy: Unlocking Latent Supply</div>
+          <canvas id="sharingEconomyGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Graph Explanation:</strong></p>
+        <ul>
+          <li><strong>Pre-Uber:</strong> Only professional taxis (S₀) - high cost, limited supply</li>
+          <li><strong>Post-Uber:</strong> Adds part-time drivers with spare cars (S₁ shifts right)</li>
+          <li>Result: Lower prices (P₀ to P₁), higher quantity (Q₀ to Q₁)</li>
+          <li>Consumer surplus increases dramatically (shaded area)</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2b: Microeconomists' View -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-number-badge">2b</div>
+        <div class="question-text">
+          <strong>Why do microeconomists agree Uber represents sharing economy?</strong>
+        </div>
+      </div>
+
+      <button class="show-answer-btn" onclick="toggleAnswer(this)">
+        <i class="fas fa-chevron-down"></i> Show Answer
+      </button>
+
+      <div class="answer-content">
+        <div class="answer-inner">
+          <div class="answer-label">
+            <i class="fas fa-check-circle"></i>
+            <span>Answer</span>
+          </div>
+
+        <p><strong>Three Microeconomic Arguments:</strong></p>
+
+        <p><strong>1. Marginal Cost ≈ $0</strong></p>
+        <ul>
+          <li>Cost to Uber of one additional ride ≈ $0 (just software matching)</li>
+          <li>This is characteristic of platform businesses</li>
+          <li>Contrasts with traditional taxis (buying fleet, maintenance, dispatch center)</li>
+          <li>Enables extreme scalability</li>
+        </ul>
+
+        <div class="formula-box">
+          <h4><i class="fas fa-calculator"></i> Marginal Cost Comparison</h4>
+          <p>Traditional Taxi: MC = fuel + wear & tear + driver wage + dispatch overhead</p>
+          <p style="margin-top: 0.5rem;">Uber: MC ≈ $0 (driver pays fuel & car costs, Uber just matches)</p>
+        </div>
+
+        <p style="margin-top: 1.5rem;"><strong>2. Platform Model: Matching Supply and Demand</strong></p>
+        <ul>
+          <li>Uber is essentially a <strong>market-maker</strong></li>
+          <li>Uses price signals (surge pricing) to equilibrate supply and demand</li>
+          <li>Quote from case: <em>"What you are aiming for is the equilibrium of supply and demand. A perfect day is when you set an all-time record for trips per hour with zero surges."</em></li>
+          <li>This is textbook microeconomics!</li>
+        </ul>
+
+        <div class="graph-container">
+          <div class="graph-title">Uber's Dynamic Equilibrium (Surge Pricing)</div>
+          <canvas id="uberEquilibriumGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Normal vs. Peak Times:</strong></p>
+        <ul>
+          <li><strong>Normal time:</strong> Supply and demand meet at P₀, Q₀ (no surge)</li>
+          <li><strong>Peak time:</strong> Demand surges to D₁
+            <ul>
+              <li>Without surge: Shortage (Q₀ < Q<sub>demand</sub>)</li>
+              <li>With surge to P₁: Attracts more drivers, equilibrium at Q₁</li>
+              <li>Surge serves to <strong>clear the market</strong></li>
+            </ul>
+          </li>
+        </ul>
+
+        <p style="margin-top: 1.5rem;"><strong>3. Efficiency of Market Design</strong></p>
+        <ul>
+          <li><strong>Price discovery:</strong> Algorithm finds market-clearing price in real-time</li>
+          <li><strong>No deadweight loss:</strong> Unlike regulated taxi markets with price ceilings</li>
+          <li><strong>Resource allocation:</strong> Drivers go where demand is highest (follow price signals)</li>
+          <li><strong>Information aggregation:</strong> Platform has perfect information about supply & demand</li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-brain"></i>
+            <span>Why Microeconomists Love Uber</span>
+          </div>
+          <p>Uber is a real-world example of:</p>
+          <ol>
+            <li><strong>Supply and demand equilibrium</strong> - surge pricing</li>
+            <li><strong>Price elasticity</strong> - different elasticities at different times</li>
+            <li><strong>Two-sided markets</strong> - need to balance riders and drivers</li>
+            <li><strong>Information economics</strong> - ratings solve asymmetric information</li>
+            <li><strong>Market efficiency</strong> - eliminates deadweight loss from regulation</li>
+            <li><strong>Marginal cost pricing</strong> - MC ≈ 0, can scale infinitely</li>
+          </ol>
+        </div>
+
+        <p style="margin-top: 1.5rem;"><strong>Counterarguments (Uber as "NOT" sharing economy):</strong></p>
+        <ul>
+          <li><strong>Full-time drivers:</strong> Many drivers are now full-time (not "sharing" idle time)</li>
+          <li><strong>Commercial purpose:</strong> Cars bought specifically for Uber (not "underused assets")</li>
+          <li><strong>Platform extraction:</strong> Uber takes 25-30% commission (not peer-to-peer sharing)</li>
+          <li><strong>Labor exploitation concerns:</strong> Drivers classified as contractors, not employees</li>
+        </ul>
+
+        <table style="margin-top: 1.5rem;">
+          <thead>
+            <tr>
+              <th>Economic Effect</th>
+              <th>Traditional Taxi</th>
+              <th>Uber Model</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Supply Shift</strong></td>
+              <td>Fixed (limited licenses)</td>
+              <td>Massive Right Shift ✓</td>
+            </tr>
+            <tr>
+              <td><strong>Price Effect</strong></td>
+              <td>High (restricted supply)</td>
+              <td>Lower ✓</td>
+            </tr>
+            <tr>
+              <td><strong>Consumer Surplus</strong></td>
+              <td>Lower</td>
+              <td>Higher (big gain) ✓</td>
+            </tr>
+            <tr>
+              <td><strong>Deadweight Loss</strong></td>
+              <td>Significant</td>
+              <td>Reduced (more efficient) ✓</td>
+            </tr>
+            <tr>
+              <td><strong>Winners/Losers</strong></td>
+              <td>Taxi owners profit from scarcity</td>
+              <td>Consumers win ✓, Taxi owners lose</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="example-box" style="margin-top: 1.5rem;">
+          <h4><i class="fas fa-check-circle"></i> Economic Verdict</h4>
+          <p>Uber creates significant <strong>net social welfare gain</strong> by:</p>
+          <ul>
+            <li>Unleashing new supply (shifts S curve right)</li>
+            <li>Lowering prices (P↓)</li>
+            <li>Increasing quantity consumed (Q↑)</li>
+            <li>Expanding consumer surplus dramatically (CS↑↑↑)</li>
+          </ul>
+          <p style="margin-top: 0.75rem;"><strong>Challenge:</strong> Politically difficult because taxi industry is a concentrated, vocal loser</p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <a href="session4.html" class="nav-btn secondary">
+      <i class="fas fa-arrow-left"></i> Session 4: Pricing Strategies
+    </a>
+    <a href="index.html" class="nav-btn secondary">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="session6.html" class="nav-btn">
+      Session 6: Competition & Strategy <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+</div>
+
+<script>
+// Chart.js Default Configuration
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.color = '#374151';
+
+// Uber Evolution Timeline
+const uberEvolutionCtx = document.getElementById('uberEvolutionGraph').getContext('2d');
+new Chart(uberEvolutionCtx, {
+  type: 'bar',
+  data: {
+    labels: ['2009-2012\nLuxury', '2012-2014\nMass Market', '2014-2016\nDiversification', '2016+\nTech & Future'],
+    datasets: [{
+      label: 'Market Size / Revenue',
+      data: [10, 40, 85, 100],
+      backgroundColor: [
+        'rgba(102, 126, 234, 0.7)',
+        'rgba(59, 130, 246, 0.7)',
+        'rgba(16, 185, 129, 0.7)',
+        'rgba(245, 158, 11, 0.7)'
+      ],
+      borderColor: [
+        '#667eea',
+        '#3b82f6',
+        '#10b981',
+        '#f59e0b'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Phase', font: { size: 14, weight: 'bold' } } },
+      y: {
+        title: { display: true, text: 'Relative Market Reach', font: { size: 14, weight: 'bold' } },
+        beginAtZero: true,
+        max: 120
+      }
+    },
+    plugins: {
+      legend: { display: false }
+    }
+  }
+});
+
+// Sharing Economy Supply Shift
+const sharingEconomyCtx = document.getElementById('sharingEconomyGraph').getContext('2d');
+new Chart(sharingEconomyCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₁', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [400, 300, 200, 100],
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+        fill: 'origin',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'S₀ (Pre-Uber: Taxis only)',
+        data: [50, 150, 250, 350],
+        borderColor: '#9ca3af',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [8, 4],
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'S₁ (Post-Uber: Taxis + Rideshare)',
+        data: [25, 100, 175, 250],
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        fill: '+1',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity of Rides', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price per Ride', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } },
+      annotation: {
+        annotations: {
+          price0: {
+            type: 'line',
+            yMin: 250,
+            yMax: 250,
+            borderColor: '#9ca3af',
+            borderWidth: 2,
+            borderDash: [8, 4],
+            label: {
+              content: 'P₀ (High)',
+              enabled: true,
+              position: 'start'
+            }
+          },
+          price1: {
+            type: 'line',
+            yMin: 175,
+            yMax: 175,
+            borderColor: '#10b981',
+            borderWidth: 2,
+            borderDash: [8, 4],
+            label: {
+              content: 'P₁ (Lower)',
+              enabled: true,
+              position: 'start',
+              backgroundColor: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Uber Equilibrium (Surge Pricing)
+const uberEquilibriumCtx = document.getElementById('uberEquilibriumGraph').getContext('2d');
+new Chart(uberEquilibriumCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₁', ''],
+    datasets: [
+      {
+        label: 'D₀ (Normal demand)',
+        data: [400, 300, 200, 100],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [8, 4],
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'D₁ (Peak/surge demand)',
+        data: [500, 400, 300, 200],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'Supply',
+        data: [100, 200, 300, 400],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity of Rides', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price per Ride', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } },
+      annotation: {
+        annotations: {
+          normalPrice: {
+            type: 'line',
+            yMin: 200,
+            yMax: 200,
+            borderColor: '#94a3b8',
+            borderWidth: 2,
+            borderDash: [8, 4],
+            label: {
+              content: 'P₀ (Normal)',
+              enabled: true,
+              position: 'start'
+            }
+          },
+          surgePrice: {
+            type: 'line',
+            yMin: 300,
+            yMax: 300,
+            borderColor: '#ef4444',
+            borderWidth: 3,
+            label: {
+              content: 'P₁ (Surge 1.5x)',
+              enabled: true,
+              position: 'end',
+              backgroundColor: '#ef4444',
+              color: 'white'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+</script>
+
+<script>
+function toggleAnswer(btn) {
+  const answerContent = btn.nextElementSibling;
+  if (answerContent.classList.contains('show')) {
+    answerContent.classList.remove('show');
+    btn.innerHTML = '<i class="fas fa-chevron-down"></i> Show Answer';
+    btn.classList.remove('active');
+  } else {
+    answerContent.classList.add('show');
+    btn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Answer';
+    btn.classList.add('active');
+  }
+}
+</script>
+
+</body>
+</html>

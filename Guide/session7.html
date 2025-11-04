@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 7: Dominant Firms | Managerial Economics</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.top-nav {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #667eea;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #667eea;
+}
+
+.nav-session-selector {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-session-selector:hover {
+  border-color: #667eea;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.session-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.session-number {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.session-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.session-description {
+  font-size: 1.125rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.content-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title i {
+  color: #667eea;
+}
+
+.subsection-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.key-concepts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.concept-card {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.concept-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 0.925rem;
+}
+
+.formula-box {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+  margin: 1.5rem 0;
+}
+
+.formula-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.example-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #10b981;
+  margin: 1.5rem 0;
+}
+
+.example-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.warning-box {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #ef4444;
+  margin: 1.5rem 0;
+}
+
+.warning-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+  margin: 1.5rem 0;
+}
+
+.highlight-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.key-insight {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.key-insight-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-top: 0.75rem;
+  line-height: 1.8;
+}
+
+li {
+  margin: 0.5rem 0;
+  color: #374151;
+}
+
+strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.step-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.nav-btn.secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.nav-btn.secondary:hover {
+  background: #f9fafb;
+}
+
+/* Enhanced Title Styles */
+.major-section-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin: 3rem 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subsection-title-enhanced {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 6px solid #667eea;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 1.5rem 0;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.subsection-title-enhanced i {
+  color: #667eea;
+  font-size: 1.75rem;
+}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <i class="fas fa-graduation-cap"></i>
+      Managerial Economics
+    </a>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <select class="nav-session-selector" onchange="if(this.value) window.location.href=this.value">
+        <option value="">Jump to Session...</option>
+        <option value="session1.html">Session 1: Thinking Like an Economist</option>
+        <option value="session2.html">Session 2: How Markets Work</option>
+        <option value="session3.html">Session 3: S&D Case Studies</option>
+        <option value="session4.html">Session 4: Pricing Strategies</option>
+        <option value="session5.html">Session 5: Cost and Supply</option>
+        <option value="session6.html">Session 6: Competition & Strategy</option>
+        <option value="session7.html" selected>Session 7: Dominant Firms</option>
+      </select>
+      <a href="problem_sets_with_answers.html"><i class="fas fa-list-check"></i> All Problem Sets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Container -->
+<div class="container">
+
+  <!-- Session Header -->
+  <div class="session-header">
+    <div class="session-number">Session 7</div>
+    <h1>👑 Dominant Firms & Competition</h1>
+    <p class="session-description">
+      Explore the economics of dominant firms like Amazon, examining how monopolies make pricing decisions and the trade-offs between market power and social welfare.
+    </p>
+  </div>
+
+  <!-- Learning Objectives -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-bullseye"></i>
+      Learning Objectives
+    </h2>
+    <div class="key-concepts">
+      <div class="concept-card">
+        <h4>Understand Market Power</h4>
+        <p>Learn how dominant firms gain the ability to influence prices rather than accepting market prices.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Monopoly Pricing</h4>
+        <p>Master the MR = MC rule and understand why monopolies charge prices above marginal cost.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Deadweight Loss</h4>
+        <p>Analyze the social welfare implications of monopoly power and market inefficiency.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Real-World Application</h4>
+        <p>Apply these concepts to understand debates about Amazon and other tech giants.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Concepts -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-brain"></i>
+      Understanding Market Power
+    </h2>
+
+    <p>When firms become dominant in their markets, they gain the power to influence prices rather than simply accepting market prices. This fundamentally changes how they make decisions.</p>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-handshake"></i>1. Gains from Trade</div>
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-handshake"></i>
+        <span>Total Surplus Formula</span>
+      </div>
+      <p style="font-size: 1.125rem;">Total Surplus = Consumer Surplus + Producer Surplus</p>
+      <p style="margin-top: 0.75rem;">The total economic value created by market transactions. This represents the "pie" that gets divided between consumers and producers.</p>
+    </div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-box"></i> The Amazon Case</h4>
+      <p><strong>Amazon's argument:</strong> It <em>expands</em> the total surplus through:</p>
+
+      <div class="step-card">
+        <span class="step-number">1</span>
+        <strong>Lower Prices</strong>
+        <p style="margin-top: 0.5rem; color: #6b7280;">Efficiency and scale drive prices down, increasing consumer surplus</p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">2</span>
+        <strong>Vast Selection</strong>
+        <p style="margin-top: 0.5rem; color: #6b7280;">Millions of "long-tail" items satisfy niche demand that physical stores couldn't serve</p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">3</span>
+        <strong>Convenience</strong>
+        <p style="margin-top: 0.5rem; color: #6b7280;">One-click ordering and fast shipping save time, which has real economic value</p>
+      </div>
+
+      <p style="margin-top: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; font-weight: 600;">
+        <strong>Result:</strong> Even if Amazon captures a large share, it dramatically increases total gains from trade.
+      </p>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-crown"></i>2. What Makes a Firm "Dominant"?</div>
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-building"></i>
+        <span>Dominant Firm Definition</span>
+      </div>
+      <p>A firm with a large market share that can influence prices. The critical question: <strong>"What is the relevant market?"</strong></p>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 1.5rem;">
+      <h4><i class="fas fa-chart-pie"></i> Is Amazon Dominant? It Depends on Market Definition</h4>
+    </div>
+
+    <div class="comparison-grid">
+      <div class="warning-box">
+        <h4><i class="fas fa-check-circle"></i> YES - E-Commerce View</h4>
+        <ul>
+          <li><strong>40-50%</strong> of US e-commerce market</li>
+          <li><strong>30-40%</strong> of global cloud computing (AWS)</li>
+          <li>Acts as "gatekeeper" for sellers</li>
+          <li>Forces competitors onto its platform</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <h4><i class="fas fa-times-circle"></i> NO - Total Retail View</h4>
+        <ul>
+          <li>Only <strong>~10-15%</strong> of total US retail</li>
+          <li>Competes with Walmart, Costco, Target</li>
+          <li>Just one large competitor</li>
+          <li>Not a monopoly in broader context</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>Key Insight</span>
+      </div>
+      <p>Market definition determines whether a firm is "dominant." This is why antitrust cases spend so much time debating market boundaries!</p>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-chart-line"></i>3. Monopoly Profit Maximization</div>
+
+    <div class="highlight-box">
+      <h4><i class="fas fa-lightbulb"></i> The Fundamental Difference</h4>
+      <p>Unlike competitive firms, monopolies <strong>don't take the market price</strong>. They have market power to set prices.</p>
+    </div>
+
+    <div style="margin: 2rem 0;">
+      <h4 style="color: #667eea; margin-bottom: 1.5rem;"><i class="fas fa-chart-line"></i> How Monopolies Choose Price & Quantity</h4>
+
+      <div class="step-card">
+        <span class="step-number">1</span>
+        <strong>Find optimal quantity</strong>
+        <p style="margin-top: 0.5rem; color: #6b7280;">Produce where <strong>Marginal Revenue (MR) = Marginal Cost (MC)</strong></p>
+        <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 0.5rem;">This is where profit is maximized</p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">2</span>
+        <strong>Find the price consumers will pay</strong>
+        <p style="margin-top: 0.5rem; color: #6b7280;">Look at the <strong>Demand curve</strong> at that quantity</p>
+        <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 0.5rem;">This gives the highest price consumers will accept</p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">3</span>
+        <strong>Result</strong>
+        <p style="margin-top: 0.5rem; color: #6b7280;">Price is <strong>always higher</strong> than MC (unlike perfect competition where P = MC)</p>
+        <p style="margin-top: 0.75rem; padding: 0.5rem 1rem; background: rgba(245, 158, 11, 0.1); border-radius: 6px; color: #d97706; font-weight: 600; display: inline-block;">Monopoly Markup</p>
+      </div>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-calculator"></i>4. The Marginal Revenue Formula</div>
+
+    <div class="formula-box">
+      <h4><i class="fas fa-calculator"></i> For Linear Demand Curve</h4>
+      <p style="font-size: 1.2rem; margin: 1rem 0;">If Demand: $$P = a - bQ$$</p>
+      <p style="font-size: 1.5rem; font-weight: 700; color: #7c3aed; margin: 1rem 0;">Then: $$MR = a - 2bQ$$</p>
+      <p style="margin-top: 1rem; font-size: 0.95rem;">Same intercept, <strong>twice the slope</strong></p>
+    </div>
+
+    <div class="highlight-box">
+      <h4><i class="fas fa-lightbulb"></i> Why?</h4>
+      <p>When you sell one more unit, you gain revenue from that unit BUT you have to lower the price on <em>all</em> previous units. This "revenue loss on infra-marginal units" makes MR steeper than demand.</p>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-balance-scale"></i>5. Monopoly vs. Perfect Competition</div>
+
+    <div class="comparison-grid">
+      <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 12px; padding: 1.5rem;">
+        <h4 style="color: #10b981; margin-bottom: 1rem;">🏭 Perfect Competition</h4>
+        <p><strong>Pricing Rule:</strong> $$P = MC$$</p>
+        <p style="margin-top: 1rem; font-weight: 600;">Firms are <strong>price takers</strong></p>
+        <ul style="margin-top: 0.75rem; font-size: 0.95rem;">
+          <li>No market power</li>
+          <li>Price = Marginal Cost</li>
+          <li>Zero economic profit (long run)</li>
+          <li>Socially efficient</li>
+        </ul>
+        <p style="margin-top: 1rem; padding: 0.5rem 1rem; background: rgba(16, 185, 129, 0.2); border-radius: 6px; color: #059669; font-weight: 600;">✓ Efficient</p>
+      </div>
+
+      <div style="background: rgba(239, 68, 68, 0.1); border: 2px solid #ef4444; border-radius: 12px; padding: 1.5rem;">
+        <h4 style="color: #ef4444; margin-bottom: 1rem;">👑 Monopoly</h4>
+        <p><strong>Pricing Rule:</strong> MR = MC, then price from demand</p>
+        <p style="margin-top: 1rem; font-weight: 600;">Firm is <strong>price maker</strong></p>
+        <ul style="margin-top: 0.75rem; font-size: 0.95rem;">
+          <li>Market power</li>
+          <li>Price > Marginal Cost</li>
+          <li>Positive economic profit</li>
+          <li>Creates deadweight loss</li>
+        </ul>
+        <p style="margin-top: 1rem; padding: 0.5rem 1rem; background: rgba(239, 68, 68, 0.2); border-radius: 6px; color: #dc2626; font-weight: 600;">⚠ Inefficient</p>
+      </div>
+    </div>
+
+    <div class="key-insight" style="margin-top: 2rem;">
+      <div class="key-insight-header">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>Deadweight Loss (DWL)</span>
+      </div>
+      <p>Monopolies create <strong>deadweight loss</strong> - trades that would benefit both buyers and sellers but don't happen because the monopoly restricts output to raise prices. This represents lost social welfare.</p>
+      <p style="margin-top: 0.75rem;"><strong>Graphically:</strong> The triangle between the monopoly quantity (Q<sub>m</sub>) and competitive quantity (Q<sub>c</sub>) represents trades that society loses out on.</p>
+    </div>
+
+  </div>
+
+  <!-- Key Takeaway -->
+  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);">
+    <h3 style="margin: 0 0 1.5rem 0; color: white; font-size: 1.5rem; text-align: center;">
+      <i class="fas fa-star"></i> Session 7 Key Takeaway
+    </h3>
+    <p style="margin: 0; text-align: center; font-size: 1.15rem; line-height: 1.8;">
+      Dominant firms have market power that allows them to charge prices above marginal cost, earning higher profits but creating deadweight loss. The key question in antitrust cases is often: "What is the relevant market?" Market definition determines whether a firm is truly dominant and whether its behavior harms social welfare.
+    </p>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <a href="session6.html" class="nav-btn secondary">
+      <i class="fas fa-arrow-left"></i> Session 6: Competition & Strategy
+    </a>
+    <a href="index.html" class="nav-btn">
+      <i class="fas fa-home"></i> Back to Home
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

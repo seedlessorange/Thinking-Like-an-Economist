@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhanced Style Test</title>
+<style>
+/* Enhanced Title Styles */
+.major-section-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin: 3rem 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subsection-title-enhanced {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 6px solid #667eea;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 1.5rem 0;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.subsection-title-enhanced i {
+  color: #667eea;
+  font-size: 1.75rem;
+}
+
+/* Collapsible Answer Styles */
+.question-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.question-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.question-number-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.question-text {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.show-answer-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.show-answer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.show-answer-btn i {
+  transition: transform 0.3s ease;
+}
+
+.show-answer-btn.active i {
+  transform: rotate(180deg);
+}
+
+.answer-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.answer-content.show {
+  max-height: 5000px;
+}
+
+.answer-inner {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.answer-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #059669;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.answer-label i {
+  font-size: 1.3rem;
+}
+</style>
+</head>
+<body style="padding: 2rem; background: #f5f7fa;">
+
+<div class="major-section-title">
+  <i class="fas fa-book-open"></i>
+  About This Course (Managerial Economics)
+</div>
+
+<div class="subsection-title-enhanced">
+  <i class="fas fa-shopping-cart"></i>
+  What Drives Demand?
+</div>
+
+<div class="question-card">
+  <div class="question-header">
+    <div class="question-number-badge">1</div>
+    <div class="question-text">
+      Analyze the impact of an oil workers' strike on the oil market. What happens to price and quantity?
+    </div>
+  </div>
+  
+  <button class="show-answer-btn" onclick="toggleAnswer(this)">
+    <i class="fas fa-chevron-down"></i>
+    Show Answer
+  </button>
+  
+  <div class="answer-content">
+    <div class="answer-inner">
+      <div class="answer-label">
+        <i class="fas fa-check-circle"></i>
+        Answer & Explanation
+      </div>
+      <p><strong>Analysis:</strong> The shutdown reduces supply. The supply curve shifts left, driving quantity down and prices up.</p>
+      <p style="margin-top: 1rem;"><strong>Economic Reasoning:</strong></p>
+      <ol>
+        <li>Strike reduces production capacity → Supply decreases</li>
+        <li>Supply curve shifts from S₀ to S₁ (leftward)</li>
+        <li>New equilibrium: Lower quantity (Q₀ → Q₁), Higher price (P₀ → P₁)</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+function toggleAnswer(btn) {
+  const answerContent = btn.nextElementSibling;
+  const icon = btn.querySelector('i');
+  
+  if (answerContent.classList.contains('show')) {
+    answerContent.classList.remove('show');
+    btn.innerHTML = '<i class="fas fa-chevron-down"></i> Show Answer';
+    btn.classList.remove('active');
+  } else {
+    answerContent.classList.add('show');
+    btn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Answer';
+    btn.classList.add('active');
+  }
+}
+</script>
+
+</body>
+</html>

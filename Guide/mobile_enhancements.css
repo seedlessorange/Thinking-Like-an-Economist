@@ -1,0 +1,405 @@
+/* ============================================
+   MOBILE OPTIMIZATION ENHANCEMENTS
+   Add this CSS to your study guide for better mobile experience
+   ============================================ */
+
+/* Base responsive improvements */
+@media (max-width: 768px) {
+    /* Container and spacing */
+    .container {
+        margin: 0.5rem !important;
+        border-radius: 8px !important;
+    }
+
+    /* Header optimization */
+    header {
+        padding: 2rem 1.5rem !important;
+    }
+
+    header h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.2 !important;
+    }
+
+    header p {
+        font-size: 0.95rem !important;
+    }
+
+    /* Content padding */
+    .content {
+        padding: 1rem !important;
+    }
+
+    /* Typography scaling */
+    h2 {
+        font-size: 1.6rem !important;
+        padding: 2rem 0 1.5rem 0 !important;
+        margin: 2rem 0 1.5rem 0 !important;
+    }
+
+    h3 {
+        font-size: 1.3rem !important;
+        padding: 1rem 1rem 1rem 1.5rem !important;
+        margin-top: 2rem !important;
+    }
+
+    h4 {
+        font-size: 1.1rem !important;
+        margin-top: 1.5rem !important;
+    }
+
+    h5 {
+        font-size: 1rem !important;
+    }
+
+    p, li {
+        font-size: 15px !important;
+        line-height: 1.65 !important;
+    }
+
+    /* Navigation pills - keep row layout but make scrollable */
+    .nav-pills {
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 1rem 0.5rem !important;
+        gap: 0.5rem !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+    }
+
+    .nav-pills button {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+        padding: 0.65rem 1.25rem !important;
+        font-size: 0.9rem !important;
+        min-width: auto !important;
+        width: auto !important;
+    }
+
+    /* Search box */
+    .search-container {
+        padding: 1rem !important;
+    }
+
+    .search-box input {
+        font-size: 16px !important; /* Prevents iOS zoom */
+    }
+
+    /* Box components - reduce padding */
+    .key-concept,
+    .formula-box,
+    .example-box,
+    .warning-box,
+    .important-note,
+    .question-card,
+    .content-card,
+    .highlight-box {
+        padding: 1.25rem !important;
+        margin: 1.5rem 0 !important;
+    }
+
+    /* Tables - make horizontally scrollable */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        font-size: 0.85rem !important;
+    }
+
+    table th,
+    table td {
+        padding: 0.75rem 0.5rem !important;
+        min-width: 100px !important;
+    }
+
+    /* Two-column layouts - stack on mobile */
+    .two-column,
+    [style*="display: grid"][style*="grid-template-columns: 1fr 1fr"],
+    [style*="display: grid"][style*="grid-template-columns: repeat(2"] {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .two-column > *,
+    [style*="display: grid"][style*="grid-template-columns"] > * {
+        margin-bottom: 1rem !important;
+    }
+
+    /* Three-column layouts - stack on mobile */
+    [style*="display: grid"][style*="grid-template-columns: 1fr 1fr 1fr"],
+    [style*="display: grid"][style*="grid-template-columns: repeat(3"],
+    [style*="display: grid"][style*="grid-template-columns: repeat(auto-fit"] {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    /* SVG graphs - ensure they scale */
+    svg {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Canvas charts */
+    canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Graph containers */
+    .graph-container {
+        padding: 1rem !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Formula boxes - smaller text on mobile */
+    .formula-box {
+        padding: 1.25rem 1rem !important;
+    }
+
+    .formula-box .mjx-math,
+    .mjx-chtml {
+        font-size: 0.9rem !important;
+    }
+
+    /* Step containers */
+    .step-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .step-number {
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Question cards */
+    .question-header {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+
+    .question-number-badge {
+        align-self: flex-start !important;
+    }
+
+    /* Collapsible buttons */
+    .collapsible,
+    .show-answer-btn {
+        width: 100% !important;
+        padding: 0.85rem 1rem !important;
+        font-size: 0.95rem !important;
+        text-align: center !important;
+    }
+
+    /* Answer content */
+    .answer-inner {
+        padding: 1.25rem !important;
+    }
+
+    /* Badges and inline elements */
+    .badge {
+        font-size: 0.8rem !important;
+        padding: 0.35rem 0.65rem !important;
+    }
+
+    /* Exercise tabs */
+    .exercise-tabs {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        flex-wrap: nowrap !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    .exercise-tab {
+        flex-shrink: 0 !important;
+        padding: 0.65rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* Images and media */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Lists - adjust indentation */
+    ul, ol {
+        padding-left: 1.25rem !important;
+    }
+
+    /* Reduce margins between elements */
+    .content-card + .content-card,
+    .key-concept + .key-concept {
+        margin-top: 1.5rem !important;
+    }
+}
+
+/* Extra small devices (phones < 400px) */
+@media (max-width: 400px) {
+    header h1 {
+        font-size: 1.5rem !important;
+    }
+
+    h2 {
+        font-size: 1.4rem !important;
+    }
+
+    h3 {
+        font-size: 1.2rem !important;
+    }
+
+    .container {
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    .content {
+        padding: 0.75rem !important;
+    }
+
+    .key-concept,
+    .formula-box,
+    .example-box,
+    .warning-box,
+    .important-note {
+        padding: 1rem !important;
+    }
+
+    .nav-pills button {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 900px) and (orientation: landscape) {
+    header {
+        padding: 1.5rem 1rem !important;
+    }
+
+    header h1 {
+        font-size: 1.6rem !important;
+    }
+
+    .nav-pills {
+        padding: 0.75rem 0.5rem !important;
+    }
+}
+
+/* Tablet optimization (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        margin: 1.5rem !important;
+        max-width: 100% !important;
+    }
+
+    .content {
+        padding: 2rem !important;
+    }
+
+    h2 {
+        font-size: 2.2rem !important;
+    }
+
+    h3 {
+        font-size: 1.6rem !important;
+    }
+
+    /* Keep two-column layouts on tablet */
+    [style*="display: grid"][style*="grid-template-columns: 1fr 1fr"] {
+        display: grid !important;
+    }
+
+    /* But stack three-column layouts */
+    [style*="display: grid"][style*="grid-template-columns: 1fr 1fr 1fr"],
+    [style*="display: grid"][style*="grid-template-columns: repeat(3"] {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+/* Touch-friendly improvements for all mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase touch target sizes */
+    button,
+    .collapsible,
+    .show-answer-btn,
+    .nav-pills button {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+
+    /* Add slight spacing for easier tapping */
+    button {
+        margin: 0.25rem !important;
+    }
+
+    /* Better scrolling for overflowing content */
+    * {
+        -webkit-overflow-scrolling: touch !important;
+    }
+}
+
+/* Print optimization */
+@media print {
+    .nav-pills,
+    .search-container,
+    .collapsible,
+    .show-answer-btn {
+        display: none !important;
+    }
+
+    .answer-content {
+        display: block !important;
+        max-height: none !important;
+    }
+
+    .container {
+        box-shadow: none !important;
+        margin: 0 !important;
+    }
+
+    header {
+        background: white !important;
+        color: black !important;
+        border-bottom: 2px solid #000 !important;
+    }
+
+    /* Avoid page breaks in important sections */
+    .key-concept,
+    .example-box,
+    .warning-box,
+    .question-card {
+        page-break-inside: avoid !important;
+    }
+
+    h2, h3, h4 {
+        page-break-after: avoid !important;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support (if device prefers dark mode) */
+@media (prefers-color-scheme: dark) {
+    /* Optional: Add dark mode styles here if desired */
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .container {
+        border: 2px solid #000 !important;
+    }
+
+    button {
+        border: 2px solid currentColor !important;
+    }
+}

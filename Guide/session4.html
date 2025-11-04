@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 4: Pricing Strategies | Managerial Economics</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.top-nav {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #667eea;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #667eea;
+}
+
+.nav-session-selector {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-session-selector:hover {
+  border-color: #667eea;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.session-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.session-number {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.session-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.session-description {
+  font-size: 1.125rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.content-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title i {
+  color: #667eea;
+}
+
+.subsection-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.key-concepts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.concept-card {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.concept-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 0.925rem;
+}
+
+.formula-box {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+  margin: 1.5rem 0;
+}
+
+.formula-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.example-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #10b981;
+  margin: 1.5rem 0;
+}
+
+.example-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.warning-box {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #ef4444;
+  margin: 1.5rem 0;
+}
+
+.warning-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.graph-container {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.graph-title {
+  font-weight: 600;
+  color: #374151;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+canvas {
+  max-width: 100%;
+  height: 400px !important;
+}
+
+.problem-set-section {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border: 3px solid #667eea;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin: 3rem 0;
+}
+
+.problem-set-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #667eea;
+}
+
+.problem-set-icon {
+  font-size: 3rem;
+}
+
+.problem-set-title {
+  flex: 1;
+}
+
+.problem-set-title h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.problem-set-title p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.question-block {
+  background: white;
+  border-left: 4px solid #667eea;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.question-number {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.answer-block {
+  background: #f0fdf4;
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.answer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.key-insight {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.key-insight-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-top: 0.75rem;
+  line-height: 1.8;
+}
+
+li {
+  margin: 0.5rem 0;
+  color: #374151;
+}
+
+strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.nav-btn.secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.nav-btn.secondary:hover {
+  background: #f9fafb;
+}
+
+/* Enhanced Title Styles */
+.major-section-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin: 3rem 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subsection-title-enhanced {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 6px solid #667eea;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 1.5rem 0;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.subsection-title-enhanced i {
+  color: #667eea;
+  font-size: 1.75rem;
+}
+
+/* Collapsible Answer Styles */
+.question-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.question-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.question-number-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.question-text {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.show-answer-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.show-answer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.show-answer-btn i {
+  transition: transform 0.3s ease;
+}
+
+.show-answer-btn.active i {
+  transform: rotate(180deg);
+}
+
+.answer-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.answer-content.show {
+  max-height: 8000px;
+}
+
+.answer-inner {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.answer-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #059669;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.answer-label i {
+  font-size: 1.3rem;
+}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <i class="fas fa-graduation-cap"></i>
+      Managerial Economics
+    </a>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <select class="nav-session-selector" onchange="if(this.value) window.location.href=this.value">
+        <option value="">Jump to Session...</option>
+        <option value="session1.html">Session 1: Thinking Like an Economist</option>
+        <option value="session2.html">Session 2: How Markets Work</option>
+        <option value="session3.html">Session 3: S&D Case Studies</option>
+        <option value="session4.html" selected>Session 4: Pricing Strategies</option>
+        <option value="session5.html">Session 5: Cost and Supply</option>
+        <option value="session6.html">Session 6: Competition & Strategy</option>
+        <option value="session7.html">Session 7: Dominant Firms</option>
+      </select>
+      <a href="problem_sets_with_answers.html"><i class="fas fa-list-check"></i> All Problem Sets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Container -->
+<div class="container">
+
+  <!-- Session Header -->
+  <div class="session-header">
+    <div class="session-number">Session 4</div>
+    <h1>💰 Pricing Strategies</h1>
+    <p class="session-description">
+      How firms use microeconomic principles to set prices, focusing on price discrimination, elasticity, and dynamic pricing strategies.
+    </p>
+  </div>
+
+  <!-- Learning Objectives -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-bullseye"></i>
+      Learning Objectives
+    </h2>
+    <div class="key-concepts">
+      <div class="concept-card">
+        <h4>Understand Price Discrimination</h4>
+        <p>Learn how firms capture consumer surplus by charging different prices to different customers.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Master Price Elasticity</h4>
+        <p>Analyze how demand responds to price changes and use elasticity to inform pricing decisions.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Dynamic Pricing Strategies</h4>
+        <p>Explore how firms adjust prices over time to maximize revenue from different market segments.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Real-World Application</h4>
+        <p>Analyze Apple's iPhone pricing strategy and understand the trade-offs between short-term profit and long-term brand value.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Concepts -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-brain"></i>
+      Core Concepts
+    </h2>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-tags"></i> 1. Strategy: Price Discrimination</div>
+    <p>The goal is to capture more <strong>Consumer Surplus</strong> (the "money left on the table"). This means charging different prices to different consumers based on their willingness to pay.</p>
+
+    <div class="example-box">
+      <h4><i class="fas fa-tags"></i> Examples of Price Discrimination</h4>
+      <ul>
+        <li><strong>Auctions:</strong> Letting customers "name their price" (e.g., bidding for upgrades).</li>
+        <li><strong>Grouping:</strong> Charging flat rates (amusement parks) or "ladies' night" specials.</li>
+        <li><strong>Geo-marketing:</strong> Charging different prices based on location.</li>
+        <li><strong>Student discounts:</strong> Lower prices for price-sensitive segments.</li>
+        <li><strong>Airline pricing:</strong> Business vs. leisure travelers pay different prices.</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-percent"></i> 2. Strategy: Price Elasticity</div>
+    <p>Price elasticity measures how reactive demand is to a change in price. A smart strategy uses elasticity, not just a simple cost-plus markup.</p>
+
+    <div class="formula-box">
+      <h4><i class="fas fa-calculator"></i> Price Elasticity of Demand</h4>
+      <p style="text-align: center; font-size: 1.125rem; margin-top: 1rem;">
+        $$\epsilon = \frac{\% \Delta Q_d}{\% \Delta P}$$
+      </p>
+      <p style="margin-top: 1rem; color: #6b7280;">
+        Where: ε = price elasticity, ΔQ<sub>d</sub> = change in quantity demanded, ΔP = change in price
+      </p>
+    </div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-chart-line"></i> Elastic vs. Inelastic Demand</h4>
+      <ul>
+        <li><strong>Inelastic Demand (Steep Curve):</strong> Demand is <em>less reactive</em> to price changes. Consumers will buy even if the price goes up.
+          <ul>
+            <li>Examples: medicine, gasoline, electricity (short run)</li>
+            <li>|ε| < 1</li>
+          </ul>
+        </li>
+        <li><strong>Elastic Demand (Flatter Curve):</strong> Demand is <em>more reactive</em> to price changes. A small price drop can lead to a large increase in demand.
+          <ul>
+            <li>Examples: specific brand of soda, airline tickets, luxury goods</li>
+            <li>|ε| > 1</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-clock"></i>
+        <span>Short Run vs. Long Run Elasticity</span>
+      </div>
+      <ul>
+        <li><strong>Short run:</strong> Demand is typically <strong>inelastic</strong> (steep curve) because people can't change their habits or equipment easily.</li>
+        <li><strong>Long run:</strong> Demand becomes <strong>more elastic</strong> (flat curve) because people have time to find substitutes or change behavior.</li>
+        <li><strong>Example:</strong> Electricity demand
+          <ul>
+            <li>Short run: Can't easily change heating systems → Inelastic</li>
+            <li>Long run: Can install solar panels, better insulation → Elastic</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="subsection-title-enhanced"><i class="fas fa-mobile-alt"></i> 3. Case Study: Dynamic Pricing & Product Lifecycle (iPhone 2007)</div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-mobile-alt"></i> The Strategy</h4>
+      <ol>
+        <li><strong>Introduction (Price Skimming):</strong> Launched at $600. This targets <strong>early adopters</strong> who have very <strong>inelastic demand</strong>. They are willing to pay a premium to be first.</li>
+        <li><strong>The Pivot (Targeting Elasticity):</strong> Price cut to $400 just two months later. This was a strategic pivot to target the <strong>mainstream market</strong>, which has a much <strong>more elastic demand</strong> and is more price-sensitive.</li>
+      </ol>
+    </div>
+
+    <div class="warning-box">
+      <h4><i class="fas fa-exclamation-triangle"></i> The Backlash</h4>
+      <p>The early adopters (most loyal customers) were furious, feeling used. Apple had to offer a $100 store credit to appease them, acknowledging the "bumpy" nature of this strategy.</p>
+    </div>
+
+  </div>
+
+  <!-- Problem Set 4 -->
+  <div class="problem-set-section">
+    <div class="problem-set-header">
+      <div class="problem-set-icon">📝</div>
+      <div class="problem-set-title">
+        <h2>Problem Set 4: Price Elasticity & Strategic Pricing</h2>
+        <p>Apply elasticity analysis to real-world pricing strategies</p>
+      </div>
+    </div>
+
+    <!-- Warm-up: Elasticity Comparison -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-number-badge">1</div>
+        <div class="question-text">Which demand curve is more elastic?</div>
+      </div>
+
+      <button class="show-answer-btn" onclick="toggleAnswer(this)">
+        <i class="fas fa-chevron-down"></i> Show Answer
+      </button>
+
+      <div class="answer-content">
+        <div class="answer-inner">
+          <div class="answer-label">
+            <i class="fas fa-check-circle"></i>
+            <span>Answer</span>
+          </div>
+
+          <div class="graph-container">
+            <div class="graph-title">Elastic vs. Inelastic Demand</div>
+            <canvas id="elasticityComparisonGraph"></canvas>
+          </div>
+
+          <p style="margin-top: 1rem;"><strong>Key Insight:</strong></p>
+          <ul>
+            <li><strong>Flatter curve (dd):</strong> MORE elastic - quantity changes a lot when price changes</li>
+            <li><strong>Steeper curve (DD):</strong> LESS elastic - quantity doesn't change much when price changes</li>
+            <li>A drop from P₀ to P₁ causes larger quantity increase for dd than DD</li>
+          </ul>
+
+          <div class="formula-box">
+            <h4><i class="fas fa-calculator"></i> Elasticity Formula</h4>
+            <p>Price Elasticity of Demand = (% Change in Quantity) / (% Change in Price)</p>
+            <p style="margin-top: 0.75rem;">|Elasticity| > 1: Elastic (responsive to price)</p>
+            <p>|Elasticity| < 1: Inelastic (not responsive to price)</p>
+            <p>|Elasticity| = 1: Unit elastic</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-number-badge">2</div>
+        <div class="question-text">Electricity demand: Which is short-run vs. long-run?</div>
+      </div>
+
+      <button class="show-answer-btn" onclick="toggleAnswer(this)">
+        <i class="fas fa-chevron-down"></i> Show Answer
+      </button>
+
+      <div class="answer-content">
+        <div class="answer-inner">
+          <div class="answer-label">
+            <i class="fas fa-check-circle"></i>
+            <span>Answer</span>
+          </div>
+
+          <p><strong>dd (flatter) = Long-run demand</strong></p>
+          <p><strong>DD (steeper) = Short-run demand</strong></p>
+
+          <div class="graph-container">
+            <div class="graph-title">Electricity Demand: Short Run vs. Long Run</div>
+            <canvas id="electricityElasticityGraph"></canvas>
+          </div>
+
+          <p style="margin-top: 1rem;"><strong>Economic Reasoning:</strong></p>
+          <ul>
+            <li><strong>Short run (DD - inelastic):</strong>
+              <ul>
+                <li>Capital is FIXED (can't change infrastructure)</li>
+                <li>If price increases, households/firms consume almost same amount</li>
+                <li>Can't easily change heating systems, industrial processes, etc.</li>
+                <li>Electricity is a necessity with few immediate substitutes</li>
+              </ul>
+            </li>
+            <li><strong>Long run (dd - elastic):</strong>
+              <ul>
+                <li>Capital is VARIABLE (can invest in energy-efficient appliances)</li>
+                <li>Can install solar panels, better insulation, etc.</li>
+                <li>Firms can adapt production processes</li>
+                <li>More time to find substitutes and adjust behavior</li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="key-insight">
+            <div class="key-insight-header">
+              <i class="fas fa-clock"></i>
+              <span>Time Horizon and Elasticity</span>
+            </div>
+            <p><strong>General principle:</strong> Demand becomes MORE elastic over longer time periods because:</p>
+            <ol>
+              <li>More time to find substitutes</li>
+              <li>More time to adjust capital stock (equipment, infrastructure)</li>
+              <li>More time for new technologies to emerge</li>
+              <li>More time for habits to change</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Event: Apple iPhone Pricing -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-number-badge">3</div>
+        <div class="question-text">
+          <strong>Apple's iPhone Pricing Strategy</strong><br>
+          <em style="font-weight: 400; font-size: 0.95rem;">Context: Apple launched the iPhone at $600, then quickly dropped it to $400, angering early adopters.</em><br><br>
+          How would you justify the price cut from a microeconomic standpoint?
+        </div>
+      </div>
+
+      <button class="show-answer-btn" onclick="toggleAnswer(this)">
+        <i class="fas fa-chevron-down"></i> Show Answer
+      </button>
+
+      <div class="answer-content">
+        <div class="answer-inner">
+          <div class="answer-label">
+            <i class="fas fa-check-circle"></i>
+            <span>Answer</span>
+          </div>
+
+          <p><strong>Dynamic Pricing & Product Lifecycle Strategy:</strong></p>
+
+          <div class="graph-container">
+            <div class="graph-title">Apple's Dynamic Pricing Strategy</div>
+            <canvas id="applePricingGraph"></canvas>
+          </div>
+
+          <p style="margin-top: 1rem;"><strong>Three Economic Justifications:</strong></p>
+
+          <p><strong>1. Price Discrimination (Third-Degree)</strong></p>
+          <ul>
+            <li><strong>Early adopters:</strong> High willingness to pay, INELASTIC demand
+              <ul>
+                <li>Tech enthusiasts who must have new gadgets</li>
+                <li>Status seekers</li>
+                <li>Less price-sensitive</li>
+              </ul>
+            </li>
+            <li><strong>Mass market:</strong> Lower willingness to pay, ELASTIC demand
+              <ul>
+                <li>Wait for reviews and lower prices</li>
+                <li>More price-sensitive</li>
+                <li>Larger volume but lower margins</li>
+              </ul>
+            </li>
+            <li>By launching at $600, Apple captures consumer surplus from early adopters</li>
+            <li>By dropping to $400, Apple captures mass market (Jobs' goal: "make product affordable for holidays")</li>
+          </ul>
+
+          <p style="margin-top: 1rem;"><strong>2. Product Lifecycle Model</strong></p>
+          <ul>
+            <li><strong>Introduction phase ($600):</strong> Low competition, "breakthrough product," inelastic demand</li>
+            <li><strong>Growth phase ($400):</strong> Competition increases, demand becomes elastic, need volume</li>
+            <li>This is textbook dynamic pricing strategy</li>
+          </ul>
+
+          <p style="margin-top: 1rem;"><strong>3. Behavioral Economics / Anchoring</strong></p>
+          <ul>
+            <li>By showing $600 first, Apple creates an <strong>anchor</strong></li>
+            <li>$400 now seems like a "great deal" (33% discount!)</li>
+            <li>Without the anchor, consumers wouldn't know if $400 is expensive or cheap</li>
+            <li>Apple essentially ran a pricing experiment</li>
+          </ul>
+
+          <div class="formula-box">
+            <h4><i class="fas fa-calculator"></i> Profit Maximization Logic</h4>
+            <p>Phase 1 (High price): π₁ = (P₁ - MC) × Q₁ = ($600 - MC) × Q<sub>early_adopters</sub></p>
+            <p style="margin-top: 0.5rem;">Phase 2 (Low price): π₂ = (P₂ - MC) × Q₂ = ($400 - MC) × Q<sub>mass_market</sub></p>
+            <p style="margin-top: 0.5rem;">Total profit = π₁ + π₂ > profit from single price strategy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-number-badge">4</div>
+        <div class="question-text">Why would you criticize Apple's price cut from a microeconomic standpoint?</div>
+      </div>
+
+      <button class="show-answer-btn" onclick="toggleAnswer(this)">
+        <i class="fas fa-chevron-down"></i> Show Answer
+      </button>
+
+      <div class="answer-content">
+        <div class="answer-inner">
+          <div class="answer-label">
+            <i class="fas fa-check-circle"></i>
+            <span>Answer</span>
+          </div>
+
+          <p><strong>Problem: Affecting Future Price Expectations</strong></p>
+
+          <div class="graph-container">
+            <div class="graph-title">Impact on Future Demand</div>
+            <canvas id="priceExpectationsGraph"></canvas>
+          </div>
+
+          <p style="margin-top: 1rem;"><strong>Economic Critiques:</strong></p>
+
+          <p><strong>1. Demand is Driven by Price Expectations</strong></p>
+          <ul>
+            <li>Cutting prices so quickly sends signal: "Wait, prices will drop"</li>
+            <li>Future early adopters will delay purchases</li>
+            <li>This <strong>flattens the demand curve</strong> (makes it more elastic)</li>
+            <li>Reduces ability to price discriminate in future</li>
+          </ul>
+
+          <p><strong>2. Brand Damage / Trust Issues</strong></p>
+          <ul>
+            <li>Early adopters feel "ripped off"</li>
+            <li>Reduces loyalty and brand equity</li>
+            <li>May not buy future iPhones immediately (→ wait for price drop)</li>
+          </ul>
+
+          <p><strong>3. Credibility Problem</strong></p>
+          <ul>
+            <li>Apple's implicit promise: "Premium price = premium product"</li>
+            <li>Quick price drop suggests: "We overpriced it" or "Demand was weak"</li>
+            <li>Undermines premium positioning</li>
+          </ul>
+
+          <div class="key-insight">
+            <div class="key-insight-header">
+              <i class="fas fa-balance-scale"></i>
+              <span>Trade-off: Short-term Profit vs. Long-term Strategy</span>
+            </div>
+            <p><strong>Short-term gain:</strong> Capture more consumer surplus through price discrimination</p>
+            <p><strong>Long-term risk:</strong> Train customers to wait for price drops, reducing future pricing power</p>
+            <p><strong>What Apple did right:</strong> Offered $100 store credit to early adopters to mitigate anger</p>
+          </div>
+
+          <p style="margin-top: 1rem;"><strong>Evidence from iPhone History:</strong></p>
+          <ul>
+            <li>iPhone (2007): $600 → $400 after 2 months</li>
+            <li>iPhone 3G onward: More gradual price reductions</li>
+            <li>Current strategy: Keep flagship price stable, introduce cheaper models (SE, older generations)</li>
+            <li>Suggests Apple learned from the backlash</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <a href="session3.html" class="nav-btn secondary">
+      <i class="fas fa-arrow-left"></i> Session 3: S&D Case Studies
+    </a>
+    <a href="index.html" class="nav-btn secondary">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="session5.html" class="nav-btn">
+      Session 5: Cost and Supply <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+</div>
+
+<script>
+// Chart.js Default Configuration
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.color = '#374151';
+
+// Elasticity Comparison Graph
+const elasticityComparisonCtx = document.getElementById('elasticityComparisonGraph').getContext('2d');
+new Chart(elasticityComparisonCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₁(DD)', 'Q₁(dd)', ''],
+    datasets: [
+      {
+        label: 'DD (Inelastic - Steep)',
+        data: [400, 300, 250, 200, 100],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 4,
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'dd (Elastic - Flat)',
+        data: [350, 300, 280, 240, 200],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 4,
+        tension: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } },
+      annotation: {
+        annotations: {
+          price0: {
+            type: 'line',
+            yMin: 300,
+            yMax: 300,
+            borderColor: '#9ca3af',
+            borderWidth: 2,
+            borderDash: [8, 4],
+            label: {
+              content: 'P₀',
+              enabled: true,
+              position: 'start'
+            }
+          },
+          price1: {
+            type: 'line',
+            yMin: 240,
+            yMax: 240,
+            borderColor: '#9ca3af',
+            borderWidth: 2,
+            borderDash: [8, 4],
+            label: {
+              content: 'P₁',
+              enabled: true,
+              position: 'start'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Electricity Elasticity Graph
+const electricityElasticityCtx = document.getElementById('electricityElasticityGraph').getContext('2d');
+new Chart(electricityElasticityCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q_SR', 'Q₀', 'Q_LR', ''],
+    datasets: [
+      {
+        label: 'Short Run (DD - Inelastic)',
+        data: [400, 300, 250, 200, 100],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 4,
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'Long Run (dd - Elastic)',
+        data: [350, 300, 280, 240, 200],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 4,
+        tension: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity (kWh)', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price ($/kWh)', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } },
+      annotation: {
+        annotations: {
+          priceIncrease: {
+            type: 'line',
+            yMin: 300,
+            yMax: 300,
+            borderColor: '#f59e0b',
+            borderWidth: 3,
+            borderDash: [10, 5],
+            label: {
+              content: 'Price Increase',
+              enabled: true,
+              position: 'end',
+              backgroundColor: '#f59e0b'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Apple Pricing Graph
+const applePricingCtx = document.getElementById('applePricingGraph').getContext('2d');
+new Chart(applePricingCtx, {
+  type: 'line',
+  data: {
+    labels: ['Launch', '1 month', '2 months', '3 months', '4 months'],
+    datasets: [
+      {
+        label: 'iPhone Price',
+        data: [600, 600, 400, 400, 400],
+        borderColor: '#667eea',
+        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+        fill: true,
+        borderWidth: 4,
+        tension: 0,
+        pointRadius: 6,
+        pointBackgroundColor: '#667eea'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Time', font: { size: 14, weight: 'bold' } } },
+      y: {
+        title: { display: true, text: 'Price ($)', font: { size: 14, weight: 'bold' } },
+        beginAtZero: true,
+        max: 700,
+        ticks: {
+          callback: function(value) {
+            return '$' + value;
+          }
+        }
+      }
+    },
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } },
+      annotation: {
+        annotations: {
+          pricecut: {
+            type: 'label',
+            xValue: 2,
+            yValue: 500,
+            content: ['33% Price Cut!', '($200 reduction)'],
+            color: '#ef4444',
+            font: { size: 14, weight: 'bold' }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Price Expectations Graph
+const priceExpectationsCtx = document.getElementById('priceExpectationsGraph').getContext('2d');
+new Chart(priceExpectationsCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₁', 'Q₂', ''],
+    datasets: [
+      {
+        label: 'iPhone 1 Demand (No expectations)',
+        data: [700, 550, 400, 250, 100],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'iPhone 2 Demand (Expect price drop)',
+        data: [650, 500, 350, 200, 50],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        borderDash: [10, 5],
+        tension: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } }
+    }
+  }
+});
+</script>
+
+<script>
+function toggleAnswer(btn) {
+  const answerContent = btn.nextElementSibling;
+  if (answerContent.classList.contains('show')) {
+    answerContent.classList.remove('show');
+    btn.innerHTML = '<i class="fas fa-chevron-down"></i> Show Answer';
+    btn.classList.remove('active');
+  } else {
+    answerContent.classList.add('show');
+    btn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Answer';
+    btn.classList.add('active');
+  }
+}
+</script>
+
+</body>
+</html>

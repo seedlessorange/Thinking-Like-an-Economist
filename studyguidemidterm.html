@@ -1,0 +1,2762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Microeconomics Midterm Study Guide</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .nav {
+            background: #f8f9fa;
+            padding: 15px 40px;
+            border-bottom: 3px solid #667eea;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            margin: 30px 0;
+        }
+
+        .subsection-title {
+            color: #764ba2;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .concept-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .formula-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .example-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .graph-container {
+            background: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .graph-title {
+            text-align: center;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: 400px !important;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .list-styled {
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        .list-styled li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #fff176;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .key-point {
+            display: flex;
+            align-items: start;
+            margin: 15px 0;
+        }
+
+        .key-point-icon {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        .tab-container {
+            margin: 30px 0;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            background: #e9ecef;
+            border: none;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab-button:hover {
+            background: #dee2e6;
+        }
+
+        .tab-button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 0 5px 5px 5px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Complete Microeconomics Midterm Study Guide</h1>
+            <p>Comprehensive Review with All Class Topics, Interactive Graphs & Practice</p>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#chapter1">Ch1: Demand & Supply</a></li>
+                <li><a href="#chapter2">Ch2: Profit Max</a></li>
+                <li><a href="#market-types">Market Types</a></li>
+                <li><a href="#sharing">Sharing Economy</a></li>
+                <li><a href="#exercises">Exercises</a></li>
+                <li><a href="#reference">Quick Reference</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <!-- CHAPTER 1: DEMAND AND SUPPLY -->
+            <section id="chapter1" class="section">
+                <h2 class="section-title">Chapter 1: Demand and Supply Analysis</h2>
+
+                <!-- Three Types of Markets -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.1 Understanding Markets (Critical!)</h3>
+                    
+                    <div class="concept-box">
+                        <h4>Three Types of Markets - Know Which One is YOUR Future Market!</h4>
+                        <div class="key-point">
+                            <div class="key-point-icon">1</div>
+                            <div>
+                                <strong>Existing Market:</strong> Current markets you're already operating in
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="key-point-icon">2</div>
+                            <div>
+                                <strong>Future Market:</strong> Markets you plan to enter or develop
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="key-point-icon">3</div>
+                            <div>
+                                <strong>Missing Market:</strong> Markets that don't exist yet but could (innovation opportunity!)
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px;"><strong>Key Point:</strong> It's crucial to know which market is YOUR future market when making strategic decisions!</p>
+                    </div>
+                </div>
+
+                <!-- Demand Drivers -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.2 Demand Side Drivers (4 Factors)</h3>
+                    
+                    <div class="concept-box">
+                        <div class="key-point">
+                            <div class="key-point-icon">1</div>
+                            <div>
+                                <strong>Price (P):</strong> As price increases, quantity demanded decreases (Law of Demand)<br>
+                                <em>Movement ALONG the curve (IN the curve)</em>
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="key-point-icon">2</div>
+                            <div>
+                                <strong>Price of Substitutes:</strong> Higher substitute prices → Higher demand for your product<br>
+                                <em>Example: Coffee prices rise → Tea demand increases</em><br>
+                                <em>Shifts curve RIGHT (movement OF the curve)</em>
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="key-point-icon">3</div>
+                            <div>
+                                <strong>Price of Complements (strings attached):</strong> Higher complement prices → Lower demand for your product<br>
+                                <em>Example: Printer prices rise → Ink demand decreases</em><br>
+                                <em>Shifts curve LEFT</em>
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="key-point-icon">4</div>
+                            <div>
+                                <strong>Price Expectations:</strong> Expected future price increases → Current demand increases<br>
+                                <em>Shifts curve RIGHT</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-box">
+                        <strong>Demand Function:</strong> D = f(P) ceteris paribus (everything else remains constant)<br>
+                        <strong>Linear Form:</strong> P = a - bQ<br>
+                        where a = intercept (max price), b = slope
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ CRITICAL Distinction:</strong><br>
+                        • <strong>Movement IN the curve (along):</strong> Price change only<br>
+                        • <strong>Movement OF the curve (shift):</strong> Changes in other factors (substitutes, complements, expectations)<br><br>
+                        <strong>DO NOT confuse these!</strong>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 Curve Slope Matters!</strong><br>
+                        • <strong>Steeper curve:</strong> Less impact on demand from price changes (inelastic)<br>
+                        • <strong>Flatter curve:</strong> Greater impact on demand from price changes (elastic)
+                    </div>
+                </div>
+
+                <!-- Supply Side -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.3 Supply Side Drivers (3 Factors)</h3>
+                    
+                    <div class="concept-box">
+                        <div class="key-point">
+                            <div class="key-point-icon">1</div>
+                            <div>
+                                <strong>Number of Competitors/Firms:</strong> More firms → More supply (shifts RIGHT)
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="key-point-icon">2</div>
+                            <div>
+                                <strong>Cost of Inputs (Production Costs):</strong> Higher input costs → Lower supply (shifts LEFT)<br>
+                                <em>Los costos de competencia afectan la oferta</em>
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <div class="key-point-icon">3</div>
+                            <div>
+                                <strong>Productivity Shocks/Technology:</strong> Technology improvements → Higher supply (shifts RIGHT)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-box">
+                        <strong>Supply Function:</strong> P = c + dQ<br>
+                        where c = minimum price to produce, d = slope<br><br>
+                        <strong>Key Insight:</strong><br>
+                        • Low price → Producer willing and able to produce is LOW<br>
+                        • High price → Producer willing and able to produce is HIGH
+                    </div>
+                </div>
+
+                <!-- Equilibrium -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.4 Market Equilibrium - Where Demand Meets Supply</h3>
+                    
+                    <div class="concept-box">
+                        <p><strong>Equilibrium</strong> is where demand meets supply:</p>
+                        <ul class="list-styled">
+                            <li><span class="highlight">Q*</span> = Equilibrium quantity (total amount of goods being traded at P*)</li>
+                            <li><span class="highlight">P*</span> = Equilibrium price (where everyone is "happy")</li>
+                            <li><strong>Key Principle:</strong> At equilibrium, Quantity Demanded = Quantity Supplied</li>
+                            <li><strong>Economic Value:</strong> All opportunities in the market - shrinking or growing?</li>
+                        </ul>
+                    </div>
+
+                    <div class="graph-container">
+                        <div class="graph-title">Basic Supply and Demand Equilibrium</div>
+                        <canvas id="equilibriumChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Consumer and Producer Surplus - CORRECTED! -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.5 Consumer and Producer Surplus</h3>
+                    
+                    <div class="concept-box">
+                        <h4>Consumer Surplus (CS)</h4>
+                        <p>The <strong>aggregate sum of money that consumers were willing to pay</strong> but did not have to pay because market forces set prices at a lower level</p>
+                        <ul class="list-styled">
+                            <li>Triangle area <strong>ABOVE P*</strong> and BELOW demand curve</li>
+                            <li>Represents value captured by consumers (what they save)</li>
+                            <li>Difference between willingness to pay and actual price paid</li>
+                            <li><strong>Example:</strong> If you were willing to pay P'=12 but only paid P*=10, you gained 2 in CS</li>
+                        </ul>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Producer Surplus (PS) / Business Surplus</h4>
+                        <p>The difference between the price producers receive and their minimum acceptable price (marginal cost)</p>
+                        <ul class="list-styled">
+                            <li>Triangle area <strong>BELOW P*</strong> and ABOVE supply curve</li>
+                            <li>Represents value captured by producers/businesses (what they gain)</li>
+                            <li>Also called "business surplus" or "profit of monopoly"</li>
+                        </ul>
+                    </div>
+
+                    <div class="formula-box">
+                        <strong>Total Economic Value (Gains from Trade) = Consumer Surplus + Producer Surplus</strong><br><br>
+                        <strong>Triangle Area Formula:</strong> ½ × base × height<br>
+                        <strong>CS</strong> = ½ × Q* × (Pmax - P*) [ABOVE P*]<br>
+                        <strong>PS</strong> = ½ × Q* × (P* - Pmin) [BELOW P*]
+                    </div>
+
+                    <div class="graph-container">
+                        <div class="graph-title">Consumer and Producer Surplus</div>
+                        <canvas id="surplusChart"></canvas>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 Remember:</strong> Consumer surplus is ABOVE equilibrium price (what they save), Producer surplus is BELOW equilibrium price (what they gain above costs)
+                    </div>
+                </div>
+
+                <!-- Shifts in Curves -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.6 Shifts in Demand and Supply</h3>
+                    
+                    <div class="two-column">
+                        <div>
+                            <div class="graph-container">
+                                <div class="graph-title">Demand Increase (Shift Right)</div>
+                                <canvas id="demandShiftChart"></canvas>
+                            </div>
+                            <div class="example-box">
+                                <strong>Example:</strong> Price of gasoline (substitute) increases → Demand for e-bikes shifts right → Higher price (P↑) and quantity (Q↑)
+                            </div>
+                        </div>
+                        <div>
+                            <div class="graph-container">
+                                <div class="graph-title">Supply Increase (Shift Right)</div>
+                                <canvas id="supplyShiftChart"></canvas>
+                            </div>
+                            <div class="example-box">
+                                <strong>Example:</strong> New production technology → Supply shifts right → Lower price (P↓), higher quantity (Q↑)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Common Mistake from Class:</strong><br>
+                        Don't confuse a change IN demand with a change IN supply!<br>
+                        If gasoline prices increase, that affects <strong>DEMAND</strong> for e-bikes (substitute), NOT supply!<br><br>
+                        <strong>Housing Market Example:</strong> Government low interest rate policy to help buyers → Demand shifts RIGHT → Prices INCREASE → <span class="highlight">WORSENED THE PROBLEM!</span>
+                    </div>
+                </div>
+
+                <!-- Government Intervention -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.7 Government Intervention</h3>
+                    
+                    <div class="tab-container">
+                        <div class="tabs">
+                            <button class="tab-button active" onclick="openTab(event, 'priceFloor')">Price Floor (Pmin)</button>
+                            <button class="tab-button" onclick="openTab(event, 'priceCeiling')">Price Ceiling (Pmax)</button>
+                            <button class="tab-button" onclick="openTab(event, 'tariffs')">Tariffs</button>
+                            <button class="tab-button" onclick="openTab(event, 'minimumWage')">Minimum Wage</button>
+                        </div>
+                        
+                        <div id="priceFloor" class="tab-content active">
+                            <div class="concept-box">
+                                <h4>Price Floor (Minimum Price - Pmin)</h4>
+                                <ul class="list-styled">
+                                    <li>Set by government to <strong>protect producers/businesses</strong></li>
+                                    <li>If Pmin > P* → Creates <span class="highlight">EXCESS SUPPLY</span> (surplus/unemployment)</li>
+                                    <li><strong>Example:</strong> Minimum wage, agricultural price supports</li>
+                                    <li><strong>Result:</strong> Qs > Qd → Unemployment or waste</li>
+                                </ul>
+                            </div>
+                            <div class="graph-container">
+                                <div class="graph-title">Price Floor Effect</div>
+                                <canvas id="priceFloorChart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div id="priceCeiling" class="tab-content">
+                            <div class="concept-box">
+                                <h4>Price Ceiling (Maximum Price - Pmax)</h4>
+                                <ul class="list-styled">
+                                    <li>Set by government to <strong>protect consumers</strong></li>
+                                    <li>If Pmax < P* → Creates <span class="highlight">EXCESS DEMAND</span> (shortage)</li>
+                                    <li><strong>Example:</strong> Rent control</li>
+                                    <li><strong>Result:</strong> Qd > Qs → Shortages</li>
+                                </ul>
+                            </div>
+                            <div class="graph-container">
+                                <div class="graph-title">Price Ceiling Effect</div>
+                                <canvas id="priceCeilingChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div id="tariffs" class="tab-content">
+                            <div class="concept-box">
+                                <h4>Tariffs and Trade Policy</h4>
+                                <p><strong>Scenario:</strong> A country opens to trade, world price (Pw) < domestic price (PA)</p>
+                                <ul class="list-styled">
+                                    <li><strong>Without tariff:</strong> Consumers benefit (more CS), domestic producers lose (less PS)</li>
+                                    <li><strong>With tariff:</strong> Price rises from Pw to PT = Pw + T</li>
+                                    <li><strong>Winners:</strong> Domestic producers (expand market share), Government (tax revenue)</li>
+                                    <li><strong>Losers:</strong> Consumers (higher prices), Overall efficiency (deadweight loss)</li>
+                                    <li><strong>Deadweight Loss:</strong> The two triangles - gains from trade that disappear</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="graph-container">
+                                <div class="graph-title">Tariff Effects on Trade</div>
+                                <canvas id="tariffChart"></canvas>
+                            </div>
+
+                            <div class="example-box">
+                                <strong>Why use tariffs despite deadweight loss?</strong>
+                                <ul class="list-styled">
+                                    <li>Political pressure from domestic suppliers</li>
+                                    <li>Protect "strategic" industries (e.g., textiles, agriculture)</li>
+                                    <li>Short-term political gains vs. long-term economic efficiency</li>
+                                    <li>National security concerns</li>
+                                    <li>Premium brand effect: "Made in my country" - quality perception</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div id="minimumWage" class="tab-content">
+                            <div class="concept-box">
+                                <h4>Minimum Wage Analysis</h4>
+                                <ul class="list-styled">
+                                    <li><strong>If min wage < W*:</strong> No effect - firms raise wages to W* anyway</li>
+                                    <li><strong>If min wage > W*:</strong> Creates unemployment</li>
+                                    <li><strong>Labor demanded:</strong> Ld (lower)</li>
+                                    <li><strong>Labor supplied:</strong> Ls (higher)</li>
+                                    <li><strong>Unemployment:</strong> Ls - Ld</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="graph-container">
+                                <div class="graph-title">Minimum Wage Effects on Labor Market</div>
+                                <canvas id="minimumWageChart"></canvas>
+                            </div>
+                            
+                            <div class="warning-box">
+                                <strong>⚠️ Productivity and Minimum Wage:</strong><br>
+                                Marginal productivity defines wages in competitive markets. Minimum wage that exceeds productivity can lead to skill-based exclusion - some workers may be priced out of the market even though they want to work!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Deadweight Loss:</strong> The loss in total surplus (consumer + producer surplus) due to market inefficiency caused by government intervention. It's value that COULD have been created but wasn't!
+                    </div>
+                </div>
+
+                <!-- Elasticity -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.8 Elasticity - How Consumers React to Price Changes</h3>
+                    
+                    <div class="concept-box">
+                        <h4>What is Elasticity?</h4>
+                        <p>Elasticity measures how <strong>responsive</strong> quantity demanded is to price changes.</p>
+                        <p><strong>Key Question from notes:</strong> What does a drop in price trigger?</p>
+                    </div>
+
+                    <div class="two-column">
+                        <div class="concept-box">
+                            <h4>Elastic Demand (FLAT Curve - DD)</h4>
+                            <ul class="list-styled">
+                                <li><strong>Large</strong> change in quantity for small price change</li>
+                                <li>Many substitutes available</li>
+                                <li>Non-essential items</li>
+                                <li><strong>Examples:</strong> Generic products, luxury items, pizza in Paris</li>
+                                <li><strong>Strategy:</strong> Lower price → Increase revenue</li>
+                                <li><strong>From notes:</strong> "A flat curve will be more affected by a change in price"</li>
+                                <li><strong>Key insight:</strong> Increase in demand will be relatively <strong>higher</strong> than decrease in price = higher revenues</li>
+                            </ul>
+                        </div>
+                        <div class="concept-box">
+                            <h4>Inelastic Demand (STEEP Curve - dd)</h4>
+                            <ul class="list-styled">
+                                <li><strong>Small</strong> change in quantity for large price change</li>
+                                <li>Few substitutes available</li>
+                                <li>Essential items</li>
+                                <li><strong>Examples:</strong> Insulin, gasoline (short run), addictive products</li>
+                                <li><strong>Strategy:</strong> Raise price → Increase revenue</li>
+                                <li>Less affected by price changes</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="graph-container">
+                        <div class="graph-title">Elastic vs. Inelastic Demand</div>
+                        <canvas id="elasticityChart"></canvas>
+                    </div>
+
+                    <div class="example-box">
+                        <strong>📱 iPhone Example:</strong><br>
+                        At launch: <strong>Inelastic</strong> (few substitutes, high willingness to pay, early adopters) → Apple charges high price<br>
+                        Over time: <strong>More elastic</strong> (more competitors, more substitutes) → Prices gradually decrease<br><br>
+                        <strong>Note:</strong> This explains Apple's famous price cut controversy - early buyers paid premium prices!
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 Using Promotions to Test Elasticity (from class):</strong><br>
+                        Promotions help businesses understand how elastic/inelastic their demand is to price changes. Watch how quantity changes when you change price!
+                    </div>
+                </div>
+
+                <!-- Pricing Strategies -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.9 Pricing Strategies - Extracting Consumer Surplus</h3>
+                    
+                    <div class="concept-box">
+                        <h4>Goal: Extract the Consumer Surplus (from your notes)</h4>
+                        <p><strong>"Consumers were willing to spend it all after all!"</strong></p>
+                        <p>How do we capture that value?</p>
+                    </div>
+
+                    <div class="two-column">
+                        <div class="concept-box">
+                            <h4>1. Price Discrimination</h4>
+                            <p>Charging different prices to different customers for the same product</p>
+                            <p><strong>Goal:</strong> Extract consumer surplus by charging each customer closer to their maximum willingness to pay</p>
+                            <ul class="list-styled">
+                                <li>Airlines (time-based, route-based pricing)</li>
+                                <li>Student/senior discounts</li>
+                                <li>Dynamic pricing (Uber surge)</li>
+                                <li>Early bird specials</li>
+                                <li>Business class pricing</li>
+                            </ul>
+                            <p style="margin-top: 10px;"><strong>Example from notes:</strong> "Aerolíneas que marcan ya que pagaste para saber cuánto estarías dispuesto a pagar para Business"<br>
+                            (Airlines ask "How much did you pay?" to gauge willingness to pay for business travelers)</p>
+                        </div>
+                        <div class="concept-box">
+                            <h4>2. Price Segmentation</h4>
+                            <p>Dividing market into segments with different prices</p>
+                            <p><strong>Based on:</strong></p>
+                            <ul class="list-styled">
+                                <li>Age (student, senior)</li>
+                                <li>Gender</li>
+                                <li>Citizenship/residency</li>
+                                <li>Location (geographic pricing)</li>
+                                <li>Income level</li>
+                                <li>Time of purchase</li>
+                                <li>Volume (bulk discounts)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="graph-container">
+                        <div class="graph-title">Extracting Consumer Surplus Through Pricing</div>
+                        <canvas id="pricingStrategyChart"></canvas>
+                    </div>
+
+                    <div class="example-box">
+                        <strong>🎵 Concert Pricing Example (from your notes!):</strong><br><br>
+                        
+                        <strong>U2 CASE 1:</strong> P₁ = highest price for sellout crowd<br>
+                        Result: Full venue (Q*), maximize immediate revenue<br><br>
+                        
+                        <strong>U2 CASE 2:</strong> P₃ > P₁ (premium pricing)<br>
+                        Result: Lost seats (Q₃ < Q*), BUT:<br>
+                        • Creates <strong>PREMIUM</strong> exclusivity<br>
+                        • Price expectation: "Get the exclusive!"<br>
+                        • <strong>"It creates a place where not everyone can do this"</strong><br>
+                        • Gaining: (P₃ - P₁)Q₃ in premium revenue<br>
+                        • Can monetize through merchandise<br>
+                        • <strong>"You are the new talk in town"</strong><br>
+                        • Consumer surplus grows (can pass to merchandise/future sales)<br><br>
+                        
+                        <strong>Important from notes:</strong><br>
+                        • <span class="highlight">"Intangible - never in your pocket"</span><br>
+                        • Creates <strong>HYPE!</strong><br>
+                        • <strong>"We are still building the France"</strong><br>
+                        • (P* - P₂) < (Q₂ - Q*) - This example changes like in Covid, Q* might be forced to be less<br><br>
+                        
+                        <strong>P₂ Strategy (Paul McCartney):</strong><br>
+                        "P₂ makes sense if you're Paul McCartney and bring more people to your concerts"<br>
+                        • Lower concert prices<br>
+                        • Increase merchandise and brand value<br>
+                        • In this case the consumer surplus grew<br>
+                        • You can pass this surplus to merchandise
+                    </div>
+                </div>
+
+                <!-- Real World Applications -->
+                <div class="subsection">
+                    <h3 class="subsection-title">1.10 Real-World Market Examples (from Class)</h3>
+                    
+                    <div class="example-box">
+                        <h4>Labor Market Analysis</h4>
+                        <p><strong>Scenario:</strong> Economic boom</p>
+                        <ol class="list-styled">
+                            <li><strong>Demand Effect:</strong> Firms demand more labor (D shifts right) → W↑, H↑</li>
+                            <li><strong>Supply Effect:</strong> Economic boom also attracts:
+                                <ul>
+                                    <li>Immigrants</li>
+                                    <li>Students</li>
+                                    <li>Younger retirees</li>
+                                    <li>Stay-at-home parents</li>
+                                </ul>
+                                Supply shifts right → W↓, H↑
+                            </li>
+                            <li><strong>Result:</strong> <span class="highlight">W will depend on which effect is bigger, so W is AMBIGUOUS</span>, but H definitely increases!</li>
+                        </ol>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Housing Market - Government Intervention</h4>
+                        <p><strong>Scenario:</strong> Government wants to help home buyers with low interest rate policy</p>
+                        <p><strong>Intended Effect:</strong> Make it easier for home buyers</p>
+                        <p><strong>Actual Effect:</strong> Demand curve shifts RIGHT → Prices INCREASE! → <span class="highlight">WORSENED THE PROBLEM</span></p>
+                        <p><strong>Lesson:</strong> Always consider both supply and demand effects! Don't mistake a demand change for a supply change.</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Electricity Market (Merit Order)</h4>
+                        <p>Market functions best when the most cost-competitive unit produces as much as it can within capacity limits.</p>
+                        <ul class="list-styled">
+                            <li>Units ordered by marginal cost (cheapest to most expensive)</li>
+                            <li>Price set by the <strong>least cost-competitive unit needed</strong> to meet demand</li>
+                            <li>Example: If Plant A (MC=€50) and Plant B (MC=€65) and Plant C (MC=€85) all needed, P* = €85</li>
+                            <li>Plant A and B earn producer surplus; Plant C breaks even</li>
+                            <li>This keeps other producers OUT of the market</li>
+                        </ul>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Assessing Free Trade (from notes)</h4>
+                        <p><strong>Scenario:</strong> Rest of the world is willing to pay higher prices for shoes</p>
+                        <p>World price Pw > Domestic price PA</p>
+                        <p><strong>Result:</strong> Domestic producers export, consumers pay more, producer surplus increases (shown in pink/coral area in your notes)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHAPTER 2: PROFIT MAXIMIZATION -->
+            <section id="chapter2" class="section">
+                <h2 class="section-title">Chapter 2: Profit Maximization & Marginal Analysis</h2>
+
+                <!-- Introduction -->
+                <div class="subsection">
+                    <h3 class="subsection-title">2.0 Foundation: Marginal Analysis (Class Oct 16)</h3>
+                    
+                    <div class="concept-box">
+                        <h4>What is Marginal Analysis?</h4>
+                        <p><strong>From class:</strong> "Marginal Analysis of any decisions"</p>
+                        <p><strong>Costo de oportunidad</strong> (Opportunity cost)</p>
+                        <p><strong>Key insight:</strong> Microeconomics is interested in <strong>trade-offs</strong></p>
+                    </div>
+                </div>
+
+                <!-- Mathematical Foundation -->
+                <div class="subsection">
+                    <h3 class="subsection-title">2.1 Key Mathematical Concepts (Understanding Math!)</h3>
+                    
+                    <div class="formula-box">
+                        <h4>Basic Profit Function (from notes):</h4>
+                        <p><strong>π = R - C</strong></p>
+                        <p><strong>R = P · Q</strong></p>
+                        <p><strong>π = P · Q - VC · Q - FC</strong></p>
+                        <p>where D: P = a - bQ</p>
+                        <p><strong>π = (a - bQ) · Q - MC · Q - FC</strong></p>
+                        <br>
+                        <p>Where:</p>
+                        <ul class="list-styled">
+                            <li>π = Profit</li>
+                            <li>R = Revenue = P · Q</li>
+                            <li>C = Cost = VC · Q + FC</li>
+                            <li>P = Price</li>
+                            <li>Q = Quantity</li>
+                            <li>VC = Variable Cost per unit</li>
+                            <li>FC = Fixed Costs</li>
+                            <li>MC = Marginal Cost</li>
+                            <li>a = intercept of demand curve</li>
+                            <li>b = slope of demand curve</li>
+                        </ul>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Marginal Revenue (MR)</h4>
+                        <p><strong>Definition from notes:</strong> "How much do I earn for the EXTRA unit"</p>
+                        <p>MR = ΔTR/ΔQ (change in total revenue / change in quantity)</p>
+                        <p><strong>MR = New Revenue - Past Revenue</strong></p>
+                        <p><strong>For linear demand P = a - bQ:</strong> MR = a - 2bQ</p>
+                        <p class="tip-box" style="margin-top: 15px;">💡 Notice the "2b" - this is crucial! The slope of MR is <strong>twice as steep</strong> as demand. This is why MR curve is always below the demand curve for monopolists.</p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Marginal Cost (MC)</h4>
+                        <p><strong>Definition from notes:</strong> "How much does it cost to produce the EXTRA unit"</p>
+                        <p>MC = ΔTotal Cost/ΔQuantity</p>
+                        <p><strong>★ ASSUMPTION (from class):</strong> "Cost of producing first unit = the 1000th unit"</p>
+                        <p><strong>MC are same for all</strong> (for simplicity)</p>
+                        <p style="margin-top: 10px;"><strong>Note:</strong> This is a simplification! In reality, MC changes with economies of scale, learning by doing, and task specialization (see MES below)</p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Marginal Profit (MP)</h4>
+                        <p><strong>MP = MR - MC</strong></p>
+                        <p>The profit generated by selling ONE extra unit</p>
+                        <p><strong>When MP = 0, profits are at maximum!</strong></p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Minimum Efficient Scale (MES)</h4>
+                        <p><strong>From notes:</strong> "MES - minimum efficiency scale defines the firm's optimal scale and size"</p>
+                        <ul class="list-styled">
+                            <li><strong>Economías de escala:</strong> As production increases, average costs decrease</li>
+                            <li><strong>Learning by doing:</strong> Workers become more efficient</li>
+                            <li><strong>Task specialization:</strong> Division of labor increases productivity</li>
+                            <li>"Learning by doing and task specialization lead a firm to becomes efficient"</li>
+                            <li>After MES, <strong>diseconomies of scale</strong> may occur (coordination costs rise)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- The Golden Rule -->
+                <div class="subsection">
+                    <h3 class="subsection-title">2.2 The Golden Rule: MR = MC</h3>
+                    
+                    <div class="concept-box">
+                        <h4>🎯 Profit Maximization Rule</h4>
+                        <p style="font-size: 1.4em; text-align: center; margin: 20px 0;">
+                            <span class="highlight">A firm maximizes profit where MR = MC</span>
+                        </p>
+                        <p><strong>This is equivalent to:</strong></p>
+                        <ul class="list-styled">
+                            <li>Producing until marginal profit = 0</li>
+                            <li>Finding where the derivative of the profit function = 0</li>
+                            <li>The slope of the profit curve = 0 (at the peak!)</li>
+                            <li><strong>From notes:</strong> "We want to reach here" (at the top of the profit curve)</li>
+                        </ul>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Why stop at MR = MC? (from class)</h4>
+                        <p><strong>"MR = MC is when you stop, and when doing an extra unit gives you zero profit. At the HIGHEST level of profit"</strong></p>
+                        <ul class="list-styled">
+                            <li>If <strong>MR > MC:</strong> Producing one more unit adds to profit → <span style="color: green;">Keep producing!</span></li>
+                            <li>If <strong>MR < MC:</strong> Producing one more unit reduces profit → <span style="color: red;">Stop producing!</span></li>
+                            <li>If <strong>MR = MC:</strong> No additional profit from extra unit → <span style="color: blue;">Optimal point! ✓</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="graph-container">
+                        <div class="graph-title">Profit Maximization: MR = MC (with Profit Curve)</div>
+                        <canvas id="profitMaxChart"></canvas>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 The Excel Way (from class):</strong><br>
+                        Calculate MR and MC for each quantity, find where they're equal!<br>
+                        Marginal profit = MR - MC<br>
+                        When marginal profit = 0, total profit is at maximum!
+                    </div>
+                </div>
+
+                <!-- Derivatives - CRITICAL -->
+                <div class="subsection">
+                    <h3 class="subsection-title">2.3 Derivative Rules (MUST KNOW FOR EXAM!)</h3>
+                    
+                    <div class="formula-box">
+                        <h4>Essential Derivative Rules:</h4>
+                        <br>
+                        <p><strong>1. Power Rule:</strong> If f(Q) = Q^n, then f'(Q) = n·Q^(n-1)</p>
+                        <ul class="list-styled">
+                            <li>Q² → 2Q</li>
+                            <li>Q³ → 3Q²</li>
+                            <li>5Q² → 10Q</li>
+                            <li>-2Q² → -4Q</li>
+                        </ul>
+                        <br>
+                        <p><strong>2. Linear Rule:</strong> If f(Q) = a·Q, then f'(Q) = a</p>
+                        <ul class="list-styled">
+                            <li>45Q → 45</li>
+                            <li>200Q → 200</li>
+                            <li>-20Q → -20</li>
+                        </ul>
+                        <br>
+                        <p><strong>3. Constant Rule:</strong> If f(Q) = c, then f'(Q) = 0</p>
+                        <ul class="list-styled">
+                            <li>100 → 0</li>
+                            <li>FC → 0</li>
+                            <li>-50 → 0</li>
+                        </ul>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>📝 Example 1 from Class (Critical!):</h4>
+                        <p><strong>Given:</strong> a = 45, b = 2, MC = 10, FC = 100</p>
+                        <p>P = 45 - 2Q</p>
+                        <ol class="list-styled">
+                            <li><strong>Profit function:</strong> π = (45 - 2Q)Q - 10Q - 100</li>
+                            <li><strong>Expand:</strong> π = 45Q - 2Q² - 10Q - 100</li>
+                            <li><strong>Simplify:</strong> π = 35Q - 2Q² - 100</li>
+                            <li><strong>Take derivative:</strong> dπ/dQ = 35 - 4Q</li>
+                            <li><strong>Set equal to 0:</strong> 35 - 4Q = 0</li>
+                            <li><strong>Solve:</strong> -4Q = -35 → Q = -35/-4</li>
+                            <li><strong>Answer:</strong> <span class="highlight">Q* = 8.75 units</span></li>
+                        </ol>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>📝 Example 2 from Your Notes (Ejemplo 1):</h4>
+                        <p><strong>Given:</strong> π = 45Q - 2Q² - 100 (FC)</p>
+                        <ol class="list-styled">
+                            <li><strong>Take derivative:</strong> dπ = 35 - 4Q = 0</li>
+                            <li><strong>Solve:</strong> -4Q = -35</li>
+                            <li><strong>Answer:</strong> Q = 35/4 = <span class="highlight">8.75 units ✓</span></li>
+                        </ol>
+                        <p style="margin-top: 15px;"><strong>Note from your notes:</strong> "We want to reach here" - at the maximum of the profit curve where derivative = 0</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>📝 Example 3 from Your Notes (Ejemplo 2):</h4>
+                        <p><strong>Given:</strong> P = 100 - Q, MC = 5, FC = 50</p>
+                        <ol class="list-styled">
+                            <li>π = (100 - Q)Q - 5Q - 50</li>
+                            <li>π = 100Q - Q² - 5Q - 50</li>
+                            <li>π = 95Q - Q² - 50</li>
+                            <li>dπ = 95 - 2Q = 0</li>
+                            <li>95 = 2Q</li>
+                            <li>Q = 95/2 = <span class="highlight">47.5 ≈ Q ✓</span></li>
+                        </ol>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Common Mistakes from Class:</strong>
+                        <ul class="list-styled">
+                            <li>Forgetting the "2" in front of Q when differentiating Q² (it becomes 2Q, not Q!)</li>
+                            <li>Not simplifying the profit function before taking derivatives</li>
+                            <li>Forgetting to set the derivative equal to 0</li>
+                            <li>Sign errors when solving for Q</li>
+                            <li>Not showing work - you need to show steps for partial credit!</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MARKET STRUCTURES -->
+            <section id="market-types" class="section">
+                <h2 class="section-title">Market Structures: Perfect Competition vs. Monopoly</h2>
+
+                <!-- Introduction -->
+                <div class="subsection">
+                    <h3 class="subsection-title">3.0 What Makes a Market Competitive? (from Oct 20 class)</h3>
+                    
+                    <div class="concept-box">
+                        <h4>Key Question from Class:</h4>
+                        <p><strong>"What makes a market COMPETITIVE?"</strong></p>
+                        <p>Also: <strong>"What makes a market NOT COMPETITIVE?"</strong></p>
+                        <br>
+                        <p><strong>Industries discussed in class:</strong></p>
+                        <div class="two-column" style="margin-top: 15px;">
+                            <div>
+                                <h5>Highly Competitive:</h5>
+                                <ul class="list-styled">
+                                    <li>Clothing</li>
+                                    <li>FMCG</li>
+                                    <li>Real Estate</li>
+                                    <li>Make up</li>
+                                    <li>Airlines</li>
+                                    <li>Electronics</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Less Competitive:</h5>
+                                <ul class="list-styled">
+                                    <li>Government Contracts</li>
+                                    <li>Telecom</li>
+                                    <li>Pharma</li>
+                                    <li>Auchan / Carrefour (local)</li>
+                                    <li>Aircraft</li>
+                                    <li>Hermès</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px;"><strong>From notes:</strong> "Highly competitive, tons of substitutes, but what IS a substitute?"</p>
+                        <p><strong>"No substitutes"</strong> → What makes a market COMPETITIVE?</p>
+                    </div>
+                </div>
+
+                <!-- 5 Conditions -->
+                <div class="subsection">
+                    <h3 class="subsection-title">3.1 Five Conditions for Perfect Competition</h3>
+                    
+                    <div class="concept-box">
+                        <h4>⭐ 5 Conditions to Competition (from your notes)</h4>
+                        <ol class="list-styled">
+                            <li><strong>Market is Atomic:</strong> So many players that none influence the market forces
+                                <ul><li>"Atomic market"</li></ul>
+                            </li>
+                            <li><strong>Products are Homogeneous:</strong> They are perfect substitutes
+                                <ul><li>"No ≠" (no difference)</li></ul>
+                            </li>
+                            <li><strong>Free entry and free exit:</strong> No legal, technological, or institutional barriers</li>
+                            <li><strong>It is pure:</strong> Transparency, <strong>no uncertainty about competitors' prices</strong>
+                                <ul><li>"Competitors' prices"</li></ul>
+                            </li>
+                            <li><strong>Production factors perfectly mobile:</strong> No barriers to reconfiguration/relocation</li>
+                        </ol>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Results of Perfect Competition (from notes):</h4>
+                        <p><strong>"Supongamos que estas condiciones se cumplen"</strong> (Let's suppose these conditions are met)</p>
+                        <ul class="list-styled">
+                            <li><strong>Lowest price = Marginal cost</strong></li>
+                            <li><strong>P = MC</strong> → "te quedaste tablas" (you break even)</li>
+                            <li><strong>π = 0</strong></li>
+                            <li><strong>infinit comp</strong> (infinite competition)</li>
+                            <li style="background: #d4edda; padding: 5px; margin: 5px 0;"><strong>THIS IS HEAVEN FOR CONSUMERS</strong></li>
+                            <li style="background: #f8d7da; padding: 5px; margin: 5px 0;"><strong>THIS IS HELL FOR PRODUCERS</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="subsection">
+                    <h3 class="subsection-title">3.2 Perfect Competition vs. Monopoly - Complete Comparison</h3>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Perfect Competition</th>
+                                <th>Monopoly</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td># of Firms</td>
+                                <td>Many (∞)</td>
+                                <td>One (1)</td>
+                            </tr>
+                            <tr>
+                                <td>Barriers to Entry</td>
+                                <td style="background: #d4edda;">None</td>
+                                <td style="background: #f8d7da;">High</td>
+                            </tr>
+                            <tr>
+                                <td>P vs MC</td>
+                                <td style="background: #d4edda;">P = MC</td>
+                                <td style="background: #f8d7da;">P >> MC</td>
+                            </tr>
+                            <tr>
+                                <td>Profit (Long Run)</td>
+                                <td>π = 0</td>
+                                <td>π > 0 (Profits >> 0)</td>
+                            </tr>
+                            <tr>
+                                <td>Quantity</td>
+                                <td style="background: #d4edda;">Maximum (Q = 17 in example)</td>
+                                <td style="background: #f8d7da;">Restricted (Q = 8.5 in example)</td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td style="background: #d4edda;">Lowest (P = 200 in example)</td>
+                                <td style="background: #f8d7da;">Higher (P = 400 in example)</td>
+                            </tr>
+                            <tr>
+                                <td>Consumer Surplus</td>
+                                <td style="background: #d4edda;">Maximum</td>
+                                <td style="background: #f8d7da;">Lower</td>
+                            </tr>
+                            <tr>
+                                <td>Producer Surplus</td>
+                                <td>Zero (long run)</td>
+                                <td style="background: #d4edda;">Positive ("Profit of monopoly")</td>
+                            </tr>
+                            <tr>
+                                <td>Efficiency</td>
+                                <td style="background: #d4edda;">Efficient</td>
+                                <td style="background: #f8d7da;">Deadweight loss ("op. lost cause")</td>
+                            </tr>
+                            <tr>
+                                <td>Firm Decision</td>
+                                <td>Price taker</td>
+                                <td>Price maker</td>
+                            </tr>
+                            <tr>
+                                <td>Label from Notes</td>
+                                <td>"Highly competitive market"</td>
+                                <td>"Monopoly" / "comp = inexistent"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Numerical Example from Notes -->
+                <div class="subsection">
+                    <h3 class="subsection-title">3.3 Worked Example from Your Notes (Critical!)</h3>
+                    
+                    <div class="example-box">
+                        <h4>Numerical Example from Class:</h4>
+                        <p><strong>Setup:</strong></p>
+                        <ul class="list-styled">
+                            <li>D: P = 100 - 2Q</li>
+                            <li>MC = 10</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-container">
+                        <div class="tabs">
+                            <button class="tab-button active" onclick="openTab(event, 'competitive')">Highly Comp Market</button>
+                            <button class="tab-button" onclick="openTab(event, 'monopoly')">Monopoly</button>
+                            <button class="tab-button" onclick="openTab(event, 'comparison')">Side-by-Side</button>
+                        </div>
+                        
+                        <div id="competitive" class="tab-content active">
+                            <div class="concept-box">
+                                <h4>Highly Comp M → P = 10 = MC</h4>
+                                <p><strong>Rule:</strong> P = MC</p>
+                                <br>
+                                <p><strong>Step 1:</strong> If P = 10</p>
+                                <p>10 = 100 - 2Q</p>
+                                <br>
+                                <p><strong>Step 2:</strong> Solve for Q</p>
+                                <p>10 - 100 = -2Q</p>
+                                <p>-90 = -2Q</p>
+                                <p>-90/-2 = Q</p>
+                                <p><span class="highlight">45 = Q ✓</span></p>
+                                <br>
+                                <p><strong>From notes:</strong> This is the "highly comp market" result</p>
+                            </div>
+                        </div>
+                        
+                        <div id="monopoly" class="tab-content">
+                            <div class="concept-box">
+                                <h4>Monopoly Solution (from notes graph)</h4>
+                                <p><strong>From your graph annotations:</strong></p>
+                                <ul class="list-styled">
+                                    <li>"Monopoly will produce in marginal revenue = production"</li>
+                                    <li>P = 200, Q = 10 → "highly comp market"</li>
+                                    <li>P = 400, Q = 8.5 → "monopoly"</li>
+                                </ul>
+                                <br>
+                                <p><strong>Analytical Solution:</strong></p>
+                                <ol class="list-styled">
+                                    <li>π = (100 - 2Q)Q - 10Q - 100 (FC)</li>
+                                    <li>π = 100Q - 2Q² - 10Q - 100</li>
+                                    <li>π = 90Q - 2Q²</li>
+                                    <li>dπ = 90 - 4Q = 0</li>
+                                    <li>-4Q = -90</li>
+                                    <li>Q = -90/-4</li>
+                                    <li><span class="highlight">Q = 22.5</span></li>
+                                </ol>
+                                <br>
+                                <p><strong>Note:</strong> "Monopoly = profit maximizer firm"</p>
+                            </div>
+                        </div>
+
+                        <div id="comparison" class="tab-content">
+                            <div class="concept-box">
+                                <h4>📊 Key Insights from Your Graph:</h4>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Metric</th>
+                                            <th>Highly Comp</th>
+                                            <th>Monopoly</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Quantity</td>
+                                            <td style="background: #d4edda;">Q = 17 (from graph)</td>
+                                            <td style="background: #f8d7da;">Q = 8.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td style="background: #d4edda;">P = 200</td>
+                                            <td style="background: #f8d7da;">P = 400</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Label</td>
+                                            <td>"highly comp market"</td>
+                                            <td>"monopoly"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lost Value</td>
+                                            <td>None</td>
+                                            <td>"op. lost cause" / "you're a monopoly"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Profit Area</td>
+                                            <td>Zero</td>
+                                            <td>"Profit of monopoly" (blue rectangle)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="graph-container">
+                        <div class="graph-title">Competition vs. Monopoly (Based on Your Notes)</div>
+                        <canvas id="competitionMonopolyChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- The Spectrum -->
+                <div class="subsection">
+                    <h3 class="subsection-title">3.4 The Competitive Spectrum</h3>
+                    
+                    <div class="concept-box">
+                        <h4>From Class Notes: Both Extremes Innovate Most!</h4>
+                        <div style="text-align: center; margin: 30px 0; font-size: 1.2em;">
+                            <strong style="color: green;">Highly Competitive</strong><br>
+                            (P=MC, π=0, Comp=infinite)<br>
+                            ↓<br>
+                            <strong>←―――――――――――→</strong><br>
+                            ↑<br>
+                            <strong style="color: red;">Monopoly</strong><br>
+                            (P>>MC, Profits>>0, Comp=inexistent)
+                        </div>
+                        <p><strong>Both have the BIGGEST incentive to innovate:</strong></p>
+                        <ul class="list-styled">
+                            <li><strong>Highly Competitive:</strong> Must innovate to survive (P = MC, π = 0)</li>
+                            <li><strong>Monopoly:</strong> Can capture all gains from innovation (π > 0)</li>
+                        </ul>
+                        <br>
+                        <p style="text-align: center; font-size: 1.3em; background: #fff3cd; padding: 15px; border-radius: 5px;">
+                            <strong>"midterm up to here!"</strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SHARING ECONOMY -->
+            <section id="sharing" class="section">
+                <h2 class="section-title">The Sharing Economy & Zero Marginal Cost</h2>
+
+                <!-- Introduction from Oct 23 -->
+                <div class="subsection">
+                    <h3 class="subsection-title">4.0 Introduction: When is MC = 0? (Class Oct 23)</h3>
+                    
+                    <div class="concept-box">
+                        <h4>From Class Discussion:</h4>
+                        <p><strong>"When is marginal cost = 0?"</strong></p>
+                        <p><strong>"When is MC equal to zero?"</strong></p>
+                        <br>
+                        <p><strong>Answer from notes:</strong> "Extremely rare: software or anything digital and also Spotify, Netflix, etc platforms. Today this is changing."</p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Three Major Ideas Around Zero Marginal Cost:</h4>
+                        <ol class="list-styled">
+                            <li><strong>1. Digitalization:</strong> Zero MC of information (bits for free)
+                                <ul>
+                                    <li>Software, music, videos, e-books</li>
+                                    <li>Once created, infinite copies at zero cost</li>
+                                    <li>Examples: Spotify, Netflix, digital content</li>
+                                </ul>
+                            </li>
+                            <li><strong>2. Platforms:</strong> Zero MC of coordination (matching and monitoring made easier)
+                                <ul>
+                                    <li>Uber, Spotify, Netflix, etc.</li>
+                                    <li>Connect supply and demand efficiently</li>
+                                    <li>Technology handles matching automatically</li>
+                                </ul>
+                            </li>
+                            <li><strong>3. Internet of Things, Connectedness, Grids:</strong> Zero idle capacity
+                                <ul>
+                                    <li>(zero idle capacity)</li>
+                                    <li>Underused assets can be shared</li>
+                                    <li>Cars sitting idle 95% of time</li>
+                                    <li>Spare bedrooms, tools, equipment</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <br>
+                        <p style="text-align: center; font-size: 1.2em; margin-top: 20px;">
+                            <strong>This combination is the economic engine of the sharing economy!</strong>
+                        </p>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Important Note from Class (October 23):</strong><br>
+                        <p><strong>"The way we interpret this might be across ≠ industries, sectors today. The way we interpret 'the sharing economy' - it goes both ways."</strong></p>
+                    </div>
+                </div>
+
+                <!-- Definition -->
+                <div class="subsection">
+                    <h3 class="subsection-title">4.1 What is the Sharing Economy?</h3>
+                    
+                    <div class="concept-box">
+                        <h4>Sharing Economy → Disruptive Economic Form</h4>
+                        <p><strong>From class notes:</strong> "Disruptive economic form that unleashes"</p>
+                        <p><strong>New sources of supply:</strong> "Involves underused assets"</p>
+                        <ul class="list-styled">
+                            <li>Or labor, it taps resources that could not be effectively organized before.</li>
+                        </ul>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Two-Sided Platform (from notes)</h4>
+                        <p><strong>Structure:</strong></p>
+                        <p style="text-align: center; margin: 20px 0;">
+                            Side A ← Multisided Platform → Side B
+                        </p>
+                        <p><strong>Book: Zero MC society</strong></p>
+                        <p><strong>There's less ownership in this generation</strong></p>
+                    </div>
+                </div>
+
+                <!-- Strategic Advantages -->
+                <div class="subsection">
+                    <h3 class="subsection-title">4.2 Strategic Advantages & Case Studies (Class Oct 20)</h3>
+                    
+                    <div class="example-box">
+                        <h4>Botswana, Japan, and Apple (from class)</h4>
+                        <p><strong>Key lesson from notes:</strong> "Botswana, Japan and Apple had all a strategic advantages"</p>
+                        <br>
+                        <p><strong>EV:</strong> China and Tesla created a new economy</p>
+                        <p>"This separates them from other car manufacturers who are trying to transform not create the industry to enter EV."</p>
+                        <br>
+                        <p style="background: #fff3cd; padding: 10px; border-radius: 5px;">
+                            <strong>Critical insight:</strong> "Be careful about having a unique advantage because you always need to keep on running, cause you have to keep it. Redefine over time."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Market Changes -->
+                <div class="subsection">
+                    <h3 class="subsection-title">4.3 Market Evolution & Deglobalization? (Class Oct 13)</h3>
+                    
+                    <div class="concept-box">
+                        <h4>From Class Discussion:</h4>
+                        <p><strong>"Market maybe going from global to something else, not sure what."</strong></p>
+                        <p><strong>"It goes both goes ways. SLAP!"</strong></p>
+                        <br>
+                        <p><strong>Example: Rare Earth Tension (2010 and 2025)</strong></p>
+                        <p><strong>Key takeaway:</strong> "Markets are still global, but deglobalization creates new incentives"</p>
+                        <p><strong>Important:</strong> No real evidence for complete deglobalization - markets adapt but remain connected</p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Defining Our Markets is Important</h4>
+                        <p>From the beginning of class: Know which market is YOUR future market!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRACTICE EXERCISES -->
+            <section id="exercises" class="section">
+                <h2 class="section-title">Practice Exercises (Exam-Style)</h2>
+
+                <p style="background: #fff3cd; padding: 20px; border-radius: 5px; margin-bottom: 30px;">
+                    <strong>📝 Important:</strong> These exercises combine concepts from your class notes. Practice BOTH the algebraic solutions AND the graphical representations! Show your work for partial credit!
+                </p>
+
+                <!-- Exercise 1 -->
+                <div class="example-box">
+                    <h4>Exercise 1: E-Bike Market Analysis</h4>
+                    <p><strong>Given:</strong></p>
+                    <ul class="list-styled">
+                        <li>Demand: P = 2000 - 10Q</li>
+                        <li>Supply: P = 200 + 5Q</li>
+                        <li>Q in thousands of units, P in euros</li>
+                    </ul>
+                    <p><strong>Questions:</strong></p>
+                    <ol class="list-styled">
+                        <li>Find equilibrium price and quantity</li>
+                        <li>Calculate consumer and producer surplus (CS ABOVE P*, PS BELOW P*)</li>
+                        <li>What if government gives €300 subsidy per bike?</li>
+                        <li>What if gasoline prices increase significantly? (HINT: Substitutes!)</li>
+                    </ol>
+                    <br>
+                    <div class="concept-box">
+                        <h4>Solution:</h4>
+                        <p><strong>Part 1:</strong> Set D = S</p>
+                        <p>2000 - 10Q = 200 + 5Q</p>
+                        <p>-10Q - 5Q = 200 - 2000</p>
+                        <p>-15Q = -1800</p>
+                        <p><span class="highlight">Q* = 120k units, P* = €800</span></p>
+                        <br>
+                        <p><strong>Part 2:</strong></p>
+                        <p>CS (ABOVE P*) = ½ × 120 × (2000 - 800) = ½ × 120 × 1200 = <span class="highlight">€72 million</span></p>
+                        <p>PS (BELOW P*) = ½ × 120 × (800 - 200) = ½ × 120 × 600 = <span class="highlight">€36 million</span></p>
+                        <br>
+                        <p><strong>Part 3:</strong> Subsidy shifts supply DOWN by €300</p>
+                        <p>New supply: P = -100 + 5Q (or P - 300 = 200 + 5Q)</p>
+                        <p>2000 - 10Q = -100 + 5Q</p>
+                        <p><span class="highlight">Q' = 140k, P' = €600 (consumers pay), Producers receive €900</span></p>
+                        <br>
+                        <p><strong>Part 4:</strong> E-bikes are SUBSTITUTES for gasoline cars</p>
+                        <p>→ Demand shifts RIGHT (movement OF the curve!)</p>
+                        <p>→ Higher P and Q → PS increases → Business opportunity!</p>
+                    </div>
+                </div>
+
+                <!-- Exercise 2 -->
+                <div class="example-box">
+                    <h4>Exercise 2: Pharmaceutical Company (Competition vs Monopoly)</h4>
+                    <p><strong>Given:</strong></p>
+                    <ul class="list-styled">
+                        <li>Demand: P = 100 - 2Q</li>
+                        <li>MC = 20 (constant)</li>
+                        <li>FC = 300</li>
+                    </ul>
+                    <p><strong>Questions:</strong></p>
+                    <ol class="list-styled">
+                        <li>If market is perfectly competitive, what are P, Q, and profit?</li>
+                        <li>If company has monopoly, what are P, Q, and profit?</li>
+                        <li>Compare CS and PS in both cases</li>
+                        <li>What strategy when patent expires?</li>
+                    </ol>
+                    <br>
+                    <div class="concept-box">
+                        <h4>Solution:</h4>
+                        <p><strong>Competitive (P = MC):</strong></p>
+                        <p>100 - 2Q = 20</p>
+                        <p>-2Q = -80</p>
+                        <p><span class="highlight">Q = 40, P = €20</span></p>
+                        <p>π = 20(40) - 20(40) - 300 = <span class="highlight">-€300 (LOSS!)</span></p>
+                        <p>Long-run: Firms exit until π = 0</p>
+                        <br>
+                        <p><strong>Monopoly (MR = MC):</strong></p>
+                        <p>π = (100 - 2Q)Q - 20Q - 300</p>
+                        <p>π = 100Q - 2Q² - 20Q - 300</p>
+                        <p>π = 80Q - 2Q² - 300</p>
+                        <p>dπ/dQ = 80 - 4Q = 0</p>
+                        <p><span class="highlight">Q* = 20 units</span></p>
+                        <p>P = 100 - 2(20) = <span class="highlight">€60</span></p>
+                        <p>π = 60(20) - 20(20) - 300 = <span class="highlight">€500 profit</span></p>
+                        <br>
+                        <p><strong>Comparison:</strong></p>
+                        <ul class="list-styled">
+                            <li>Monopoly produces LESS (20 vs 40)</li>
+                            <li>Monopoly charges MORE (€60 vs €20)</li>
+                            <li>CS much LOWER under monopoly</li>
+                            <li>Deadweight loss under monopoly</li>
+                        </ul>
+                        <br>
+                        <p><strong>Strategy when patent expires:</strong></p>
+                        <ul class="list-styled">
+                            <li>Price discrimination (extract CS)</li>
+                            <li>Brand building / premium positioning</li>
+                            <li>Product differentiation</li>
+                            <li>Cost leadership</li>
+                            <li>Innovation (new formulations)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Exercise 3 -->
+                <div class="example-box">
+                    <h4>Exercise 3: Labor Market with Minimum Wage</h4>
+                    <p><strong>Given:</strong></p>
+                    <ul class="list-styled">
+                        <li>Labor Demand: W = 25 - 0.5H</li>
+                        <li>Labor Supply: W = 5 + 0.3H</li>
+                        <li>H = hours, W = wage per hour</li>
+                    </ul>
+                    <p><strong>Questions:</strong></p>
+                    <ol class="list-styled">
+                        <li>Find equilibrium wage and hours</li>
+                        <li>If minimum wage = €18/hour, what happens?</li>
+                        <li>Calculate unemployment (Hs - Hd)</li>
+                        <li>Who benefits? Who loses?</li>
+                    </ol>
+                    <br>
+                    <div class="concept-box">
+                        <h4>Solution:</h4>
+                        <p><strong>Part 1:</strong> Set Demand = Supply</p>
+                        <p>25 - 0.5H = 5 + 0.3H</p>
+                        <p>-0.5H - 0.3H = 5 - 25</p>
+                        <p>-0.8H = -20</p>
+                        <p><span class="highlight">H* = 25 hours, W* = €12.50</span></p>
+                        <br>
+                        <p><strong>Part 2:</strong> At min W = €18 (> W*):</p>
+                        <p>Labor Demanded: 18 = 25 - 0.5Hd → Hd = 14 hours</p>
+                        <p>Labor Supplied: 18 = 5 + 0.3Hs → Hs = 43.3 hours</p>
+                        <br>
+                        <p><strong>Part 3:</strong> Unemployment = Hs - Hd = <span class="highlight">29.3 hours of excess supply</span></p>
+                        <br>
+                        <p><strong>Part 4:</strong></p>
+                        <ul class="list-styled">
+                            <li><strong>Winners:</strong> Workers who keep jobs (earn €18 vs €12.50)</li>
+                            <li><strong>Losers:</strong> 
+                                <ul>
+                                    <li>Workers who lose jobs (29.3 hours of unemployment)</li>
+                                    <li>Employers (pay more, hire less)</li>
+                                    <li>Society (deadweight loss)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>From class notes:</strong> "Part of the population that is excluded" - skill-based exclusion happens</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QUICK REFERENCE -->
+            <section id="reference" class="section">
+                <h2 class="section-title">Quick Reference Sheet</h2>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Essential Formulas</h3>
+                    
+                    <div class="formula-box">
+                        <h4>Core Equations:</h4>
+                        <p><strong>Profit:</strong> π = R - C = P·Q - MC·Q - FC</p>
+                        <p><strong>Profit Maximization:</strong> MR = MC (or dπ/dQ = 0)</p>
+                        <p><strong>Linear Demand P = a - bQ:</strong> MR = a - 2bQ</p>
+                        <p><strong>Competition:</strong> P = MC (lowest price)</p>
+                        <p><strong>Monopoly:</strong> MR = MC (where MR < P)</p>
+                        <br>
+                        <p><strong>Derivative Rules (CRITICAL!):</strong></p>
+                        <ul class="list-styled">
+                            <li>Q^n → n·Q^(n-1)</li>
+                            <li>aQ → a</li>
+                            <li>c → 0</li>
+                        </ul>
+                        <br>
+                        <p><strong>Surplus Areas (Triangle):</strong></p>
+                        <ul class="list-styled">
+                            <li>Area = ½ × base × height</li>
+                            <li><strong>CS (ABOVE P*):</strong> ½ × Q* × (Pmax - P*)</li>
+                            <li><strong>PS (BELOW P*):</strong> ½ × Q* × (P* - Pmin)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Critical Distinctions (Don't Confuse!)</h3>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Movement IN vs. OF the Curve</h4>
+                        <ul class="list-styled">
+                            <li><strong>Movement IN (along):</strong> Price change only</li>
+                            <li><strong>Movement OF (shift):</strong> Other factors change</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>⚠️ Consumer vs. Producer Surplus Location</h4>
+                        <ul class="list-styled">
+                            <li><strong>CS:</strong> ABOVE P* (what consumers save)</li>
+                            <li><strong>PS:</strong> BELOW P* (what producers gain)</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>⚠️ Demand Change vs. Supply Change</h4>
+                        <ul class="list-styled">
+                            <li>If substitute price ↑ → DEMAND shifts (not supply!)</li>
+                            <li>If input costs ↑ → SUPPLY shifts (not demand!)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Demand & Supply Shifters</h3>
+                    
+                    <div class="two-column">
+                        <div class="concept-box">
+                            <h4>Demand Shifts RIGHT (↑) when:</h4>
+                            <ul class="list-styled">
+                                <li>↑ Price of substitute</li>
+                                <li>↓ Price of complement</li>
+                                <li>↑ Consumer income (normal good)</li>
+                                <li>↑ Expected future price</li>
+                                <li>↑ Population</li>
+                            </ul>
+                        </div>
+                        <div class="concept-box">
+                            <h4>Supply Shifts RIGHT (↑) when:</h4>
+                            <ul class="list-styled">
+                                <li>↑ Number of firms</li>
+                                <li>↓ Input costs</li>
+                                <li>↑ Productivity/technology</li>
+                                <li>↓ Expected future price</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Key Concepts Checklist</h3>
+                    
+                    <div class="concept-box">
+                        <p><strong>Before the exam, make sure you can:</strong></p>
+                        <ul class="list-styled">
+                            <li>✓ Distinguish three types of markets (existing, future, missing)</li>
+                            <li>✓ Draw supply and demand curves accurately</li>
+                            <li>✓ Find equilibrium algebraically (set D = S)</li>
+                            <li>✓ Calculate CS (ABOVE P*) and PS (BELOW P*) - DON'T MIX THESE UP!</li>
+                            <li>✓ Show how shifts affect equilibrium (movement OF curve)</li>
+                            <li>✓ Explain movements IN vs. OF the curve</li>
+                            <li>✓ List all demand (4) and supply (3) drivers</li>
+                            <li>✓ Define and apply elasticity (flat = elastic, steep = inelastic)</li>
+                            <li>✓ Analyze government interventions (Pmin, Pmax, tariffs)</li>
+                            <li>✓ Calculate deadweight loss (black triangles)</li>
+                            <li>✓ Explain pricing strategies (discrimination, segmentation, concert example!)</li>
+                            <li>✓ Set up a profit function π = (a-bQ)Q - MC·Q - FC</li>
+                            <li>✓ Take derivatives correctly (Q² → 2Q, NOT Q!)</li>
+                            <li>✓ Apply MR = MC rule (set dπ/dQ = 0)</li>
+                            <li>✓ Compare competition (P=MC, π=0) vs. monopoly (P>>MC, π>0)</li>
+                            <li>✓ List 5 conditions for perfect competition</li>
+                            <li>✓ Explain when MC = 0 (digitalization, platforms, IoT)</li>
+                            <li>✓ Define sharing economy and give examples</li>
+                            <li>✓ Understand MES and economies of scale</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Common Mistakes to Avoid</h3>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ Top Mistakes from Class:</h4>
+                        <ol class="list-styled">
+                            <li><strong>CS/PS Location:</strong> CS is ABOVE P*, PS is BELOW P* - never forget!</li>
+                            <li><strong>Movement confusion:</strong> IN = price change, OF = other factors</li>
+                            <li><strong>Derivative errors:</strong> Q² → 2Q (not Q!), constant → 0</li>
+                            <li><strong>Not showing work:</strong> Show all steps for partial credit</li>
+                            <li><strong>Mixing demand/supply:</strong> Substitute price ↑ affects DEMAND, not supply</li>
+                            <li><strong>Forgetting units:</strong> Always specify (thousands, €, etc.)</li>
+                            <li><strong>Housing market error:</strong> Low interest rates → Demand ↑ → Prices ↑ (worsened!)</li>
+                            <li><strong>Competition conditions:</strong> Know all 5 conditions</li>
+                            <li><strong>Not reading graphs carefully:</strong> Check which curve is which!</li>
+                            <li><strong>Sign errors in algebra:</strong> Be careful with negative signs</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Key Terms from Your Notes (Spanish/French)</h3>
+                    
+                    <div class="concept-box">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Your Notes</th>
+                                    <th>English</th>
+                                    <th>Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Costo de oportunidad</td>
+                                    <td>Opportunity cost</td>
+                                    <td>Trade-offs in decisions</td>
+                                </tr>
+                                <tr>
+                                    <td>Economías de escala</td>
+                                    <td>Economies of scale</td>
+                                    <td>Cost advantages from size</td>
+                                </tr>
+                                <tr>
+                                    <td>Te quedaste tablas</td>
+                                    <td>You break even</td>
+                                    <td>π = 0 in competition</td>
+                                </tr>
+                                <tr>
+                                    <td>Op. lost cause</td>
+                                    <td>Opportunity lost</td>
+                                    <td>Deadweight loss area</td>
+                                </tr>
+                                <tr>
+                                    <td>Los costos de competencia</td>
+                                    <td>Competition costs</td>
+                                    <td>Input costs affect supply</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">Exam Day Tips</h3>
+                    
+                    <div class="tip-box">
+                        <h4>What to Bring:</h4>
+                        <ul class="list-styled">
+                            <li>✓ Pencil (for graphs) and eraser</li>
+                            <li>✓ Different colored pens (to show shifts clearly)</li>
+                            <li>✓ Ruler (for clean graphs - very important!)</li>
+                            <li>✓ Calculator</li>
+                            <li>✓ This reference sheet (if allowed)</li>
+                            <li>✓ Clear mind and confidence!</li>
+                        </ul>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>How to Approach Graph Questions:</h4>
+                        <ol class="list-styled">
+                            <li>Draw axes with ruler (P vertical, Q horizontal)</li>
+                            <li>Label axes clearly</li>
+                            <li>Draw initial curves (use different colors!)</li>
+                            <li>Mark initial equilibrium (P*, Q*)</li>
+                            <li>Show the change (arrow on shifting curve)</li>
+                            <li>Mark new equilibrium (P', Q')</li>
+                            <li>Label EVERYTHING (curves, points, areas)</li>
+                            <li>Shade relevant areas if asked (CS, PS, DWL)</li>
+                        </ol>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Algebra Problem Strategy:</h4>
+                        <ol class="list-styled">
+                            <li>Write down what you're given</li>
+                            <li>Write down what you need to find</li>
+                            <li>Set up the equation</li>
+                            <li>Show EVERY step of algebra</li>
+                            <li>Circle your final answer</li>
+                            <li>Check: Does it make economic sense?</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <h3>🎯 Good Luck on Your Midterm!</h3>
+            <p>Remember the key insights from class:</p>
+            <ul style="text-align: left; max-width: 800px; margin: 20px auto;">
+                <li>"Important to know which one is your future market"</li>
+                <li>"Consumers were willing to spend it all after all!" - Extract that CS!</li>
+                <li>"We are still building the France" - Intangible value from hype</li>
+                <li>"Be careful about having a unique advantage - keep running, redefine over time"</li>
+                <li>"Midterm up to here!" - Everything up to and including sharing economy</li>
+            </ul>
+            <p style="margin-top: 20px;"><strong>Think like an economist!</strong></p>
+            <p style="font-size: 0.9em;">This guide includes ALL topics from your class notes: markets, demand/supply (with IN vs OF distinctions), equilibrium, CORRECTED surplus graph (CS ABOVE, PS BELOW), government intervention, elasticity, pricing strategies (concert example!), profit maximization, derivatives, competition (5 conditions), monopoly, and sharing economy.</p>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Tab functionality
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Chart.js Configuration
+        Chart.defaults.font.size = 13;
+        Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+
+        // 1. Basic Equilibrium Chart
+        const equilibriumCtx = document.getElementById('equilibriumChart').getContext('2d');
+        new Chart(equilibriumCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '20', '40', '60', '80', '100', '120'],
+                datasets: [{
+                    label: 'Demand',
+                    data: [100, 90, 80, 70, 60, 50, 40],
+                    borderColor: '#dc3545',
+                    backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Supply',
+                    data: [20, 30, 40, 50, 60, 70, 80],
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Equilibrium (P*, Q*)',
+                    data: [null, null, null, null, 60, null, null],
+                    borderColor: '#667eea',
+                    backgroundColor: '#667eea',
+                    pointRadius: 10,
+                    pointStyle: 'circle',
+                    showLine: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (P)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 2. Consumer and Producer Surplus Chart - CORRECTED!
+        const surplusCtx = document.getElementById('surplusChart').getContext('2d');
+        new Chart(surplusCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '10', '20', '30', '40', '50', '60'],
+                datasets: [{
+                    label: 'Demand',
+                    data: [100, 92, 84, 76, 68, 60, 52],
+                    borderColor: '#dc3545',
+                    borderWidth: 3,
+                    fill: false,
+                    pointRadius: 0,
+                    tension: 0,
+                    order: 1
+                }, {
+                    label: 'Supply',
+                    data: [20, 28, 36, 44, 52, 60, 68],
+                    borderColor: '#28a745',
+                    borderWidth: 3,
+                    fill: false,
+                    pointRadius: 0,
+                    tension: 0,
+                    order: 2
+                }, {
+                    label: 'P* = 60 (Equilibrium)',
+                    data: [60, 60, 60, 60, 60, 60, 60],
+                    borderColor: '#667eea',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    fill: false,
+                    order: 3
+                }, {
+                    label: 'Consumer Surplus (ABOVE P*)',
+                    data: [100, 92, 84, 76, 68, 60, 60],
+                    borderColor: 'transparent',
+                    backgroundColor: 'rgba(102, 126, 234, 0.4)',
+                    fill: '+2',
+                    pointRadius: 0,
+                    tension: 0,
+                    order: 4
+                }, {
+                    label: 'Producer Surplus (BELOW P*)',
+                    data: [20, 28, 36, 44, 52, 60, 60],
+                    borderColor: 'transparent',
+                    backgroundColor: 'rgba(255, 193, 7, 0.4)',
+                    fill: '-2',
+                    pointRadius: 0,
+                    tension: 0,
+                    order: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'CS is ABOVE P* (what consumers save) | PS is BELOW P* (what producers gain)',
+                        font: { size: 12 },
+                        color: '#666'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q*=50)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (P)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 3. Demand Shift Chart
+        const demandShiftCtx = document.getElementById('demandShiftChart').getContext('2d');
+        new Chart(demandShiftCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '20', '40', '60', '80', '100'],
+                datasets: [{
+                    label: 'Original Demand',
+                    data: [100, 85, 70, 55, 40, 25],
+                    borderColor: '#dc3545',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'New Demand (Shifted RIGHT)',
+                    data: [120, 105, 90, 75, 60, 45],
+                    borderColor: '#dc3545',
+                    backgroundColor: 'rgba(220, 53, 69, 0.2)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Supply',
+                    data: [20, 30, 40, 50, 60, 70],
+                    borderColor: '#28a745',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Movement OF the curve (shift) - not IN!',
+                        font: { size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (P)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 4. Supply Shift Chart
+        const supplyShiftCtx = document.getElementById('supplyShiftChart').getContext('2d');
+        new Chart(supplyShiftCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '20', '40', '60', '80', '100'],
+                datasets: [{
+                    label: 'Demand',
+                    data: [100, 85, 70, 55, 40, 25],
+                    borderColor: '#dc3545',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Original Supply',
+                    data: [30, 40, 50, 60, 70, 80],
+                    borderColor: '#28a745',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'New Supply (Shifted RIGHT)',
+                    data: [20, 30, 40, 50, 60, 70],
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.2)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (P)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 5. Price Floor Chart
+        const priceFloorCtx = document.getElementById('priceFloorChart').getContext('2d');
+        new Chart(priceFloorCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '20', '40', '60', '80', '100'],
+                datasets: [{
+                    label: 'Demand',
+                    data: [100, 85, 70, 55, 40, 25],
+                    borderColor: '#dc3545',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Supply',
+                    data: [20, 30, 40, 50, 60, 70],
+                    borderColor: '#28a745',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Price Floor (Pmin)',
+                    data: [65, 65, 65, 65, 65, 65],
+                    borderColor: '#ff6b6b',
+                    borderWidth: 4,
+                    borderDash: [10, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Equilibrium (P*)',
+                    data: [55, 55, 55, 55, 55, 55],
+                    borderColor: '#667eea',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Pmin > P* creates EXCESS SUPPLY (unemployment)',
+                        font: { size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (P)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 6. Price Ceiling Chart
+        const priceCeilingCtx = document.getElementById('priceCeilingChart').getContext('2d');
+        new Chart(priceCeilingCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '20', '40', '60', '80', '100'],
+                datasets: [{
+                    label: 'Demand',
+                    data: [100, 85, 70, 55, 40, 25],
+                    borderColor: '#dc3545',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Supply',
+                    data: [20, 30, 40, 50, 60, 70],
+                    borderColor: '#28a745',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Price Ceiling (Pmax)',
+                    data: [45, 45, 45, 45, 45, 45],
+                    borderColor: '#ff6b6b',
+                    borderWidth: 4,
+                    borderDash: [10, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Equilibrium (P*)',
+                    data: [55, 55, 55, 55, 55, 55],
+                    borderColor: '#667eea',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Pmax < P* creates EXCESS DEMAND (shortage)',
+                        font: { size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (P)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 7. Elasticity Chart
+        const elasticityCtx = document.getElementById('elasticityChart').getContext('2d');
+        new Chart(elasticityCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '20', '40', '60', '80', '100'],
+                datasets: [{
+                    label: 'Elastic Demand (DD - FLAT - responsive)',
+                    data: [80, 75, 70, 65, 60, 55],
+                    borderColor: '#17a2b8',
+                    backgroundColor: 'rgba(23, 162, 184, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Inelastic Demand (dd - STEEP - less responsive)',
+                    data: [100, 70, 40, 10, null, null],
+                    borderColor: '#ffc107',
+                    backgroundColor: 'rgba(255, 193, 7, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Flat = more affected by price | Steep = less affected',
+                        font: { size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (P)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 8. Pricing Strategy Chart
+        const pricingStrategyCtx = document.getElementById('pricingStrategyChart').getContext('2d');
+        new Chart(pricingStrategyCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '10', '20', '30', '40', '50'],
+                datasets: [{
+                    label: 'Demand',
+                    data: [100, 90, 80, 70, 60, 50],
+                    borderColor: '#dc3545',
+                    borderWidth: 3,
+                    fill: false,
+                    pointRadius: 0,
+                    tension: 0
+                }, {
+                    label: 'Consumer Surplus at P=60',
+                    data: [100, 90, 80, 70, 60, 60],
+                    borderColor: 'transparent',
+                    backgroundColor: 'rgba(102, 126, 234, 0.3)',
+                    fill: '+1',
+                    pointRadius: 0,
+                    tension: 0
+                }, {
+                    label: 'P = 60',
+                    data: [60, 60, 60, 60, 60, 60],
+                    borderColor: '#667eea',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: '"Consumers were willing to spend it all after all!"',
+                        font: { size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (P)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 9. Profit Maximization Chart
+        const profitMaxCtx = document.getElementById('profitMaxChart').getContext('2d');
+        new Chart(profitMaxCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '5', '10', '15', '20', '25', '30'],
+                datasets: [{
+                    label: 'Marginal Revenue (MR)',
+                    data: [100, 85, 70, 55, 40, 25, 10],
+                    borderColor: '#17a2b8',
+                    backgroundColor: 'rgba(23, 162, 184, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Marginal Cost (MC)',
+                    data: [20, 20, 20, 20, 20, 20, 20],
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Optimal Point (MR=MC)',
+                    data: [null, null, null, null, 20, null, null],
+                    borderColor: '#ff6b6b',
+                    backgroundColor: '#ff6b6b',
+                    pointRadius: 12,
+                    pointStyle: 'star',
+                    showLine: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Stop where MR = MC (marginal profit = 0)',
+                        font: { size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price / Cost (€)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 10. Competition vs Monopoly Chart (based on notes)
+        const competitionMonopolyCtx = document.getElementById('competitionMonopolyChart').getContext('2d');
+        new Chart(competitionMonopolyCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '8.5', '10', '17', '20', '30', '40', '50'],
+                datasets: [{
+                    label: 'Demand',
+                    data: [600, 400, null, 200, null, null, null, null],
+                    borderColor: '#17a2b8',
+                    backgroundColor: 'rgba(23, 162, 184, 0.1)',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Marginal Revenue (MR)',
+                    data: [600, null, null, null, null, null, null, -200],
+                    borderColor: '#dc3545',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'MC = 200',
+                    data: [200, 200, 200, 200, 200, 200, 200, 200],
+                    borderColor: '#28a745',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Monopoly (Q=8.5, P=400)',
+                    data: [null, 400, null, null, null, null, null, null],
+                    borderColor: '#ff6b6b',
+                    backgroundColor: '#ff6b6b',
+                    pointRadius: 12,
+                    pointStyle: 'circle',
+                    showLine: false
+                }, {
+                    label: 'Highly Comp (Q=17, P=200)',
+                    data: [null, null, null, 200, null, null, null, null],
+                    borderColor: '#667eea',
+                    backgroundColor: '#667eea',
+                    pointRadius: 12,
+                    pointStyle: 'circle',
+                    showLine: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Monopoly produces less, charges more',
+                        font: { size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity (Q)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price (P)',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 11. Tariff Chart
+        const tariffCtx = document.getElementById('tariffChart').getContext('2d');
+        new Chart(tariffCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '20', '40', '60', '80', '100', '120'],
+                datasets: [{
+                    label: 'Domestic Supply',
+                    data: [20, 35, 50, 65, 80, 95, 110],
+                    borderColor: '#28a745',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Domestic Demand',
+                    data: [100, 90, 80, 70, 60, 50, 40],
+                    borderColor: '#dc3545',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'World Price (Pw)',
+                    data: [45, 45, 45, 45, 45, 45, 45],
+                    borderColor: '#17a2b8',
+                    borderWidth: 2,
+                    borderDash: [10, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Price with Tariff (PT)',
+                    data: [55, 55, 55, 55, 55, 55, 55],
+                    borderColor: '#ffc107',
+                    borderWidth: 3,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Producer Surplus Gain',
+                    data: [20, 35, 50, 55, 55, 55, 55],
+                    borderColor: 'transparent',
+                    backgroundColor: 'rgba(40, 167, 69, 0.3)',
+                    fill: '+2',
+                    pointRadius: 0,
+                    tension: 0
+                }, {
+                    label: 'Government Revenue',
+                    data: [45, 45, 45, 55, 55, 55, 55],
+                    borderColor: 'transparent',
+                    backgroundColor: 'rgba(255, 193, 7, 0.3)',
+                    fill: '-2',
+                    pointRadius: 0,
+                    tension: 0
+                }, {
+                    label: 'Deadweight Loss (left)',
+                    data: [20, 35, 45, 45, 45, 45, 45],
+                    borderColor: 'transparent',
+                    backgroundColor: 'rgba(220, 53, 69, 0.3)',
+                    fill: '+2',
+                    pointRadius: 0,
+                    tension: 0
+                }, {
+                    label: 'Deadweight Loss (right)',
+                    data: [55, 55, 55, 70, 80, 90, 100],
+                    borderColor: 'transparent',
+                    backgroundColor: 'rgba(220, 53, 69, 0.3)',
+                    fill: '-1',
+                    pointRadius: 0,
+                    tension: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Tariff raises price from Pw to PT, creating government revenue and deadweight loss',
+                        font: { size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quantity',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Price',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 12. Minimum Wage Chart
+        const minimumWageCtx = document.getElementById('minimumWageChart').getContext('2d');
+        new Chart(minimumWageCtx, {
+            type: 'line',
+            data: {
+                labels: ['0', '10', '20', '30', '40', '50', '60'],
+                datasets: [{
+                    label: 'Labor Demand',
+                    data: [80, 70, 60, 50, 40, 30, 20],
+                    borderColor: '#dc3545',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Labor Supply',
+                    data: [20, 30, 40, 50, 60, 70, 80],
+                    borderColor: '#28a745',
+                    borderWidth: 3,
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Equilibrium Wage (W*)',
+                    data: [50, 50, 50, 50, 50, 50, 50],
+                    borderColor: '#667eea',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Minimum Wage',
+                    data: [60, 60, 60, 60, 60, 60, 60],
+                    borderColor: '#ff6b6b',
+                    borderWidth: 3,
+                    borderDash: [10, 5],
+                    pointRadius: 0,
+                    tension: 0,
+                    fill: false
+                }, {
+                    label: 'Unemployment Area',
+                    data: [20, 30, 40, 50, 60, 60, 60],
+                    borderColor: 'transparent',
+                    backgroundColor: 'rgba(255, 107, 107, 0.3)',
+                    fill: '-2',
+                    pointRadius: 0,
+                    tension: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Minimum wage above equilibrium creates unemployment (Ls > Ld)',
+                        font: { size: 12 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Labor Hours',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Wage',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

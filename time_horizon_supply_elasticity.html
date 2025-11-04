@@ -1,0 +1,350 @@
+<!-- Time Horizon Supply Elasticity - Multi-Panel Comparison -->
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 28px; border-radius: 8px; margin: 2rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h3 style="color: white; margin-top: 0; text-align: center; font-size: 1.5rem; margin-bottom: 0.5rem;">
+        ⏱️ Supply Elasticity Across Time Horizons
+    </h3>
+    <p style="color: rgba(255,255,255,0.9); text-align: center; margin: 0 0 1.5rem 0; font-size: 0.95rem; font-style: italic;">
+        How suppliers' ability to respond changes with time
+    </p>
+
+    <!-- Three-Panel Comparison -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+
+        <!-- Momentary Period (Market Period) -->
+        <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 16px;">
+                <h4 style="color: #dc2626; margin: 0 0 8px 0; font-size: 1.1rem;">
+                    Momentary Period
+                </h4>
+                <p style="color: #6b7280; margin: 0; font-size: 0.85rem; font-style: italic;">
+                    (Market Period: Seconds to Hours)
+                </p>
+            </div>
+
+            <!-- SVG Graph -->
+            <svg viewBox="0 0 280 220" style="max-width: 100%; height: auto; margin-bottom: 16px;">
+                <!-- Grid -->
+                <line x1="40" y1="180" x2="260" y2="180" stroke="#e5e7eb" stroke-width="1"/>
+                <line x1="40" y1="140" x2="260" y2="140" stroke="#e5e7eb" stroke-width="1"/>
+                <line x1="40" y1="100" x2="260" y2="100" stroke="#e5e7eb" stroke-width="1"/>
+                <line x1="40" y1="60" x2="260" y2="60" stroke="#e5e7eb" stroke-width="1"/>
+
+                <!-- Axes -->
+                <line x1="40" y1="20" x2="40" y2="200" stroke="#1f2937" stroke-width="2"/>
+                <line x1="40" y1="200" x2="260" y2="200" stroke="#1f2937" stroke-width="2"/>
+
+                <!-- Axis Labels -->
+                <text x="20" y="25" font-size="12" fill="#1f2937" font-weight="600">P</text>
+                <text x="255" y="215" font-size="12" fill="#1f2937" font-weight="600">Q</text>
+
+                <!-- Perfectly Inelastic Supply (Vertical Line) -->
+                <line x1="150" y1="30" x2="150" y2="195" stroke="#dc2626" stroke-width="3" stroke-dasharray="0"/>
+
+                <!-- Supply Label -->
+                <text x="160" y="50" font-size="13" fill="#dc2626" font-weight="700">S (PES = 0)</text>
+
+                <!-- Demand Curves (showing price changes) -->
+                <path d="M 60 40 L 240 180" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+                <text x="200" y="165" font-size="11" fill="#3b82f6" font-weight="600">D₁</text>
+
+                <path d="M 100 40 L 260 160" stroke="#3b82f6" stroke-width="2" opacity="0.6" stroke-dasharray="5,5"/>
+                <text x="230" y="145" font-size="11" fill="#3b82f6" font-weight="600">D₂</text>
+
+                <!-- Price levels -->
+                <line x1="35" y1="110" x2="45" y2="110" stroke="#dc2626" stroke-width="2"/>
+                <text x="10" y="115" font-size="11" fill="#dc2626">P₁</text>
+
+                <line x1="35" y1="70" x2="45" y2="70" stroke="#dc2626" stroke-width="2"/>
+                <text x="10" y="75" font-size="11" fill="#dc2626">P₂</text>
+
+                <!-- Quantity (fixed) -->
+                <line x1="150" y1="195" x2="150" y2="205" stroke="#dc2626" stroke-width="2"/>
+                <text x="140" y="215" font-size="11" fill="#dc2626">Q*</text>
+            </svg>
+
+            <!-- Characteristics -->
+            <div style="background: #fef2f2; padding: 14px; border-radius: 6px; border-left: 4px solid #dc2626;">
+                <strong style="color: #991b1b; display: block; margin-bottom: 8px; font-size: 0.95rem;">Characteristics:</strong>
+                <ul style="margin: 0; padding-left: 20px; color: #991b1b; font-size: 0.85rem; line-height: 1.6;">
+                    <li><strong>PES = 0</strong> (Perfectly Inelastic)</li>
+                    <li>Supply is <strong>fixed</strong></li>
+                    <li>No time to adjust production</li>
+                    <li>Price absorbs all demand changes</li>
+                </ul>
+            </div>
+
+            <!-- Example -->
+            <div style="margin-top: 12px; padding: 12px; background: #f9fafb; border-radius: 6px;">
+                <strong style="color: #374151; font-size: 0.9rem; display: block; margin-bottom: 6px;">📦 Example:</strong>
+                <p style="margin: 0; color: #6b7280; font-size: 0.85rem; line-height: 1.5;">
+                    Fresh fish at a market in the morning - the catch is fixed. Increased demand raises price; supply can't respond.
+                </p>
+            </div>
+        </div>
+
+        <!-- Short Run -->
+        <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 16px;">
+                <h4 style="color: #f59e0b; margin: 0 0 8px 0; font-size: 1.1rem;">
+                    Short Run
+                </h4>
+                <p style="color: #6b7280; margin: 0; font-size: 0.85rem; font-style: italic;">
+                    (Weeks to Months)
+                </p>
+            </div>
+
+            <!-- SVG Graph -->
+            <svg viewBox="0 0 280 220" style="max-width: 100%; height: auto; margin-bottom: 16px;">
+                <!-- Grid -->
+                <line x1="40" y1="180" x2="260" y2="180" stroke="#e5e7eb" stroke-width="1"/>
+                <line x1="40" y1="140" x2="260" y2="140" stroke="#e5e7eb" stroke-width="1"/>
+                <line x1="40" y1="100" x2="260" y2="100" stroke="#e5e7eb" stroke-width="1"/>
+                <line x1="40" y1="60" x2="260" y2="60" stroke="#e5e7eb" stroke-width="1"/>
+
+                <!-- Axes -->
+                <line x1="40" y1="20" x2="40" y2="200" stroke="#1f2937" stroke-width="2"/>
+                <line x1="40" y1="200" x2="260" y2="200" stroke="#1f2937" stroke-width="2"/>
+
+                <!-- Axis Labels -->
+                <text x="20" y="25" font-size="12" fill="#1f2937" font-weight="600">P</text>
+                <text x="255" y="215" font-size="12" fill="#1f2937" font-weight="600">Q</text>
+
+                <!-- Relatively Inelastic Supply (Steep) -->
+                <path d="M 80 180 L 200 40" stroke="#f59e0b" stroke-width="3"/>
+
+                <!-- Supply Label -->
+                <text x="170" y="65" font-size="13" fill="#f59e0b" font-weight="700">S_SR</text>
+                <text x="155" y="80" font-size="11" fill="#f59e0b">(PES &lt; 1)</text>
+
+                <!-- Demand Curves -->
+                <path d="M 60 40 L 240 180" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+                <text x="200" y="165" font-size="11" fill="#3b82f6" font-weight="600">D₁</text>
+
+                <path d="M 100 40 L 260 160" stroke="#3b82f6" stroke-width="2" opacity="0.6" stroke-dasharray="5,5"/>
+                <text x="230" y="145" font-size="11" fill="#3b82f6" font-weight="600">D₂</text>
+
+                <!-- Equilibrium Points -->
+                <circle cx="140" cy="100" r="4" fill="#f59e0b"/>
+                <circle cx="175" cy="70" r="4" fill="#f59e0b"/>
+
+                <!-- Price levels -->
+                <line x1="35" y1="100" x2="45" y2="100" stroke="#f59e0b" stroke-width="2"/>
+                <text x="10" y="105" font-size="11" fill="#f59e0b">P₁</text>
+
+                <line x1="35" y1="70" x2="45" y2="70" stroke="#f59e0b" stroke-width="2"/>
+                <text x="10" y="75" font-size="11" fill="#f59e0b">P₂</text>
+
+                <!-- Quantities -->
+                <line x1="140" y1="195" x2="140" y2="205" stroke="#f59e0b" stroke-width="2"/>
+                <text x="130" y="215" font-size="11" fill="#f59e0b">Q₁</text>
+
+                <line x1="175" y1="195" x2="175" y2="205" stroke="#f59e0b" stroke-width="2"/>
+                <text x="165" y="215" font-size="11" fill="#f59e0b">Q₂</text>
+            </svg>
+
+            <!-- Characteristics -->
+            <div style="background: #fef3c7; padding: 14px; border-radius: 6px; border-left: 4px solid #f59e0b;">
+                <strong style="color: #92400e; display: block; margin-bottom: 8px; font-size: 0.95rem;">Characteristics:</strong>
+                <ul style="margin: 0; padding-left: 20px; color: #92400e; font-size: 0.85rem; line-height: 1.6;">
+                    <li><strong>0 &lt; PES &lt; 1</strong> (Inelastic)</li>
+                    <li>Some ability to adjust</li>
+                    <li>Variable inputs can change</li>
+                    <li>Fixed inputs remain constant</li>
+                </ul>
+            </div>
+
+            <!-- Example -->
+            <div style="margin-top: 12px; padding: 12px; background: #f9fafb; border-radius: 6px;">
+                <strong style="color: #374151; font-size: 0.9rem; display: block; margin-bottom: 6px;">🏭 Example:</strong>
+                <p style="margin: 0; color: #6b7280; font-size: 0.85rem; line-height: 1.5;">
+                    Factory hiring more workers and adding shifts, but can't expand building or buy new machinery yet.
+                </p>
+            </div>
+        </div>
+
+        <!-- Long Run -->
+        <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 16px;">
+                <h4 style="color: #10b981; margin: 0 0 8px 0; font-size: 1.1rem;">
+                    Long Run
+                </h4>
+                <p style="color: #6b7280; margin: 0; font-size: 0.85rem; font-style: italic;">
+                    (Years)
+                </p>
+            </div>
+
+            <!-- SVG Graph -->
+            <svg viewBox="0 0 280 220" style="max-width: 100%; height: auto; margin-bottom: 16px;">
+                <!-- Grid -->
+                <line x1="40" y1="180" x2="260" y2="180" stroke="#e5e7eb" stroke-width="1"/>
+                <line x1="40" y1="140" x2="260" y2="140" stroke="#e5e7eb" stroke-width="1"/>
+                <line x1="40" y1="100" x2="260" y2="100" stroke="#e5e7eb" stroke-width="1"/>
+                <line x1="40" y1="60" x2="260" y2="60" stroke="#e5e7eb" stroke-width="1"/>
+
+                <!-- Axes -->
+                <line x1="40" y1="20" x2="40" y2="200" stroke="#1f2937" stroke-width="2"/>
+                <line x1="40" y1="200" x2="260" y2="200" stroke="#1f2937" stroke-width="2"/>
+
+                <!-- Axis Labels -->
+                <text x="20" y="25" font-size="12" fill="#1f2937" font-weight="600">P</text>
+                <text x="255" y="215" font-size="12" fill="#1f2937" font-weight="600">Q</text>
+
+                <!-- Relatively Elastic Supply (Flat) -->
+                <path d="M 50 150 L 240 60" stroke="#10b981" stroke-width="3"/>
+
+                <!-- Supply Label -->
+                <text x="190" y="75" font-size="13" fill="#10b981" font-weight="700">S_LR</text>
+                <text x="180" y="90" font-size="11" fill="#10b981">(PES &gt; 1)</text>
+
+                <!-- Demand Curves -->
+                <path d="M 60 40 L 240 180" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+                <text x="200" y="165" font-size="11" fill="#3b82f6" font-weight="600">D₁</text>
+
+                <path d="M 100 40 L 260 160" stroke="#3b82f6" stroke-width="2" opacity="0.6" stroke-dasharray="5,5"/>
+                <text x="230" y="145" font-size="11" fill="#3b82f6" font-weight="600">D₂</text>
+
+                <!-- Equilibrium Points -->
+                <circle cx="125" cy="115" r="4" fill="#10b981"/>
+                <circle cx="185" cy="90" r="4" fill="#10b981"/>
+
+                <!-- Price levels -->
+                <line x1="35" y1="115" x2="45" y2="115" stroke="#10b981" stroke-width="2"/>
+                <text x="10" y="120" font-size="11" fill="#10b981">P₁</text>
+
+                <line x1="35" y1="90" x2="45" y2="90" stroke="#10b981" stroke-width="2"/>
+                <text x="10" y="95" font-size="11" fill="#10b981">P₂</text>
+
+                <!-- Quantities -->
+                <line x1="125" y1="195" x2="125" y2="205" stroke="#10b981" stroke-width="2"/>
+                <text x="115" y="215" font-size="11" fill="#10b981">Q₁</text>
+
+                <line x1="185" y1="195" x2="185" y2="205" stroke="#10b981" stroke-width="2"/>
+                <text x="175" y="215" font-size="11" fill="#10b981">Q₂</text>
+
+                <!-- Show larger quantity response -->
+                <path d="M 125 180 L 185 180" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+            </svg>
+
+            <!-- Characteristics -->
+            <div style="background: #f0fdf4; padding: 14px; border-radius: 6px; border-left: 4px solid #10b981;">
+                <strong style="color: #166534; display: block; margin-bottom: 8px; font-size: 0.95rem;">Characteristics:</strong>
+                <ul style="margin: 0; padding-left: 20px; color: #166534; font-size: 0.85rem; line-height: 1.6;">
+                    <li><strong>PES &gt; 1</strong> (Elastic)</li>
+                    <li>Full flexibility to adjust</li>
+                    <li>All inputs can vary</li>
+                    <li>Entry/exit possible</li>
+                </ul>
+            </div>
+
+            <!-- Example -->
+            <div style="margin-top: 12px; padding: 12px; background: #f9fafb; border-radius: 6px;">
+                <strong style="color: #374151; font-size: 0.9rem; display: block; margin-bottom: 6px;">🏗️ Example:</strong>
+                <p style="margin: 0; color: #6b7280; font-size: 0.85rem; line-height: 1.5;">
+                    New factories built, technology upgraded, firms enter/exit market. Full adjustment to demand changes.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Comparison Summary -->
+    <div style="background: rgba(255,255,255,0.95); padding: 24px; border-radius: 8px; margin-top: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h4 style="color: #1f2937; margin-top: 0; text-align: center; margin-bottom: 20px;">
+            📊 Elasticity Progression Summary
+        </h4>
+
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+            <thead>
+                <tr style="background: #f3f4f6;">
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #d1d5db; color: #1f2937;">Time Horizon</th>
+                    <th style="padding: 12px; text-align: center; border-bottom: 2px solid #d1d5db; color: #1f2937;">PES Value</th>
+                    <th style="padding: 12px; text-align: center; border-bottom: 2px solid #d1d5db; color: #1f2937;">Supply Curve</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #d1d5db; color: #1f2937;">Adjustability</th>
+                    <th style="padding: 12px; text-align: center; border-bottom: 2px solid #d1d5db; color: #1f2937;">Price Volatility</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #fef2f2;">
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;"><strong style="color: #dc2626;">Momentary</strong></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;"><strong style="color: #dc2626;">0</strong></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">Vertical</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">None</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">
+                        <span style="background: #dc2626; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Very High</span>
+                    </td>
+                </tr>
+                <tr style="background: #fef3c7;">
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;"><strong style="color: #f59e0b;">Short Run</strong></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;"><strong style="color: #f59e0b;">0 - 1</strong></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">Steep</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">Variable inputs only</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">
+                        <span style="background: #f59e0b; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Moderate</span>
+                    </td>
+                </tr>
+                <tr style="background: #f0fdf4;">
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;"><strong style="color: #10b981;">Long Run</strong></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;"><strong style="color: #10b981;">&gt; 1</strong></td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">Flat</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">All inputs + entry/exit</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">
+                        <span style="background: #10b981; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">Low</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Key Insights -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 20px;">
+
+        <div style="background: rgba(255,255,255,0.95); padding: 18px; border-radius: 8px; border-left: 4px solid #667eea;">
+            <div style="display: flex; align-items: start; gap: 10px;">
+                <span style="font-size: 1.3rem;">⏰</span>
+                <div>
+                    <strong style="color: #1f2937; display: block; margin-bottom: 6px;">Time = Flexibility</strong>
+                    <p style="margin: 0; color: #4b5563; font-size: 0.85rem; line-height: 1.6;">
+                        The longer the time horizon, the more elastic supply becomes as firms can adjust more factors of production.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.95); padding: 18px; border-radius: 8px; border-left: 4px solid #10b981;">
+            <div style="display: flex; align-items: start; gap: 10px;">
+                <span style="font-size: 1.3rem;">💰</span>
+                <div>
+                    <strong style="color: #1f2937; display: block; margin-bottom: 6px;">Price Volatility</strong>
+                    <p style="margin: 0; color: #4b5563; font-size: 0.85rem; line-height: 1.6;">
+                        When supply is inelastic (short run), prices fluctuate more in response to demand changes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.95); padding: 18px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+            <div style="display: flex; align-items: start; gap: 10px;">
+                <span style="font-size: 1.3rem;">🎯</span>
+                <div>
+                    <strong style="color: #1f2937; display: block; margin-bottom: 6px;">Policy Implications</strong>
+                    <p style="margin: 0; color: #4b5563; font-size: 0.85rem; line-height: 1.6;">
+                        Short-run policies may cause large price swings; long-run policies allow smoother adjustments.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Formula Reference -->
+    <div style="background: rgba(255,255,255,0.95); padding: 20px; border-radius: 8px; margin-top: 20px;">
+        <h4 style="color: #1f2937; margin-top: 0; margin-bottom: 12px; text-align: center;">📐 Elasticity Formula</h4>
+        <div style="text-align: center; font-size: 1.1rem; color: #374151; background: #f9fafb; padding: 16px; border-radius: 6px; font-family: 'Courier New', monospace;">
+            PES = <span style="font-size: 1.3rem; color: #667eea; font-weight: bold;">% Change in Quantity Supplied</span> / <span style="font-size: 1.3rem; color: #10b981; font-weight: bold;">% Change in Price</span>
+        </div>
+        <p style="text-align: center; margin: 12px 0 0 0; color: #6b7280; font-size: 0.85rem; font-style: italic;">
+            Higher PES = More responsive supply = Flatter curve
+        </p>
+    </div>
+
+</div>

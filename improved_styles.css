@@ -1,0 +1,459 @@
+/* IMPROVED TYPOGRAPHY - Base font size 16px, line height 1.6 */
+p, li {
+font-size: 16px;
+line-height: 1.6;
+color: #334155;
+margin-bottom: 1rem;
+}
+
+/* Shorter paragraphs - add extra spacing */
+p + p {
+margin-top: 1.2rem;
+}
+
+/* List improvements - better spacing */
+ul, ol {
+list-style-type: disc;
+padding-left: 1.5rem;
+margin-bottom: 1rem;
+}
+
+li {
+margin-bottom: 10px;
+}
+
+li:last-child {
+margin-bottom: 0;
+}
+
+/* ENHANCED HEADERS - Increased size, better spacing, clear hierarchy */
+h2 {
+font-size: 3.6rem;
+font-weight: 800;
+color: #1e293b;
+padding: 3.5rem 0 2rem 0;
+margin: 4.5rem 0 3rem 0;
+border-bottom: 3px solid #e2e8f0;
+position: relative;
+letter-spacing: -1px;
+text-transform: none;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+}
+
+h2::before {
+content: '';
+position: absolute;
+top: 0;
+left: -2.5rem;
+width: 6px;
+height: 100%;
+background: #667eea;
+border-radius: 3px;
+}
+
+h2::after {
+content: '';
+position: absolute;
+bottom: -3px;
+left: 0;
+width: 200px;
+height: 3px;
+background: #667eea;
+border-radius: 2px;
+}
+
+h3 {
+font-size: 2rem;
+font-weight: 700;
+color: #334155;
+margin-top: 3.5rem;
+margin-bottom: 2rem;
+padding-left: 1.5rem;
+border-left: 4px solid #667eea;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+background: #f8fafc;
+padding: 1.5rem 1.5rem 1.5rem 2rem;
+border-radius: 8px;
+}
+
+h4 {
+font-size: 18px;
+font-weight: 700;
+color: #475569;
+margin-top: 2.5rem;
+margin-bottom: 1.2rem;
+padding-bottom: 0.75rem;
+border-bottom: 2px solid #e2e8f0;
+position: relative;
+}
+
+h4::before {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 0;
+width: 80px;
+height: 2px;
+background: #667eea;
+}
+
+/* STANDARDIZED BOX STYLING - All boxes use consistent border-radius, padding, and shadows */
+.key-concept {
+background: #f0f4ff;
+border-left: 4px solid #667eea;
+padding: 28px;
+margin: 2.5rem 0;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+}
+
+.key-concept:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.key-concept p:last-child {
+margin-bottom: 0;
+}
+
+.formula-box {
+background: #faf5ff;
+border: 2px solid #a78bfa;
+padding: 28px;
+margin: 2.5rem 0;
+border-radius: 8px;
+text-align: center;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+transition: all 0.3s ease;
+}
+
+.formula-box:hover {
+transform: scale(1.01);
+box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.formula-box .formula-label {
+font-weight: 700;
+font-size: 1.2rem;
+color: #7c3aed;
+margin-bottom: 1.2rem;
+display: block;
+letter-spacing: 0.5px;
+}
+
+/* Mathematical content - better formula highlighting */
+.formula-box .mjx-math {
+background: white;
+padding: 1rem 1.5rem;
+border-radius: 6px;
+display: inline-block;
+margin: 0.5rem 0;
+box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.example-box {
+background: #fef9e7;
+border-left: 4px solid #f59e0b;
+padding: 28px;
+margin: 2.5rem 0;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+transition: all 0.3s ease;
+position: relative;
+}
+
+.example-box:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.example-box h4 {
+color: #d97706;
+margin-top: 0;
+font-weight: 700;
+}
+
+.warning-box {
+background: #fef2f2;
+border-left: 4px solid #ef4444;
+padding: 28px;
+margin: 2.5rem 0;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+transition: all 0.3s ease;
+position: relative;
+}
+
+.warning-box:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.warning-box h4 {
+color: #dc2626;
+margin-top: 0;
+font-weight: 700;
+}
+
+.important-note {
+background: #eff6ff;
+border-left: 4px solid #3b82f6;
+padding: 28px;
+margin: 2.5rem 0;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+transition: all 0.3s ease;
+position: relative;
+}
+
+.important-note:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.important-note h4 {
+color: #2563eb;
+margin-top: 0;
+font-weight: 700;
+}
+
+.question-card {
+background: white;
+border: 2px solid #e5e7eb;
+border-radius: 8px;
+padding: 28px;
+margin: 1.5rem 0;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.answer-inner {
+background: #f0fdf4;
+border: 2px solid #10b981;
+border-radius: 8px;
+padding: 28px;
+margin-top: 1rem;
+}
+
+.question-block {
+background: white;
+border-left: 4px solid #667eea;
+padding: 28px;
+margin: 2rem 0;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.graph-container {
+background: white;
+border: 2px solid #e5e7eb;
+border-radius: 8px;
+padding: 28px;
+margin: 2rem 0;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.content-card {
+background: white;
+border-radius: 8px;
+padding: 28px;
+margin: 2rem 0;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+border: 1px solid #e5e7eb;
+transition: all 0.3s ease;
+}
+
+.content-card:hover {
+box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+transform: translateY(-2px);
+}
+
+/* Step number badges for mathematical solutions */
+.step-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 32px;
+height: 32px;
+background: #667eea;
+color: white;
+border-radius: 50%;
+font-weight: 700;
+font-size: 14px;
+margin-right: 12px;
+flex-shrink: 0;
+}
+
+.step-container {
+display: flex;
+align-items: flex-start;
+margin: 1.5rem 0;
+}
+
+.step-content {
+flex: 1;
+}
+
+/* Subsection title enhancements */
+.subsection-title-enhanced {
+font-size: 1.8rem;
+font-weight: 700;
+color: #334155;
+margin-top: 3rem;
+margin-bottom: 1.5rem;
+padding: 1.2rem 1.5rem;
+background: #f8fafc;
+border-left: 4px solid #667eea;
+border-radius: 8px;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+}
+
+/* COLOR REFINEMENTS - Limited palette with WCAG AA compliance */
+/* Primary color: #667eea (indigo) */
+/* Secondary colors: muted versions */
+
+/* Remove bright gradients from navigation */
+.nav-pills button.active {
+background: #667eea;
+color: white;
+border-color: transparent;
+box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.nav-pills button:hover {
+background: #f8fafc;
+border-color: #667eea;
+transform: translateY(-1px);
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Simplify collapsible button styling */
+.collapsible {
+background: #667eea;
+color: white;
+cursor: pointer;
+padding: 1.2rem 1.5rem;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 8px;
+margin: 0.75rem 0;
+transition: all 0.3s ease;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.collapsible:hover {
+background: #5a67d8;
+transform: translateY(-1px);
+box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Muted button colors */
+.show-answer-btn {
+background: #10b981;
+color: white;
+padding: 0.75rem 1.5rem;
+border: none;
+border-radius: 8px;
+font-weight: 600;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+transition: all 0.3s ease;
+margin-top: 1rem;
+font-size: 1rem;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.show-answer-btn:hover {
+background: #059669;
+transform: translateY(-1px);
+box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Inline styles standardization for boxes with background colors */
+[style*="background: #d1fae5"],
+[style*="background: linear-gradient(135deg, #d1fae5"],
+div[style*="border-left: 4px solid #10b981"] {
+background: #f0fdf4 !important;
+border-left: 4px solid #10b981 !important;
+padding: 28px !important;
+border-radius: 8px !important;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+[style*="background: #fef3c7"],
+[style*="background: linear-gradient(135deg, #fef3c7"],
+div[style*="border-left: 5px solid #f59e0b"],
+div[style*="border-left: 4px solid #f59e0b"] {
+background: #fef9e7 !important;
+border-left: 4px solid #f59e0b !important;
+padding: 28px !important;
+border-radius: 8px !important;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+[style*="background: #fee2e2"],
+[style*="background: linear-gradient(135deg, #fee2e2"] {
+background: #fef2f2 !important;
+border-left: 4px solid #ef4444 !important;
+padding: 28px !important;
+border-radius: 8px !important;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+
+/* Exercise tabs - consistent styling */
+.exercise-tabs {
+display: flex;
+gap: 0.5rem;
+margin: 2rem 0 1.5rem 0;
+flex-wrap: wrap;
+border-bottom: 2px solid #e2e8f0;
+padding-bottom: 0.5rem;
+}
+
+.exercise-tab {
+padding: 0.75rem 1.5rem;
+background: white;
+color: #475569;
+border: 2px solid #e2e8f0;
+border-radius: 8px 8px 0 0;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.exercise-tab:hover {
+background: #f8fafc;
+border-color: #667eea;
+}
+
+.exercise-tab.active {
+background: #667eea;
+color: white;
+border-color: #667eea;
+}
+
+.exercise-content {
+display: none;
+padding: 2rem 0;
+}
+
+.exercise-content.active {
+display: block;
+}

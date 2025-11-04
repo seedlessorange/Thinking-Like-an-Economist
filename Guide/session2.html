@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 2: How Markets Work | Managerial Economics</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Navigation */
+.top-nav {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #667eea;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #667eea;
+}
+
+.nav-session-selector {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-session-selector:hover {
+  border-color: #667eea;
+}
+
+/* Main Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header */
+.session-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.session-number {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.session-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.session-description {
+  font-size: 1.125rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+/* Content Card */
+.content-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title i {
+  color: #667eea;
+}
+
+.subsection-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Key Concepts */
+.key-concepts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.concept-card {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.concept-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.75rem;
+}
+
+.concept-card p {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 0.925rem;
+}
+
+/* Formula Box */
+.formula-box {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+  margin: 1.5rem 0;
+}
+
+.formula-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Example Box */
+.example-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #10b981;
+  margin: 1.5rem 0;
+}
+
+.example-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Warning Box */
+.warning-box {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #ef4444;
+  margin: 1.5rem 0;
+}
+
+.warning-box h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Graph Container */
+.graph-container {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.graph-title {
+  font-weight: 600;
+  color: #374151;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+canvas {
+  max-width: 100%;
+  height: 400px !important;
+}
+
+/* Problem Set Section */
+.problem-set-section {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border: 3px solid #667eea;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin: 3rem 0;
+}
+
+.problem-set-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #667eea;
+}
+
+.problem-set-icon {
+  font-size: 3rem;
+}
+
+.problem-set-title {
+  flex: 1;
+}
+
+.problem-set-title h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.problem-set-title p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.question-block {
+  background: white;
+  border-left: 4px solid #667eea;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.question-number {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.answer-block {
+  background: #f0fdf4;
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.answer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.key-insight {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.key-insight-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #d97706;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 1.5rem;
+  margin-top: 0.75rem;
+  line-height: 1.8;
+}
+
+li {
+  margin: 0.5rem 0;
+  color: #374151;
+}
+
+strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.nav-btn.secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.nav-btn.secondary:hover {
+  background: #f9fafb;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+/* Enhanced Title Styles */
+.major-section-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin: 3rem 0 2rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subsection-title-enhanced {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 6px solid #667eea;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 1.5rem 0;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.subsection-title-enhanced i {
+  color: #667eea;
+  font-size: 1.75rem;
+}
+
+/* Collapsible Answer Styles */
+.question-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.question-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.question-number-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.question-text {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.show-answer-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.show-answer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.show-answer-btn i {
+  transition: transform 0.3s ease;
+}
+
+.show-answer-btn.active i {
+  transform: rotate(180deg);
+}
+
+.answer-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.answer-content.show {
+  max-height: 8000px;
+}
+
+.answer-inner {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.answer-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #059669;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.answer-label i {
+  font-size: 1.3rem;
+}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <i class="fas fa-graduation-cap"></i>
+      Managerial Economics
+    </a>
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <select class="nav-session-selector" onchange="if(this.value) window.location.href=this.value">
+        <option value="">Jump to Session...</option>
+        <option value="session1.html">Session 1: Thinking Like an Economist</option>
+        <option value="session2.html" selected>Session 2: How Markets Work</option>
+        <option value="session3.html">Session 3: S&D Case Studies</option>
+        <option value="session4.html">Session 4: Pricing Strategies</option>
+        <option value="session5.html">Session 5: Cost and Supply</option>
+        <option value="session6.html">Session 6: Competition & Strategy</option>
+        <option value="session7.html">Session 7: Dominant Firms</option>
+      </select>
+      <a href="problem_sets_with_answers.html"><i class="fas fa-list-check"></i> All Problem Sets</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Container -->
+<div class="container">
+
+  <!-- Session Header -->
+  <div class="session-header">
+    <div class="session-number">Session 2</div>
+    <h1>📈 How Markets Work - The Basics</h1>
+    <p class="session-description">
+      Understanding supply and demand, market equilibrium, comparative statics, and welfare analysis. This session lays the foundation for all market analysis.
+    </p>
+  </div>
+
+  <!-- Learning Objectives -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-bullseye"></i>
+      Learning Objectives
+    </h2>
+    <div class="key-concepts">
+      <div class="concept-card">
+        <h4>Understand Supply & Demand</h4>
+        <p>Master the fundamental forces that determine prices and quantities in markets.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Analyze Equilibrium</h4>
+        <p>Find market-clearing prices and understand stability conditions.</p>
+      </div>
+      <div class="concept-card">
+        <h4>Perform Comparative Statics</h4>
+        <p>Predict how markets respond to changes in conditions (shifts).</p>
+      </div>
+      <div class="concept-card">
+        <h4>Calculate Welfare</h4>
+        <p>Measure consumer surplus, producer surplus, and deadweight loss.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Concepts -->
+  <div class="content-card">
+    <h2 class="section-title">
+      <i class="fas fa-brain"></i>
+      Core Concepts
+    </h2>
+
+    <div class="subsection-title-enhanced">
+      <i class="fas fa-chart-line"></i>
+      1. The Demand Curve
+    </div>
+    <p>The demand curve shows the relationship between price and quantity demanded, holding all other factors constant (ceteris paribus).</p>
+
+    <div class="formula-box">
+      <h4><i class="fas fa-calculator"></i> Demand Function</h4>
+      <p style="text-align: center; font-size: 1.125rem; margin-top: 1rem;">
+        $$Q_d = f(P, I, P_s, P_c, T, E)$$
+      </p>
+      <p style="margin-top: 1rem; color: #6b7280;">
+        Where: Q<sub>d</sub> = quantity demanded, P = price, I = income, P<sub>s</sub> = price of substitutes,
+        P<sub>c</sub> = price of complements, T = tastes, E = expectations
+      </p>
+    </div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-lightbulb"></i> Law of Demand</h4>
+      <p>As price increases, quantity demanded decreases (inverse relationship).</p>
+      <ul>
+        <li><strong>Why?</strong> Higher prices → Lower purchasing power, Substitution effect</li>
+        <li><strong>Slope:</strong> Downward sloping (negative slope)</li>
+        <li><strong>Movement vs. Shift:</strong> Price change = movement ALONG curve; Other factors = SHIFT of curve</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title-enhanced">
+      <i class="fas fa-industry"></i>
+      2. The Supply Curve
+    </div>
+    <p>The supply curve shows the relationship between price and quantity supplied.</p>
+
+    <div class="formula-box">
+      <h4><i class="fas fa-calculator"></i> Supply Function</h4>
+      <p style="text-align: center; font-size: 1.125rem; margin-top: 1rem;">
+        $$Q_s = g(P, C, T, E)$$
+      </p>
+      <p style="margin-top: 1rem; color: #6b7280;">
+        Where: Q<sub>s</sub> = quantity supplied, P = price, C = costs (inputs, technology),
+        T = taxes/subsidies, E = expectations
+      </p>
+    </div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-lightbulb"></i> Law of Supply</h4>
+      <p>As price increases, quantity supplied increases (positive relationship).</p>
+      <ul>
+        <li><strong>Why?</strong> Higher prices → More profitable to produce</li>
+        <li><strong>Slope:</strong> Upward sloping (positive slope)</li>
+        <li><strong>Short run vs. Long run:</strong> Supply more elastic in long run (more time to adjust)</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title-enhanced">
+      <i class="fas fa-balance-scale"></i>
+      3. Market Equilibrium
+    </div>
+    <p>Equilibrium occurs where supply equals demand. At this point, there is no tendency for price or quantity to change.</p>
+
+    <div class="graph-container">
+      <div class="graph-title">Market Equilibrium</div>
+      <canvas id="equilibriumGraph"></canvas>
+    </div>
+
+    <div class="formula-box">
+      <h4><i class="fas fa-equals"></i> Equilibrium Condition</h4>
+      <p style="text-align: center; font-size: 1.125rem; margin-top: 1rem;">
+        $$Q_d = Q_s$$
+      </p>
+      <p style="margin-top: 1rem; color: #6b7280;">
+        At equilibrium price P*, quantity demanded equals quantity supplied (Q*)
+      </p>
+    </div>
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-star"></i>
+        <span>Key Properties of Equilibrium</span>
+      </div>
+      <ul>
+        <li><strong>Market clearing:</strong> No shortage or surplus</li>
+        <li><strong>Stability:</strong> If price ≠ P*, market forces push toward P*</li>
+        <li><strong>Efficiency:</strong> Maximizes total surplus (assuming no externalities)</li>
+        <li><strong>Dynamic:</strong> Equilibrium changes when supply or demand shifts</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title-enhanced">
+      <i class="fas fa-arrows-alt"></i>
+      4. Comparative Statics
+    </div>
+    <p>Analysis of how equilibrium changes when underlying conditions change.</p>
+
+    <div class="graph-container">
+      <div class="graph-title">Comparative Statics: Demand Increase</div>
+      <canvas id="demandShiftGraph"></canvas>
+    </div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-chart-line"></i> Demand Shifts (Rightward)</h4>
+      <p><strong>Causes:</strong></p>
+      <ul>
+        <li>Income increases (normal good)</li>
+        <li>Price of substitute increases</li>
+        <li>Price of complement decreases</li>
+        <li>Tastes change in favor of good</li>
+        <li>Expectations of future price increase</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>Effect:</strong> Price ↑, Quantity ↑</p>
+    </div>
+
+    <div class="graph-container">
+      <div class="graph-title">Comparative Statics: Supply Decrease</div>
+      <canvas id="supplyShiftGraph"></canvas>
+    </div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-chart-line"></i> Supply Shifts (Leftward)</h4>
+      <p><strong>Causes:</strong></p>
+      <ul>
+        <li>Input costs increase</li>
+        <li>Technology worsens (rare)</li>
+        <li>Taxes increase or subsidies decrease</li>
+        <li>Natural disaster</li>
+        <li>Expectations of future price increase</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>Effect:</strong> Price ↑, Quantity ↓</p>
+    </div>
+
+    <div class="warning-box">
+      <h4><i class="fas fa-exclamation-triangle"></i> Double Shifts</h4>
+      <p>When both supply and demand shift simultaneously:</p>
+      <ul>
+        <li>If both shift <strong>right</strong>: Q ↑ definitely, P effect ambiguous</li>
+        <li>If both shift <strong>left</strong>: Q ↓ definitely, P effect ambiguous</li>
+        <li>If shifts in <strong>opposite directions</strong>: Need to know relative magnitudes</li>
+      </ul>
+      <p style="margin-top: 1rem; font-weight: 600;">Rule: One effect is always ambiguous when both curves shift!</p>
+    </div>
+
+    <div class="subsection-title-enhanced">
+      <i class="fas fa-dollar-sign"></i>
+      5. Consumer and Producer Surplus
+    </div>
+    <p>Measures of welfare (benefit) that market participants receive.</p>
+
+    <div class="graph-container">
+      <div class="graph-title">Consumer and Producer Surplus</div>
+      <canvas id="surplusGraph"></canvas>
+    </div>
+
+    <div class="formula-box">
+      <h4><i class="fas fa-calculator"></i> Welfare Measures</h4>
+      <p><strong>Consumer Surplus (CS):</strong> Difference between willingness to pay and actual price paid</p>
+      <p style="text-align: center; margin: 1rem 0;">
+        $$CS = \int_0^{Q*} P_d(Q) \, dQ - P* \times Q*$$
+      </p>
+      <p style="margin-top: 1.5rem;"><strong>Producer Surplus (PS):</strong> Difference between price received and willingness to supply</p>
+      <p style="text-align: center; margin: 1rem 0;">
+        $$PS = P* \times Q* - \int_0^{Q*} P_s(Q) \, dQ$$
+      </p>
+      <p style="margin-top: 1.5rem;"><strong>Total Surplus:</strong></p>
+      <p style="text-align: center; margin: 1rem 0;">
+        $$TS = CS + PS$$
+      </p>
+    </div>
+
+    <div class="example-box">
+      <h4><i class="fas fa-lightbulb"></i> Graphical Interpretation</h4>
+      <ul>
+        <li><strong>Consumer Surplus:</strong> Area between demand curve and price (triangle above P*)</li>
+        <li><strong>Producer Surplus:</strong> Area between price and supply curve (triangle below P*)</li>
+        <li><strong>Total Surplus:</strong> Sum of both triangles</li>
+        <li><strong>Deadweight Loss:</strong> Reduction in total surplus due to market distortions</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Problem Set 2 -->
+  <div class="problem-set-section">
+    <div class="problem-set-header">
+      <div class="problem-set-icon">📝</div>
+      <div class="problem-set-title">
+        <h2>Problem Set 2: Comparative Statics</h2>
+        <p>Apply supply and demand analysis to real-world scenarios</p>
+      </div>
+    </div>
+
+    <!-- Exercise 1 -->
+    <div class="question-block">
+      <div class="question-number">Exercise 1: News Story Analysis</div>
+      <p><strong>Task:</strong> Illustrate the following news stories using supply and demand graphs.</p>
+
+      <!-- Question 1a -->
+      <div class="question-card">
+        <div class="question-header">
+          <div class="question-number-badge">1a</div>
+          <div class="question-text">
+            <strong>Norway Oil Strike</strong><br>
+            <em>"Norway's Equinor is temporarily shutting down three oil and gas fields after workers went on strike, intensifying regional supply troubles and pushing European gas prices to a four-month high."</em>
+          </div>
+        </div>
+
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">
+          <i class="fas fa-chevron-down"></i>
+          Show Answer
+        </button>
+
+        <div class="answer-content">
+          <div class="answer-inner">
+            <div class="answer-label">
+              <i class="fas fa-check-circle"></i>
+              Answer & Explanation
+            </div>
+            <p><strong>Analysis:</strong> The shutdown reduces supply. The supply curve shifts left, driving quantity down and prices up.</p>
+
+            <div class="graph-container">
+              <div class="graph-title">Oil Market: Supply Shock from Strike</div>
+              <canvas id="oilStrikeGraph"></canvas>
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Economic Reasoning:</strong></p>
+            <ol>
+              <li>Strike reduces production capacity → Supply decreases</li>
+              <li>Supply curve shifts from S₀ to S₁ (leftward)</li>
+              <li>New equilibrium: Lower quantity (Q₀ → Q₁), Higher price (P₀ → P₁)</li>
+              <li>This creates a supply shortage at the original price</li>
+            </ol>
+
+            <div class="key-insight">
+              <div class="key-insight-header">
+                <i class="fas fa-brain"></i>
+                <span>Short-run vs. Long-run</span>
+              </div>
+              <p><strong>Short run:</strong> Supply shock causes large price increase (supply inelastic)</p>
+              <p><strong>Long run:</strong> Other producers can increase output, substitutes emerge → Price effect moderates</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 1b -->
+      <div class="question-card">
+        <div class="question-header">
+          <div class="question-number-badge">1b</div>
+          <div class="question-text">
+            <strong>Car Dealer Market - Pandemic Effects</strong><br>
+            <em>"Fewer choices and higher prices" - pandemic shut down production for two months, but buyers came back sooner than expected.</em>
+          </div>
+        </div>
+
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">
+          <i class="fas fa-chevron-down"></i>
+          Show Answer
+        </button>
+
+        <div class="answer-content">
+          <div class="answer-inner">
+            <div class="answer-label">
+              <i class="fas fa-check-circle"></i>
+              Answer & Explanation
+            </div>
+            <p><strong>Analysis:</strong> This is a <strong>double shift</strong> scenario - both supply and demand change.</p>
+
+            <div class="graph-container">
+              <div class="graph-title">Car Market: Supply Decrease + Demand Increase</div>
+              <canvas id="carMarketGraph"></canvas>
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Economic Reasoning:</strong></p>
+            <ul>
+              <li><strong>Supply side:</strong> Production shutdown → Supply decreases (S₀ → S₁)</li>
+              <li><strong>Demand side:</strong> Buyers return quickly → Demand increases (D₀ → D₁)</li>
+              <li><strong>Price effect:</strong> UNAMBIGUOUS INCREASE (both shifts push prices up)</li>
+              <li><strong>Quantity effect:</strong> AMBIGUOUS (depends on relative magnitude of shifts)</li>
+              <li>Article states "fewer choices" → Supply effect dominates, so Q₁ < Q₀</li>
+            </ul>
+
+            <div class="key-insight">
+              <div class="key-insight-header">
+                <i class="fas fa-star"></i>
+                <span>Double Shift Rule</span>
+              </div>
+              <p>When supply decreases AND demand increases: <strong>Price ALWAYS increases</strong>, but quantity change depends on which shift is larger.</p>
+              <table style="margin-top: 1rem;">
+                <thead>
+                  <tr>
+                    <th>Supply Shift</th>
+                    <th>Demand Shift</th>
+                    <th>Price Effect</th>
+                    <th>Quantity Effect</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Decrease (←)</td>
+                    <td>Increase (→)</td>
+                    <td>↑ (Definite)</td>
+                    <td>? (Ambiguous)</td>
+                  </tr>
+                  <tr>
+                    <td>Increase (→)</td>
+                    <td>Decrease (←)</td>
+                    <td>↓ (Definite)</td>
+                    <td>? (Ambiguous)</td>
+                  </tr>
+                  <tr>
+                    <td>Both Increase (→)</td>
+                    <td>Both Increase (→)</td>
+                    <td>? (Ambiguous)</td>
+                    <td>↑ (Definite)</td>
+                  </tr>
+                  <tr>
+                    <td>Both Decrease (←)</td>
+                    <td>Both Decrease (←)</td>
+                    <td>? (Ambiguous)</td>
+                    <td>↓ (Definite)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div class="question-block">
+      <div class="question-number">Exercise 2: Ice Cream Market Analysis</div>
+      <p><strong>Scenario:</strong> Consider a market for ice cream in Paris. Analyze how various events affect equilibrium.</p>
+
+      <!-- Question 2a -->
+      <div class="question-card">
+        <div class="question-header">
+          <div class="question-number-badge">2a</div>
+          <div class="question-text">
+            Price of milk rises (Milk is a key input in ice cream production)
+          </div>
+        </div>
+
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">
+          <i class="fas fa-chevron-down"></i>
+          Show Answer
+        </button>
+
+        <div class="answer-content">
+          <div class="answer-inner">
+            <div class="answer-label">
+              <i class="fas fa-check-circle"></i>
+              Answer & Explanation
+            </div>
+            <p><strong>Assumption:</strong> Milk is a key input in ice cream production.</p>
+
+            <div class="graph-container">
+              <div class="graph-title">Ice Cream Market: Input Price Increase</div>
+              <canvas id="milkPriceGraph"></canvas>
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Step-by-step analysis:</strong></p>
+            <ol>
+              <li>Milk price ↑ → Production costs ↑</li>
+              <li>Higher costs → Firms willing to supply less at each price</li>
+              <li>Supply curve shifts LEFT (S₀ → S₁)</li>
+              <li>Demand curve UNCHANGED</li>
+              <li>New equilibrium: P₀ → P₁ (↑), Q₀ → Q₁ (↓)</li>
+            </ol>
+
+            <div class="formula-box">
+              <h4><i class="fas fa-calculator"></i> Numerical Example</h4>
+              <p>If milk price increases by 20% and milk represents 30% of production costs:</p>
+              <p style="margin-top: 0.5rem;">Cost increase = 20% × 30% = 6%</p>
+              <p>This shifts supply curve up/left by ~6%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2c -->
+      <div class="question-card">
+        <div class="question-header">
+          <div class="question-number-badge">2c</div>
+          <div class="question-text">
+            Consumer incomes rise and ice cream is a normal good
+          </div>
+        </div>
+
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">
+          <i class="fas fa-chevron-down"></i>
+          Show Answer
+        </button>
+
+        <div class="answer-content">
+          <div class="answer-inner">
+            <div class="answer-label">
+              <i class="fas fa-check-circle"></i>
+              Answer & Explanation
+            </div>
+            <p><strong>Key concept:</strong> Normal good = demand increases when income increases.</p>
+
+            <div class="graph-container">
+              <div class="graph-title">Ice Cream Market: Income Increase (Normal Good)</div>
+              <canvas id="incomeIncreaseGraph"></canvas>
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Step-by-step analysis:</strong></p>
+            <ol>
+              <li>Consumer income ↑</li>
+              <li>For normal goods: Income ↑ → Demand ↑</li>
+              <li>Demand curve shifts RIGHT (D₀ → D₃)</li>
+              <li>Supply curve UNCHANGED</li>
+              <li>New equilibrium: P₀ → P₃ (↑), Q₀ → Q₃ (↑)</li>
+            </ol>
+
+            <div class="key-insight">
+              <div class="key-insight-header">
+                <i class="fas fa-lightbulb"></i>
+                <span>Normal vs. Inferior Goods</span>
+              </div>
+              <table style="margin-top: 1rem;">
+                <thead>
+                  <tr>
+                    <th>Good Type</th>
+                    <th>Income ↑</th>
+                    <th>Demand Effect</th>
+                    <th>Examples</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Normal</strong></td>
+                    <td>Increases</td>
+                    <td>Demand ↑</td>
+                    <td>Restaurants, travel, quality brands</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Inferior</strong></td>
+                    <td>Increases</td>
+                    <td>Demand ↓</td>
+                    <td>Ramen noodles, bus tickets, fast food</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2d -->
+      <div class="question-card">
+        <div class="question-header">
+          <div class="question-number-badge">2d</div>
+          <div class="question-text">
+            Summer suddenly turns very hot
+          </div>
+        </div>
+
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">
+          <i class="fas fa-chevron-down"></i>
+          Show Answer
+        </button>
+
+        <div class="answer-content">
+          <div class="answer-inner">
+            <div class="answer-label">
+              <i class="fas fa-check-circle"></i>
+              Answer & Explanation
+            </div>
+            <p><strong>Key concept:</strong> Short-run supply inelasticity creates shortages.</p>
+
+            <div class="graph-container">
+              <div class="graph-title">Ice Cream Market: Sudden Demand Shock</div>
+              <canvas id="hotSummerGraph"></canvas>
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Step-by-step analysis:</strong></p>
+            <ol>
+              <li>Temperature ↑ → Demand for ice cream ↑</li>
+              <li>Demand curve shifts RIGHT (D₀ → D₃)</li>
+              <li><strong>Key assumption:</strong> Supply cannot adjust immediately (short run)</li>
+              <li>If supply is perfectly inelastic (vertical): Q stays at Q₀ → Creates SHORTAGE</li>
+              <li>Shortage = distance between Q₀ and Qd at price P₀</li>
+              <li>Price will rise to P₃ to clear the market</li>
+            </ol>
+
+            <div class="key-insight">
+              <div class="key-insight-header">
+                <i class="fas fa-clock"></i>
+                <span>Time Horizon Matters</span>
+              </div>
+              <p><strong>Immediate (very short run):</strong></p>
+              <ul>
+                <li>Supply fixed (existing inventory)</li>
+                <li>Large price increase</li>
+                <li>Possible shortages</li>
+              </ul>
+              <p style="margin-top: 1rem;"><strong>Short run (weeks):</strong></p>
+              <ul>
+                <li>Can increase production hours</li>
+                <li>Use existing capacity more intensively</li>
+                <li>Price still elevated but moderating</li>
+              </ul>
+              <p style="margin-top: 1rem;"><strong>Long run (months/years):</strong></p>
+              <ul>
+                <li>Build new factories</li>
+                <li>New firms enter market</li>
+                <li>Price returns closer to original level</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2e -->
+      <div class="question-card">
+        <div class="question-header">
+          <div class="question-number-badge">2e</div>
+          <div class="question-text">
+            Government sets maximum price during hot summer
+          </div>
+        </div>
+
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">
+          <i class="fas fa-chevron-down"></i>
+          Show Answer
+        </button>
+
+        <div class="answer-content">
+          <div class="answer-inner">
+            <div class="answer-label">
+              <i class="fas fa-check-circle"></i>
+              Answer & Explanation
+            </div>
+            <p><strong>Key concept:</strong> Price ceilings create persistent shortages when set below equilibrium.</p>
+
+            <div class="graph-container">
+              <div class="graph-title">Price Ceiling During Hot Summer</div>
+              <canvas id="priceCeilingGraph"></canvas>
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Step-by-step analysis:</strong></p>
+            <ol>
+              <li>Hot summer: Demand increases D₀ → D₃</li>
+              <li>Without price ceiling: Equilibrium would be (Q₃, P₃)</li>
+              <li>Government sets maximum price at P* (below P₃)</li>
+              <li>At price P*: Consumers want Qd, but producers only supply Qs</li>
+              <li>Result: <strong>Persistent shortage</strong> = Qd - Qs</li>
+            </ol>
+
+            <div class="warning-box">
+              <h4><i class="fas fa-exclamation-triangle"></i> Problems with Price Ceilings</h4>
+              <ul>
+                <li><strong>Shortage:</strong> Demand exceeds supply at the capped price</li>
+                <li><strong>Rationing:</strong> Not everyone who wants ice cream can get it
+                  <ul>
+                    <li>First-come-first-served (long lines)</li>
+                    <li>Favoritism by sellers</li>
+                    <li>Black markets emerge</li>
+                  </ul>
+                </li>
+                <li><strong>Quality degradation:</strong> Firms cut costs by reducing quality (can't compete on price)</li>
+                <li><strong>Deadweight loss:</strong> Mutually beneficial trades don't occur</li>
+                <li><strong>Search costs:</strong> Consumers waste time searching for the good</li>
+              </ul>
+            </div>
+
+            <div class="example-box">
+              <h4><i class="fas fa-history"></i> Historical Examples</h4>
+              <ul>
+                <li><strong>Rent control:</strong> NYC, SF, Paris → Housing shortages, deteriorating quality</li>
+                <li><strong>Gas price controls (1970s):</strong> US → Long lines at gas stations</li>
+                <li><strong>Venezuela price controls:</strong> Food shortages, black markets</li>
+                <li><strong>Ticket scalping laws:</strong> Concert tickets → Underground markets</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-buttons">
+    <a href="session1.html" class="nav-btn secondary">
+      <i class="fas fa-arrow-left"></i> Session 1: Thinking Like an Economist
+    </a>
+    <a href="index.html" class="nav-btn secondary">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="session3.html" class="nav-btn">
+      Session 3: S&D Case Studies <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+</div>
+
+<script>
+// Chart.js Default Configuration
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.color = '#374151';
+
+// Equilibrium Graph
+const equilibriumCtx = document.getElementById('equilibriumGraph').getContext('2d');
+new Chart(equilibriumCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q*', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [350, 200, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+        fill: 'origin',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'Supply',
+        data: [50, 200, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        fill: 'end',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity', font: { size: 14, weight: 'bold' } } },
+      y: {
+        title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } },
+        beginAtZero: true,
+        ticks: { callback: function(value) { return '$' + value; } }
+      }
+    },
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return context.dataset.label + ': $' + context.parsed.y;
+          }
+        }
+      }
+    }
+  }
+});
+
+// Demand Shift Graph
+const demandShiftCtx = document.getElementById('demandShiftGraph').getContext('2d');
+new Chart(demandShiftCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₁', ''],
+    datasets: [
+      {
+        label: 'D₀ (Original)',
+        data: [350, 250, 150, 50],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'D₁ (After Increase)',
+        data: [400, 300, 200, 100],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'Supply',
+        data: [50, 150, 250, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } } }
+  }
+});
+
+// Supply Shift Graph
+const supplyShiftCtx = document.getElementById('supplyShiftGraph').getContext('2d');
+new Chart(supplyShiftCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₁', 'Q₀', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [350, 250, 150, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'S₀ (Original)',
+        data: [50, 150, 250, 350],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'S₁ (After Decrease)',
+        data: [100, 200, 300, 400],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } } }
+  }
+});
+
+// Surplus Graph
+const surplusCtx = document.getElementById('surplusGraph').getContext('2d');
+new Chart(surplusCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q*', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [400, 200, 0],
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59, 130, 246, 0.3)',
+        fill: 'origin',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [0, 200, 400],
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.3)',
+        fill: 'end',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } },
+      tooltip: {
+        callbacks: {
+          afterLabel: function(context) {
+            if (context.datasetIndex === 0) {
+              return 'Blue area = Consumer Surplus';
+            } else {
+              return 'Green area = Producer Surplus';
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Oil Strike Graph
+const oilStrikeCtx = document.getElementById('oilStrikeGraph').getContext('2d');
+new Chart(oilStrikeCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₁', 'Q₀', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [400, 300, 200, 100],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'S₀ (Before Strike)',
+        data: [100, 200, 300, 400],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'S₁ (After Strike)',
+        data: [150, 250, 350, 450],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity of Oil', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } } }
+  }
+});
+
+// Car Market Graph
+const carMarketCtx = document.getElementById('carMarketGraph').getContext('2d');
+new Chart(carMarketCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₁', 'Q₀', ''],
+    datasets: [
+      {
+        label: 'D₀ (Original)',
+        data: [400, 320, 240, 160],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'D₁ (Buyers Return)',
+        data: [480, 400, 320, 240],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'S₀ (Original)',
+        data: [160, 240, 320, 400],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'S₁ (After Shutdown)',
+        data: [240, 320, 400, 480],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity of Cars', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top', labels: { font: { size: 11, weight: '600' }, padding: 10 } } }
+  }
+});
+
+// Milk Price Graph
+const milkPriceCtx = document.getElementById('milkPriceGraph').getContext('2d');
+new Chart(milkPriceCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₁', 'Q₀', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [350, 250, 150, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'S₀ (Before)',
+        data: [50, 150, 250, 350],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'S₁ (After Milk Price ↑)',
+        data: [100, 200, 300, 400],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity of Ice Cream', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } } }
+  }
+});
+
+// Income Increase Graph
+const incomeIncreaseCtx = document.getElementById('incomeIncreaseGraph').getContext('2d');
+new Chart(incomeIncreaseCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₃', ''],
+    datasets: [
+      {
+        label: 'D₀ (Original)',
+        data: [350, 250, 150, 50],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'D₃ (After Income ↑)',
+        data: [400, 300, 200, 100],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [50, 150, 250, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } } }
+  }
+});
+
+// Hot Summer Graph
+const hotSummerCtx = document.getElementById('hotSummerGraph').getContext('2d');
+new Chart(hotSummerCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Qd', ''],
+    datasets: [
+      {
+        label: 'D₀ (Normal)',
+        data: [350, 250, 150, 50],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'D₃ (Hot Summer)',
+        data: [450, 350, 250, 150],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply (Short Run)',
+        data: [50, 150, 250, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } } }
+  }
+});
+
+// Price Ceiling Graph
+const priceCeilingCtx = document.getElementById('priceCeilingGraph').getContext('2d');
+new Chart(priceCeilingCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Qs', 'Q*', 'Qd', ''],
+    datasets: [
+      {
+        label: 'D₃ (Hot Summer)',
+        data: [450, 380, 320, 250, 150],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [50, 120, 180, 250, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity', font: { size: 14, weight: 'bold' } } },
+      y: { title: { display: true, text: 'Price', font: { size: 14, weight: 'bold' } }, beginAtZero: true, max: 500 }
+    },
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 12, weight: '600' }, padding: 15 } },
+      annotation: {
+        annotations: {
+          ceiling: {
+            type: 'line',
+            yMin: 180,
+            yMax: 180,
+            borderColor: '#f59e0b',
+            borderWidth: 3,
+            borderDash: [10, 5],
+            label: {
+              content: 'Price Ceiling',
+              enabled: true,
+              position: 'start',
+              backgroundColor: '#f59e0b',
+              color: 'white'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+</script>
+
+<script>
+function toggleAnswer(btn) {
+  const answerContent = btn.nextElementSibling;
+  const icon = btn.querySelector('i');
+
+  if (answerContent.classList.contains('show')) {
+    answerContent.classList.remove('show');
+    btn.innerHTML = '<i class="fas fa-chevron-down"></i> Show Answer';
+    btn.classList.remove('active');
+  } else {
+    answerContent.classList.add('show');
+    btn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Answer';
+    btn.classList.add('active');
+  }
+}
+</script>
+
+</body>
+</html>

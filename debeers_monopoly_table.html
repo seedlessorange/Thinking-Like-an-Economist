@@ -1,0 +1,258 @@
+<!-- De Beers Monopoly Pricing Table - Enhanced with Calculations -->
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 28px; border-radius: 8px; margin: 2rem 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h3 style="color: white; margin-top: 0; text-align: center; font-size: 1.5rem; margin-bottom: 0.5rem;">
+        💎 De Beers Diamond Monopoly: Profit Maximization Analysis
+    </h3>
+    <p style="color: rgba(255,255,255,0.9); text-align: center; margin: 0 0 1.5rem 0; font-size: 0.95rem; font-style: italic;">
+        How a monopolist restricts output to maximize profit
+    </p>
+
+    <!-- Market Setup -->
+    <div style="background: rgba(255,255,255,0.95); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h4 style="color: #1f2937; margin-top: 0; margin-bottom: 12px;">📋 Market Information</h4>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+            <div style="background: #eff6ff; padding: 14px; border-radius: 6px; border-left: 4px solid #3b82f6;">
+                <strong style="color: #1e40af; display: block; margin-bottom: 4px;">Demand Function:</strong>
+                <span style="color: #1e3a8a; font-family: 'Courier New', monospace; font-size: 1.05rem;">P = 1,000 - 2Q</span>
+            </div>
+
+            <div style="background: #fef3c7; padding: 14px; border-radius: 6px; border-left: 4px solid #f59e0b;">
+                <strong style="color: #92400e; display: block; margin-bottom: 4px;">Marginal Revenue:</strong>
+                <span style="color: #78350f; font-family: 'Courier New', monospace; font-size: 1.05rem;">MR = 1,000 - 4Q</span>
+            </div>
+
+            <div style="background: #fee2e2; padding: 14px; border-radius: 6px; border-left: 4px solid #ef4444;">
+                <strong style="color: #991b1b; display: block; margin-bottom: 4px;">Marginal Cost:</strong>
+                <span style="color: #7f1d1d; font-family: 'Courier New', monospace; font-size: 1.05rem;">MC = 200</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Table -->
+    <div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+            <thead>
+                <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <th style="padding: 12px; text-align: center; color: white; border-bottom: 2px solid #5a67d8;">Quantity (Q)</th>
+                    <th style="padding: 12px; text-align: center; color: white; border-bottom: 2px solid #5a67d8;">Price (P)<br/><span style="font-size: 0.8rem; font-weight: normal;">1,000 - 2Q</span></th>
+                    <th style="padding: 12px; text-align: center; color: white; border-bottom: 2px solid #5a67d8;">Total Revenue<br/><span style="font-size: 0.8rem; font-weight: normal;">P × Q</span></th>
+                    <th style="padding: 12px; text-align: center; color: white; border-bottom: 2px solid #5a67d8;">Marginal Revenue<br/><span style="font-size: 0.8rem; font-weight: normal;">ΔTR/ΔQ</span></th>
+                    <th style="padding: 12px; text-align: center; color: white; border-bottom: 2px solid #5a67d8;">Total Cost<br/><span style="font-size: 0.8rem; font-weight: normal;">200Q</span></th>
+                    <th style="padding: 12px; text-align: center; color: white; border-bottom: 2px solid #5a67d8;">Profit (π)<br/><span style="font-size: 0.8rem; font-weight: normal;">TR - TC</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #f9fafb;">
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong>0</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$1,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$0</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">-</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$0</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong>$0</strong></td>
+                </tr>
+
+                <tr style="background: white;">
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong>50</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$900</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$45,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$900</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$10,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; background: #f0fdf4; color: #166534;"><strong>$35,000</strong></td>
+                </tr>
+
+                <tr style="background: #f9fafb;">
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong>100</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$800</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$80,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$700</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$20,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; background: #f0fdf4; color: #166534;"><strong>$60,000</strong></td>
+                </tr>
+
+                <tr style="background: white;">
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong>150</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$700</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$105,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$500</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$30,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; background: #f0fdf4; color: #166534;"><strong>$75,000</strong></td>
+                </tr>
+
+                <!-- PROFIT MAXIMIZING QUANTITY (MR = MC) -->
+                <tr style="background: #fef3c7; border: 3px solid #f59e0b;">
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f59e0b;"><strong style="font-size: 1.05rem;">200 ⭐</strong></td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f59e0b;"><strong style="color: #92400e; font-size: 1.05rem;">$600</strong></td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f59e0b;"><strong>$120,000</strong></td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f59e0b; background: #fef3c7;">
+                        <strong style="color: #92400e; font-size: 1.05rem;">$200 = MC</strong>
+                    </td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f59e0b;">$40,000</td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f59e0b; background: #10b981; color: white;">
+                        <strong style="font-size: 1.1rem;">$80,000 MAX</strong>
+                    </td>
+                </tr>
+
+                <tr style="background: white;">
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong>250</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$500</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$125,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; background: #fee2e2; color: #991b1b;"><strong>$100 &lt; MC</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$50,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; background: #fef3c7; color: #92400e;"><strong>$75,000</strong></td>
+                </tr>
+
+                <tr style="background: #f9fafb;">
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong>300</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$400</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$120,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; background: #fee2e2; color: #991b1b;"><strong>$0 &lt; MC</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$60,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; background: #fef3c7; color: #92400e;"><strong>$60,000</strong></td>
+                </tr>
+
+                <tr style="background: white;">
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong>350</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$300</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$105,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; background: #fee2e2; color: #991b1b;"><strong>-$300 &lt; MC</strong></td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">$70,000</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; background: #fef3c7; color: #92400e;"><strong>$35,000</strong></td>
+                </tr>
+
+                <!-- Competitive Equilibrium (for comparison) -->
+                <tr style="background: #eff6ff; border-top: 2px solid #3b82f6;">
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #3b82f6;"><strong style="font-size: 1.05rem;">400 🏛️</strong></td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #3b82f6;"><strong style="color: #1e40af; font-size: 1.05rem;">$200 = MC</strong></td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #3b82f6;">$80,000</td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #3b82f6; background: #fee2e2; color: #991b1b;"><strong>-$600</strong></td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #3b82f6;">$80,000</td>
+                    <td style="padding: 12px; text-align: center; border-bottom: 1px solid #3b82f6; background: #f3f4f6; color: #374151;">
+                        <strong>$0 (Competitive)</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 12px; font-size: 0.85rem; color: #6b7280; text-align: center;">
+            ⭐ = Monopoly Optimum (MR = MC) | 🏛️ = Competitive Equilibrium (P = MC)
+        </div>
+    </div>
+
+    <!-- Key Insights Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px;">
+
+        <div style="background: rgba(255,255,255,0.95); padding: 18px; border-radius: 8px; border-left: 4px solid #10b981;">
+            <div style="display: flex; align-items: start; gap: 10px;">
+                <span style="font-size: 1.5rem;">🎯</span>
+                <div>
+                    <strong style="color: #1f2937; display: block; margin-bottom: 6px; font-size: 1rem;">Monopoly Solution</strong>
+                    <p style="margin: 0; color: #4b5563; font-size: 0.9rem; line-height: 1.6;">
+                        <strong>Q* = 200, P* = $600</strong><br/>
+                        Profit = <strong style="color: #10b981;">$80,000</strong><br/>
+                        Set MR = MC: 1,000 - 4Q = 200
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.95); padding: 18px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+            <div style="display: flex; align-items: start; gap: 10px;">
+                <span style="font-size: 1.5rem;">⚖️</span>
+                <div>
+                    <strong style="color: #1f2937; display: block; margin-bottom: 6px; font-size: 1rem;">vs. Competitive Market</strong>
+                    <p style="margin: 0; color: #4b5563; font-size: 0.9rem; line-height: 1.6;">
+                        <strong>Q_c = 400, P_c = $200</strong><br/>
+                        Profit = <strong>$0</strong><br/>
+                        Monopoly produces <strong style="color: #dc2626;">50% less</strong> at <strong style="color: #dc2626;">3× higher price</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.95); padding: 18px; border-radius: 8px; border-left: 4px solid #dc2626;">
+            <div style="display: flex; align-items: start; gap: 10px;">
+                <span style="font-size: 1.5rem;">📉</span>
+                <div>
+                    <strong style="color: #1f2937; display: block; margin-bottom: 6px; font-size: 1rem;">Deadweight Loss</strong>
+                    <p style="margin: 0; color: #4b5563; font-size: 0.9rem; line-height: 1.6;">
+                        200 diamonds that buyers value more than $200 (MC) are <strong style="color: #dc2626;">not produced</strong>, creating inefficiency.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Calculation Walkthrough -->
+    <div style="background: rgba(255,255,255,0.95); padding: 24px; border-radius: 8px; margin-top: 20px;">
+        <h4 style="color: #1f2937; margin-top: 0; margin-bottom: 16px; text-align: center;">
+            📝 Step-by-Step Profit Maximization
+        </h4>
+
+        <div style="display: grid; gap: 14px;">
+
+            <div style="background: #f9fafb; padding: 16px; border-radius: 6px; border-left: 4px solid #667eea;">
+                <strong style="color: #1f2937; display: block; margin-bottom: 8px;">Step 1: Find Marginal Revenue</strong>
+                <div style="font-family: 'Courier New', monospace; color: #374151; font-size: 0.95rem;">
+                    Demand: P = 1,000 - 2Q<br/>
+                    TR = P × Q = (1,000 - 2Q) × Q = 1,000Q - 2Q²<br/>
+                    <strong style="color: #667eea;">MR = dTR/dQ = 1,000 - 4Q</strong>
+                </div>
+            </div>
+
+            <div style="background: #f9fafb; padding: 16px; border-radius: 6px; border-left: 4px solid #f59e0b;">
+                <strong style="color: #1f2937; display: block; margin-bottom: 8px;">Step 2: Set MR = MC</strong>
+                <div style="font-family: 'Courier New', monospace; color: #374151; font-size: 0.95rem;">
+                    1,000 - 4Q = 200<br/>
+                    4Q = 800<br/>
+                    <strong style="color: #f59e0b;">Q* = 200</strong>
+                </div>
+            </div>
+
+            <div style="background: #f9fafb; padding: 16px; border-radius: 6px; border-left: 4px solid #10b981;">
+                <strong style="color: #1f2937; display: block; margin-bottom: 8px;">Step 3: Find Price from Demand Curve</strong>
+                <div style="font-family: 'Courier New', monospace; color: #374151; font-size: 0.95rem;">
+                    P* = 1,000 - 2(200)<br/>
+                    P* = 1,000 - 400<br/>
+                    <strong style="color: #10b981;">P* = $600</strong>
+                </div>
+            </div>
+
+            <div style="background: #f9fafb; padding: 16px; border-radius: 6px; border-left: 4px solid #3b82f6;">
+                <strong style="color: #1f2937; display: block; margin-bottom: 8px;">Step 4: Calculate Profit</strong>
+                <div style="font-family: 'Courier New', monospace; color: #374151; font-size: 0.95rem;">
+                    π = TR - TC<br/>
+                    π = (P × Q) - (MC × Q)<br/>
+                    π = (600 × 200) - (200 × 200)<br/>
+                    π = 120,000 - 40,000<br/>
+                    <strong style="color: #3b82f6;">π = $80,000</strong>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Why This Matters -->
+    <div style="background: rgba(255,255,255,0.95); padding: 20px; border-radius: 8px; margin-top: 20px; border: 2px solid #667eea;">
+        <div style="display: flex; align-items: start; gap: 12px;">
+            <span style="font-size: 1.8rem;">💡</span>
+            <div>
+                <strong style="color: #1f2937; display: block; margin-bottom: 8px; font-size: 1.05rem;">Why De Beers Restricts Diamond Supply</strong>
+                <p style="margin: 0 0 10px 0; color: #4b5563; line-height: 1.6; font-size: 0.95rem;">
+                    By producing only <strong>200 diamonds</strong> instead of the competitive quantity of 400, De Beers:
+                </p>
+                <ul style="margin: 0; padding-left: 20px; color: #4b5563; line-height: 1.7; font-size: 0.95rem;">
+                    <li>Charges <strong style="color: #dc2626;">$600 instead of $200</strong> per diamond</li>
+                    <li>Earns <strong style="color: #10b981;">$80,000 profit</strong> instead of zero</li>
+                    <li>Creates artificial scarcity with the slogan <em>"A Diamond is Forever"</em></li>
+                    <li>Maintains high prices by controlling 85%+ of world diamond supply</li>
+                </ul>
+                <p style="margin: 12px 0 0 0; color: #6b7280; font-size: 0.9rem; font-style: italic;">
+                    This is why monopolies are inefficient: they restrict output below the socially optimal level to maximize their own profit.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Problem Sets with Answer Keys - Managerial Economics</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 2.5rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  padding: 2.5rem;
+}
+
+.problem-set {
+  margin-bottom: 3rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.problem-set-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.problem-set-header:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #63348d 100%);
+}
+
+.problem-set-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.problem-set-content {
+  padding: 2rem;
+  display: none;
+}
+
+.problem-set-content.active {
+  display: block;
+}
+
+.question-block {
+  background: #f9fafb;
+  border-left: 4px solid #667eea;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+}
+
+.question-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.75rem;
+}
+
+.answer-block {
+  background: #fff;
+  border: 2px solid #10b981;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.answer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #10b981;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.key-insight {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.key-insight-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #d97706;
+  margin-bottom: 0.5rem;
+}
+
+.graph-container {
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.graph-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #374151;
+  text-align: center;
+}
+
+canvas {
+  max-width: 100%;
+  height: 400px !important;
+}
+
+.math-formula {
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  font-family: 'Courier New', monospace;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.toggle-icon.rotated {
+  transform: rotate(180deg);
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.highlight {
+  background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+}
+
+.nav-menu {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 1rem 2.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  z-index: 100;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1><i class="fas fa-graduation-cap"></i> Managerial Economics</h1>
+    <p>Problem Sets with Complete Answer Keys</p>
+  </header>
+
+  <div class="nav-menu">
+    <button class="nav-btn" onclick="scrollToSection('ps2')">Problem Set 2</button>
+    <button class="nav-btn" onclick="scrollToSection('ps3')">Problem Set 3</button>
+    <button class="nav-btn" onclick="scrollToSection('ps4')">Problem Set 4</button>
+    <button class="nav-btn" onclick="scrollToSection('ps5')">Problem Set 5</button>
+  </div>
+
+  <div class="content">
+
+<!-- PROBLEM SET 2 -->
+<div class="problem-set" id="ps2">
+  <div class="problem-set-header" onclick="toggleProblemSet(this)">
+    <h2><i class="fas fa-clipboard-list"></i> Problem Set 2: Comparative Statics</h2>
+    <i class="fas fa-chevron-down toggle-icon"></i>
+  </div>
+  <div class="problem-set-content">
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-lightbulb"></i>
+        <span>Key Concepts for This Problem Set</span>
+      </div>
+      <ul>
+        <li><strong>Comparative statics:</strong> Analyzing how equilibrium changes when supply or demand shifts</li>
+        <li><strong>Normal vs inferior goods:</strong> How income affects demand</li>
+        <li><strong>Substitutes and complements:</strong> How related goods affect demand</li>
+        <li><strong>Price controls:</strong> Effects of price ceilings and floors</li>
+      </ul>
+    </div>
+
+    <!-- Exercise 1 -->
+    <div class="question-block">
+      <div class="question-number">Exercise 1: News Stories Analysis</div>
+      <p><strong>Task:</strong> Illustrate the following news stories using supply and demand graphs.</p>
+
+      <!-- Question 1a -->
+      <p style="margin-top: 1.5rem;"><strong>1a. Norway Oil Strike</strong></p>
+      <p><em>"Norway's Equinor is temporarily shutting down three oil and gas fields after workers went on strike... pushing European gas prices to a four-month high."</em></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p><strong>Analysis:</strong> The shutdown means less supply. The supply curve shifts left, driving quantity down and prices up.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Oil Market: Supply Shock from Strike</div>
+          <canvas id="oilStrikeGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Economic Reasoning:</strong></p>
+        <ul>
+          <li>Strike reduces production capacity → Supply decreases</li>
+          <li>Supply curve shifts from S₀ to S₁ (leftward)</li>
+          <li>New equilibrium: Lower quantity (Q₀ → Q₁), Higher price (P₀ → P₁)</li>
+          <li>This creates a <span class="highlight">supply shortage</span> at the original price</li>
+        </ul>
+      </div>
+
+      <!-- Question 1b -->
+      <p style="margin-top: 2rem;"><strong>1b. Car Dealer Market - Pandemic Effects</strong></p>
+      <p><em>"Fewer choices and higher prices" - pandemic shut down production for two months, but buyers came back sooner than expected.</em></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p><strong>Analysis:</strong> This is a <strong>double shift</strong> scenario - both supply and demand change.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Car Market: Supply Decrease + Demand Increase</div>
+          <canvas id="carMarketGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Economic Reasoning:</strong></p>
+        <ul>
+          <li><strong>Supply side:</strong> Production shutdown → Supply decreases (S₀ → S₁)</li>
+          <li><strong>Demand side:</strong> Buyers return quickly → Demand increases (D₀ → D₁)</li>
+          <li><strong>Price effect:</strong> UNAMBIGUOUS INCREASE (both shifts push prices up)</li>
+          <li><strong>Quantity effect:</strong> AMBIGUOUS (depends on relative magnitude of shifts)</li>
+          <li>Article states "fewer choices" → Supply effect dominates, so Q₁ < Q₀</li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-brain"></i>
+            <span>Key Insight</span>
+          </div>
+          <p>When supply decreases AND demand increases: <strong>Price ALWAYS increases</strong>, but quantity change depends on which shift is larger.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 2: Ice Cream Market -->
+    <div class="question-block">
+      <div class="question-number">Exercise 2: Ice Cream Market Analysis</div>
+      <p><strong>Task:</strong> Illustrate and explain how events affect equilibrium price and quantity of ice creams.</p>
+
+      <!-- Question 2a -->
+      <p style="margin-top: 1.5rem;"><strong>2a. Price of milk rises</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p><strong>Assumption:</strong> Milk is a key input in ice cream production.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Ice Cream Market: Input Price Increase</div>
+          <canvas id="milkPriceGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Step-by-step analysis:</strong></p>
+        <ol>
+          <li>Milk price ↑ → Production costs ↑</li>
+          <li>Higher costs → Firms willing to supply less at each price</li>
+          <li>Supply curve shifts LEFT (S₀ → S₁)</li>
+          <li>Demand curve UNCHANGED</li>
+          <li>New equilibrium: P₀ → P₁ (↑), Q₀ → Q₁ (↓)</li>
+        </ol>
+      </div>
+
+      <!-- Question 2b -->
+      <p style="margin-top: 2rem;"><strong>2b. Medical study shows chocolate bars are good for health</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p><strong>Assumption:</strong> Ice cream and chocolate bars are substitutes.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Ice Cream Market: Substitute Good Becomes More Attractive</div>
+          <canvas id="chocolateStudyGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Step-by-step analysis:</strong></p>
+        <ol>
+          <li>Chocolate bars perceived as healthier → More attractive to consumers</li>
+          <li>Some consumers switch from ice cream to chocolate bars</li>
+          <li>Demand for ice cream DECREASES</li>
+          <li>Demand curve shifts LEFT (D₀ → D₁)</li>
+          <li>Supply curve UNCHANGED</li>
+          <li>New equilibrium: P₀ → P₂ (↓), Q₀ → Q₂ (↓)</li>
+        </ol>
+      </div>
+
+      <!-- Question 2c -->
+      <p style="margin-top: 2rem;"><strong>2c. Consumer incomes rise and ice cream is a normal good</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p><strong>Key concept:</strong> Normal good = demand increases when income increases.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Ice Cream Market: Income Increase (Normal Good)</div>
+          <canvas id="incomeIncreaseGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Step-by-step analysis:</strong></p>
+        <ol>
+          <li>Consumer income ↑</li>
+          <li>For normal goods: Income ↑ → Demand ↑</li>
+          <li>Demand curve shifts RIGHT (D₀ → D₃)</li>
+          <li>Supply curve UNCHANGED</li>
+          <li>New equilibrium: P₀ → P₃ (↑), Q₀ → Q₃ (↑)</li>
+        </ol>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-brain"></i>
+            <span>Normal vs. Inferior Goods</span>
+          </div>
+          <ul>
+            <li><strong>Normal good:</strong> Income ↑ → Demand ↑ (most goods)</li>
+            <li><strong>Inferior good:</strong> Income ↑ → Demand ↓ (e.g., ramen noodles, bus tickets)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Question 2d -->
+      <p style="margin-top: 2rem;"><strong>2d. Summer suddenly turns very hot</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p><strong>Key concept:</strong> Short-run supply inelasticity creates shortages.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Ice Cream Market: Sudden Demand Shock with Inelastic Supply</div>
+          <canvas id="hotSummerGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Step-by-step analysis:</strong></p>
+        <ol>
+          <li>Temperature ↑ → Demand for ice cream ↑</li>
+          <li>Demand curve shifts RIGHT (D₀ → D₃)</li>
+          <li><strong>Key assumption:</strong> Supply cannot adjust immediately (short run)</li>
+          <li>Supply remains at Q₀ in short run → Creates SHORTAGE</li>
+          <li>Shortage = distance between Q₀ and Q₃ at price P₀</li>
+        </ol>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-clock"></i>
+            <span>Short Run vs Long Run</span>
+          </div>
+          <p><strong>Short run:</strong> Supply is fixed (can't add more production capacity) → Shortage occurs</p>
+          <p><strong>Long run:</strong> Firms can build more factories, hire workers → Supply shifts right to meet demand</p>
+        </div>
+      </div>
+
+      <!-- Question 2e -->
+      <p style="margin-top: 2rem;"><strong>2e. Government sets maximum price during hot summer</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p><strong>Key concept:</strong> Price ceilings create persistent shortages when set below equilibrium.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Ice Cream Market: Price Ceiling During Hot Summer</div>
+          <canvas id="priceCeilingGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Step-by-step analysis:</strong></p>
+        <ol>
+          <li>Hot summer: Demand increases D₀ → D₃</li>
+          <li>Without price ceiling: Equilibrium would be (Q₃, P₃)</li>
+          <li>Government sets maximum price at P*</li>
+          <li>At price P*: Consumers want Q₃, but producers only supply Q₀</li>
+          <li>Result: <strong>Persistent shortage</strong> = Q₃ - Q₀</li>
+        </ol>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Problems with Price Ceilings</span>
+          </div>
+          <ul>
+            <li><strong>Shortage:</strong> Demand exceeds supply at the capped price</li>
+            <li><strong>Rationing:</strong> Not everyone who wants ice cream can get it</li>
+            <li><strong>Quality degradation:</strong> Firms may cut costs by reducing quality</li>
+            <li><strong>Black markets:</strong> People may pay above the legal price</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PROBLEM SET 3 -->
+<div class="problem-set" id="ps3">
+  <div class="problem-set-header" onclick="toggleProblemSet(this)">
+    <h2><i class="fas fa-clipboard-list"></i> Problem Set 3: International Trade & Industry Cost Curves</h2>
+    <i class="fas fa-chevron-down toggle-icon"></i>
+  </div>
+  <div class="problem-set-content">
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-lightbulb"></i>
+        <span>Key Concepts for This Problem Set</span>
+      </div>
+      <ul>
+        <li><strong>Consumer and producer surplus:</strong> Measures of economic welfare</li>
+        <li><strong>Gains from trade:</strong> How international trade affects surpluses</li>
+        <li><strong>Industry cost curves:</strong> Merit-order dispatch and price determination</li>
+        <li><strong>Political economy of trade:</strong> Why protectionism persists despite efficiency gains</li>
+      </ul>
+    </div>
+
+    <!-- Main Event: International Trade -->
+    <div class="question-block">
+      <div class="question-number">Main Event: International Trade Analysis</div>
+      <p><strong>Scenario:</strong> A local economy with no ties to the rest of the world produces shoes. Then it opens to international trade.</p>
+
+      <!-- Question 1: Consumer and Producer Surplus in Autarky -->
+      <p style="margin-top: 1.5rem;"><strong>1. Identify consumer and producer surplus in autarky</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <div class="graph-container">
+          <div class="graph-title">Shoe Market in Autarky (No Trade)</div>
+          <canvas id="autarkyGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Surplus Definitions:</strong></p>
+        <ul>
+          <li><strong>Consumer Surplus (CS):</strong> Area A - represents benefit consumers get by paying less than their willingness to pay</li>
+          <li><strong>Producer Surplus (PS):</strong> Area B+C - represents benefit producers get by receiving more than their cost</li>
+          <li><strong>Total Surplus:</strong> CS + PS = A + B + C</li>
+        </ul>
+
+        <div class="math-formula">
+          Consumer Surplus = ½ × (P_max - P_A) × Q_A
+          <br>
+          Producer Surplus = ½ × (P_A - P_min) × Q_A
+        </div>
+      </div>
+
+      <!-- Question 2: Effects of Opening to Trade -->
+      <p style="margin-top: 2rem;"><strong>2. When the country opens to trade with cheaper foreign shoes</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <div class="graph-container">
+          <div class="graph-title">Shoe Market After Opening to Trade</div>
+          <canvas id="tradeGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Analysis:</strong></p>
+        <ul>
+          <li><strong>World price (P_W) < Autarky price (P_A):</strong> Foreign shoes are cheaper</li>
+          <li><strong>At P_W:</strong>
+            <ul>
+              <li>Domestic quantity demanded: Q_d (increases from Q_A)</li>
+              <li>Domestic quantity supplied: Q_s (decreases from Q_A)</li>
+              <li>Imports = Q_d - Q_s (shown in orange)</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Question 3: Overall Impact -->
+      <p style="margin-top: 2rem;"><strong>3. Is trade good or bad for the economy? (Hint: Think in terms of surplus)</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Trade is GOOD for overall welfare.</strong></p>
+
+        <div class="graph-container">
+          <div class="graph-title">Gains from Trade Analysis</div>
+          <canvas id="gainsFromTradeGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Surplus Changes:</strong></p>
+        <ul>
+          <li><strong>Consumer Surplus:</strong> A → A + B + D + E (INCREASES)</li>
+          <li><strong>Producer Surplus:</strong> B + C → C (DECREASES)</li>
+          <li><strong>Total Surplus:</strong> A + B + C → A + B + C + D + E</li>
+          <li><strong>Net Gain from Trade:</strong> D + E (deadweight loss eliminated)</li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-chart-line"></i>
+            <span>Key Insight: Trade Creates Winners and Losers</span>
+          </div>
+          <ul>
+            <li><strong>Winners:</strong> Consumers gain B + D + E</li>
+            <li><strong>Losers:</strong> Domestic producers lose B</li>
+            <li><strong>Net effect:</strong> Gains (D + E) > Losses, so trade increases total welfare</li>
+            <li>In principle, winners could compensate losers and still be better off</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Question 4: Political Economy -->
+      <p style="margin-top: 2rem;"><strong>4. Why is trade hard to sell politically?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>The Political Economy Problem:</strong></p>
+        <ul>
+          <li><strong>Gains are diffuse:</strong> Millions of consumers each gain a small amount (D + E distributed across many people)</li>
+          <li><strong>Losses are concentrated:</strong> Small number of domestic producers lose B</li>
+          <li><strong>Collective action problem:</strong>
+            <ul>
+              <li>Producers: Few in number, large losses each → Easy to organize lobbying</li>
+              <li>Consumers: Many, small gains each → Hard to organize politically</li>
+            </ul>
+          </li>
+          <li><strong>Visibility:</strong> Job losses are visible and newsworthy; cheaper prices are taken for granted</li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-users"></i>
+            <span>Example: US Steel Tariffs</span>
+          </div>
+          <p>When the US imposes steel tariffs:</p>
+          <ul>
+            <li>~140,000 steel workers benefit (visible, concentrated)</li>
+            <li>~320 million consumers pay slightly higher prices for cars, appliances, etc. (invisible, diffuse)</li>
+            <li>Steel workers lobby effectively; consumers don't organize</li>
+            <li>Result: Politically popular despite reducing total welfare</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Question 5: Policy Solutions -->
+      <p style="margin-top: 2rem;"><strong>5. How to make trade easier to sell politically?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Policy Options Discussed:</strong></p>
+        <ol>
+          <li><strong>Tariffs (gradual opening):</strong>
+            <ul>
+              <li>Temporary tariff that decreases over time</li>
+              <li>Gives domestic industry time to adjust</li>
+              <li>Still captures most gains from trade eventually</li>
+            </ul>
+          </li>
+          <li><strong>Improve competitiveness:</strong>
+            <ul>
+              <li>Reduce costs (e.g., lower taxes, energy costs)</li>
+              <li>Increase productivity (better technology, training)</li>
+              <li>Shifts domestic supply curve right</li>
+            </ul>
+          </li>
+          <li><strong>Improve branding/quality:</strong>
+            <ul>
+              <li>Differentiate from foreign goods</li>
+              <li>Shift to higher-quality segments</li>
+              <li>Example: Italian shoes vs. Chinese shoes</li>
+            </ul>
+          </li>
+          <li><strong>Transition assistance:</strong>
+            <ul>
+              <li>Use tariff revenue or tax revenue to help displaced workers</li>
+              <li>Retraining programs</li>
+              <li>Unemployment insurance</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Exercise 3: Paper Industry Cost Curves -->
+    <div class="question-block">
+      <div class="question-number">Exercise 3: Industry Cost Curve (McKinsey Article)</div>
+      <p><strong>Context:</strong> Paper industry with demand of 75,000 tonnes. Three firms (Alpha, Bravo, Romeo) have production units with different costs and capacities.</p>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+        <thead style="background: #f3f4f6;">
+          <tr>
+            <th style="border: 1px solid #ddd; padding: 0.75rem;">Firm</th>
+            <th style="border: 1px solid #ddd; padding: 0.75rem;">Unit</th>
+            <th style="border: 1px solid #ddd; padding: 0.75rem;">Cost per Tonne ($)</th>
+            <th style="border: 1px solid #ddd; padding: 0.75rem;">Capacity (tonnes)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Alpha</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Alpha 1</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">700</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">40,000</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Alpha</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Alpha 2</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">850</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">25,000</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Bravo</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Bravo 1</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">750</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">25,000</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Bravo</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Bravo 2</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">1200</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">100,000</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Romeo</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">Romeo 1</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">1000</td>
+            <td style="border: 1px solid #ddd; padding: 0.75rem;">10,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Question 1: Which units produce -->
+      <p style="margin-top: 1.5rem;"><strong>1. Which units will produce? What is the market price?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Merit-Order Dispatch Logic:</strong> Units produce in order of cost until demand is met.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Industry Cost Curve (Merit Order)</div>
+          <canvas id="industryCostCurveGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Production Order:</strong></p>
+        <ol>
+          <li><strong>Alpha 1:</strong> Cost $700, Capacity 40,000 → Cumulative: 40,000 tonnes</li>
+          <li><strong>Bravo 1:</strong> Cost $750, Capacity 25,000 → Cumulative: 65,000 tonnes</li>
+          <li><strong>Alpha 2:</strong> Cost $850, Capacity 25,000 → Cumulative: 90,000 tonnes</li>
+        </ol>
+
+        <p><strong>Since demand = 75,000 tonnes:</strong></p>
+        <ul>
+          <li>Alpha 1 produces full capacity: 40,000 tonnes</li>
+          <li>Bravo 1 produces full capacity: 25,000 tonnes</li>
+          <li>Alpha 2 produces partial: 10,000 out of 25,000 capacity</li>
+          <li><strong>Market price = $1,000</strong> (cost of next available entrant = Romeo 1)</li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-brain"></i>
+            <span>Price-Setting Logic</span>
+          </div>
+          <p>In competitive markets, <strong>price = marginal cost of the most expensive unit needed to meet demand</strong>.</p>
+          <p>Here, Alpha 2 is the marginal unit. It could charge up to $1,000 (Romeo's cost) without Romeo undercutting it.</p>
+        </div>
+      </div>
+
+      <!-- Question 2: Profits -->
+      <p style="margin-top: 2rem;"><strong>2. Show graphically the profits each unit makes</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Profit Calculation:</strong> Profit = (Price - Cost) × Quantity</p>
+
+        <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+          <thead style="background: #f3f4f6;">
+            <tr>
+              <th style="border: 1px solid #ddd; padding: 0.75rem;">Unit</th>
+              <th style="border: 1px solid #ddd; padding: 0.75rem;">Quantity</th>
+              <th style="border: 1px solid #ddd; padding: 0.75rem;">Cost</th>
+              <th style="border: 1px solid #ddd; padding: 0.75rem;">Price</th>
+              <th style="border: 1px solid #ddd; padding: 0.75rem;">Profit per tonne</th>
+              <th style="border: 1px solid #ddd; padding: 0.75rem;">Total Profit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">Alpha 1</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">40,000</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">$700</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">$1,000</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">$300</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>$12,000,000</strong></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">Bravo 1</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">25,000</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">$750</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">$1,000</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">$250</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>$6,250,000</strong></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">Alpha 2</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">10,000</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">$850</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">$1,000</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;">$150</td>
+              <td style="border: 1px solid #ddd; padding: 0.75rem;"><strong>$1,500,000</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="graph-container">
+          <div class="graph-title">Profit Rectangles on Cost Curve</div>
+          <canvas id="profitRectanglesGraph"></canvas>
+        </div>
+      </div>
+
+      <!-- Question 3: Bravo capacity increase -->
+      <p style="margin-top: 2rem;"><strong>3. What if Bravo increases capacity of Bravo 1?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Strategic Problem for Bravo:</strong></p>
+        <p>If Bravo 1 capacity increases from 25,000 to 35,000+ tonnes:</p>
+        <ul>
+          <li>Total production: Alpha 1 (40,000) + Bravo 1 (35,000) = 75,000 tonnes</li>
+          <li>Alpha 2 no longer needed → Exits market</li>
+          <li><strong>New market price = $850</strong> (Alpha 2's cost)</li>
+        </ul>
+
+        <div class="graph-container">
+          <div class="graph-title">Effect of Bravo Capacity Expansion</div>
+          <canvas id="bravoExpansionGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Impact on Bravo 1:</strong></p>
+        <ul>
+          <li><strong>Before:</strong> 25,000 tonnes × ($1,000 - $750) = $6,250,000 profit</li>
+          <li><strong>After:</strong> 35,000 tonnes × ($850 - $750) = $3,500,000 profit</li>
+          <li><strong>Net effect:</strong> LOSS of $2,750,000!</li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Capacity Paradox</span>
+          </div>
+          <p><strong>Bravo should NOT expand capacity</strong> because:</p>
+          <ul>
+            <li>Expansion pushes out Alpha 2 (the marginal unit)</li>
+            <li>This lowers market price from $1,000 to $850</li>
+            <li>The price decrease hurts Bravo MORE than the volume increase helps</li>
+            <li>This is why firms sometimes deliberately limit capacity!</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Question 4: Alpha closing Alpha 2 -->
+      <p style="margin-top: 2rem;"><strong>4. Should Alpha close Alpha 2?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Strategic Analysis:</strong></p>
+
+        <p><strong>If Alpha closes Alpha 2:</strong></p>
+        <ul>
+          <li>Remaining capacity: Alpha 1 (40,000) + Bravo 1 (25,000) = 65,000 tonnes</li>
+          <li>Demand = 75,000 → Shortage of 10,000 tonnes</li>
+          <li>Romeo 1 must enter to fill gap</li>
+          <li><strong>New market price = $1,200</strong> (Bravo 2's cost)</li>
+        </ul>
+
+        <div class="graph-container">
+          <div class="graph-title">Effect of Alpha 2 Closure</div>
+          <canvas id="alpha2ClosureGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Impact on Alpha 1:</strong></p>
+        <ul>
+          <li><strong>Before closure:</strong> 40,000 × ($1,000 - $700) = $12,000,000</li>
+          <li><strong>After closure:</strong> 40,000 × ($1,200 - $700) = $20,000,000</li>
+          <li><strong>Gain from higher prices:</strong> +$8,000,000</li>
+        </ul>
+
+        <p><strong>Impact on Alpha 2:</strong></p>
+        <ul>
+          <li><strong>Before closure:</strong> 10,000 × ($1,000 - $850) = $1,500,000 profit</li>
+          <li><strong>After closure:</strong> $0 (but also saves $850 × 10,000 = $8,500,000 in costs if assuming no production = no costs)</li>
+        </ul>
+
+        <p style="margin-top: 1rem;"><strong>Net effect for Alpha:</strong></p>
+        <ul>
+          <li>Gain on Alpha 1: +$8,000,000</li>
+          <li>Loss on Alpha 2: -$1,500,000</li>
+          <li><strong>Net gain: +$6,500,000</strong></li>
+          <li><strong>Conclusion: Alpha SHOULD close Alpha 2!</strong></li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-brain"></i>
+            <span>Capacity Withholding Strategy</span>
+          </div>
+          <p>Firms can increase profits by <strong>strategically withholding capacity</strong> to drive up market prices.</p>
+          <p>This is why:</p>
+          <ul>
+            <li>OPEC limits oil production</li>
+            <li>Diamond companies control supply</li>
+            <li>Airlines retire older planes during downturns</li>
+          </ul>
+          <p><strong>BUT:</strong> This requires market power and coordination. In perfectly competitive markets, other firms would fill the gap.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PROBLEM SET 4 -->
+<div class="problem-set" id="ps4">
+  <div class="problem-set-header" onclick="toggleProblemSet(this)">
+    <h2><i class="fas fa-clipboard-list"></i> Problem Set 4: Price Elasticity & Strategic Pricing</h2>
+    <i class="fas fa-chevron-down toggle-icon"></i>
+  </div>
+  <div class="problem-set-content">
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-lightbulb"></i>
+        <span>Key Concepts for This Problem Set</span>
+      </div>
+      <ul>
+        <li><strong>Price elasticity of demand:</strong> How quantity demanded responds to price changes</li>
+        <li><strong>Short run vs. long run elasticity:</strong> Time horizon affects flexibility</li>
+        <li><strong>Dynamic pricing:</strong> Apple's iPhone pricing strategy</li>
+        <li><strong>Price discrimination:</strong> Charging different prices to different customer segments</li>
+      </ul>
+    </div>
+
+    <!-- Warm-up: Elasticity Comparison -->
+    <div class="question-block">
+      <div class="question-number">Warm-up: Price Elasticity</div>
+
+      <p><strong>1. Which demand curve is more elastic?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <div class="graph-container">
+          <div class="graph-title">Elastic vs. Inelastic Demand</div>
+          <canvas id="elasticityComparisonGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Key Insight:</strong></p>
+        <ul>
+          <li><strong>Flatter curve (dd):</strong> MORE elastic - quantity changes a lot when price changes</li>
+          <li><strong>Steeper curve (DD):</strong> LESS elastic - quantity doesn't change much when price changes</li>
+          <li>A drop from P₀ to P₁ causes larger quantity increase for dd than DD</li>
+        </ul>
+
+        <div class="math-formula">
+          Price Elasticity of Demand = (% Change in Quantity) / (% Change in Price)
+          <br><br>
+          |Elasticity| > 1: Elastic (responsive to price)
+          <br>
+          |Elasticity| < 1: Inelastic (not responsive to price)
+          <br>
+          |Elasticity| = 1: Unit elastic
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem;"><strong>2. Electricity demand: Which is short-run vs. long-run?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>dd (flatter) = Long-run demand</strong></p>
+        <p><strong>DD (steeper) = Short-run demand</strong></p>
+
+        <div class="graph-container">
+          <div class="graph-title">Electricity Demand: Short Run vs. Long Run</div>
+          <canvas id="electricityElasticityGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Economic Reasoning:</strong></p>
+        <ul>
+          <li><strong>Short run (DD - inelastic):</strong>
+            <ul>
+              <li>Capital is FIXED (can't change infrastructure)</li>
+              <li>If price increases, households/firms consume almost same amount</li>
+              <li>Can't easily change heating systems, industrial processes, etc.</li>
+              <li>Electricity is a necessity with few immediate substitutes</li>
+            </ul>
+          </li>
+          <li><strong>Long run (dd - elastic):</strong>
+            <ul>
+              <li>Capital is VARIABLE (can invest in energy-efficient appliances)</li>
+              <li>Can install solar panels, better insulation, etc.</li>
+              <li>Firms can adapt production processes</li>
+              <li>More time to find substitutes and adjust behavior</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-clock"></i>
+            <span>Time Horizon and Elasticity</span>
+          </div>
+          <p><strong>General principle:</strong> Demand becomes MORE elastic over longer time periods because:</p>
+          <ol>
+            <li>More time to find substitutes</li>
+            <li>More time to adjust capital stock (equipment, infrastructure)</li>
+            <li>More time for new technologies to emerge</li>
+            <li>More time for habits to change</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Event: Apple iPhone Pricing -->
+    <div class="question-block">
+      <div class="question-number">Main Event: Apple's iPhone Pricing Strategy</div>
+      <p><strong>Context:</strong> Apple launched the iPhone at $600, then quickly dropped it to $400, angering early adopters.</p>
+
+      <p style="margin-top: 1.5rem;"><strong>1. How would you justify the price cut from a microeconomic standpoint?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Dynamic Pricing & Product Lifecycle Strategy:</strong></p>
+
+        <div class="graph-container">
+          <div class="graph-title">Apple's Dynamic Pricing Strategy</div>
+          <canvas id="applePricingGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Three Economic Justifications:</strong></p>
+
+        <p><strong>1. Price Discrimination (Third-Degree)</strong></p>
+        <ul>
+          <li><strong>Early adopters:</strong> High willingness to pay, INELASTIC demand
+            <ul>
+              <li>Tech enthusiasts who must have new gadgets</li>
+              <li>Status seekers</li>
+              <li>Less price-sensitive</li>
+            </ul>
+          </li>
+          <li><strong>Mass market:</strong> Lower willingness to pay, ELASTIC demand
+            <ul>
+              <li>Wait for reviews and lower prices</li>
+              <li>More price-sensitive</li>
+              <li>Larger volume but lower margins</li>
+            </ul>
+          </li>
+          <li>By launching at $600, Apple captures consumer surplus from early adopters</li>
+          <li>By dropping to $400, Apple captures mass market (Job's goal: "make product affordable for holidays")</li>
+        </ul>
+
+        <p style="margin-top: 1rem;"><strong>2. Product Lifecycle Model</strong></p>
+        <ul>
+          <li><strong>Introduction phase ($600):</strong> Low competition, "breakthrough product," inelastic demand</li>
+          <li><strong>Growth phase ($400):</strong> Competition increases, demand becomes elastic, need volume</li>
+          <li>This is textbook dynamic pricing strategy</li>
+        </ul>
+
+        <p style="margin-top: 1rem;"><strong>3. Behavioral Economics / Anchoring</strong></p>
+        <ul>
+          <li>By showing $600 first, Apple creates an <strong>anchor</strong></li>
+          <li>$400 now seems like a "great deal" (33% discount!)</li>
+          <li>Without the anchor, consumers wouldn't know if $400 is expensive or cheap</li>
+          <li>Apple essentially ran a pricing experiment</li>
+        </ul>
+
+        <div class="math-formula">
+          <strong>Profit Maximization Logic:</strong>
+          <br><br>
+          Phase 1 (High price): π₁ = (P₁ - MC) × Q₁ = ($600 - MC) × Q_early_adopters
+          <br><br>
+          Phase 2 (Low price): π₂ = (P₂ - MC) × Q₂ = ($400 - MC) × Q_mass_market
+          <br><br>
+          Total profit = π₁ + π₂ > profit from single price strategy
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem;"><strong>2. Why would you criticize it from a microeconomic standpoint?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Problem: Affecting Future Price Expectations</strong></p>
+
+        <div class="graph-container">
+          <div class="graph-title">Impact on Future Demand</div>
+          <canvas id="priceExpectationsGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Economic Critiques:</strong></p>
+
+        <p><strong>1. Demand is Driven by Price Expectations</strong></p>
+        <ul>
+          <li>Cutting prices so quickly sends signal: "Wait, prices will drop"</li>
+          <li>Future early adopters will delay purchases</li>
+          <li>This <strong>flattens the demand curve</strong> (makes it more elastic)</li>
+          <li>Reduces ability to price discriminate in future</li>
+        </ul>
+
+        <p><strong>2. Brand Damage / Trust Issues</strong></p>
+        <ul>
+          <li>Early adopters feel "ripped off"</li>
+          <li>Reduces loyalty and brand equity</li>
+          <li>May not buy future iPhones immediately (→ wait for price drop)</li>
+        </ul>
+
+        <p><strong>3. Credibility Problem</strong></p>
+        <ul>
+          <li>Apple's implicit promise: "Premium price = premium product"</li>
+          <li>Quick price drop suggests: "We overpriced it" or "Demand was weak"</li>
+          <li>Undermines premium positioning</li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-balance-scale"></i>
+            <span>Trade-off: Short-term Profit vs. Long-term Strategy</span>
+          </div>
+          <p><strong>Short-term gain:</strong> Capture more consumer surplus through price discrimination</p>
+          <p><strong>Long-term risk:</strong> Train customers to wait for price drops, reducing future pricing power</p>
+          <p><strong>What Apple did right:</strong> Offered $100 store credit to early adopters to mitigate anger</p>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Evidence from iPhone History:</strong></p>
+        <ul>
+          <li>iPhone (2007): $600 → $400 after 2 months</li>
+          <li>iPhone 3G onward: More gradual price reductions</li>
+          <li>Current strategy: Keep flagship price stable, introduce cheaper models (SE, older generations)</li>
+          <li>Suggests Apple learned from the backlash</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PROBLEM SET 5 -->
+<div class="problem-set" id="ps5">
+  <div class="problem-set-header" onclick="toggleProblemSet(this)">
+    <h2><i class="fas fa-clipboard-list"></i> Problem Set 5: Platform Economics & Uber Case</h2>
+    <i class="fas fa-chevron-down toggle-icon"></i>
+  </div>
+  <div class="problem-set-content">
+
+    <div class="key-insight">
+      <div class="key-insight-header">
+        <i class="fas fa-lightbulb"></i>
+        <span>Key Concepts for This Problem Set</span>
+      </div>
+      <ul>
+        <li><strong>Platform economics:</strong> Two-sided markets connecting riders and drivers</li>
+        <li><strong>Sharing economy:</strong> Unleashing underused assets (cars) and labor (part-time drivers)</li>
+        <li><strong>Dynamic pricing (surge):</strong> Using prices to balance supply and demand in real-time</li>
+        <li><strong>Network effects:</strong> Value increases as more users join</li>
+        <li><strong>Marginal cost near zero:</strong> Cost of additional ride is essentially zero for Uber</li>
+      </ul>
+    </div>
+
+    <!-- Question 1: Uber's Evolution -->
+    <div class="question-block">
+      <div class="question-number">Question 1: Uber's Evolution and Competitive Advantage</div>
+      <p><strong>Describe how Uber has evolved and why Uber is changing.</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Uber's Evolution (see Exhibit 5 in case):</strong></p>
+        <ol>
+          <li><strong>2009-2012: Luxury black car service</strong>
+            <ul>
+              <li>UberBlack: Professional drivers, luxury cars</li>
+              <li>Premium pricing</li>
+              <li>Small market segment</li>
+            </ul>
+          </li>
+          <li><strong>2012-2014: Mass market expansion</strong>
+            <ul>
+              <li>UberX: Anyone with car can drive</li>
+              <li>Lower prices → Larger market</li>
+              <li>Shifted from luxury to convenience</li>
+            </ul>
+          </li>
+          <li><strong>2014-2016: Diversification</strong>
+            <ul>
+              <li><strong>UberPool:</strong> Shared rides (lower cost)</li>
+              <li><strong>UberEats:</strong> Food delivery (leverage driver network)</li>
+              <li><strong>UberFreight:</strong> Trucking logistics</li>
+            </ul>
+          </li>
+          <li><strong>2016+: Technology & Future Mobility</strong>
+            <ul>
+              <li>Driverless car initiative (eliminate largest cost: driver)</li>
+              <li>Flying taxis (Uber Elevate)</li>
+              <li>Public transit partnerships</li>
+            </ul>
+          </li>
+        </ol>
+
+        <p style="margin-top: 1.5rem;"><strong>Why is Uber Changing?</strong></p>
+        <ul>
+          <li><strong>"Move fast and break things"</strong> strategy
+            <ul>
+              <li>Rapid iteration prevents competitors from catching up</li>
+              <li>Lyft, Didi, Grab must constantly react</li>
+              <li>First-mover advantage in each segment</li>
+            </ul>
+          </li>
+          <li><strong>Network effects:</strong>
+            <ul>
+              <li>More riders → More drivers attracted (higher earnings)</li>
+              <li>More drivers → Faster pickup times → More riders</li>
+              <li>Virtuous cycle creates winner-take-most dynamics</li>
+            </ul>
+          </li>
+          <li><strong>Platform leverage:</strong>
+            <ul>
+              <li>Uber has drivers + GPS infrastructure</li>
+              <li>Marginal cost of adding UberEats, UberFreight ≈ 0</li>
+              <li>Maximize utilization of existing assets</li>
+            </ul>
+          </li>
+          <li><strong>Competitive pressure:</strong>
+            <ul>
+              <li>Rideshare market becoming commoditized</li>
+              <li>Need new revenue sources</li>
+              <li>Move into higher-margin businesses (food delivery, freight)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-rocket"></i>
+            <span>Competitive Advantage from Speed</span>
+          </div>
+          <p>"Move fast and break things" gives Uber an edge because:</p>
+          <ul>
+            <li>Competitors must play catch-up (reactive, not proactive)</li>
+            <li>Uber learns faster (more experiments → more data)</li>
+            <li>Regulatory arbitrage: Launch first, negotiate regulations later</li>
+            <li>Brand becomes synonymous with category ("Uber for X")</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2: Sharing Economy -->
+    <div class="question-block">
+      <div class="question-number">Question 2: Is Uber Representative of the Sharing Economy?</div>
+
+      <p><strong>2a. What is the sharing economy? Does Uber fit?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Richard Waters' Definition (FT article):</strong></p>
+        <blockquote style="border-left: 4px solid #667eea; padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+          "It is a disruptive economic form that unleashes new sources of supply. Whether this involves underused assets (private cars, spare bedrooms) or labour (people willing to fill in a few hours as taxi drivers, personal shoppers or couriers), it taps resources that could not be effectively organised before."
+        </blockquote>
+
+        <p style="margin-top: 1.5rem;"><strong>Does Uber Fit? YES - on multiple dimensions:</strong></p>
+
+        <p><strong>1. Underused Assets (Private Cars)</strong></p>
+        <ul>
+          <li>Average car sits idle 95% of the time</li>
+          <li>UberX allows car owners to monetize idle capacity</li>
+          <li>This is <strong>supply side</strong> of sharing economy</li>
+        </ul>
+
+        <p><strong>2. Flexible Labour</strong></p>
+        <ul>
+          <li>Part-time drivers: Students, retirees, people with day jobs</li>
+          <li>"Fill in a few hours" → Can drive during peak hours only</li>
+          <li>Reduces labor market friction (match people with flexible supply to variable demand)</li>
+        </ul>
+
+        <p><strong>3. Platform Coordination</strong></p>
+        <ul>
+          <li>Before Uber: Couldn't organize thousands of part-time drivers</li>
+          <li>GPS + smartphones + algorithms made coordination possible</li>
+          <li><strong>Technology unlocked latent supply</strong></li>
+        </ul>
+
+        <div class="graph-container">
+          <div class="graph-title">Sharing Economy: Unlocking Latent Supply</div>
+          <canvas id="sharingEconomyGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Graph Explanation:</strong></p>
+        <ul>
+          <li><strong>Pre-Uber:</strong> Only professional taxis (red supply curve) - high cost, limited supply</li>
+          <li><strong>Post-Uber:</strong> Adds part-time drivers with spare cars (blue supply curve shifts right)</li>
+          <li>Result: Lower prices (P₁ to P₂), higher quantity (Q₁ to Q₂)</li>
+          <li>Deadweight loss eliminated (gains from trade in green)</li>
+        </ul>
+      </div>
+
+      <p style="margin-top: 2rem;"><strong>2b. Why do microeconomists agree Uber represents sharing economy?</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+
+        <p><strong>Three Microeconomic Arguments:</strong></p>
+
+        <p><strong>1. Marginal Cost ≈ $0</strong></p>
+        <ul>
+          <li>Cost to Uber of one additional ride ≈ $0 (just software matching)</li>
+          <li>This is characteristic of platform businesses</li>
+          <li>Contrasts with traditional taxis (buying fleet, maintenance, dispatch center)</li>
+          <li>Enables extreme scalability</li>
+        </ul>
+
+        <div class="math-formula">
+          Traditional Taxi: MC = fuel + wear & tear + driver wage + dispatch overhead
+          <br>
+          Uber: MC ≈ $0 (driver pays fuel & car costs, Uber just matches)
+        </div>
+
+        <p style="margin-top: 1.5rem;"><strong>2. Platform Model: Matching Supply and Demand</strong></p>
+        <ul>
+          <li>Uber is essentially a <strong>market-maker</strong></li>
+          <li>Uses price signals (surge pricing) to equilibrate supply and demand</li>
+          <li>Quote from case: <em>"What you are aiming for is the equilibrium of supply and demand. A perfect day is when you set an all-time record for trips per hour with zero surges."</em></li>
+          <li>This is textbook microeconomics!</li>
+        </ul>
+
+        <div class="graph-container">
+          <div class="graph-title">Uber's Dynamic Equilibrium</div>
+          <canvas id="uberEquilibriumGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Normal vs. Peak Times:</strong></p>
+        <ul>
+          <li><strong>Normal time:</strong> Supply and demand meet at P₀, Q₀ (no surge)</li>
+          <li><strong>Peak time:</strong> Demand surges to D₁
+            <ul>
+              <li>Without surge: Shortage (Q₀ < Q₁)</li>
+              <li>With surge to P₁: Attracts more drivers, equilibrium at Q₁</li>
+              <li>Surge serves to <strong>clear the market</strong></li>
+            </ul>
+          </li>
+        </ul>
+
+        <p style="margin-top: 1.5rem;"><strong>3. Efficiency of Market Design</strong></p>
+        <ul>
+          <li><strong>Price discovery:</strong> Algorithm finds market-clearing price in real-time</li>
+          <li><strong>No deadweight loss:</strong> Unlike regulated taxi markets with price ceilings</li>
+          <li><strong>Resource allocation:</strong> Drivers go where demand is highest (follow price signals)</li>
+          <li><strong>Information aggregation:</strong> Platform has perfect information about supply & demand</li>
+        </ul>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-brain"></i>
+            <span>Why Microeconomists Love Uber</span>
+          </div>
+          <p>Uber is a real-world example of:</p>
+          <ol>
+            <li><strong>Supply and demand equilibrium</strong> - surge pricing</li>
+            <li><strong>Price elasticity</strong> - different elasticities at different times</li>
+            <li><strong>Two-sided markets</strong> - need to balance riders and drivers</li>
+            <li><strong>Information economics</strong> - ratings solve asymmetric information</li>
+            <li><strong>Market efficiency</strong> - eliminates deadweight loss from regulation</li>
+            <li><strong>Marginal cost pricing</strong> - MC ≈ 0, can scale infinitely</li>
+          </ol>
+        </div>
+
+        <p style="margin-top: 1.5rem;"><strong>Counterarguments (Uber as "NOT" sharing economy):</strong></p>
+        <ul>
+          <li><strong>Full-time drivers:</strong> Many drivers are now full-time (not "sharing" idle time)</li>
+          <li><strong>Commercial purpose:</strong> Cars bought specifically for Uber (not "underused assets")</li>
+          <li><strong>Platform extraction:</strong> Uber takes 25-30% commission (not peer-to-peer sharing)</li>
+          <li><strong>Labor exploitation concerns:</strong> Drivers classified as contractors, not employees</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+
+<script>
+// Toggle problem set visibility
+function toggleProblemSet(header) {
+  const content = header.nextElementSibling;
+  const icon = header.querySelector('.toggle-icon');
+
+  content.classList.toggle('active');
+  icon.classList.toggle('rotated');
+}
+
+// Scroll to section
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Chart.js configurations
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.color = '#374151';
+
+// Oil Strike Graph
+const oilStrikeCtx = document.getElementById('oilStrikeGraph').getContext('2d');
+new Chart(oilStrikeCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₁', 'Q₀', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [400, 300, 200, 100],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply (Before Strike)',
+        data: [100, 200, 300, 400],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply (After Strike)',
+        data: [150, 250, 350, 450],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        borderDash: [5, 5],
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        title: { display: true, text: 'Quantity' }
+      },
+      y: {
+        title: { display: true, text: 'Price' },
+        beginAtZero: true
+      }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          point1: {
+            type: 'point',
+            xValue: 'Q₀',
+            yValue: 200,
+            backgroundColor: '#10b981',
+            radius: 8,
+            label: {
+              content: 'E₀',
+              enabled: true,
+              position: 'top'
+            }
+          },
+          point2: {
+            type: 'point',
+            xValue: 'Q₁',
+            yValue: 300,
+            backgroundColor: '#ef4444',
+            radius: 8,
+            label: {
+              content: 'E₁',
+              enabled: true,
+              position: 'top'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Car Market Graph (Double Shift)
+const carMarketCtx = document.getElementById('carMarketGraph').getContext('2d');
+new Chart(carMarketCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₁', 'Q₀', 'Q₂', ''],
+    datasets: [
+      {
+        label: 'D₀ (Original Demand)',
+        data: [400, 320, 240, 160, 80],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0
+      },
+      {
+        label: 'D₁ (After Buyers Return)',
+        data: [480, 400, 320, 240, 160],
+        borderColor: '#8b5cf6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'S₀ (Original Supply)',
+        data: [80, 160, 240, 320, 400],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0
+      },
+      {
+        label: 'S₁ (After Production Shutdown)',
+        data: [160, 240, 320, 400, 480],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top' } }
+  }
+});
+
+// Milk Price Graph
+const milkPriceCtx = document.getElementById('milkPriceGraph').getContext('2d');
+new Chart(milkPriceCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₁', 'Q₀', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [350, 250, 150, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'S₀ (Original Supply)',
+        data: [50, 150, 250, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0
+      },
+      {
+        label: 'S₁ (After Milk Price ↑)',
+        data: [100, 200, 300, 400],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        borderDash: [5, 5],
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity of Ice Cream' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top' } }
+  }
+});
+
+// Chocolate Study Graph
+const chocolateStudyCtx = document.getElementById('chocolateStudyGraph').getContext('2d');
+new Chart(chocolateStudyCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₂', 'Q₀', ''],
+    datasets: [
+      {
+        label: 'D₀ (Original Demand)',
+        data: [350, 250, 150, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0
+      },
+      {
+        label: 'D₁ (After Study)',
+        data: [300, 200, 100, 0],
+        borderColor: '#8b5cf6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [50, 150, 250, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity of Ice Cream' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top' } }
+  }
+});
+
+// Income Increase Graph
+const incomeIncreaseCtx = document.getElementById('incomeIncreaseGraph').getContext('2d');
+new Chart(incomeIncreaseCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₃', ''],
+    datasets: [
+      {
+        label: 'D₀ (Original)',
+        data: [350, 250, 150, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0
+      },
+      {
+        label: 'D₃ (After Income ↑)',
+        data: [400, 300, 200, 100],
+        borderColor: '#8b5cf6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [50, 150, 250, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: { legend: { position: 'top' } }
+  }
+});
+
+// Hot Summer Graph
+const hotSummerCtx = document.getElementById('hotSummerGraph').getContext('2d');
+new Chart(hotSummerCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₃ (Shortage)', ''],
+    datasets: [
+      {
+        label: 'D₀ (Normal)',
+        data: [350, 250, 150, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0
+      },
+      {
+        label: 'D₃ (Hot Summer)',
+        data: [450, 350, 250, 150],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply (Short Run - Fixed)',
+        data: null,
+        borderColor: '#10b981',
+        backgroundColor: '#10b981',
+        borderWidth: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          verticalLine: {
+            type: 'line',
+            xMin: 'Q₀',
+            xMax: 'Q₀',
+            yMin: 0,
+            yMax: 450,
+            borderColor: '#10b981',
+            borderWidth: 3,
+            label: {
+              content: 'Fixed Supply',
+              enabled: true,
+              position: 'end'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Price Ceiling Graph
+const priceCeilingCtx = document.getElementById('priceCeilingGraph').getContext('2d');
+new Chart(priceCeilingCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₃', ''],
+    datasets: [
+      {
+        label: 'D₃ (Hot Summer Demand)',
+        data: [450, 350, 250, 150],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply (Long Run)',
+        data: [50, 150, 250, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          ceiling: {
+            type: 'line',
+            yMin: 150,
+            yMax: 150,
+            xMin: '',
+            xMax: '',
+            borderColor: '#f59e0b',
+            borderWidth: 3,
+            borderDash: [10, 5],
+            label: {
+              content: 'Price Ceiling (P*)',
+              enabled: true,
+              position: 'end'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Autarky Graph
+const autarkyCtx = document.getElementById('autarkyGraph').getContext('2d');
+new Chart(autarkyCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q_A', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [400, 200, 0],
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+        fill: 'origin',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [0, 200, 400],
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        fill: 'end',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity of Shoes' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          equilibrium: {
+            type: 'point',
+            xValue: 'Q_A',
+            yValue: 200,
+            backgroundColor: '#667eea',
+            radius: 8,
+            label: {
+              content: 'E (Autarky)',
+              enabled: true,
+              position: 'top'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Trade Graph
+const tradeCtx = document.getElementById('tradeGraph').getContext('2d');
+new Chart(tradeCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q_s', 'Q_A', 'Q_d', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [450, 350, 250, 150, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [50, 150, 250, 350, 450],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true, max: 500 }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          worldPrice: {
+            type: 'line',
+            yMin: 150,
+            yMax: 150,
+            borderColor: '#f59e0b',
+            borderWidth: 3,
+            label: {
+              content: 'World Price (P_W)',
+              enabled: true,
+              position: 'start'
+            }
+          },
+          autarkyPrice: {
+            type: 'line',
+            yMin: 250,
+            yMax: 250,
+            borderColor: '#6366f1',
+            borderWidth: 2,
+            borderDash: [5, 5],
+            label: {
+              content: 'Autarky Price (P_A)',
+              enabled: true,
+              position: 'end'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Gains from Trade Graph
+const gainsFromTradeCtx = document.getElementById('gainsFromTradeGraph').getContext('2d');
+new Chart(gainsFromTradeCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q_s', 'Q_A', 'Q_d', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [450, 350, 250, 150, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+        fill: 'origin',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      },
+      {
+        label: 'Supply',
+        data: [50, 150, 250, 350, 450],
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+        fill: 'end',
+        borderWidth: 3,
+        tension: 0,
+        pointRadius: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true, max: 500 }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          worldPrice: {
+            type: 'line',
+            yMin: 150,
+            yMax: 150,
+            borderColor: '#f59e0b',
+            borderWidth: 3,
+            label: {
+              content: 'P_W',
+              enabled: true
+            }
+          },
+          autarkyPrice: {
+            type: 'line',
+            yMin: 250,
+            yMax: 250,
+            borderColor: '#6366f1',
+            borderWidth: 2,
+            borderDash: [5, 5],
+            label: {
+              content: 'P_A',
+              enabled: true
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Industry Cost Curve
+const industryCostCurveCtx = document.getElementById('industryCostCurveGraph').getContext('2d');
+new Chart(industryCostCurveCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Alpha 1\n(40k)', 'Bravo 1\n(25k)', 'Alpha 2\n(25k)', 'Romeo 1\n(10k)', 'Bravo 2\n(100k)'],
+    datasets: [{
+      label: 'Cost per Tonne ($)',
+      data: [700, 750, 850, 1000, 1200],
+      backgroundColor: [
+        '#10b981',
+        '#10b981',
+        '#10b981',
+        '#ef4444',
+        '#6b7280'
+      ],
+      borderColor: [
+        '#059669',
+        '#059669',
+        '#059669',
+        '#dc2626',
+        '#4b5563'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Production Units (capacity)' } },
+      y: { title: { display: true, text: 'Cost per Tonne ($)' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { display: false },
+      annotation: {
+        annotations: {
+          demandLine: {
+            type: 'line',
+            yMin: 0,
+            yMax: 75000,
+            xMin: 2.5,
+            xMax: 2.5,
+            borderColor: '#3b82f6',
+            borderWidth: 3,
+            label: {
+              content: 'Demand = 75,000 tonnes',
+              enabled: true,
+              position: 'end'
+            }
+          },
+          priceLine: {
+            type: 'line',
+            yMin: 1000,
+            yMax: 1000,
+            borderColor: '#f59e0b',
+            borderWidth: 3,
+            borderDash: [10, 5],
+            label: {
+              content: 'Market Price = $1,000',
+              enabled: true,
+              position: 'start'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Profit Rectangles
+const profitRectanglesCtx = document.getElementById('profitRectanglesGraph').getContext('2d');
+new Chart(profitRectanglesCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Alpha 1', 'Bravo 1', 'Alpha 2', 'Romeo 1', 'Bravo 2'],
+    datasets: [
+      {
+        label: 'Cost',
+        data: [700, 750, 850, 1000, 1200],
+        backgroundColor: '#ef4444',
+        borderColor: '#dc2626',
+        borderWidth: 2
+      },
+      {
+        label: 'Profit Margin',
+        data: [300, 250, 150, 0, 0],
+        backgroundColor: '#10b981',
+        borderColor: '#059669',
+        borderWidth: 2
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { stacked: true },
+      y: { stacked: true, title: { display: true, text: 'Price per Tonne ($)' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' }
+    }
+  }
+});
+
+// Bravo Expansion Graph
+const bravoExpansionCtx = document.getElementById('bravoExpansionGraph').getContext('2d');
+new Chart(bravoExpansionCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Alpha 1\n(40k)', 'Bravo 1\n(35k)', 'Alpha 2\n(idle)', 'Romeo 1\n(idle)', 'Bravo 2\n(idle)'],
+    datasets: [{
+      label: 'Cost per Tonne ($)',
+      data: [700, 750, 850, 1000, 1200],
+      backgroundColor: [
+        '#10b981',
+        '#10b981',
+        '#fbbf24',
+        '#6b7280',
+        '#6b7280'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Production Units' } },
+      y: { title: { display: true, text: 'Cost per Tonne ($)' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { display: false },
+      annotation: {
+        annotations: {
+          newPrice: {
+            type: 'line',
+            yMin: 850,
+            yMax: 850,
+            borderColor: '#f59e0b',
+            borderWidth: 3,
+            label: {
+              content: 'New Market Price = $850',
+              enabled: true
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Alpha 2 Closure Graph
+const alpha2ClosureCtx = document.getElementById('alpha2ClosureGraph').getContext('2d');
+new Chart(alpha2ClosureCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Alpha 1\n(40k)', 'Bravo 1\n(25k)', 'Romeo 1\n(10k)', 'Alpha 2\n(closed)', 'Bravo 2\n(idle)'],
+    datasets: [{
+      label: 'Cost per Tonne ($)',
+      data: [700, 750, 1000, null, 1200],
+      backgroundColor: [
+        '#10b981',
+        '#10b981',
+        '#10b981',
+        '#6b7280',
+        '#6b7280'
+      ],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Production Units' } },
+      y: { title: { display: true, text: 'Cost per Tonne ($)' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { display: false },
+      annotation: {
+        annotations: {
+          newPrice: {
+            type: 'line',
+            yMin: 1200,
+            yMax: 1200,
+            borderColor: '#f59e0b',
+            borderWidth: 3,
+            label: {
+              content: 'New Market Price = $1,200 (Bravo 2 cost)',
+              enabled: true
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Elasticity Comparison
+const elasticityComparisonCtx = document.getElementById('elasticityComparisonGraph').getContext('2d');
+new Chart(elasticityComparisonCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q_D', 'Q₀', 'Q_d', ''],
+    datasets: [
+      {
+        label: 'dd (Elastic)',
+        data: [400, 330, 250, 160, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0.1
+      },
+      {
+        label: 'DD (Inelastic)',
+        data: [380, 300, 250, 220, 180],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0.1
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          p0Line: {
+            type: 'line',
+            yMin: 250,
+            yMax: 250,
+            borderColor: '#6b7280',
+            borderWidth: 2,
+            borderDash: [5, 5],
+            label: {
+              content: 'P₀',
+              enabled: true,
+              position: 'start'
+            }
+          },
+          p1Line: {
+            type: 'line',
+            yMin: 160,
+            yMax: 160,
+            borderColor: '#6b7280',
+            borderWidth: 2,
+            borderDash: [5, 5],
+            label: {
+              content: 'P₁',
+              enabled: true,
+              position: 'start'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Electricity Elasticity
+const electricityElasticityCtx = document.getElementById('electricityElasticityGraph').getContext('2d');
+new Chart(electricityElasticityCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q_sr', 'Q₀', 'Q_lr', ''],
+    datasets: [
+      {
+        label: 'Long-run (dd - Elastic)',
+        data: [400, 320, 240, 160, 80],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Short-run (DD - Inelastic)',
+        data: [380, 300, 240, 200, 180],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [80, 160, 240, 320, 400],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity (kWh)' } },
+      y: { title: { display: true, text: 'Price ($/kWh)' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' }
+    }
+  }
+});
+
+// Apple Pricing Graph
+const applePricingCtx = document.getElementById('applePricingGraph').getContext('2d');
+new Chart(applePricingCtx, {
+  type: 'line',
+  data: {
+    labels: ['Sep 2007', 'Oct 2007', 'Nov 2007', 'Dec 2007', 'Jan 2008'],
+    datasets: [
+      {
+        label: 'iPhone Price',
+        data: [600, 600, 400, 400, 400],
+        borderColor: '#667eea',
+        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+        fill: true,
+        borderWidth: 3,
+        tension: 0,
+        stepped: true
+      },
+      {
+        label: 'Demand Level (Early Adopters)',
+        data: [100, 80, null, null, null],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        pointRadius: 6,
+        showLine: false
+      },
+      {
+        label: 'Demand Level (Mass Market)',
+        data: [null, null, 250, 280, 300],
+        borderColor: '#8b5cf6',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        pointRadius: 6,
+        showLine: false
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Time' } },
+      y: { title: { display: true, text: 'Price ($) / Demand Index' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          priceDropAnnotation: {
+            type: 'label',
+            xValue: 'Oct 2007',
+            yValue: 500,
+            content: ['Price Cut', '$600 → $400'],
+            backgroundColor: 'rgba(255, 99, 132, 0.9)',
+            color: 'white',
+            font: {
+              size: 12,
+              weight: 'bold'
+            },
+            padding: 8,
+            borderRadius: 4
+          }
+        }
+      }
+    }
+  }
+});
+
+// Price Expectations Graph
+const priceExpectationsCtx = document.getElementById('priceExpectationsGraph').getContext('2d');
+new Chart(priceExpectationsCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₁', 'Q₀', ''],
+    datasets: [
+      {
+        label: 'iPhone 1 Demand (No expectations)',
+        data: [700, 550, 400, 250],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'iPhone 2 Demand (Expect price drop)',
+        data: [650, 500, 350, 200],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [250, 400, 550, 700],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' }
+    }
+  }
+});
+
+// Sharing Economy Graph
+const sharingEconomyCtx = document.getElementById('sharingEconomyGraph').getContext('2d');
+new Chart(sharingEconomyCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₁', 'Q₂', ''],
+    datasets: [
+      {
+        label: 'Demand for Rides',
+        data: [40, 30, 20, 10],
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+        fill: 'origin',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply (Pre-Uber: Professional Taxis)',
+        data: [5, 15, 25, 35],
+        borderColor: '#ef4444',
+        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+        fill: 'end',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply (Post-Uber: + Part-time Drivers)',
+        data: [2, 12, 22, 32],
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        fill: 'end',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity of Rides' } },
+      y: { title: { display: true, text: 'Price per Ride ($)' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' }
+    }
+  }
+});
+
+// Uber Equilibrium Graph
+const uberEquilibriumCtx = document.getElementById('uberEquilibriumGraph').getContext('2d');
+new Chart(uberEquilibriumCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q₀', 'Q₁', ''],
+    datasets: [
+      {
+        label: 'D₀ (Normal Demand)',
+        data: [35, 25, 15, 5],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0
+      },
+      {
+        label: 'D₁ (Peak Demand - Surge)',
+        data: [50, 40, 30, 20],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply (Dynamic)',
+        data: [5, 15, 25, 35],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Number of Rides' } },
+      y: { title: { display: true, text: 'Price Multiplier' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          normalEq: {
+            type: 'point',
+            xValue: 'Q₀',
+            yValue: 15,
+            backgroundColor: '#3b82f6',
+            radius: 8,
+            label: {
+              content: 'E₀ (No surge)',
+              enabled: true,
+              position: 'top'
+            }
+          },
+          surgeEq: {
+            type: 'point',
+            xValue: 'Q₁',
+            yValue: 30,
+            backgroundColor: '#ef4444',
+            radius: 8,
+            label: {
+              content: 'E₁ (With surge)',
+              enabled: true,
+              position: 'top'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+</script>
+
+</body>
+</html>

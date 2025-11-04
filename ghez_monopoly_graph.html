@@ -1,0 +1,270 @@
+<!-- VISUAL AID #6: MONOPOLY PROFIT MAXIMIZATION GRAPH - GHEZ INC. -->
+<!-- Insert after the Ghez Inc. problem solution in PS7 -->
+
+<div class="content-card" style="margin: 3rem 0;">
+<h3 style="display: flex; align-items: center; margin-top: 0;">
+<span style="font-size: 1.8rem; margin-right: 0.75rem;">📊</span>
+<span>Monopoly Profit Maximization: Ghez Inc. Graphical Solution</span>
+</h3>
+
+<p style="margin-bottom: 2rem;">This graph visualizes how Ghez Inc. maximizes profit by setting MR = MC, resulting in price P* = 425 well above marginal cost MC = 25.</p>
+
+<div style="background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 2px solid #e5e7eb;">
+<svg viewBox="0 0 900 600" style="width: 100%; height: auto; max-width: 900px; display: block; margin: 0 auto;">
+<!-- Grid lines -->
+<defs>
+<pattern id="gridMono" width="90" height="60" patternUnits="userSpaceOnUse">
+<path d="M 90 0 L 0 0 0 60" fill="none" stroke="#f5f5f5" stroke-width="1"/>
+</pattern>
+
+<!-- Gradient for profit area -->
+<linearGradient id="profitGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3"/>
+<stop offset="100%" style="stop-color:#10b981;stop-opacity:0.1"/>
+</linearGradient>
+
+<!-- Gradient for deadweight loss -->
+<linearGradient id="dwlGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.25"/>
+<stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.1"/>
+</linearGradient>
+
+<!-- Gradient for consumer surplus -->
+<linearGradient id="csGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.25"/>
+<stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1"/>
+</linearGradient>
+</defs>
+<rect width="900" height="600" fill="url(#gridMono)"/>
+
+<!-- Axes -->
+<line x1="100" y1="80" x2="100" y2="520" stroke="#334155" stroke-width="3"/>
+<line x1="100" y1="520" x2="850" y2="520" stroke="#334155" stroke-width="3"/>
+
+<!-- Arrow heads -->
+<polygon points="100,75 95,85 105,85" fill="#334155"/>
+<polygon points="855,520 845,515 845,525" fill="#334155"/>
+
+<!-- Y-axis label (Price/Cost) -->
+<text x="55" y="65" font-size="20" font-weight="700" fill="#334155">Price</text>
+<text x="62" y="88" font-size="16" fill="#64748b">($)</text>
+
+<!-- X-axis label (Quantity) -->
+<text x="780" y="555" font-size="20" font-weight="700" fill="#334155">Quantity</text>
+
+<!-- Key price/cost levels on Y-axis -->
+<!-- P intercept: 825 -->
+<line x1="95" y1="87" x2="100" y2="87" stroke="#334155" stroke-width="2"/>
+<text x="85" y="92" font-size="14" fill="#334155" text-anchor="end" font-weight="600">825</text>
+
+<!-- P* = 425 -->
+<line x1="95" y1="287" x2="100" y2="287" stroke="#ef4444" stroke-width="2.5"/>
+<text x="85" y="292" font-size="15" fill="#ef4444" text-anchor="end" font-weight="700">425</text>
+
+<!-- MC = 25 -->
+<line x1="95" y1="487" x2="100" y2="487" stroke="#10b981" stroke-width="2.5"/>
+<text x="85" y="492" font-size="15" fill="#10b981" text-anchor="end" font-weight="700">25</text>
+
+<!-- Zero line (for reference) -->
+<line x1="95" y1="520" x2="100" y2="520" stroke="#334155" stroke-width="2"/>
+<text x="85" y="525" font-size="14" fill="#334155" text-anchor="end" font-weight="600">0</text>
+
+<!-- X-axis quantities -->
+<!-- Q* = 100 -->
+<line x1="480" y1="520" x2="480" y2="530" stroke="#334155" stroke-width="2.5"/>
+<text x="480" y="550" font-size="15" fill="#334155" text-anchor="middle" font-weight="700">100</text>
+<text x="480" y="568" font-size="13" fill="#64748b" text-anchor="middle">(Q*)</text>
+
+<!-- Q competitive = 200 (where P=MC) -->
+<line x1="860" y1="520" x2="860" y2="530" stroke="#64748b" stroke-width="2"/>
+<text x="860" y="550" font-size="13" fill="#64748b" text-anchor="middle">200</text>
+<text x="860" y="565" font-size="11" fill="#94a3b8" text-anchor="middle">(Competitive)</text>
+
+<!-- DEMAND CURVE: P = 825 - 4Q, so when P=0, Q=206.25, when Q=0, P=825 -->
+<!-- From (0, 825) to (206, 0) -->
+<!-- Scale: Q=100 is at x=480, so Q=206 is at x≈880 -->
+<!-- Scale factor: 3.8 pixels per Q unit -->
+<line x1="100" y1="87" x2="880" y2="520" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+<text x="860" y="540" font-size="17" font-weight="700" fill="#3b82f6">D</text>
+<text x="795" y="490" font-size="13" fill="#1e40af" transform="rotate(-25 795 490)">P = 825 - 4Q</text>
+
+<!-- MARGINAL REVENUE: MR = 825 - 8Q -->
+<!-- Twice as steep as demand, same intercept -->
+<!-- When MR = 0, Q = 103.125 ≈ 492px -->
+<line x1="100" y1="87" x2="492" y2="520" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/>
+<text x="505" y="525" font-size="17" font-weight="700" fill="#8b5cf6">MR</text>
+<text x="380" y="245" font-size="13" fill="#6d28d9" transform="rotate(-47 380 245)">MR = 825 - 8Q</text>
+
+<!-- MARGINAL COST: MC = 25 (horizontal line) -->
+<line x1="100" y1="487" x2="860" y2="487" stroke="#10b981" stroke-width="4" stroke-linecap="round"/>
+<text x="865" y="492" font-size="17" font-weight="700" fill="#10b981">MC</text>
+<text x="760" y="475" font-size="13" fill="#15803d">MC = 25</text>
+
+<!-- PROFIT MAXIMIZATION POINT (MR = MC at Q = 100) -->
+<circle cx="480" cy="487" r="8" fill="#7c3aed" stroke="white" stroke-width="3"/>
+<text x="520" y="480" font-size="14" font-weight="700" fill="#7c3aed">MR = MC</text>
+
+<!-- Vertical line from Q* to demand curve -->
+<line x1="480" y1="287" x2="480" y2="520" stroke="#64748b" stroke-width="2" stroke-dasharray="8,5"/>
+
+<!-- Horizontal line at P* -->
+<line x1="100" y1="287" x2="480" y2="287" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,5"/>
+
+<!-- Point on demand curve at Q* -->
+<circle cx="480" cy="287" r="7" fill="#ef4444" stroke="white" stroke-width="2"/>
+<text x="440" y="275" font-size="14" font-weight="700" fill="#ef4444">P* = 425</text>
+
+<!-- SHADED AREAS -->
+
+<!-- Consumer Surplus (triangle above P*, below demand, from 0 to Q*) -->
+<polygon points="100,87 480,87 480,287" fill="url(#csGradient)" stroke="#3b82f6" stroke-width="1.5" opacity="0.7"/>
+<text x="250" y="170" font-size="14" font-weight="700" fill="#1e40af">Consumer</text>
+<text x="250" y="188" font-size="14" font-weight="700" fill="#1e40af">Surplus</text>
+
+<!-- Monopoly Profit (rectangle: from MC to P*, from 0 to Q*) -->
+<rect x="100" y="287" width="380" height="200" fill="url(#profitGradient)" stroke="#10b981" stroke-width="2" opacity="0.8"/>
+<text x="290" y="380" font-size="16" font-weight="700" fill="#15803d">Monopoly Profit</text>
+<text x="290" y="402" font-size="14" fill="#166534">(P* - MC) × Q*</text>
+<text x="290" y="420" font-size="13" fill="#14532d">= (425 - 25) × 100</text>
+<text x="290" y="438" font-size="14" font-weight="700" fill="#15803d">= 40,000</text>
+
+<!-- Deadweight Loss (triangle: from Q* to Qc, between demand and MC) -->
+<!-- Qc where P=MC: 825-4Q=25, Q=200, x≈860 -->
+<polygon points="480,287 480,487 860,487" fill="url(#dwlGradient)" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" opacity="0.8"/>
+<text x="640" y="420" font-size="14" font-weight="700" fill="#b91c1c">Deadweight</text>
+<text x="640" y="438" font-size="14" font-weight="700" fill="#b91c1c">Loss</text>
+
+<!-- Annotations -->
+
+<!-- Monopoly quantity restriction annotation -->
+<line x1="670" y1="535" x2="480" y2="535" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrowRedLeft2)"/>
+<line x1="670" y1="535" x2="860" y2="535" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrowGreenRight)"/>
+<text x="670" y="560" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Restricted</text>
+<text x="670" y="575" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Output</text>
+
+<defs>
+<marker id="arrowRedLeft2" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+<polygon points="10,0 0,5 10,10" fill="#ef4444"/>
+</marker>
+<marker id="arrowGreenRight" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+<polygon points="0,0 10,5 0,10" fill="#10b981"/>
+</marker>
+</defs>
+
+<!-- Markup indicator -->
+<line x1="70" y1="287" x2="70" y2="487" stroke="#f59e0b" stroke-width="3"/>
+<line x1="65" y1="287" x2="75" y2="287" stroke="#f59e0b" stroke-width="3"/>
+<line x1="65" y1="487" x2="75" y2="487" stroke="#f59e0b" stroke-width="3"/>
+<text x="38" y="395" font-size="13" font-weight="700" fill="#d97706" transform="rotate(-90 38 395)">Markup = 400</text>
+
+</svg>
+</div>
+
+<!-- Key Insights Boxes -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;">
+
+<!-- Left: Key Numbers -->
+<div style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); padding: 1.5rem; border-radius: 8px; border: 3px solid #8b5cf6;">
+<h4 style="color: #6d28d9; margin: 0 0 1rem 0;">📋 Key Numbers</h4>
+
+<table style="width: 100%; font-size: 0.95rem;">
+<tr style="border-bottom: 1px solid #c4b5fd;">
+<td style="padding: 0.5rem 0; color: #5b21b6; font-weight: 600;">Demand Function:</td>
+<td style="padding: 0.5rem 0; color: #6d28d9; font-weight: 700; text-align: right;">P = 825 - 4Q</td>
+</tr>
+<tr style="border-bottom: 1px solid #c4b5fd;">
+<td style="padding: 0.5rem 0; color: #5b21b6; font-weight: 600;">Marginal Revenue:</td>
+<td style="padding: 0.5rem 0; color: #6d28d9; font-weight: 700; text-align: right;">MR = 825 - 8Q</td>
+</tr>
+<tr style="border-bottom: 1px solid #c4b5fd;">
+<td style="padding: 0.5rem 0; color: #5b21b6; font-weight: 600;">Marginal Cost:</td>
+<td style="padding: 0.5rem 0; color: #6d28d9; font-weight: 700; text-align: right;">MC = 25</td>
+</tr>
+<tr style="border-bottom: 2px solid #8b5cf6; background: #f5f3ff;">
+<td style="padding: 0.75rem 0.5rem; color: #5b21b6; font-weight: 700;">Monopoly Quantity:</td>
+<td style="padding: 0.75rem 0.5rem; color: #7c3aed; font-weight: 700; text-align: right; font-size: 1.1rem;">Q* = 100</td>
+</tr>
+<tr style="border-bottom: 2px solid #8b5cf6; background: #f5f3ff;">
+<td style="padding: 0.75rem 0.5rem; color: #5b21b6; font-weight: 700;">Monopoly Price:</td>
+<td style="padding: 0.75rem 0.5rem; color: #7c3aed; font-weight: 700; text-align: right; font-size: 1.1rem;">P* = 425</td>
+</tr>
+<tr style="border-bottom: 1px solid #c4b5fd;">
+<td style="padding: 0.5rem 0; color: #5b21b6; font-weight: 600;">Markup (P* - MC):</td>
+<td style="padding: 0.5rem 0; color: #f59e0b; font-weight: 700; text-align: right;">400</td>
+</tr>
+<tr>
+<td style="padding: 0.5rem 0; color: #5b21b6; font-weight: 600;">Total Profit:</td>
+<td style="padding: 0.5rem 0; color: #10b981; font-weight: 700; text-align: right;">π* = 40,000</td>
+</tr>
+</table>
+</div>
+
+<!-- Right: Economic Interpretation -->
+<div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 8px; border: 3px solid #f59e0b;">
+<h4 style="color: #d97706; margin: 0 0 1rem 0;">💡 Economic Insights</h4>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; border-left: 4px solid #ef4444;">
+<h5 style="color: #b91c1c; margin: 0 0 0.5rem 0; font-size: 0.95rem;">Why P >> MC?</h5>
+<p style="margin: 0; font-size: 0.9rem; color: #78350f;">Monopolist can charge 17× marginal cost (425 vs 25) because there are no competitors. In perfect competition, P = MC = 25.</p>
+</div>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; border-left: 4px solid #8b5cf6;">
+<h5 style="color: #6d28d9; margin: 0 0 0.5rem 0; font-size: 0.95rem;">Why MR < P?</h5>
+<p style="margin: 0; font-size: 0.9rem; color: #78350f;">To sell more units, monopolist must lower price on ALL units sold, making marginal revenue less than price. MR curve has twice the slope of demand.</p>
+</div>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; border-left: 4px solid #10b981;">
+<h5 style="color: #15803d; margin: 0 0 0.5rem 0; font-size: 0.95rem;">Source of Profit</h5>
+<p style="margin: 0; font-size: 0.9rem; color: #78350f;">Profit = (P* - MC) × Q* = 400 × 100 = 40,000. Each of 100 units sold earns $400 above cost.</p>
+</div>
+</div>
+
+</div>
+
+<!-- Comparison with Perfect Competition -->
+<div class="important-note" style="margin-top: 2rem;">
+<h4>⚖️ Monopoly vs. Perfect Competition</h4>
+
+<table style="width: 100%; border-collapse: separate; border-spacing: 0; border: 2px solid #e5e7eb; border-radius: 8px; overflow: hidden; margin-top: 1rem;">
+<thead>
+<tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+<th style="padding: 1rem; text-align: left; font-weight: 700; border-right: 1px solid rgba(255,255,255,0.2);">Variable</th>
+<th style="padding: 1rem; text-align: center; font-weight: 700; border-right: 1px solid rgba(255,255,255,0.2);">Perfect Competition</th>
+<th style="padding: 1rem; text-align: center; font-weight: 700; border-right: 1px solid rgba(255,255,255,0.2);">Monopoly (Ghez Inc.)</th>
+<th style="padding: 1rem; text-align: center; font-weight: 700;">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background: #f8fafc;">
+<td style="padding: 1rem; font-weight: 600; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;">Quantity</td>
+<td style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;"><strong>200</strong></td>
+<td style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;"><strong style="color: #ef4444;">100</strong></td>
+<td style="padding: 1rem; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong style="color: #ef4444;">-50%</strong> less output</td>
+</tr>
+<tr style="background: white;">
+<td style="padding: 1rem; font-weight: 600; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;">Price</td>
+<td style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;"><strong>25</strong></td>
+<td style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;"><strong style="color: #ef4444;">425</strong></td>
+<td style="padding: 1rem; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong style="color: #ef4444;">+1,600%</strong> higher</td>
+</tr>
+<tr style="background: #f8fafc;">
+<td style="padding: 1rem; font-weight: 600; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;">Economic Profit</td>
+<td style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;"><strong>0</strong></td>
+<td style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb;"><strong style="color: #10b981;">40,000</strong></td>
+<td style="padding: 1rem; text-align: center; border-bottom: 1px solid #e5e7eb;"><strong style="color: #10b981;">+∞</strong> (vs. zero)</td>
+</tr>
+<tr style="background: white;">
+<td style="padding: 1rem; font-weight: 600; border-right: 1px solid #e5e7eb;">Efficiency</td>
+<td style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;"><span style="font-size: 1.3rem;">✅</span> Efficient</td>
+<td style="padding: 1rem; text-align: center; border-right: 1px solid #e5e7eb;"><span style="font-size: 1.3rem;">❌</span> Inefficient</td>
+<td style="padding: 1rem; text-align: center;"><strong style="color: #ef4444;">Deadweight Loss</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p style="margin-top: 1.5rem; padding: 1.25rem; background: #fee2e2; border-radius: 8px; border-left: 4px solid #ef4444;">
+<strong style="color: #b91c1c;">⚠️ The Cost of Monopoly Power:</strong> <span style="color: #991b1b;">Compared to perfect competition, Ghez Inc. produces 100 fewer units and charges $400 more per unit. Consumers lose, the monopolist gains, but society overall loses due to deadweight loss from restricted output.</span>
+</p>
+</div>
+
+</div>

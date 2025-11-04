@@ -1,0 +1,228 @@
+<!-- VISUAL AID #8: PROFIT MAXIMIZATION GRAPH FOR P = 45 - 2Q -->
+<!-- Insert after line 3543 (after the profit maximization example explanation) -->
+
+<div class="content-card" style="margin: 3rem 0;">
+<h3 style="display: flex; align-items: center; margin-top: 0;">
+<span style="font-size: 1.8rem; margin-right: 0.75rem;">📊</span>
+<span>Profit Maximization Graph: P = 45 - 2Q, MC = 10</span>
+</h3>
+
+<p style="margin-bottom: 2rem;">Visual representation of the profit maximization problem showing how MR = MC determines optimal output.</p>
+
+<div style="background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 2px solid #e5e7eb;">
+<svg viewBox="0 0 800 550" style="width: 100%; height: auto; max-width: 800px; display: block; margin: 0 auto;">
+<!-- Grid -->
+<defs>
+<pattern id="gridProfit" width="80" height="55" patternUnits="userSpaceOnUse">
+<path d="M 80 0 L 0 0 0 55" fill="none" stroke="#f5f5f5" stroke-width="1"/>
+</pattern>
+
+<!-- Gradients -->
+<linearGradient id="profitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#10b981;stop-opacity:0.3"/>
+<stop offset="100%" style="stop-color:#10b981;stop-opacity:0.1"/>
+</linearGradient>
+<linearGradient id="csGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.25"/>
+<stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1"/>
+</linearGradient>
+</defs>
+<rect width="800" height="550" fill="url(#gridProfit)"/>
+
+<!-- Axes -->
+<line x1="80" y1="60" x2="80" y2="480" stroke="#334155" stroke-width="3"/>
+<line x1="80" y1="480" x2="750" y2="480" stroke="#334155" stroke-width="3"/>
+
+<!-- Arrows -->
+<polygon points="80,55 75,65 85,65" fill="#334155"/>
+<polygon points="755,480 745,475 745,485" fill="#334155"/>
+
+<!-- Labels -->
+<text x="45" y="50" font-size="18" font-weight="700" fill="#334155">P,$</text>
+<text x="720" y="510" font-size="18" font-weight="700" fill="#334155">Q</text>
+
+<!-- Y-axis scale -->
+<!-- P intercept = 45 -->
+<line x1="75" y1="90" x2="80" y2="90" stroke="#334155" stroke-width="2"/>
+<text x="65" y="95" font-size="14" fill="#334155" text-anchor="end" font-weight="600">45</text>
+
+<!-- P* = 27.5 -->
+<line x1="75" y1="241" x2="80" y2="241" stroke="#ef4444" stroke-width="2.5"/>
+<text x="65" y="246" font-size="15" fill="#ef4444" text-anchor="end" font-weight="700">27.5</text>
+
+<!-- MC = 10 -->
+<line x1="75" y1="393" x2="80" y2="393" stroke="#10b981" stroke-width="2.5"/>
+<text x="65" y="398" font-size="15" fill="#10b981" text-anchor="end" font-weight="700">10</text>
+
+<!-- Zero -->
+<line x1="75" y1="480" x2="80" y2="480" stroke="#334155" stroke-width="2"/>
+<text x="65" y="485" font-size="14" fill="#334155" text-anchor="end" font-weight="600">0</text>
+
+<!-- X-axis scale -->
+<!-- Q intercept for demand = 22.5 (when P=0) -->
+<!-- Q* = 8.75 -->
+<line x1="310" y1="480" x2="310" y2="490" stroke="#334155" stroke-width="2.5"/>
+<text x="310" y="508" font-size="15" fill="#334155" text-anchor="middle" font-weight="700">8.75</text>
+<text x="310" y="525" font-size="13" fill="#64748b" text-anchor="middle">(Q*)</text>
+
+<!-- Q = 22.5 -->
+<line x1="675" y1="480" x2="675" y2="490" stroke="#64748b" stroke-width="2"/>
+<text x="675" y="508" font-size="13" fill="#64748b" text-anchor="middle">22.5</text>
+
+<!-- DEMAND CURVE: P = 45 - 2Q -->
+<!-- From (0, 45) to (22.5, 0) -->
+<!-- Scale: 1 unit Q = ~26.67 pixels, 1 unit P = ~8.67 pixels -->
+<line x1="80" y1="90" x2="680" y2="480" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+<text x="700" y="490" font-size="17" font-weight="700" fill="#3b82f6">D</text>
+<text x="560" y="340" font-size="13" fill="#1e40af" transform="rotate(-34 560 340)">P = 45 - 2Q</text>
+
+<!-- MARGINAL REVENUE: MR = 45 - 4Q -->
+<!-- Twice as steep, intercepts at Q = 11.25 -->
+<!-- From (0, 45) to (11.25, 0) -->
+<line x1="80" y1="90" x2="380" y2="480" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/>
+<text x="395" y="490" font-size="17" font-weight="700" fill="#8b5cf6">MR</text>
+<text x="240" y="240" font-size="13" fill="#6d28d9" transform="rotate(-54 240 240)">MR = 45 - 4Q</text>
+
+<!-- MARGINAL COST: MC = 10 (horizontal) -->
+<line x1="80" y1="393" x2="720" y2="393" stroke="#10b981" stroke-width="4" stroke-linecap="round"/>
+<text x="730" y="398" font-size="17" font-weight="700" fill="#10b981">MC</text>
+<text x="650" y="380" font-size="13" fill="#15803d">MC = 10</text>
+
+<!-- MR = MC intersection point -->
+<circle cx="310" cy="393" r="8" fill="#7c3aed" stroke="white" stroke-width="3"/>
+<text x="350" y="385" font-size="14" font-weight="700" fill="#7c3aed">MR = MC</text>
+<text x="350" y="403" font-size="13" fill="#6d28d9">Q* = 8.75</text>
+
+<!-- Vertical line from Q* to demand -->
+<line x1="310" y1="241" x2="310" y2="480" stroke="#64748b" stroke-width="2" stroke-dasharray="8,5"/>
+
+<!-- Horizontal line at P* -->
+<line x1="80" y1="241" x2="310" y2="241" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,5"/>
+
+<!-- Point on demand at Q* -->
+<circle cx="310" cy="241" r="7" fill="#ef4444" stroke="white" stroke-width="2"/>
+<text x="260" y="225" font-size="14" font-weight="700" fill="#ef4444">P* = 27.5</text>
+
+<!-- SHADED AREAS -->
+
+<!-- Consumer Surplus -->
+<polygon points="80,90 310,90 310,241" fill="url(#csGrad)" stroke="#3b82f6" stroke-width="1.5" opacity="0.7"/>
+<text x="180" y="150" font-size="14" font-weight="700" fill="#1e40af">Consumer</text>
+<text x="180" y="168" font-size="14" font-weight="700" fill="#1e40af">Surplus</text>
+
+<!-- Monopoly Profit -->
+<rect x="80" y="241" width="230" height="152" fill="url(#profitGrad)" stroke="#10b981" stroke-width="2" opacity="0.8"/>
+<text x="195" y="310" font-size="15" font-weight="700" fill="#15803d">Profit</text>
+<text x="195" y="330" font-size="13" fill="#166534">(P* - MC) × Q*</text>
+<text x="195" y="348" font-size="12" fill="#14532d">= (27.5 - 10) × 8.75</text>
+<text x="195" y="366" font-size="14" font-weight="700" fill="#15803d">= 153.125</text>
+
+<!-- Annotations -->
+
+<!-- Markup arrow -->
+<line x1="55" y1="241" x2="55" y2="393" stroke="#f59e0b" stroke-width="3"/>
+<line x1="50" y1="241" x2="60" y2="241" stroke="#f59e0b" stroke-width="3"/>
+<line x1="50" y1="393" x2="60" y2="393" stroke="#f59e0b" stroke-width="3"/>
+<text x="30" y="325" font-size="12" font-weight="700" fill="#d97706" transform="rotate(-90 30 325)">Markup = 17.5</text>
+
+</svg>
+</div>
+
+<!-- Solution Summary -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;">
+
+<!-- Left: Step-by-step solution -->
+<div style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); padding: 1.5rem; border-radius: 8px; border: 3px solid #8b5cf6;">
+<h4 style="color: #6d28d9; margin: 0 0 1rem 0;">🔢 Solution Steps</h4>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; border-left: 4px solid #667eea;">
+<h5 style="color: #4338ca; margin: 0 0 0.5rem 0; font-size: 0.95rem;">Step 1: Find MR</h5>
+<p style="margin: 0.25rem 0; font-size: 0.9rem;">TR = P × Q = (45 - 2Q) × Q = 45Q - 2Q²</p>
+<p style="margin: 0.25rem 0; font-size: 0.9rem; font-weight: 700; color: #667eea;">MR = d(TR)/dQ = 45 - 4Q</p>
+</div>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; border-left: 4px solid #10b981;">
+<h5 style="color: #15803d; margin: 0 0 0.5rem 0; font-size: 0.95rem;">Step 2: Set MR = MC</h5>
+<p style="margin: 0.25rem 0; font-size: 0.9rem;">45 - 4Q = 10</p>
+<p style="margin: 0.25rem 0; font-size: 0.9rem;">35 = 4Q</p>
+<p style="margin: 0.25rem 0; font-size: 0.9rem; font-weight: 700; color: #10b981;">Q* = 8.75 units</p>
+</div>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; border-left: 4px solid #ef4444;">
+<h5 style="color: #b91c1c; margin: 0 0 0.5rem 0; font-size: 0.95rem;">Step 3: Find P*</h5>
+<p style="margin: 0.25rem 0; font-size: 0.9rem;">P = 45 - 2Q*</p>
+<p style="margin: 0.25rem 0; font-size: 0.9rem;">P = 45 - 2(8.75)</p>
+<p style="margin: 0.25rem 0; font-size: 0.9rem; font-weight: 700; color: #ef4444;">P* = $27.50</p>
+</div>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; border-left: 4px solid #f59e0b;">
+<h5 style="color: #b45309; margin: 0 0 0.5rem 0; font-size: 0.95rem;">Step 4: Calculate Profit</h5>
+<p style="margin: 0.25rem 0; font-size: 0.9rem;">π = (P* - MC) × Q*</p>
+<p style="margin: 0.25rem 0; font-size: 0.9rem;">π = (27.5 - 10) × 8.75</p>
+<p style="margin: 0.25rem 0; font-size: 0.9rem; font-weight: 700; color: #f59e0b;">π = $153.125</p>
+</div>
+
+</div>
+
+<!-- Right: Key insights -->
+<div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 8px; border: 3px solid #f59e0b;">
+<h4 style="color: #d97706; margin: 0 0 1rem 0;">💡 Key Insights</h4>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+<h5 style="color: #7c3aed; margin: 0 0 0.5rem 0; font-size: 0.95rem;">📐 Why MR has twice the slope</h5>
+<p style="margin: 0; font-size: 0.9rem; color: #475569;">When demand is P = a - bQ, then MR = a - 2bQ. The coefficient on Q doubles because of the product rule when differentiating TR = P×Q.</p>
+</div>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+<h5 style="color: #ef4444; margin: 0 0 0.5rem 0; font-size: 0.95rem;">💰 Markup = 175%</h5>
+<p style="margin: 0; font-size: 0.9rem; color: #475569;">Price is $27.50 but cost is only $10. That's a markup of $17.50, or 175% above cost! This is the power of monopoly.</p>
+</div>
+
+<div style="background: white; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+<h5 style="color: #3b82f6; margin: 0 0 0.5rem 0; font-size: 0.95rem;">🎯 Optimal Point</h5>
+<p style="margin: 0; font-size: 0.9rem; color: #475569;">At Q = 8.75, one more unit brings in MR = 10, which exactly equals MC = 10. Profits stop growing here.</p>
+</div>
+
+<div style="background: white; padding: 1rem; border-radius: 6px;">
+<h5 style="color: #10b981; margin: 0 0 0.5rem 0; font-size: 0.95rem;">📊 Graphical Rule</h5>
+<p style="margin: 0; font-size: 0.9rem; color: #475569;">Optimal Q* is where MR and MC intersect. Then go UP to the demand curve to find P*. Never use the MR curve for pricing!</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Verification Box -->
+<div class="important-note" style="margin-top: 2rem;">
+<h4>✅ Verification: Alternative Method Using Profit Function</h4>
+
+<div style="background: white; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; border: 2px solid #667eea;">
+<p style="margin: 0 0 1rem 0;"><strong style="color: #4338ca;">Direct profit maximization approach:</strong></p>
+
+<div style="background: #f0f4ff; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+<p style="margin: 0.25rem 0;"><strong>Profit function:</strong> π = TR - TC</p>
+<p style="margin: 0.25rem 0;">π = (45 - 2Q)Q - 10Q</p>
+<p style="margin: 0.25rem 0;">π = 45Q - 2Q² - 10Q</p>
+<p style="margin: 0.25rem 0; font-weight: 700; color: #667eea;">π = 35Q - 2Q²</p>
+</div>
+
+<div style="background: #dcfce7; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+<p style="margin: 0.25rem 0;"><strong>First-order condition (FOC):</strong></p>
+<p style="margin: 0.25rem 0;">dπ/dQ = 35 - 4Q = 0</p>
+<p style="margin: 0.25rem 0; font-weight: 700; color: #10b981;">Q* = 8.75 ✓ (Same result!)</p>
+</div>
+
+<div style="background: #fef3c7; padding: 1rem; border-radius: 6px;">
+<p style="margin: 0.25rem 0;"><strong>Second-order condition (SOC):</strong></p>
+<p style="margin: 0.25rem 0;">d²π/dQ² = -4 < 0 ✓</p>
+<p style="margin: 0.25rem 0; font-size: 0.9rem; color: #78350f;">Negative second derivative confirms this is a maximum, not minimum.</p>
+</div>
+
+</div>
+
+<p style="margin-top: 1.5rem; padding: 1.25rem; background: #eff6ff; border-radius: 8px; border-left: 4px solid #3b82f6;">
+<strong style="color: #1e40af;">🎓 Teaching Point:</strong> <span style="color: #1e3a8a;">Both methods (MR = MC and dπ/dQ = 0) give the same answer because setting marginal profit equal to zero IS the same as setting MR = MC. Choose whichever method feels more intuitive to you!</span>
+</p>
+</div>
+
+</div>

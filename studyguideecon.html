@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managerial Economics - Study Guide (Sessions 1-7)</title>
+    <!-- MathJax for rendering formulas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Base styles from the finance guide */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            /* Using a slightly different gradient for Econ */
+            background: linear-gradient(135deg, #2980b9 0%, #2c3e50 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            /* Econ-themed header */
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* Search box styling */
+        .search-container {
+            background: white;
+            padding: 15px 40px;
+            border-bottom: 2px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid #2980b9;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: #2c3e50;
+            box-shadow: 0 0 10px rgba(41, 128, 185, 0.2);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #2980b9;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background: #2c3e50;
+        }
+
+        .search-results {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .search-result-item {
+            background: #eaf8ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #2980b9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-result-item:hover {
+            background: #d4ecf7;
+            transform: translateX(5px);
+        }
+
+        .search-result-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .search-result-context {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .highlight {
+            background: yellow;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Navigation pills */
+        .nav-pills {
+            background: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-bottom: 3px solid #2980b9;
+        }
+
+        .nav-pills button {
+            padding: 12px 24px;
+            border: none;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-pills button:hover {
+            background: #2980b9;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-pills button.active {
+            background: #2c3e50;
+            color: white;
+        }
+
+        /* Content area */
+        .content {
+            padding: 40px;
+        }
+
+        .lecture-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .lecture-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Headings */
+        h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2980b9;
+        }
+
+        h3 {
+            color: #2980b9;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #16a085;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Content boxes from finance guide */
+        .key-concept {
+            background: linear-gradient(135deg, #eaf8ff 0%, #d4ecf7 100%);
+            border-left: 5px solid #2980b9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #2980b9;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .formula-box .formula-label {
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .example-box {
+            background: #fff9e6;
+            border-left: 5px solid #f39c12;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .example-box h4 {
+            color: #d35400;
+            margin-top: 0;
+        }
+
+        .important-note {
+            background: #e8f8f5;
+            border-left: 5px solid #16a085;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .important-note::before {
+            content: "💡 ";
+            font-size: 1.5em;
+        }
+
+        .warning-box {
+            background: #fbeee;
+            border-left: 5px solid #c0392b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .warning-box::before {
+            content: "⚠️ ";
+            font-size: 1.5em;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: #2980b9;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 10px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .collapsible:hover {
+            background: #2c3e50;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .collapsible.active:after {
+            content: "\2212";
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .collapsible-content-inner {
+            padding: 20px;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: #2980b9;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #f1f1f1;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #c0392b;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 3px solid #2980b9;
+        }
+
+        .quiz-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .quiz-question {
+            background: white;
+            border-left: 5px solid #2980b9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .quiz-answer {
+            background: #e8f8f5;
+            border-left: 5px solid #16a085;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .quiz-answer.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal-btn {
+            background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .reveal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.4);
+        }
+
+        /* SVG Graph Styles */
+        .econ-graph {
+            display: block;
+            margin: 25px auto; /* Added more margin */
+            max-width: 550px; /* Slightly wider */
+            width: 100%; /* Make responsive */
+            height: auto;
+            border: 1px solid #ddd;
+            background: #fdfdfd;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Consistent font */
+        }
+        .axis-label { font-size: 14px; fill: #333; }
+        .curve-label { font-size: 14px; font-weight: bold; }
+        .point-label { font-size: 12px; fill: #555; }
+        .shift-label { font-size: 12px; }
+        .surplus-label { font-size: 13px; font-weight: bold; }
+        /* Specific class for axis lines */
+        .axis { stroke: #333; stroke-width: 2; }
+        /* Specific class for grid/reference lines */
+        .grid-line { stroke: #ccc; stroke-width: 1; stroke-dasharray: 3,3; }
+
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📈 Managerial Economics</h1>
+            <p>Complete Study Guide: Sessions 1-7</p>
+        </header>
+
+        <!-- Search Box -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search for topics, concepts, case studies..." onkeyup="handleSearch(event)">
+                <button onclick="performSearch()">Search</button>
+            </div>
+        </div>
+        <div id="searchResults" class="search-results" style="display: none;"></div>
+
+        <!-- Navigation Pills -->
+        <div class="nav-pills">
+            <button onclick="showLecture(0)" id="btn0">📚 Glossary</button>
+            <button onclick="showLecture(1)" class="active" id="btn1">Session 1: Introduction</button>
+            <button onclick="showLecture(2)" id="btn2">Session 2: Markets</button>
+            <button onclick="showLecture(3)" id="btn3">Session 3: Case Studies</button>
+            <button onclick="showLecture(4)" id="btn4">Session 4: Pricing</button>
+            <button onclick="showLecture(5)" id="btn5">Session 5: Costs & Firms</button>
+            <button onclick="showLecture(6)" id="btn6">Session 6: Competition</button>
+            <button onclick="showLecture(7)" id="btn7">Session 7: Amazon Case</button>
+        </div>
+
+        <div class="content">
+            <!-- GLOSSARY -->
+            <div id="lecture0" class="lecture-section">
+                <h2>📚 Key Terms Glossary</h2>
+                
+                <div class="key-concept">
+                    <p>Use this glossary to quickly review the main concepts from all sessions.</p>
+                </div>
+
+                <button class="collapsible">A-E</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <h4>Consumer Surplus</h4>
+                        <p><strong>Definition:</strong> The total value consumers get *above* what they paid for a product. It's the area below the demand curve but above the equilibrium price.</p>
+                        <p><strong>Significance:</strong> Represents the "profit" or extra value consumers receive from a free market transaction.</p>
+                        
+                        <h4>Deadweight Loss</h4>
+                        <p><strong>Definition:</strong> Value that is destroyed and lost to everyone in the market, typically due to an intervention like a tax or tariff. Represented by "two black triangles" in the free trade model.</p>
+                        
+                        <h4>Demand Curve</h4>
+                        <p><strong>Definition:</strong> A graph showing the relationship *only* between the price of a good and the quantity demanded, assuming all other drivers are equal.</p>
+                        <p><strong>Movement along curve:</strong> Caused *only* by a change in the good's own price.</p>
+                        <p><strong>Shift of curve:</strong> Caused by a change in substitutes, complements, income, tastes, or price expectations.</p>
+
+                        <h4>Economy</h4>
+                        <p><strong>Definition:</strong> A system where people and organizations create, exchange, and distribute scarce resources under a set of rules.</p>
+                        
+                        <h4>Economies of Scale</h4>
+                        <p><strong>Definition:</strong> The phenomenon where, as production (Q) increases, the Average Cost (AC) and Marginal Cost (MC) of production fall. This is due to learning, specialization, and spreading fixed costs.</p>
+
+                        <h4>Equilibrium (Market)</h4>
+                        <p><strong>Definition:</strong> The point where the supply and demand curves intersect. This determines the natural market price (P*) and quantity (Q*) where the quantity supplied equals the quantity demanded.</p>
+                    </div>
+                </div>
+
+                <button class="collapsible">G-P</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <h4>Globalization ("Elephant Chart")</h4>
+                        <p><strong>Definition:</strong> A famous chart showing real income gains globally from 1988-2008. It shows that the biggest winners were the Asian middle class and the global top 1%, while the biggest (relative) losers were the lower/middle classes in rich Western countries.</p>
+                        
+                        <h4>Inelastic Demand</h4>
+                        <p><strong>Definition:</strong> A steep demand curve where demand is *less reactive* to price changes. Consumers will buy the product even if the price goes up (e.g., medicine, addictive drugs).</p>
+                        
+                        <h4>Managerial Economics</h4>
+                        <p><strong>Definition:</strong> Understanding the "mechanics of the car." It provides tools to analyze the microeconomic environment (individual markets, firms, and people) to make better business decisions.</p>
+
+                        <h4>Marginal Analysis</h4>
+                        <p><strong>Definition:</strong> The core principle of firm decision-making. Firms assess the costs and benefits of the *next* action or unit.</p>
+                        
+                        <h4>Marginal Cost (MC)</h4>
+                        <p><strong>Definition:</strong> The extra cost incurred from producing *one additional unit* of a good.</p>
+
+                        <h4>Marginal Revenue (MR)</h4>
+                        <p><strong>Definition:</strong> The extra revenue earned from selling *one additional unit* of a good.</p>
+
+                        <h4>Market</h4>
+                        <p><strong>Definition:</strong> A place or system where demand meets supply.</p>
+
+                        <h4>Merit Order (Supply Principle)</h4>
+                        <p><strong>Definition:</strong> In a competitive market, the unit with the lowest production cost will produce first, then the next-cheapest, and so on, until demand is met. The market price is set by the *last and most expensive unit* needed.</p>
+                        
+                        <h4>Price Discrimination</h4>
+                        <p><strong>Definition:</strong> A pricing strategy where a firm charges different prices to different consumers or groups to capture more consumer surplus (e.g., auctions, student discounts, geo-marketing).</p>
+                        
+                        <h4>Price Elasticity</h4>
+                        <p><strong>Definition:</strong> A measure of how reactive demand is to a change in price. An "elastic" (flat) curve means demand is highly reactive. An "inelastic" (steep) curve means demand is not very reactive.</p>
+
+                        <h4>Price Floor (Price Minimum)</h4>
+                        <p><strong>Definition:</strong> An intervention (like minimum wage) that sets a price *above* the equilibrium price. This always causes an *Excess* (or surplus) because supply will be greater than demand.</p>
+                        
+                        <h4>Price Ceiling (Price Maximum)</h4>
+                        <p><strong>Definition:</strong> An intervention (like rent control) that sets a price *below* the equilibrium price. This always causes a *Shortage* because demand will be greater than supply.</p>
+                        
+                        <h4>Producer Surplus</h4>
+                        <p><strong>Definition:</strong> The total profit producers make *above* their cost to produce. It's the area above the supply curve but below the equilibrium price.</p>
+                        
+                        <h4>Profit Maximization Rule</h4>
+                        <p><strong>Definition:</strong> The rule that rational firms follow. They continue to produce as long as Marginal Revenue > Marginal Cost. They stop producing where MR = MC, as this is the point where total profit is maximized.</p>
+                    </div>
+                </div>
+
+                <button class="collapsible">S-Z</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <h4>Sharing Economy</h4>
+                        <p><strong>Definition:</strong> A disruptive model that "unleashes new sources of supply" by tapping into *underused assets* (like spare rooms via Airbnb) or *labor* (like drivers via Uber) using online platforms.</p>
+                        <p><strong>Drivers:</strong> Powered by near-zero marginal costs of digitalization, platforms (coordination), and connectivity (utilizing idle capacity).</p>
+
+                        <h4>Supply Curve</h4>
+                        <p><strong>Definition:</strong> A graph showing the relationship *only* between the price of a good and the quantity supplied, assuming all other drivers are equal.</p>
+                        <p><strong>Movement along curve:</strong> Caused *only* by a change in the good's own price.</p>
+                        <p><strong>Shift of curve:</strong> Caused by a change in the number of firms, cost of inputs, or productivity.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SESSION 1 -->
+            <div id="lecture1" class="lecture-section active">
+                <h2>📝 Session 1: Thinking Like an Economist</h2>
+
+                <div class="key-concept">
+                    <h3>Why Think Like an Economist?</h3>
+                    <p>The main takeaway is to see <strong>systems rather than just products</strong>. Technology is only an input; the real opportunity is in the new economies (systems of value creation) it enables.</p>
+                    
+                    <h4>Economy Definition</h4>
+                    <p>An economy is a system where people and organizations create, exchange, and distribute scarce resources under a set of rules. Economic actors (supplying and demanding) exchange products or services for value.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Google</h4>
+                    <p>Google's advantage didn't just come from its search product. It came from building a new *system* (economy) for advertising.</p>
+                    <ul>
+                        <li>Economist Hal Varian helped use data for individualized targeting.</li>
+                        <li>This created a new advertising era by combining auction rules, quality scoring, and relevance data.</li>
+                    </ul>
+                </div>
+
+                <div class="important-note">
+                    <h3>About This Course (Managerial Economics)</h3>
+                    <p><strong>Core Idea:</strong> Managerial economics is about understanding the "mechanics of the car." It provides tools, not one-size-fits-all answers.</p>
+                    <p>The course focuses on the "individual" level (microeconomics):</p>
+                    <ul>
+                        <li><strong>The individual market</strong> (competition, free markets, value creation)</li>
+                        <li><strong>The individual firm</strong> (how firms should evolve)</li>
+                        <li><strong>The individual person</strong> (how people can be a source of economic change)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SESSION 2 -->
+            <div id="lecture2" class="lecture-section">
+                <h2>📈 Session 2: How Markets Work - The Basics</h2>
+                
+                <div class="key-concept">
+                    <h3>What is a Market?</h3>
+                    <p>A market is where <strong>demand meets supply</strong>. The goal of this session is to represent a market and understand demand, supply, and their interaction (equilibrium).</p>
+                    <p>When analyzing your position, consider your market:</p>
+                    <ul>
+                        <li>The existing one</li>
+                        <li>The future one</li>
+                        <li>The missing one</li>
+                    </ul>
+                </div>
+
+                <h3>🛒 What Drives Demand?</h3>
+                <p>The demand function relates the demand for a good to all its determinants.</p>
+                
+                <div class="formula-box">
+                    <span class="formula-label">Demand Function (Drivers)</span>
+                    \[Demand = f(p, s, c, I, t, e)\]
+                </div>
+
+                <ul>
+                    <li><strong>p (Price of the good):</strong> Greater price → lower demand ("law of demand").</li>
+                    <li><strong>s (Price of substitutes):</strong> Cheaper alternatives → lower demand.</li>
+                    <li><strong>c (Price of complements):</strong> Higher price of a complement (gas for a car) → lower demand.</li>
+                    <li><strong>I (Income):</strong> Can the customer afford it?</li>
+                    <li><strong>t (Preferences and tastes):</strong> Does the customer want it?</li>
+                    <li><strong>e (Price expectations):</strong> If price is expected to rise, demand might increase now.</li>
+                </ul>
+
+                <h4>The Demand Curve</h4>
+                <p>The <strong>demand curve</strong> is a simpler graph showing the relationship *only* between demand and price, assuming all other drivers (s, c, I, t, e) are held equal.</p>
+                
+                 <!-- SVG GRAPH: Basic Demand Curve - REFINED -->
+                <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="demand-curve-title">
+                    <title id="demand-curve-title">Graph of a typical downward-sloping Demand Curve</title>
+                    <!-- Axes -->
+                    <line x1="50" y1="300" x2="450" y2="300" class="axis" />
+                    <line x1="50" y1="50" x2="50" y2="300" class="axis" />
+                    <text x="250" y="330" text-anchor="middle" class="axis-label">Quantity (Q)</text>
+                    <text x="20" y="175" text-anchor="middle" transform="rotate(-90 20 175)" class="axis-label">Price (P)</text>
+                    <!-- Demand Curve -->
+                     <line x1="100" y1="250" x2="400" y2="100" stroke="#c0392b" stroke-width="3" />
+                     <text x="415" y="100" dy="5" class="curve-label" style="fill: #c0392b;">Demand (D)</text>
+                    <!-- Example Point 1 (Higher Price) -->
+                    <circle cx="175" cy="200" r="4" fill="#c0392b"/>
+                    <line x1="50" y1="200" x2="175" y2="200" class="grid-line"/>
+                    <line x1="175" y1="200" x2="175" y2="300" class="grid-line"/>
+                    <text x="30" y="205" class="point-label">P₁</text>
+                    <text x="175" y="315" text-anchor="middle" class="point-label">Q₁</text>
+                     <!-- Example Point 2 (Lower Price) -->
+                    <circle cx="325" cy="125" r="4" fill="#c0392b"/>
+                    <line x1="50" y1="125" x2="325" y2="125" class="grid-line"/>
+                    <line x1="325" y1="125" x2="325" y2="300" class="grid-line"/>
+                     <text x="30" y="130" class="point-label">P₂</text>
+                     <text x="325" y="315" text-anchor="middle" class="point-label">Q₂</text>
+                     <!-- Description -->
+                     <text x="250" y="70" text-anchor="middle" class="shift-label" style="fill:#c0392b;">Higher Price (P₁) → Lower Quantity (Q₁)</text>
+                     <text x="250" y="85" text-anchor="middle" class="shift-label" style="fill:#c0392b;">Lower Price (P₂) → Higher Quantity (Q₂)</text>
+                </svg>
+
+                <div class="formula-box">
+                    <span class="formula-label">Linear Demand Curve</span>
+                    \[P = a - bQ\]
+                    <!-- MathJax renders P = a - bQ -->
+                </div>
+
+                <div class="important-note">
+                    <h4>Movement vs. Shift</h4>
+                    <ul>
+                        <li>A <strong>movement *along* the curve</strong> only happens when the good's own <strong>price changes</strong>.</li>
+                        <li>A <strong>*shift* of the entire curve</strong> happens when one of the <strong>other drivers changes</strong> (e.g., price of a substitute, income, tastes).</li>
+                    </ul>
+                     <!-- SVG GRAPH: Demand Movement vs Shift - REFINED -->
+                    <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="move-shift-title-demand">
+                        <title id="move-shift-title-demand">Graph showing movement along vs shift of a demand curve</title>
+                        <!-- Axes -->
+                        <line x1="50" y1="300" x2="450" y2="300" class="axis" />
+                        <line x1="50" y1="50" x2="50" y2="300" class="axis" />
+                        <text x="250" y="330" text-anchor="middle" class="axis-label">Quantity</text>
+                        <text x="20" y="175" text-anchor="middle" transform="rotate(-90 20 175)" class="axis-label">Price</text>
+                        <!-- Original Demand -->
+                        <line x1="100" y1="250" x2="350" y2="100" stroke="#c0392b" stroke-width="3" />
+                        <text x="365" y="100" dy="5" class="curve-label" style="fill: #c0392b;">D1</text>
+                        <!-- Point A -->
+                        <circle cx="175" cy="200" r="5" fill="#c0392b"/>
+                        <text x="165" y="195" class="point-label" style="font-weight:bold;">A</text>
+                        <!-- Point B (Movement) -->
+                        <circle cx="262" cy="150" r="5" fill="#c0392b"/>
+                        <text x="272" y="145" class="point-label" style="font-weight:bold;">B</text>
+                        <!-- Arrow Movement -->
+                         <defs>
+                             <marker id="arrowhead-move-d" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                 <polygon points="0 0, 7 3.5, 0 7" fill="#8e44ad" stroke="none"/>
+                             </marker>
+                         </defs>
+                        <path d="M 185,195 Q 220,170 252,155" stroke="#8e44ad" stroke-width="2" fill="none" marker-end="url(#arrowhead-move-d)" stroke-dasharray="3,3"/>
+                        <text x="200" y="180" class="shift-label" style="fill:#8e44ad; font-weight:bold;">Movement along D1</text>
+                        <text x="200" y="195" class="shift-label" style="fill:#8e44ad; font-weight:bold;">(Price Change)</text>
+
+                        <!-- New Demand (Shifted Right) -->
+                        <line x1="150" y1="250" x2="400" y2="100" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5,5" />
+                        <text x="415" y="100" dy="5" class="curve-label" style="fill: #e74c3c;">D2</text>
+                        <!-- Point C (Shift) -->
+                         <circle cx="225" cy="200" r="5" fill="#e74c3c"/>
+                         <text x="235" y="195" class="point-label" style="font-weight:bold; fill:#e74c3c;">C</text>
+                         <!-- Arrow Shift -->
+                         <defs>
+                             <marker id="arrowhead-shift-d" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                 <polygon points="0 0, 7 3.5, 0 7" fill="#e74c3c" stroke="none"/>
+                             </marker>
+                         </defs>
+                         <line x1="185" y1="210" x2="215" y2="210" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead-shift-d)"/>
+                         <text x="230" y="225" class="shift-label" style="fill:#e74c3c; font-weight:bold;">Shift to D2</text>
+                         <text x="230" y="240" class="shift-label" style="fill:#e74c3c; font-weight:bold;">(e.g., Income ↑)</text>
+                    </svg>
+                </div>
+                
+                <div class="example-box">
+                    <h4>Example: Shifts in Demand</h4>
+                    <ul>
+                        <li><strong>Shift Right (Increase):</strong> Price of substitutes $\uparrow$, price of complements $\downarrow$, tastes improve, or price expected to rise.</li>
+                        <li><strong>Shift Left (Decrease):</strong> Price of substitutes $\downarrow$, price of complements $\uparrow$, tastes decline, or price expected to fall.</li>
+                    </ul>
+                    <!-- SVG GRAPH: Demand Shift - REFINED -->
+                    <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="shift-title-demand">
+                        <title id="shift-title-demand">Graph of a demand curve shifting to the right</title>
+                        <!-- Axes -->
+                        <line x1="50" y1="300" x2="450" y2="300" class="axis" />
+                        <line x1="50" y1="50" x2="50" y2="300" class="axis" />
+                        <text x="250" y="330" text-anchor="middle" class="axis-label">Quantity (Q)</text>
+                        <text x="20" y="175" text-anchor="middle" transform="rotate(-90 20 175)" class="axis-label">Price (P)</text>
+                        <!-- Original Demand -->
+                        <line x1="100" y1="250" x2="350" y2="100" stroke="#c0392b" stroke-width="3" />
+                        <text x="365" y="100" dy="5" class="curve-label" style="fill: #c0392b;">D1</text>
+                        <!-- New Demand (Shifted Right) -->
+                        <line x1="150" y1="250" x2="400" y2="100" stroke="#e74c3c" stroke-width="3" stroke-dasharray="5,5" />
+                        <text x="415" y="100" dy="5" class="curve-label" style="fill: #e74c3c;">D2</text>
+                        <!-- Arrow -->
+                        <defs>
+                            <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#c0392b" stroke="none"/>
+                            </marker>
+                        </defs>
+                        <line x1="225" y1="180" x2="275" y2="180" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowhead-red)" />
+                        <text x="250" y="165" text-anchor="middle" class="shift-label" style="fill:#c0392b; font-weight: bold;">Shift Right (Increase)</text>
+                    </svg>
+                </div>
+
+                <h3>🏭 What Drives Supply?</h3>
+                <p>The supply function relates the supply of a good to its determinants.</p>
+                
+                <div class="formula-box">
+                    <span class="formula-label">Supply Function (Drivers)</span>
+                     \[Supply = f(p, \#, i, \Delta)\]
+                     <!-- MathJax renders Supply = f(p, #, i, Δ) -->
+                </div>
+
+                <ul>
+                    <li><strong>p (Price of the good):</strong> Higher price → more supply ("law of supply").</li>
+                    <li><strong># (Number of firms):</strong> More firms → more supply.</li>
+                    <li><strong>i (Cost of inputs):</strong> Higher cost of labor/materials → less supply.</li>
+                    <li><strong>Δ (Productivity changes):</strong> Better technology/productivity → more supply.</li>
+                </ul>
+
+                <h4>The Supply Curve</h4>
+                <p>The <strong>supply curve</strong> shows the relationship *only* between supply and price, assuming all other drivers (#, i, Δ) are held equal.</p>
+                
+                <!-- SVG GRAPH: Basic Supply Curve - REFINED -->
+                 <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="supply-curve-title">
+                     <title id="supply-curve-title">Graph of a typical upward-sloping Supply Curve</title>
+                    <!-- Axes -->
+                    <line x1="50" y1="300" x2="450" y2="300" class="axis" />
+                    <line x1="50" y1="50" x2="50" y2="300" class="axis" />
+                    <text x="250" y="330" text-anchor="middle" class="axis-label">Quantity (Q)</text>
+                    <text x="20" y="175" text-anchor="middle" transform="rotate(-90 20 175)" class="axis-label">Price (P)</text>
+                    <!-- Supply Curve -->
+                    <line x1="100" y1="100" x2="400" y2="250" stroke="#2980b9" stroke-width="3" />
+                    <text x="415" y="250" dy="5" class="curve-label" style="fill: #2980b9;">Supply (S)</text>
+                     <!-- Example Point 1 (Lower Price) -->
+                     <circle cx="175" cy="125" r="4" fill="#2980b9"/>
+                     <line x1="50" y1="125" x2="175" y2="125" class="grid-line"/>
+                     <line x1="175" y1="125" x2="175" y2="300" class="grid-line"/>
+                     <text x="30" y="130" class="point-label">P₁</text>
+                     <text x="175" y="315" text-anchor="middle" class="point-label">Q₁</text>
+                     <!-- Example Point 2 (Higher Price) -->
+                     <circle cx="325" cy="212" r="4" fill="#2980b9"/>
+                     <line x1="50" y1="212" x2="325" y2="212" class="grid-line"/>
+                     <line x1="325" y1="212" x2="325" y2="300" class="grid-line"/>
+                     <text x="30" y="217" class="point-label">P₂</text>
+                     <text x="325" y="315" text-anchor="middle" class="point-label">Q₂</text>
+                     <!-- Description -->
+                     <text x="250" y="70" text-anchor="middle" class="shift-label" style="fill:#2980b9;">Lower Price (P₁) → Lower Quantity (Q₁)</text>
+                     <text x="250" y="85" text-anchor="middle" class="shift-label" style="fill:#2980b9;">Higher Price (P₂) → Higher Quantity (Q₂)</text>
+                 </svg>
+
+                <div class="formula-box">
+                    <span class="formula-label">Linear Supply Curve</span>
+                    \[P = c + dQ\]
+                    <!-- MathJax renders P = c + dQ -->
+                </div>
+
+                <div class="important-note">
+                    <h4>Movement vs. Shift</h4>
+                    <ul>
+                        <li>A <strong>movement *along* the curve</strong> only happens when the good's own <strong>price changes</strong>.</li>
+                        <li>A <strong>*shift* of the entire curve</strong> happens when one of the <strong>other drivers changes</strong> (e.g., number of firms, input costs).</li>
+                    </ul>
+                    <!-- SVG GRAPH: Supply Movement vs Shift - REFINED -->
+                     <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="move-shift-title-supply">
+                        <title id="move-shift-title-supply">Graph showing movement along vs shift of a supply curve</title>
+                        <!-- Axes -->
+                        <line x1="50" y1="300" x2="450" y2="300" class="axis" />
+                        <line x1="50" y1="50" x2="50" y2="300" class="axis" />
+                        <text x="250" y="330" text-anchor="middle" class="axis-label">Quantity</text>
+                        <text x="20" y="175" text-anchor="middle" transform="rotate(-90 20 175)" class="axis-label">Price</text>
+                        <!-- Original Supply -->
+                        <line x1="100" y1="100" x2="400" y2="250" stroke="#2980b9" stroke-width="3" />
+                        <text x="415" y="250" dy="5" class="curve-label" style="fill: #2980b9;">S1</text>
+                        <!-- Point A -->
+                         <circle cx="175" cy="125" r="5" fill="#2980b9"/>
+                         <text x="165" y="120" class="point-label" style="font-weight:bold;">A</text>
+                        <!-- Point B (Movement) -->
+                         <circle cx="325" cy="212" r="5" fill="#2980b9"/>
+                         <text x="335" y="207" class="point-label" style="font-weight:bold;">B</text>
+                        <!-- Arrow Movement -->
+                         <defs>
+                             <marker id="arrowhead-move-s" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                 <polygon points="0 0, 7 3.5, 0 7" fill="#8e44ad" stroke="none"/>
+                             </marker>
+                         </defs>
+                         <path d="M 185,130 Q 250,170 315,207" stroke="#8e44ad" stroke-width="2" fill="none" marker-end="url(#arrowhead-move-s)" stroke-dasharray="3,3"/>
+                         <text x="220" y="155" class="shift-label" style="fill:#8e44ad; font-weight:bold;">Movement along S1</text>
+                         <text x="220" y="170" class="shift-label" style="fill:#8e44ad; font-weight:bold;">(Price Change)</text>
+
+                        <!-- New Supply (Shifted Right) -->
+                        <line x1="150" y1="100" x2="450" y2="250" stroke="#3498db" stroke-width="3" stroke-dasharray="5,5" />
+                        <text x="465" y="250" dy="5" class="curve-label" style="fill: #3498db;">S2</text>
+                         <!-- Point C (Shift) -->
+                         <circle cx="225" cy="125" r="5" fill="#3498db"/>
+                         <text x="235" y="120" class="point-label" style="font-weight:bold; fill:#3498db;">C</text>
+                         <!-- Arrow Shift -->
+                         <defs>
+                             <marker id="arrowhead-shift-s" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+                                 <polygon points="0 0, 7 3.5, 0 7" fill="#3498db" stroke="none"/>
+                             </marker>
+                         </defs>
+                         <line x1="185" y1="135" x2="215" y2="135" stroke="#3498db" stroke-width="2" marker-end="url(#arrowhead-shift-s)"/>
+                         <text x="230" y="150" class="shift-label" style="fill:#3498db; font-weight:bold;">Shift to S2</text>
+                         <text x="230" y="165" class="shift-label" style="fill:#3498db; font-weight:bold;">(e.g., Costs ↓)</text>
+                    </svg>
+                    <!-- SVG GRAPH: Supply Shift - REFINED -->
+                    <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="shift-title-supply">
+                        <title id="shift-title-supply">Graph of a supply curve shifting to the right</title>
+                        <!-- Axes -->
+                        <line x1="50" y1="300" x2="450" y2="300" class="axis" />
+                        <line x1="50" y1="50" x2="50" y2="300" class="axis" />
+                        <text x="250" y="330" text-anchor="middle" class="axis-label">Quantity (Q)</text>
+                        <text x="20" y="175" text-anchor="middle" transform="rotate(-90 20 175)" class="axis-label">Price (P)</text>
+                        <!-- Original Supply -->
+                        <line x1="100" y1="100" x2="350" y2="250" stroke="#2980b9" stroke-width="3" />
+                        <text x="365" y="250" dy="5" class="curve-label" style="fill: #2980b9;">S1</text>
+                        <!-- New Supply (Shifted Right) -->
+                        <line x1="150" y1="100" x2="400" y2="250" stroke="#3498db" stroke-width="3" stroke-dasharray="5,5" />
+                        <text x="415" y="250" dy="5" class="curve-label" style="fill: #3498db;">S2</text>
+                        <!-- Arrow -->
+                        <defs>
+                            <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#2980b9" stroke="none"/>
+                            </marker>
+                        </defs>
+                        <line x1="225" y1="180" x2="275" y2="180" stroke="#2980b9" stroke-width="2" marker-end="url(#arrowhead-blue)" />
+                        <text x="250" y="165" text-anchor="middle" class="shift-label" style="fill:#2980b9; font-weight: bold;">Shift Right (Increase)</text>
+                    </svg>
+                </div>
+
+                <h3>⚖️ Market Equilibrium & Interventions</h3>
+                <p>The market naturally finds an <strong>equilibrium price (P*)</strong> and <strong>quantity (Q*)</strong> where the supply and demand curves intersect.</p>
+                
+                <!-- SVG GRAPH: Equilibrium and Surpluses - REFINED -->
+                <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="equilibrium-title">
+                    <title id="equilibrium-title">Graph showing market equilibrium with Consumer and Producer Surplus</title>
+                    <!-- Axes -->
+                    <line x1="50" y1="300" x2="450" y2="300" class="axis" />
+                    <line x1="50" y1="50" x2="50" y2="300" class="axis" />
+                    <text x="250" y="330" text-anchor="middle" class="axis-label">Quantity</text>
+                    <text x="20" y="175" text-anchor="middle" transform="rotate(-90 20 175)" class="axis-label">Price</text>
+                    <!-- Supply Curve -->
+                    <line x1="100" y1="100" x2="400" y2="250" stroke="#2980b9" stroke-width="3" id="supply-curve-eq"/>
+                    <text x="415" y="250" dy="5" class="curve-label" style="fill: #2980b9;">Supply (S)</text>
+                    <!-- Demand Curve -->
+                     <line x1="100" y1="250" x2="400" y2="100" stroke="#c0392b" stroke-width="3" id="demand-curve-eq"/>
+                     <text x="415" y="100" dy="5" class="curve-label" style="fill: #c0392b;">Demand (D)</text>
+                    <!-- Equilibrium Point -->
+                     <circle cx="250" cy="175" r="5" fill="#16a085"/>
+                     <line x1="50" y1="175" x2="250" y2="175" class="grid-line" stroke="#16a085"/>
+                     <line x1="250" y1="175" x2="250" y2="300" class="grid-line" stroke="#16a085"/>
+                    <text x="35" y="180" class="point-label" style="fill:#16a085; font-weight:bold;">P*</text>
+                    <text x="250" y="315" text-anchor="middle" class="point-label" style="fill:#16a085; font-weight:bold;">Q*</text>
+                     <text x="280" y="170" class="point-label" style="fill:#16a085; font-weight:bold;">Equilibrium</text>
+                     
+                    <!-- Consumer Surplus Area -->
+                     <path d="M 100 250 L 250 175 L 100 175 Z" fill="rgba(192, 57, 43, 0.2)" stroke="none"/> <!-- Triangle above P* -->
+                     <text x="175" y="155" class="surplus-label" style="fill:#c0392b" text-anchor="middle">Consumer</text>
+                     <text x="175" y="170" class="surplus-label" style="fill:#c0392b" text-anchor="middle">Surplus (CS)</text>
+                     
+                    <!-- Producer Surplus Area -->
+                     <path d="M 100 100 L 250 175 L 100 175 Z" fill="rgba(41, 128, 185, 0.2)" stroke="none"/> <!-- Triangle below P* -->
+                     <text x="175" y="200" class="surplus-label" style="fill:#2980b9" text-anchor="middle">Producer</text>
+                     <text x="175" y="215" class="surplus-label" style="fill:#2980b9" text-anchor="middle">Surplus (PS)</text>
+                </svg>
+
+                <div class="key-concept">
+                    <h4>Gains from Trade</h4>
+                    <ul>
+                        <li><strong>Consumer Surplus:</strong> The area *below* the demand curve but *above* the equilibrium price (P*). This is the value consumers get *above* what they paid.</li>
+                        <li><strong>Producer Surplus:</strong> The area *above* the supply curve but *below* the equilibrium price (P*). This is the profit producers make *above* their cost to produce.</li>
+                    </ul>
+                    <p>Economists favor free markets because they <strong>maximize the total gains from trade</strong> (the sum of consumer and producer surplus).</p>
+                </div>
+
+                <h4>Market Interventions</h4>
+                <p>Sometimes, an actor (like the government) intervenes in the market.</p>
+
+                <div class="warning-box">
+                    <h4>Price Minimum (Pmin)</h4>
+                    <p>A price (like minimum wage) set <strong>above</strong> the equilibrium P*.</p>
+                    <p><strong>Result:</strong> Causes an <strong>Excess (Surplus)</strong>, because supply (Qs) will be greater than demand (Qd).</p>
+                    <!-- SVG GRAPH: Price Floor - REFINED -->
+                    <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="price-floor-title">
+                        <title id="price-floor-title">Graph showing the effect of a Price Floor (Minimum Price)</title>
+                        <!-- Axes -->
+                        <line x1="50" y1="300" x2="450" y2="300" class="axis" />
+                        <line x1="50" y1="50" x2="50" y2="300" class="axis" />
+                        <text x="250" y="330" text-anchor="middle" class="axis-label">Quantity</text>
+                        <text x="20" y="175" text-anchor="middle" transform="rotate(-90 20 175)" class="axis-label">Price</text>
+                        <!-- Supply Curve -->
+                        <line x1="100" y1="100" x2="400" y2="250" stroke="#2980b9" stroke-width="3"/>
+                        <text x="415" y="250" dy="5" class="curve-label" style="fill: #2980b9;">S</text>
+                        <!-- Demand Curve -->
+                        <line x1="100" y1="250" x2="400" y2="100" stroke="#c0392b" stroke-width="3"/>
+                        <text x="415" y="100" dy="5" class="curve-label" style="fill: #c0392b;">D</text>
+                        <!-- Equilibrium (Faded) -->
+                        <line x1="50" y1="175" x2="250" y2="175" class="grid-line" stroke-opacity="0.5"/>
+                        <line x1="250" y1="175" x2="250" y2="300" class="grid-line" stroke-opacity="0.5"/>
+                        <text x="35" y="180" class="point-label" style="fill:#aaa;">P*</text>
+                        <text x="250" y="315" text-anchor="middle" class="point-label" style="fill:#aaa;">Q*</text>
+                         <!-- Price Floor Line -->
+                         <line x1="50" y1="125" x2="450" y2="125" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,3"/>
+                         <text x="30" y="130" class="point-label" style="fill:#e74c3c; font-weight:bold;">Pmin</text>
+                        <!-- Quantity Demanded at Pmin -->
+                        <circle cx="175" cy="125" r="4" fill="#c0392b"/>
+                        <line x1="175" y1="125" x2="175" y2="300" class="grid-line" stroke="#c0392b"/>
+                        <text x="175" y="315" text-anchor="middle" class="point-label" style="fill:#c0392b; font-weight:bold;">Qd</text>
+                        <!-- Quantity Supplied at Pmin -->
+                        <circle cx="325" cy="125" r="4" fill="#2980b9"/>
+                        <line x1="325" y1="125" x2="325" y2="300" class="grid-line" stroke="#2980b9"/>
+                        <text x="325" y="315" text-anchor="middle" class="point-label" style="fill:#2980b9; font-weight:bold;">Qs</text>
+                         <!-- Surplus Area/Arrow -->
+                         <defs>
+                            <marker id="arrowhead-surplus" markerWidth="7" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                <polygon points="7 0, 7 7, 0 3.5" fill="#f39c12"/>
+                            </marker>
+                            <marker id="arrowhead-surplus-rev" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto">
+                                <polygon points="0 0, 0 7, 7 3.5" fill="#f39c12"/>
+                            </marker>
+                         </defs>
+                         <line x1="180" y1="105" x2="320" y2="105" stroke="#f39c12" stroke-width="2" marker-start="url(#arrowhead-surplus-rev)" marker-end="url(#arrowhead-surplus)"/>
+                         <text x="250" y="95" text-anchor="middle" class="shift-label" style="fill:#f39c12; font-weight:bold;">Surplus (Qs > Qd)</text>
+                         
+                         <text x="460" y="130" class="shift-label" style="fill:#e74c3c">(Above P*)</text>
+                    </svg>
+                </div>
+
+                <div class="warning-box">
+                    <h4>Price Maximum (Pmax)</h4>
+                    <p>A price (like rent control) set <strong>below</strong> the equilibrium P*.</p>
+                    <p><strong>Result:</strong> Causes a <strong>Shortage</strong>, because demand (Qd) will be greater than supply (Qs).</p>
+                     <!-- SVG GRAPH: Price Ceiling - REFINED -->
+                     <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="price-ceiling-title">
+                        <title id="price-ceiling-title">Graph showing the effect of a Price Ceiling (Maximum Price)</title>
+                         <!-- Axes -->
+                         <line x1="50" y1="300" x2="450" y2="300" class="axis" />
+                         <line x1="50" y1="50" x2="50" y2="300" class="axis" />
+                         <text x="250" y="330" text-anchor="middle" class="axis-label">Quantity</text>
+                         <text x="20" y="175" text-anchor="middle" transform="rotate(-90 20 175)" class="axis-label">Price</text>
+                         <!-- Supply Curve -->
+                         <line x1="100" y1="100" x2="400" y2="250" stroke="#2980b9" stroke-width="3"/>
+                         <text x="415" y="250" dy="5" class="curve-label" style="fill: #2980b9;">S</text>
+                         <!-- Demand Curve -->
+                         <line x1="100" y1="250" x2="400" y2="100" stroke="#c0392b" stroke-width="3"/>
+                         <text x="415" y="100" dy="5" class="curve-label" style="fill: #c0392b;">D</text>
+                         <!-- Equilibrium (Faded) -->
+                         <line x1="50" y1="175" x2="250" y2="175" class="grid-line" stroke-opacity="0.5"/>
+                         <line x1="250" y1="175" x2="250" y2="300" class="grid-line" stroke-opacity="0.5"/>
+                         <text x="35" y="180" class="point-label" style="fill:#aaa">P*</text>
+                         <text x="250" y="315" text-anchor="middle" class="point-label" style="fill:#aaa">Q*</text>
+                         <!-- Price Ceiling Line -->
+                         <line x1="50" y1="225" x2="450" y2="225" stroke="#1abc9c" stroke-width="2" stroke-dasharray="6,3"/>
+                         <text x="30" y="230" class="point-label" style="fill:#1abc9c; font-weight:bold;">Pmax</text>
+                         <!-- Quantity Supplied at Pmax -->
+                         <circle cx="175" cy="225" r="4" fill="#2980b9"/>
+                         <line x1="175" y1="225" x2="175" y2="300" class="grid-line" stroke="#2980b9"/>
+                         <text x="175" y="315" text-anchor="middle" class="point-label" style="fill:#2980b9; font-weight:bold;">Qs</text>
+                         <!-- Quantity Demanded at Pmax -->
+                         <circle cx="325" cy="225" r="4" fill="#c0392b"/>
+                         <line x1="325" y1="225" x2="325" y2="300" class="grid-line" stroke="#c0392b"/>
+                         <text x="325" y="315" text-anchor="middle" class="point-label" style="fill:#c0392b; font-weight:bold;">Qd</text>
+                         <!-- Shortage Area/Arrow -->
+                         <defs>
+                            <marker id="arrowhead-shortage" markerWidth="7" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                <polygon points="7 0, 7 7, 0 3.5" fill="#e74c3c"/>
+                            </marker>
+                            <marker id="arrowhead-shortage-rev" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto">
+                                <polygon points="0 0, 0 7, 7 3.5" fill="#e74c3c"/>
+                            </marker>
+                         </defs>
+                         <line x1="180" y1="245" x2="320" y2="245" stroke="#e74c3c" stroke-width="2" marker-start="url(#arrowhead-shortage-rev)" marker-end="url(#arrowhead-shortage)"/>
+                         <text x="250" y="260" text-anchor="middle" class="shift-label" style="fill:#e74c3c; font-weight:bold;">Shortage (Qd > Qs)</text>
+
+                         <text x="460" y="230" class="shift-label" style="fill:#1abc9c">(Below P*)</text>
+                    </svg>
+                </div>
+                
+                 <!-- Problem Set Integration -->
+                 <div class="quiz-container">
+                    <div class="quiz-title">📚 Problem Set 2: What You Need to Know</div>
+                    <div class="key-concept" style="background: #fff; border-left-color: #16a085;">
+                        <h4 style="color: #16a085; margin-top: 0;">Core Concepts for This Problem Set</h4>
+                        <p>To answer these questions, you need to be able to:</p>
+                        <ul>
+                            <li><strong>Draw S&D Graphs:</strong> Confidently draw and label the Supply (upward sloping) and Demand (downward sloping) curves, and identify the equilibrium price (P*) and quantity (Q*).</li>
+                            <li><strong>Analyze "Shifters":</strong> Understand what "drivers" shift which curve.
+                                <ul>
+                                    <li><strong>Supply Shifters:</strong> Input costs (strikes), technology/productivity (new oil field), number of suppliers (bottlenecks).</li>
+                                    <li><strong>Demand Shifters:</strong> Price of substitutes (public transport), price of complements, income, tastes (health studies), price expectations.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Show the Shift:</strong> Illustrate how one of these events shifts either the S or D curve to the left (decrease) or right (increase).</li>
+                            <li><strong>Find the New Equilibrium:</strong> Identify the *new* P* and Q* after a shift and explain *why* it changed (e.g., "A strike shifts supply to the left, leading to a higher price and lower quantity.").</li>
+                            <li><strong>Analyze Interventions:</strong> Show what a price ceiling (maximum price) looks like and explain why it creates a shortage.</li>
+                            <li><strong>Labor Markets:</strong> Know that in the labor market, *households/workers* are the *suppliers* and *firms* are the *demanders*.</li>
+                            <li><strong>Algebra (Optional):</strong> Be able to solve for equilibrium P* and Q* by setting the demand and supply equations equal to each other (e.g., $a - bP = c + dP$).</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz-title" style="margin-top: 30px;">❓ Problem Set 2: Questions</div>
+
+                    <button class="collapsible">Exercise 1: Explain what you're reading in the Financial Times</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>Illustrate the following news stories in a graph.</p>
+                            <ol>
+                                <li>Norway's Equinor is temporarily shutting down three oil and gas fields after workers went on strike, intensifying regional supply troubles and pushing European gas prices to a four-month high.</li>
+                                <li>Best time to be an autodealer? Illustrate the story: https://www.axios.com/2020/08/28/its-a-great-time-to-be-a-car-dealer-but-not-so-hot-for-buyers</li>
+                                <li>The aim of economic warfare... Some countries... lack refineries that can process Urals, Russia's sulphureous main export blend. That is not a problem for China and India. They have already moved to fill the gap in demand for Russian oil...</li>
+                                <li>Curtailed investment in steel sector has tightened supply at a time when demand is booming... A similar phenomenon is occurring in the metals market, where investments have dwindled in the steel industry...</li>
+                                <li>The Biden administration has pleaded with oil producers to raise output... But the service groups responsible for providing materials, drilling equipment and labour warn that extensive bottlenecks mean this cannot be done overnight.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise 2: Review: Comparative statics and ice-cream</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>Illustrate in a diagram and explain briefly how each event affects the equilibrium price and quantity of ice creams:</p>
+                            <ol>
+                                <li>The price of milk rises.</li>
+                                <li>A new medical study has shown that chocolate bars are good for your health.</li>
+                                <li>The incomes of consumers rise and ice creams are a normal good.</li>
+                                <li>Summer suddenly turns out to be very hot.</li>
+                                <li>The government sets a maximum price for ice creams during this very hot summer.</li>
+                                <li>The price of milk rises AND the summer suddenly turns out to be very hot.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise 3: Review: Labor markets</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <ol type="a">
+                                <li>Who supplies what on this market? Who demands what?</li>
+                                <li>Represent in a diagram the wage w* and the number of workers n* in equilibrium.</li>
+                                <li>What happens to w* and to n* in a booming economy? Explain and represent graphically.</li>
+                                <li>What effects will the phenomena you described in (c) have on potential workers? Explain and represent graphically.</li>
+                                <li>A recession hits this economy. Describe the effects. Explain and represent graphically.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise 4: Review: Comparative statics and ice-cream (II)</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <ol>
+                                <li>Represent this market in a diagram. What is the equilibrium?</li>
+                                <li>Imagine that the price of milk increases. Explain the immediate effects on demand and supply. What is the new equilibrium?</li>
+                                <li>Back to scratch. A medical study suggests eating ice cream will make you smarter. Explain the immediate effects on demand and supply. What is the new equilibrium?</li>
+                                <li>Back to scratch. Imagine the price of milk increases AND the medical study is reported. What effects on the overall equilibrium?</li>
+                                <li>Back to scratch. A newly elected government implements a maximum price. What happens if this price is set above equilibrium? What happens if it is set below equilibrium?</li>
+                                <li>Why would you criticize this measure from a microeconomic standpoint? Explain and illustrate.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise 5: Review: Comparative statics and cars (II)</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>Illustrate and explain how each event affects the equilibrium price and quantity of cars.</p>
+                            <ol type="a">
+                                <li>The price of steel increases.</li>
+                                <li>The price of public transportation decreases.</li>
+                                <li>The income of consumers increases and cars are an inferior good.</li>
+                                <li>The income of consumers increases and cars are a normal good.</li>
+                                <li>The price of public transportation decreases AND the income of consumers increases and cars are a normal good.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise 6: Labor markets again</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <ol type="a">
+                                <li>Who supplies what on this market? Who demands what?</li>
+                                <li>Represent this market. What is the equilibrium?</li>
+                                <li>The government provides a subsidy to men who stay home to raise children. What effect on the supply curve? The demand curve? The overall equilibrium?</li>
+                                <li>Back to scratch. Imagine the government implements a minimum wage. What effects on amount supplied? Demanded? Equilibrium?</li>
+                                <li>Back to scratch. Imagine the government implements a tax on the supply of labor. What will happen?</li>
+                                <li>Why might this solution be suboptimal? How might you justify it?</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise 7: Housing markets again</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p><strong>Richland (Fixed Supply):</strong></p>
+                            <ol type="a">
+                                <li>Illustrate the equilibrium on this housing market.</li>
+                                <li>The government implements a 0-interest rate policy for new home buyers. What effects on supply? Demand? New equilibrium?</li>
+                                <li>Instead, the government increases the number of houses available. What effects on supply? Demand? New equilibrium?</li>
+                                <li>The government believes prices are too high. What is the most appropriate policy and why?</li>
+                            </ol>
+                            <p style="margin-top:15px;"><strong>Poorland (Variable Supply):</strong></p>
+                            <ol type="a">
+                                <li>Illustrate the equilibrium on this tent market.</li>
+                                <li>To fund free tents for the poor, the government implements a tax t on each tent sold. Illustrate and explain the effects.</li>
+                                <li>Why criticize this from a microeconomic view? How to justify it from a political economics view?</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="quiz-title" style="margin-top: 30px;">❓ Optional Problem Set 2: Questions</div>
+
+                    <button class="collapsible">Optional: Algebraic Supply & Demand</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>Demand: $Q = a - bP$</p>
+                            <p>Supply: $Q = c + dP$</p>
+                            <p>Elasticity: $E = (P/Q)(\Delta Q / \Delta P)$</p>
+                            <ol>
+                                <li>What are the price P* and quantity Q* at equilibrium (as a function of a, b, c and d)?</li>
+                                <li>What is $(\Delta Q / \Delta P)$ equal to in the case of demand? In the case of supply?</li>
+                                <li>Suppose you observe elasticity of demand = -0.5 and elasticity of supply = 1.5. Current price is 2 and quantity is 12. Write the demand and the supply curve.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SESSION 3 -->
+            <div id="lecture3" class="lecture-section">
+                <h2>🌍 Session 3: Case Studies on Supply & Demand</h2>
+                <p>Applying the supply and demand framework to real-world situations to anticipate outcomes, identify trade-offs, and draw business implications.</p>
+
+                <button class="collapsible active">Opening Case: Globalization & Inequality (The "Elephant Chart")</button>
+                <div class="collapsible-content" style="max-height: 1000px;"> <!-- Start open -->
+                    <div class="collapsible-content-inner">
+                        <p>This case is based on the HBR article "Why the Global 1% and the Asian Middle Class Have Gained the Most from Globalization."</p>
+                        <ul>
+                            <li><strong>The Great Reshuffle:</strong> Mid-1980s to present has seen the largest reshuffle of personal incomes since the Industrial Revolution.</li>
+                            <li><strong>Global Inequality Declines:</strong> For the first time in 200 years, overall *global* inequality has declined.</li>
+                            <li><strong>The "Elephant Chart":</strong> Shows real income gains (1988-2008) for the global population.
+                                <ul>
+                                    <li><strong>Winners:</strong> Middle/upper classes in developing Asia (global median) AND the world's top 1%.</li>
+                                    <li><strong>Losers (Relative):</strong> Lower/middle classes in rich, Western countries (80th-90th percentile), who saw income stagnation.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="important-note">
+                            <strong>The Paradox:</strong> <em>Decreasing global inequality</em> has been accompanied by <em>rising national inequalities</em> in many rich countries.
+                            <p style="margin-top: 10px;"><strong>Political Implication:</strong> People compare themselves to fellow citizens, not a random person globally. This can lead to domestic political backlash against globalization, even if it's "working" on a global scale.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="collapsible">Case Study: Global Trade Tensions (Rare Earths)</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <p>This case explores whether markets are truly global or are fragmenting.</p>
+                        <ul>
+                            <li><strong>The Market:</strong> China dominates the rare earth market (e.g., US gets 70% of its imports from China).</li>
+                            <li><strong>Weaponizing Supply:</strong>
+                                <ul>
+                                    <li><strong>2010:</strong> China imposed drastic export restrictions, causing prices to skyrocket. Japan responded by reducing its dependence.</li>
+                                    <li><strong>Current:</strong> Tensions and controls have returned.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Conclusion:</strong> "Deglobalization" is unlikely as rich countries still need Chinese inputs. However, tensions create strong incentives for firms to <strong>diversify their supply chains</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="collapsible">Case Study: Electricity Markets (AI & EU)</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <p>This case applies S&D to the electricity market, which is seeing a surge in demand from sources like AI.</p>
+                        
+                        <div class="key-concept">
+                            <h4>The "Merit Order" Supply Principle</h4>
+                            <p>In a competitive market, the unit with the <strong>lowest production cost produces first</strong>, up to its capacity. The next-cheapest produces next, and so on, until total demand is met.</p>
+                            <p><strong>Price Setting:</strong> The market price is set by the <strong>*last* and *most expensive* unit</strong> needed to satisfy total demand.</p>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h4>Paper Industry Example</h4>
+                            <p>Total demand is 75,000 tons.</p>
+                            <ol>
+                                <li>Alpha 1 (Cost 700) produces 40,000 tons.</li>
+                                <li>Bravo 1 (Cost 750) produces 25,000 tons.</li>
+                                <li>Alpha 2 (Cost 850) produces the final 10,000 tons.</li>
+                            </ol>
+                            <p><strong>Result:</strong> The market price is <strong>850</strong> (the cost of Alpha 2), and *all producers* (Alpha 1, Bravo 1, Alpha 2) get paid this price.</p>
+                        </div>
+
+                        <div class="warning-box">
+                            <h4>The EU Electricity Problem</h4>
+                            <p>The EU uses this "merit order" system. The supply stack (cheapest to costliest) is: 1. Renewables, 2. Nuclear, 3. Coal, 4. Natural Gas, 5. Oil.</p>
+                            <p><strong>The Problem:</strong> The price is often set by the most expensive unit needed: <strong>natural gas</strong>. This leads to very high prices for everyone and makes the EU less competitive.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="collapsible">Case Study: Pricing Strategy (U2 Concert)</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <p>This example analyzes pricing strategies when <strong>supply is fixed</strong> (a vertical supply curve, like stadium seats).</p>
+                        
+                        <h4>Price 1: P₁ (Equilibrium Price)</h4>
+                        <p>The "sell-out" price where demand exactly meets supply. Maximizes attendance and revenue.</p>
+                        
+                        <h4>Price 2: P₃ (Premium Price)</h4>
+                        <p><strong>Strategy:</strong> Set the price *above* equilibrium. You sell fewer tickets but build a premium brand image.</p>
+                        <p><strong>Trade-off:</strong> Gain extra revenue on tickets sold, but lose all revenue from unsold tickets.</p>
+                        
+                        <h4>Price 3: P₂ (Buzz Price)</h4>
+                        <p><strong>Strategy:</strong> Set the price *below* equilibrium. This creates a <strong>shortage</strong> (excess demand).</p>
+                        <p><strong>Trade-off:</strong> You "lose" potential revenue.</p>
+                        <p><strong>Benefit:</strong> The shortage creates a "buzz," making headlines about how popular the product is, which is powerful advertising (e.g., McDonald's $9.99 Dinner Box).</p>
+                    </div>
+                </div>
+
+                <button class="collapsible">Case Study: Labor Markets (Minimum Wage)</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <p><strong>The Market:</strong> *Workers* are the *suppliers* of labor, and *firms* are the *demanders*.</p>
+                        <p><strong>The Intervention:</strong> A minimum wage is a <strong>price floor</strong>, set *above* the equilibrium wage.</p>
+                        <p><strong>Economic Effect:</strong> According to the model, this creates <strong>unemployment</strong> (a surplus of workers), as the supply of labor is greater than the demand for it at the higher wage.</p>
+                    </div>
+                </div>
+
+                <button class="collapsible">Case Study: Housing Markets (Interventions)</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <p>This case assumes <strong>supply is fixed</strong> in the short run (a vertical supply curve).</p>
+                        
+                        <div class="warning-box">
+                            <h4>Intervention 1: Subsidies (e.g., 0-Interest Rates)</h4>
+                            <p><strong>Action:</strong> A subsidy to help households buy homes.</p>
+                            <p><strong>Effect:</strong> This shifts the <strong>demand curve to the right</strong>.</p>
+                            <p><strong>Unintended Consequence:</strong> Since supply is fixed, the *only* result is that the <strong>price of housing increases</strong>. The policy failed by targeting demand instead of the real problem (supply).</p>
+                        </div>
+
+                        <div class="warning-box">
+                            <h4>Intervention 2: Rent Control (Price Ceiling)</h4>
+                            <p><strong>Action:</strong> A <strong>price ceiling</strong> set *below* the equilibrium market rent.</p>
+                            <p><strong>Unintended Consequences (per The Economist):</strong></p>
+                            <ul>
+                                <li><strong>Reduced Supply:</strong> Less incentive for builders to build new rentals or maintain existing ones.</li>
+                                <li><strong>Market Conversion:</strong> Encourages owners to convert apartments to pricey condos.</li>
+                                <li><strong>Higher Rents Elsewhere:</strong> Reduced supply drives *up* rents for unregulated properties.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="collapsible">Case Study: Free Trade (Imports & Exports)</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <h4>Case 1: Imports (World Price PW is *lower* than domestic price PA)</h4>
+                        <ul>
+                            <li><strong>Winners:</strong> Consumers win big (surplus expands).</li>
+                            <li><strong>Losers:</strong> Domestic producers lose surplus.</li>
+                            <li><strong>Net Result:</strong> The economy as a whole <strong>gains</strong>.</li>
+                        </ul>
+                        <p><strong>Tariffs (Intervention):</strong> A tariff (tax) raises the price. This protects domestic producers and gives the government revenue, but it creates <strong>deadweight loss</strong> (value is destroyed), making the economy as a whole worse off.</p>
+                        
+                        <h4>Case 2: Exports (World Price PW is *higher* than domestic price PA)</h4>
+                        <ul>
+                            <li><strong>Winners:</strong> Domestic producers win big.</li>
+                            <li><strong>Losers:</strong> Domestic consumers lose surplus.</li>
+                            <li><strong>Net Result:</strong> The economy as a whole <strong>gains</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="collapsible">Case Study: The "War on Drugs" (Inelastic Demand)</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <p>This case analyzes policy when <strong>demand is fixed</strong> (a vertical, inelastic demand curve), as consumers (addicts) will buy the same amount regardless of price.</p>
+                        
+                        <div class="warning-box">
+                            <h4>The Unintended Consequence</h4>
+                            <p><strong>Action:</strong> Government targets suppliers (e.g., destroying crops).</p>
+                            <p><strong>Effect:</strong> This shifts the <strong>supply curve to the left</strong>.</p>
+                            <p><strong>Unintended Consequence:</strong> Because demand is vertical, the quantity consumed *does not change*. The *only* result is that the <strong>price increases dramatically</strong>. This makes the drug market *more* profitable for remaining dealers, undermining the policy's goal.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Problem Set Integration -->
+                 <div class="quiz-container">
+                    <div class="quiz-title">📚 Problem Set 3: What You Need to Know</div>
+                    <div class="key-concept" style="background: #fff; border-left-color: #16a085;">
+                        <h4 style="color: #16a085; margin-top: 0;">Core Concepts for This Problem Set</h4>
+                        <p>To answer these questions, you need to be able to:</p>
+                        <ul>
+                            <li><strong>Identify Surpluses:</strong> On a standard S&D graph, locate the Consumer Surplus (area below D, above P*) and Producer Surplus (area above S, below P*).</li>
+                            <li><strong>Analyze Free Trade (Imports):</strong> Understand that if the World Price (PW) is *lower* than the Autarky Price (PA), the country will import. The price will fall to PW.
+                                <ul>
+                                    <li>Identify new quantity demanded (QD) and new domestic quantity supplied (QS).</li>
+                                    <li>Calculate the import quantity (QD - QS).</li>
+                                    <li>Analyze winners (consumers) and losers (domestic producers) by comparing the change in surplus areas.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Analyze Fixed Supply:</strong> Understand that a fixed supply (like concert seats) is a *vertical line* (Q*). The price is determined purely by where the demand curve intersects this line.</li>
+                            <li><strong>Evaluate Pricing Strategies:</strong>
+                                <ul>
+                                    <li><strong>P₁ (Equilibrium):</strong> The "sell-out" price that maximizes attendance.</li>
+                                    <li><strong>P₃ (Premium Price):</strong> A price *above* equilibrium. Sells fewer units but builds a premium brand.</li>
+                                    <li><strong>P₂ (Buzz Price):</strong> A price *below* equilibrium. Creates a *shortage* and "buzz" (a marketing strategy).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Analyze "Merit Order":</strong> Understand how to build a supply stack from cheapest to most expensive producer. The last producer needed to meet demand sets the market price for *everyone*.</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz-title" style="margin-top: 30px;">❓ Problem Set 3: Questions</div>
+
+                    <button class="collapsible">The Main Event: Free Trade (Imports)</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>You are given a graph for a local economy in autarky (no trade).</p>
+                            <ol>
+                                <li>Identify the consumer and producer surplus.</li>
+                            </ol>
+                            <p>Now, the country opens up, and the World Price (PW) is lower than the Autarky Price (PA).</p>
+                            <ol start="2">
+                                <li>How much is consumed, how much is produced locally in this economy?</li>
+                                <li>Where is the difference coming from?</li>
+                                <li>Overall, is this good or bad for the economy? (HINT: Think in terms of surplus).</li>
+                                <li>Why will it be hard to sell politically?</li>
+                                <li>Can you imagine a way to make it easier to sell politically?</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise: Concerts and Pricing (Fixed Supply)</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>You are given a graph with a fixed vertical supply (Q*) and three prices (P₁, P₂, P₃).</p>
+                            <ol>
+                                <li>What does P₁ represent? Answer in plain English.</li>
+                                <li>Why would you ever choose P₂ (below equilibrium) over P₁? What revenues are forgone? What value is created?</li>
+                                <li>Why would you choose P₃ (above equilibrium) over P₁? What revenues are forgone? What value is created?</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise: Merit Order (Paper Industry)</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>Total demand for paper = 75,000 tonnes. You are given a table of firms, their production units, costs per tonne, and capacity.</p>
+                            <ol>
+                                <li>Which units will produce in this market? Illustrate with a drawing.</li>
+                                <li>What will be the market price for the tonne of paper? Show graphically the profits each unit will be making.</li>
+                                <li>Bravo is wondering if it should increase the capacity of Bravo 1. What would be the consequences?</li>
+                                <li>Alpha is reconsidering closing Alpha 2. What advantages could the firm draw from this?</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise: Labor markets (from archives)</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <ol>
+                                <li>Who supplies what on this market? Who demands what?</li>
+                                <li>Represent this market in a diagram. What is the equilibrium?</li>
+                                <li>The government provides a subsidy to men who stay home to raise children. What effect on the supply curve? The demand curve? The overall equilibrium?</li>
+                                <li>Back to scratch. Imagine the government implements a minimum wage. What effects on amount supplied? Demanded? Equilibrium?</li>
+                                <li>Back to scratch. Imagine the government implements a tax on the supply of labor. What will happen?</li>
+                                <li>Why might this solution be suboptimal? How might you justify it?</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SESSION 4 -->
+            <div id="lecture4" class="lecture-section">
+                <h2>💰 Session 4: Pricing Strategies</h2>
+                <p>Understanding how firms can use microeconomic principles to develop pricing strategies.</p>
+
+                <h3>Strategy 1: Price Discrimination</h3>
+                <div class="key-concept">
+                    <h4>The Goal: Extracting Consumer Surplus</h4>
+                    <p><strong>Consumer Surplus</strong> is the money "left on the table" – the amount consumers were *willing* to spend but didn't have to, because the market price was lower than their valuation.</p>
+                    <p>The goal of price discrimination is for the firm to <strong>capture a greater chunk of this surplus</strong> by discriminating between different types of consumers.</p>
+                    
+                    <h4>Examples:</h4>
+                    <ul>
+                        <li><strong>Auctions:</strong> Letting customers "name their price" (e.g., bidding for upgrades).</li>
+                        <li><strong>Grouping:</strong> Charging flat rates (amusement parks) or "ladies' night" specials.</li>
+                        <li><strong>Geo-marketing:</strong> Charging different prices based on location.</li>
+                    </ul>
+                </div>
+
+                <h3>Strategy 2: Price Elasticity</h3>
+                <div class="key-concept">
+                    <h4>The Concept: Harnessing Reactions to Price</h4>
+                    <p>A simple <strong>cost-plus markup</strong> (e.g., cost + 20%) is a *poor* strategy because it ignores the consumer.</p>
+                    <p>A better strategy focuses on <strong>price elasticity</strong>, which measures how reactive demand is to a change in price.</p>
+                    
+                    <ul>
+                        <li><strong>Inelastic Demand (Steeper Curve):</strong> Demand is *less reactive* to price changes. Consumers will buy even if the price goes up.</li>
+                        <li><strong>Elastic Demand (Flatter Curve):</strong> Demand is *more reactive* to price changes. A small price drop can lead to a large increase in demand.</li>
+                    </ul>
+                    <p>Promotions like "Buy 1 Get 1 Free" are designed to appeal to consumers with highly elastic demand.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Case Study: Dynamic Pricing (iPhone 2007)</h4>
+                    <p>This case shows how strategies change over a product's life.</p>
+                    <ol>
+                        <li><strong>Introduction (Price Skimming):</strong> Apple launched the iPhone at $600. This targeted "early adopters" who have very <strong>inelastic demand</strong> and were willing to pay a premium.</li>
+                        <li><strong>The Pivot (Targeting Elasticity):</strong> Just two months later, Apple cut the price to $400. This was a strategic pivot to target the "mainstream" market, which has a <strong>more elastic demand</strong>, for the holiday season.</li>
+                        <li><strong>The Backlash:</strong> Early adopters were furious (feeling "used").</li>
+                        <li><strong>The Resolution:</strong> Steve Jobs offered a $100 store credit to appease this loyal, inelastic group.</li>
+                    </ol>
+                </div>
+
+                <!-- Problem Set Integration -->
+                 <div class="quiz-container">
+                    <div class="quiz-title">📚 Problem Set 4: What You Need to Know</div>
+                    <div class="key-concept" style="background: #fff; border-left-color: #16a085;">
+                        <h4 style="color: #16a085; margin-top: 0;">Core Concepts for This Problem Set</h4>
+                        <p>To answer these questions, you need to be able to:</p>
+                        <ul>
+                            <li><strong>Define Price Elasticity:</strong> Understand that elasticity measures how much quantity demanded responds to a change in price.</li>
+                            <li><strong>Identify Elasticity on a Graph:</strong>
+                                <ul>
+                                    <li>A <strong>flatter</strong> demand curve (like 'd' in the graph) is <strong>more elastic</strong>. A small price change causes a large quantity change.</li>
+                                    <li>A <strong>steeper</strong> demand curve (like 'D') is <strong>more inelastic</strong>. A large price change causes only a small quantity change.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Link Elasticity to Time:</strong> Understand that demand is typically more <strong>inelastic in the short run</strong> (it's hard to change habits) and more <strong>elastic in the long run</strong> (people have time to find substitutes or adapt).</li>
+                            <li><strong>Analyze Dynamic Pricing (Price Skimming):</strong> Justify a price cut (like the iPhone's) as a strategic pivot from targeting a small group of early adopters (inelastic demand) to a large mainstream market (elastic demand).</li>
+                            <li><strong>Identify Trade-offs:</strong> Criticize this strategy by noting the backlash from loyal, early-adopter customers who felt "used."</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz-title" style="margin-top: 30px;">❓ Problem Set 4: Questions</div>
+
+                    <button class="collapsible">Warm-up: Review: the implications of elasticity</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>You are given a graph with two demand curves: a steep one (D) and a flat one (d).</p>
+                            <ol>
+                                <li>Which is more elastic? Illustrate graphically.</li>
+                                <li>Suppose that both represent demand for electricity. One is for the short run. The other is the long run demand. Which is which? Be precise.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Main Event: iPhone Price Cut (Class 4 Readings)</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>Consider the assigned readings for class 4 (about the 2007 iPhone price cut).</p>
+                            <ol>
+                                <li>How would you justify the controversial cut in price of the phone from a microeconomic standpoint?</li>
+                                <li>Why would you criticize it from a microeconomic standpoint?</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SESSION 5 -->
+            <div id="lecture5" class="lecture-section">
+                <h2>🏭 Session 5: Cost and Supply - How Firms Behave</h2>
+                <p>This session focuses on the costs that influence firm decisions, particularly <strong>marginal cost</strong>, and how it drives new business models like the <strong>sharing economy</strong>.</p>
+
+                <h3>The Firm: Behavior and Decisions</h3>
+                <p>We assume firms are rational actors aiming to <strong>maximize profits</strong>. This involves deciding *whether* to produce and *how much* to produce.</p>
+                
+                <div class="key-concept">
+                    <h4>Marginal Analysis: The Core Principle</h4>
+                    <p>Firms make decisions "at the margin," assessing the costs and benefits of the *next* action or unit.</p>
+                    <ul>
+                        <li><strong>Marginal Revenue (MR):</strong> The extra revenue from selling one additional unit.</li>
+                        <li><strong>Marginal Cost (MC):</strong> The extra cost from producing one additional unit.</li>
+                    </ul>
+                </div>
+
+                <div class="formula-box">
+                    <span class="formula-label">The Profit Maximization Rule</span>
+                    <p>A firm continues to produce as long as MR > MC.</p>
+                    <p>Total profit is maximized when:</p>
+                    \[MR = MC\]
+                </div>
+
+                <div class="important-note">
+                    <h4>Understanding Cost Curves</h4>
+                    <ul>
+                        <li><strong>Economies of Scale:</strong> Initially, as production (Q) increases, Average Cost (AC) and Marginal Cost (MC) fall (due to learning, specialization, etc.).</li>
+                        <li><strong>Diseconomies of Scale:</strong> Eventually, as Q grows very large, AC and MC may rise (due to complexity, coordination issues).</li>
+                        <li><strong>Minimum Efficient Scale (MES):</strong> The output level (Q) where Average Cost is minimized.</li>
+                    </ul>
+                </div>
+
+                <h3>💡 The Significance of Near-Zero Marginal Cost (MC ≈ 0)</h3>
+                <p>What happens when the cost of producing one more unit approaches zero? This phenomenon drives many new business models.</p>
+                
+                <h4>Three Key Drivers of MC ≈ 0:</h4>
+                <ol>
+                    <li><strong>Digitalization:</strong> The marginal cost of copying digital goods (software, music) is virtually zero.</li>
+                    <li><strong>Platforms:</strong> Drastically reduce the marginal cost of *coordination*—matching buyers and sellers (e.g., Uber, Airbnb). They leverage *network effects*.</li>
+                    <li><strong>Connectivity (IoT):</strong> Connecting physical assets (cars, homes) allows for hyper-efficient utilization, reducing the marginal cost of *idle capacity*.</li>
+                </ol>
+
+                <button class="collapsible">🏘️ The Sharing Economy</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <p><strong>Definition:</strong> A disruptive model that "unleashes new sources of supply" by tapping into <strong>underused assets</strong> (spare rooms, private cars) or <strong>labor</strong> (gig workers) that couldn't be efficiently organized before.</p>
+                        
+                        <p><strong>Economic Engine:</strong> Powered by the near-zero marginal costs of information, coordination, and utilizing idle capacity.</p>
+                        
+                        <h4>Expected Impacts:</h4>
+                        <ul>
+                            <li><strong>Deflationary:</strong> Increases supply, putting downward pressure on prices.</li>
+                            <li><strong>Disruptive:</strong> Imposes rapid change on traditional industries.</li>
+                            <li><strong>Game-Changing:</strong> Organizes new areas of economic activity.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <button class="collapsible">🚗 Case Study: Uber</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-content-inner">
+                        <p>Uber exemplifies these near-zero marginal cost principles.</p>
+                        
+                        <h4>The Business Model & MC=0:</h4>
+                        <ul>
+                            <li>Uber doesn't own cars; it's a <strong>platform</strong> connecting riders and drivers (MC of adding a user is near zero).</li>
+                            <li>It efficiently utilizes <strong>underused assets</strong> (drivers' personal cars) and <strong>labor</strong>.</li>
+                            <li>Sophisticated algorithms manage supply and demand in real-time.</li>
+                        </ul>
+                        
+                        <div class="example-box">
+                            <h4>Surge Pricing</h4>
+                            <p>Uber's dynamic pricing mechanism increases fares when demand outstrips supply (e.g., rush hour).</p>
+                            <p><strong>Rationale:</strong> To incentivize more drivers (supply) to come online, balancing the market and reducing wait times.</p>
+                            <p><strong>Controversy:</strong> Accusations of price gouging, especially during emergencies.</p>
+                        </div>
+                        
+                        <h4>Disruption & Challenges:</h4>
+                        <ul>
+                            <li><strong>Competition:</strong> Directly competes with (and disrupts) the traditional, regulated taxi industry.</li>
+                            <li><strong>Regulatory Battles:</strong> Uber's strategy of "move fast and break things" led to constant legal fights globally.</li>
+                            <li><strong>Driver Status:</strong> The classification of drivers as *independent contractors* (not employees) is central to the model but faces constant legal challenges.</li>
+                        </ul>
+                    </div>
+                </div>
+                 <!-- Problem Set Integration -->
+                 <div class="quiz-container">
+                    <div class="quiz-title">📚 Problem Set 5: What You Need to Know</div>
+                    <div class="key-concept" style="background: #fff; border-left-color: #16a085;">
+                        <h4 style="color: #16a085; margin-top: 0;">Core Concepts for This Problem Set</h4>
+                        <p>To answer these questions, you need to be able to:</p>
+                        <ul>
+                            <li><strong>Analyze Uber's Evolution:</strong> Describe Uber's shift from a luxury "black car" service to a multi-faceted platform (uberX, UberPOOL, UberEATS) and its push into new tech (self-driving cars).</li>
+                            <li><strong>Define the Sharing Economy:</strong> Explain the concept of the sharing economy as a model built on tapping into *underused assets* (cars, rooms) and *labor* (gig workers) via online platforms.</li>
+                            <li><strong>Connect Microeconomics to Uber:</strong> Explain Uber's business model using the concept of <strong>near-zero marginal cost (MC ≈ 0)</strong>.
+                                <ul>
+                                    <li><strong>Platforms:</strong> The MC of *coordination* (matching a driver and rider) is near-zero.</li>
+                                    <li><strong>Connectivity/IoT:</strong> The MC of utilizing *idle capacity* (a driver's empty car) is near-zero.</li>
+                                    <li><strong>Digitalization:</strong> The MC of adding one more user to the app (the digital good) is near-zero.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz-title" style="margin-top: 30px;">❓ Problem Set 5: Questions</div>
+
+                    <button class="collapsible">Main Event: Uber Case Study</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>Use the Uber case study and assigned reading for class 5.</p>
+                            <ol>
+                                <li>Describe how Uber has evolved over time and how the company could evolve in the future. Why is Uber changing?</li>
+                                <li>Uber has often been presented as a good example of what the sharing economy is today.
+                                    <ol type="a">
+                                        <li>Using the other assigned article, "Sharing Economy starts to go mainstream," describe what the sharing economy is about and discuss whether Uber fits the description.</li>
+                                        <li>Explain why microeconomists are likely to agree that Uber is in fact representative of the sharing economy. (HINT: How does microeconomics explain the Uber business model?)</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SESSION 6 -->
+            <div id="lecture6" class="lecture-section">
+                <h2>⚔️ Session 6: Competition & Strategy</h2>
+                <p>This session's problem set focuses on market structure, competition, and innovation.</p>
+                
+                <div class="quiz-container">
+                    <div class="quiz-title">📚 Problem Set 6: What You Need to Know</div>
+                    <div class="key-concept" style="background: #fff; border-left-color: #16a085;">
+                        <h4 style="color: #16a085; margin-top: 0;">Core Concepts for This Problem Set</h4>
+                        <p>To answer these questions, you need to be able to:</p>
+                        <ul>
+                            <li><strong>Define Porter's Five Forces:</strong> Know the five forces (Threat of New Entrants, Threat of Substitutes, Bargaining Power of Buyers, Bargaining Power of Suppliers, Rivalry Among Existing Competitors).</li>
+                            <li><strong>Analyze Market Vulnerability:</strong> Understand that even a monopoly (no direct rivals) can be vulnerable if:
+                                <ul>
+                                    <li>The <strong>Threat of New Entrants</strong> is high (low barriers to entry).</li>
+                                    <li>The <strong>Threat of Substitutes</strong> is high (other products solve the same customer problem).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Analyze Innovation Incentives:</strong> Compare the incentives for a monopoly vs. a firm in perfect competition to innovate.
+                                <ul>
+                                    <li>A monopoly might innovate to protect its profits ("persistence of monopoly").</li>
+                                    <li>A competitive firm *must* innovate to survive or gain a temporary edge.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz-title" style="margin-top: 30px;">❓ Problem Set 6: Questions</div>
+
+                    <button class="collapsible">Exercise 1: Porter's five forces model</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>If you don't know the model, look it up!</p>
+                            <ol>
+                                <li>Using the model's terminology, describe what a highly competitive landscape would be.</li>
+                                <li>Consider a seemingly dominant firm (a monopoly with no rival). Under what conditions, underscored in Porter's five forces, would this firm's position still be vulnerable? What implications does this have for policymakers?</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise 2: Innovation Incentives</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p><strong>A thought question:</strong> Consider a monopoly and a firm on a highly competitive market. Who has the biggest incentive to innovate? Explain why.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SESSION 7 -->
+            <div id="lecture7" class="lecture-section">
+                <h2>📦 Session 7: Amazon Case & Review</h2>
+                <p>This session's problem set analyzes Amazon's market position and reviews core concepts of profit maximization.</p>
+                
+                <div class="quiz-container">
+                    <div class="quiz-title">📚 Problem Set 7: What You Need to Know</div>
+                    <div class="key-concept" style="background: #fff; border-left-color: #16a085;">
+                        <h4 style="color: #16a085; margin-top: 0;">Core Concepts for This Problem Set</h4>
+                        <p>To answer these questions, you need to be able to:</p>
+                        <ul>
+                            <li><strong>Argue for Value Creation:</strong> Use the concept of <strong>Gains from Trade</strong> (specifically Consumer Surplus) to make a case that a firm like Amazon creates value for society (e.g., by lowering prices, increasing variety, offering convenience).</li>
+                            <li><strong>Analyze Market Dominance:</strong> Be able to argue *both sides* of whether a firm is a dominant monopoly.
+                                <ul>
+                                    <li><strong>Yes:</strong> High market share in a specific category (e.g., e-books).</li>
+                                    <li><strong>No:</strong> Competes in a much broader market (e.g., "total retail"), where its share is small.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Monopoly Profit Maximization:</strong>
+                                <li>Given a demand curve $P = a - bQ$ and a constant $MC$, find the profit function: $\pi = (P \times Q) - (MC \times Q)$.</li>
+                                <li>Substitute P: $\pi = ((a - bQ) \times Q) - (MC \times Q)$.</li>
+                                <li>Find Marginal Revenue (MR): $MR = a - 2bQ$ (the "twice the slope" rule).</li>
+                                <li>Set $MR = MC$ and solve for the monopoly quantity ($Q_m$).</li>
+                                <li>Plug $Q_m$ back into the demand curve to find the monopoly price ($P_m$).</li>
+                            </li>
+                            <li><strong>Perfect Competition:</strong> Understand that in a perfectly competitive market, price is driven down to marginal cost. The equilibrium price would be $P = MC$.</li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz-title" style="margin-top: 30px;">❓ Problem Set 7: Questions</div>
+
+                    <button class="collapsible">Amazon Case Study</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>Please read the Amazon case study (in class 7 readings) and consider the following questions:</p>
+                            <ol>
+                                <li>Make a microeconomic case that Amazon creates value for society as a whole. (Hint: use the concept of gains from trade).</li>
+                                <li>Is Amazon a dominant firm? Use the information in the case to show why the question has no easy answer and that you could argue both sides.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <button class="collapsible">Exercise 1 - Review: Competition and pricing</button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-content-inner">
+                            <p>Ghez Inc. is the sole producer of JEM. Demand: $P = 825 - 4Q$ and constant $MC = 25$.</p>
+                            <ol>
+                                <li>Write down Ghez Inc.'s profit function.</li>
+                                <li>How much will Ghez Inc. produce? State your assumption(s) clearly.</li>
+                                <li>What price will it charge?</li>
+                                <li>How much would it have charged if it was on a perfectly competitive market? Explain why.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRACTICE QUIZ -->
+            <div class="quiz-container">
+                 <div class="quiz-title">🎯 Practice Problems: Check Your Understanding</div>
+                
+                <!-- Question 1 -->
+                <div class="quiz-question">
+                    <h4 style="color: #2c3e50; margin-top: 0;">Question 1: Market Intervention</h4>
+                    <p>The government imposes "rent control," a law stating that apartments cannot be rented for more than $1,000 per month. The current market equilibrium rent is $1,500 per month.</p>
+                    <p><strong>What will be the result of this policy?</strong></p>
+                    
+                    <button class="reveal-btn" onclick="revealAnswer('q1-answer')">👁️ Reveal Answer</button>
+                    
+                    <div id="q1-answer" class="quiz-answer">
+                        <h4>Solution: A Shortage</h4>
+                        <p>This is a <strong>Price Maximum (Price Ceiling)</strong> set *below* the equilibrium price.</p>
+                        <ul>
+                            <li>At the lower $1,000 price, *more* people will want to rent (demand increases).</li>
+                            <li>At the same time, *fewer* landlords will be willing to rent out their properties (supply decreases).</li>
+                        </ul>
+                        <p>When demand is greater than supply, the result is a <strong>shortage</strong> of apartments.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="quiz-question">
+                    <h4 style="color: #2c3e50; margin-top: 0;">Question 2: Supply & Demand Shifts</h4>
+                    <p>What happens to the equilibrium price and quantity of gasoline if a major new oil field is discovered (increasing productivity)?</p>
+                    
+                    <button class="reveal-btn" onclick="revealAnswer('q2-answer')">👁️ Reveal Answer</button>
+                    
+                    <div id="q2-answer" class="quiz-answer">
+                        <h4>Solution: Price Decreases, Quantity Increases</h4>
+                        <p>A new oil field is a change in one of the drivers of *supply* (specifically, productivity Δ).</p>
+                        <ol>
+                            <li>The <strong>supply curve shifts to the right</strong> (more supply at every price).</li>
+                            <li>The demand curve does not change.</li>
+                            <li>The new intersection point (equilibrium) will be at a <strong>lower price (P*)</strong> and a <strong>higher quantity (Q*)</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="quiz-question">
+                    <h4 style="color: #2c3e50; margin-top: 0;">Question 3: Firm Behavior</h4>
+                    <p>A coffee shop calculates that for its next cup of coffee, the marginal revenue (MR) is $3.00 and the marginal cost (MC) is $2.50.</p>
+                    <p><strong>To maximize profit, should the shop sell this next cup?</strong></p>
+                    
+                    <button class="reveal-btn" onclick="revealAnswer('q3-answer')">👁️ Reveal Answer</button>
+                    
+                    <div id="q3-answer" class="quiz-answer">
+                        <h4>Solution: Yes, it should.</h4>
+                        <p>The Profit Maximization Rule states that a firm should continue to produce as long as <strong>MR > MC</strong>.</p>
+                        <ul>
+                            <li>Here, MR ($3.00) > MC ($2.50).</li>
+                            <li>This means that selling one more cup of coffee adds $0.50 to the shop's total profit.</li>
+                        </ul>
+                        <p>The shop should continue producing until MR = MC.</p>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="quiz-question">
+                    <h4 style="color: #2c3e50; margin-top: 0;">Question 4: Pricing Strategy</h4>
+                    <p>Apple launches a new product at a very high price, targeting only the most enthusiastic fans. Six months later, it drops the price significantly to appeal to the general public.</p>
+                    <p><strong>What pricing strategies is Apple using?</strong></p>
+                    
+                    <button class="reveal-btn" onclick="revealAnswer('q4-answer')">👁️ Reveal Answer</button>
+                    
+                    <div id="q4-answer" class="quiz-answer">
+                        <h4>Solution: Price Skimming & Elasticity</h4>
+                        <p>This is a form of <strong>dynamic pricing</strong> and <strong>price discrimination</strong> over time.</p>
+                        <ol>
+                            <li><strong>Phase 1 (Price Skimming):</strong> The high launch price targets "early adopters," who have very <strong>inelastic demand</strong> (they are not price-sensitive). This captures their high consumer surplus.</li>
+                            <li><strong>Phase 2 (Targeting Elasticity):</strong> The later price drop targets the "mainstream" market, which has a <strong>more elastic demand</strong> (they are more price-sensitive).</li>
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <footer>
+            <p>📚 Managerial Economics Study Guide</p>
+            <p>Based on notes for Sessions 1-7</p>
+        </footer>
+    </div>
+
+    <script>
+        function showLecture(lectureNum) {
+            // Hide all lectures
+            const lectures = document.querySelectorAll('.lecture-section');
+            lectures.forEach(lecture => lecture.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.nav-pills button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Hide search results
+            const searchResults = document.getElementById('searchResults');
+            if (searchResults) {
+                searchResults.style.display = 'none';
+            }
+            
+            // Show selected lecture
+            document.getElementById('lecture' + lectureNum).classList.add('active');
+            document.getElementById('btn' + lectureNum).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(collapsible => {
+            collapsible.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    // Add a bit of buffer for padding/margins
+                    content.style.maxHeight = (content.scrollHeight + 40) + "px"; // Increased buffer
+                }
+            });
+        });
+
+        // Show lecture 1 by default
+        window.addEventListener('load', function() {
+            showLecture(1);
+             // Ensure initially active collapsibles are open
+            document.querySelectorAll('.collapsible.active').forEach(activeCollapsible => {
+                const content = activeCollapsible.nextElementSibling;
+                 if (content) {
+                     // Use setTimeout to ensure calculation happens after rendering
+                     setTimeout(() => {
+                        content.style.maxHeight = (content.scrollHeight + 40) + "px";
+                    }, 0);
+                 }
+            });
+        });
+
+        // Quiz reveal functionality
+        function revealAnswer(questionId) {
+            const answer = document.getElementById(questionId);
+            const button = event.target;
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                button.textContent = '👁️ Reveal Answer';
+            } else {
+                answer.classList.add('show');
+                button.textContent = '🔒 Hide Answer';
+            }
+        }
+        
+        // --- Search Functionality ---
+        
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        }
+
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            const searchResults = document.getElementById('searchResults');
+            
+            if (searchTerm.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+
+            // Get all lecture sections
+            const lectures = document.querySelectorAll('.lecture-section');
+            const results = [];
+
+            lectures.forEach((lecture, index) => {
+                const lectureTitle = lecture.querySelector('h2')?.textContent || `Lecture ${index}`;
+                const content = lecture.textContent.toLowerCase();
+                
+                // Check if search term is in this lecture
+                if (content.includes(searchTerm)) {
+                    // Find specific sections with the term
+                    const headings = lecture.querySelectorAll('h2, h3, h4, .key-concept p, .example-box p, .collapsible');
+                    
+                    headings.forEach(heading => {
+                        const headingText = heading.textContent.toLowerCase();
+                        let contextText = '';
+                        
+                        // Try to get context from the next element if it's not a heading
+                        let nextElement = heading.nextElementSibling;
+                        if (nextElement && !nextElement.tagName.startsWith('H') && !nextElement.classList.contains('collapsible')) {
+                             contextText = nextElement.textContent.substring(0, 200);
+                        } else if (heading.textContent.length < 200) {
+                            contextText = heading.textContent;
+                        } else if (heading.classList.contains('collapsible')) {
+                            // Get content from inside collapsible
+                            const innerContent = heading.nextElementSibling?.querySelector('.collapsible-content-inner');
+                            if(innerContent) contextText = innerContent.textContent.substring(0,200);
+                        }
+
+
+                        if (headingText.includes(searchTerm) || contextText.toLowerCase().includes(searchTerm)) {
+                            // Find the parent section title
+                            let parentHeading = heading.closest('.lecture-section').querySelector('h2');
+                            let sectionTitle = parentHeading ? parentHeading.textContent : lectureTitle;
+                            
+                            // Get a more specific title if possible
+                            let specificTitle = heading.textContent.substring(0, 70); // Increased length
+                            if (heading.tagName.startsWith('H')) {
+                                specificTitle = heading.textContent;
+                            } else if (heading.classList.contains('collapsible')) {
+                                specificTitle = heading.textContent;
+                            }
+
+
+                            results.push({
+                                lectureNum: index,
+                                lectureTitle: sectionTitle,
+                                sectionTitle: specificTitle,
+                                context: highlightTerm(contextText.substring(0, 150), searchTerm) + '...',
+                                elementId: heading.id || (heading.id = `search-target-${Math.random().toString(36).substr(2, 9)}`) // Ensure element has an ID
+                            });
+                        }
+                    });
+                }
+            });
+
+            displaySearchResults(results, searchTerm);
+        }
+        
+        function highlightTerm(text, term) {
+            if (!text || !term) return text;
+            try {
+                // Escape special regex characters in the search term
+                const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                 const regex = new RegExp(`(${escapedTerm})`, 'gi');
+                return text.replace(regex, '<span class="highlight">$1</span>');
+            } catch (e) {
+                 console.error("Regex error:", e);
+                return text; // Fallback if regex fails
+            }
+        }
+
+
+        function displaySearchResults(results, searchTerm) {
+            const searchResults = document.getElementById('searchResults');
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = '<div class="no-results">No results found for "' + searchTerm + '"</div>';
+                searchResults.style.display = 'block';
+                return;
+            }
+
+            // Remove duplicates based on element ID
+            const unique = [];
+            const seenIds = new Set();
+            results.forEach(r => {
+                if (!seenIds.has(r.elementId)) {
+                    seenIds.add(r.elementId);
+                    unique.push(r);
+                }
+            });
+
+
+            let html = `<h3 style="color: #2c3e50; padding: 0 20px;">Search Results for "${searchTerm}" (${unique.length} found)</h3>`;
+            
+            unique.slice(0, 15).forEach(result => {
+                html += `
+                    <div class="search-result-item" onclick="goToResult(${result.lectureNum}, '${result.elementId}')">
+                        <div class="search-result-title">${result.lectureTitle} → ${result.sectionTitle}</div>
+                        <div class="search-result-context">${result.context}</div>
+                    </div>
+                `;
+            });
+
+            if (unique.length > 15) {
+                html += '<p style="text-align: center; color: #666; padding: 20px;">Showing first 15 results. Refine your search for more specific results.</p>';
+            }
+
+            searchResults.innerHTML = html;
+            searchResults.style.display = 'block';
+            
+            // Scroll to results
+            searchResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function goToResult(lectureNum, elementId) {
+            // Hide search results
+            document.getElementById('searchResults').style.display = 'none';
+            
+            // Clear search box
+            document.getElementById('searchInput').value = '';
+            
+            // Show the lecture
+            showLecture(lectureNum);
+            
+            // Wait for lecture to be displayed, then scroll to section
+            setTimeout(() => {
+                const targetElement = document.getElementById(elementId);
+                
+                if (targetElement) {
+                    // If it's a collapsible button, or inside a collapsible, open it
+                     let elementToScrollTo = targetElement;
+                    const collapsibleButton = targetElement.classList.contains('collapsible') ? targetElement : targetElement.closest('.collapsible-content')?.previousElementSibling;
+
+                    if (collapsibleButton && collapsibleButton.classList.contains('collapsible') && !collapsibleButton.classList.contains('active')) {
+                        collapsibleButton.click();
+                         // Update element to scroll to if the original target was inside
+                         if (!targetElement.classList.contains('collapsible')) {
+                             elementToScrollTo = targetElement; // Scroll to the content inside
+                         } else {
+                             elementToScrollTo = collapsibleButton; // Scroll to the button itself
+                         }
+                    } else if (targetElement.classList.contains('collapsible')) {
+                         elementToScrollTo = targetElement; // Scroll to the already active button
+                     }
+
+                    // Scroll to the element after potential collapsible opening
+                    setTimeout(() => {
+                        elementToScrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Highlight briefly
+                         elementToScrollTo.style.transition = 'background-color 0.5s ease';
+                         elementToScrollTo.style.backgroundColor = '#fff9e6'; // Light yellow
+                        setTimeout(() => {
+                             elementToScrollTo.style.backgroundColor = '';
+                        }, 2500);
+                    }, 100); // Short delay after potential click
+                } else {
+                     console.warn("Target element not found:", elementId);
+                 }
+            }, 300); // 300ms delay to allow for page switch
+        }
+
+    </script>
+</body>
+</html>
+
