@@ -1108,6 +1108,520 @@ max-width: 100%;
 height: 400px !important;
 }
 
+/* ========================================
+   INFORMATION ARCHITECTURE ENHANCEMENTS
+   ======================================== */
+
+/* Comparison Table Styles */
+.comparison-table {
+width: 100%;
+border-collapse: separate;
+border-spacing: 0;
+margin: 2rem 0;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+background: white;
+}
+
+.comparison-table thead {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+}
+
+.comparison-table thead th {
+padding: 1.25rem 1rem;
+text-align: left;
+font-weight: 700;
+font-size: 1.05rem;
+letter-spacing: 0.5px;
+border-bottom: 3px solid #764ba2;
+}
+
+.comparison-table tbody tr {
+transition: all 0.3s ease;
+border-bottom: 1px solid #e5e7eb;
+}
+
+.comparison-table tbody tr:last-child {
+border-bottom: none;
+}
+
+.comparison-table tbody tr:hover {
+background: linear-gradient(90deg, rgba(102, 126, 234, 0.08) 0%, transparent 100%);
+transform: translateX(5px);
+}
+
+.comparison-table tbody td {
+padding: 1rem;
+vertical-align: top;
+color: #374151;
+line-height: 1.6;
+}
+
+.comparison-table tbody td:first-child {
+font-weight: 600;
+color: #667eea;
+border-left: 4px solid transparent;
+}
+
+.comparison-table tbody tr:hover td:first-child {
+border-left-color: #667eea;
+}
+
+/* Icon Category Styles */
+.icon-list {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.icon-list-item {
+background: white;
+border: 2px solid #e5e7eb;
+border-radius: 12px;
+padding: 1.5rem;
+display: flex;
+align-items: flex-start;
+gap: 1rem;
+transition: all 0.3s ease;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.icon-list-item:hover {
+border-color: #667eea;
+transform: translateY(-4px);
+box-shadow: 0 6px 20px rgba(102, 126, 234, 0.15);
+}
+
+.icon-list-item i {
+font-size: 2rem;
+color: #667eea;
+min-width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+border-radius: 10px;
+}
+
+.icon-list-item .content {
+flex: 1;
+}
+
+.icon-list-item .content h5 {
+margin: 0 0 0.5rem 0;
+color: #1f2937;
+font-size: 1.1rem;
+font-weight: 700;
+}
+
+.icon-list-item .content p {
+margin: 0;
+color: #6b7280;
+font-size: 0.95rem;
+line-height: 1.6;
+}
+
+/* Enhanced Callout Boxes */
+.insight-callout {
+background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+border: 3px solid #f59e0b;
+border-radius: 12px;
+padding: 1.75rem 2rem;
+margin: 2.5rem 0;
+position: relative;
+box-shadow: 0 6px 20px rgba(245, 158, 11, 0.2);
+}
+
+.insight-callout::before {
+content: '💡';
+position: absolute;
+top: -20px;
+left: 20px;
+background: white;
+padding: 5px 12px;
+border-radius: 50%;
+font-size: 1.8rem;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.insight-callout-title {
+font-weight: 800;
+color: #d97706;
+font-size: 1.2rem;
+margin: 0 0 1rem 0;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.insight-callout p {
+margin: 0.75rem 0 0 0;
+color: #78350f;
+font-size: 1.05rem;
+line-height: 1.7;
+font-weight: 500;
+}
+
+.insight-callout p:first-of-type {
+margin-top: 0;
+}
+
+/* Strategy Callout */
+.strategy-callout {
+background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+border: 3px solid #3b82f6;
+}
+
+.strategy-callout::before {
+content: '🎯';
+}
+
+.strategy-callout-title {
+color: #1e40af;
+}
+
+.strategy-callout p {
+color: #1e3a8a;
+}
+
+/* Pro/Con Comparison Grid */
+.pro-con-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin: 2.5rem 0;
+}
+
+.pro-con-card {
+background: white;
+border-radius: 12px;
+padding: 2rem;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+border-top: 5px solid;
+}
+
+.pro-con-card.pro {
+border-top-color: #10b981;
+}
+
+.pro-con-card.con {
+border-top-color: #ef4444;
+}
+
+.pro-con-card h4 {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+margin: 0 0 1.5rem 0;
+font-size: 1.4rem;
+}
+
+.pro-con-card.pro h4 {
+color: #10b981;
+}
+
+.pro-con-card.con h4 {
+color: #ef4444;
+}
+
+.pro-con-card h4 i {
+font-size: 1.6rem;
+}
+
+.pro-con-card ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.pro-con-card ul li {
+padding: 0.75rem 0 0.75rem 2rem;
+position: relative;
+border-bottom: 1px solid #f3f4f6;
+}
+
+.pro-con-card ul li:last-child {
+border-bottom: none;
+}
+
+.pro-con-card.pro ul li::before {
+content: '✓';
+position: absolute;
+left: 0;
+color: #10b981;
+font-weight: 700;
+font-size: 1.2rem;
+}
+
+.pro-con-card.con ul li::before {
+content: '✗';
+position: absolute;
+left: 0;
+color: #ef4444;
+font-weight: 700;
+font-size: 1.2rem;
+}
+
+/* Reference Table - Compact Style */
+.reference-table {
+width: 100%;
+border-collapse: collapse;
+margin: 2rem 0;
+background: white;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+font-size: 0.95rem;
+}
+
+.reference-table thead {
+background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+color: white;
+}
+
+.reference-table thead th {
+padding: 1rem 0.75rem;
+text-align: left;
+font-weight: 600;
+font-size: 0.9rem;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.reference-table tbody tr {
+border-bottom: 1px solid #e5e7eb;
+transition: background 0.2s ease;
+}
+
+.reference-table tbody tr:hover {
+background: #f9fafb;
+}
+
+.reference-table tbody td {
+padding: 0.875rem 0.75rem;
+color: #374151;
+}
+
+.reference-table tbody td:first-child {
+font-weight: 600;
+color: #667eea;
+}
+
+.reference-table code {
+background: #f3f4f6;
+padding: 0.2rem 0.5rem;
+border-radius: 4px;
+font-family: 'Courier New', monospace;
+color: #7c3aed;
+font-size: 0.9rem;
+}
+
+/* Data Visualization Table */
+.data-table {
+width: 100%;
+border-collapse: collapse;
+margin: 2rem 0;
+background: white;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.data-table thead {
+background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+color: white;
+}
+
+.data-table thead th {
+padding: 1.2rem 1rem;
+text-align: left;
+font-weight: 700;
+font-size: 1rem;
+}
+
+.data-table thead th.numeric {
+text-align: right;
+}
+
+.data-table tbody tr {
+border-bottom: 1px solid #e5e7eb;
+transition: all 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+background: linear-gradient(90deg, rgba(16, 185, 129, 0.05) 0%, transparent 100%);
+}
+
+.data-table tbody td {
+padding: 1rem;
+color: #374151;
+}
+
+.data-table tbody td.numeric {
+text-align: right;
+font-family: 'Courier New', monospace;
+font-weight: 600;
+color: #059669;
+}
+
+.data-table tbody td.category-badge {
+font-weight: 600;
+text-transform: uppercase;
+font-size: 0.85rem;
+letter-spacing: 0.5px;
+}
+
+.data-table tbody td.highlight {
+background: #fef3c7;
+font-weight: 700;
+color: #d97706;
+}
+
+/* Comparison Grid - 3 Column Layout */
+.comparison-grid-3 {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1.5rem;
+margin: 2.5rem 0;
+}
+
+.comparison-grid-3 .grid-card {
+background: white;
+border: 2px solid #e5e7eb;
+border-radius: 12px;
+padding: 1.75rem;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+transition: all 0.3s ease;
+}
+
+.comparison-grid-3 .grid-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+border-color: #667eea;
+}
+
+.comparison-grid-3 .grid-card h5 {
+margin: 0 0 1rem 0;
+color: #667eea;
+font-size: 1.3rem;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.comparison-grid-3 .grid-card h5 i {
+font-size: 1.5rem;
+}
+
+.comparison-grid-3 .grid-card .attribute {
+margin: 0.75rem 0;
+}
+
+.comparison-grid-3 .grid-card .attribute-label {
+font-weight: 600;
+color: #6b7280;
+font-size: 0.85rem;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 0.25rem;
+}
+
+.comparison-grid-3 .grid-card .attribute-value {
+color: #1f2937;
+font-size: 1rem;
+line-height: 1.6;
+}
+
+/* Category Badge System */
+.category-badge {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+padding: 0.5rem 1rem;
+border-radius: 20px;
+font-size: 0.9rem;
+font-weight: 600;
+margin: 0.25rem;
+}
+
+.category-badge i {
+font-size: 1rem;
+}
+
+.category-badge.high {
+background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+color: white;
+}
+
+.category-badge.medium {
+background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+color: white;
+}
+
+.category-badge.low {
+background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+color: white;
+}
+
+.category-badge.neutral {
+background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+color: white;
+}
+
+/* Visual Separator */
+.visual-separator {
+display: flex;
+align-items: center;
+margin: 3rem 0;
+}
+
+.visual-separator::before,
+.visual-separator::after {
+content: '';
+flex: 1;
+height: 2px;
+background: linear-gradient(90deg, transparent, #667eea, transparent);
+}
+
+.visual-separator span {
+padding: 0 2rem;
+color: #667eea;
+font-weight: 700;
+font-size: 1.1rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+.pro-con-grid {
+grid-template-columns: 1fr;
+gap: 1.5rem;
+}
+
+.comparison-grid-3 {
+grid-template-columns: 1fr;
+gap: 1.5rem;
+}
+
+.comparison-table {
+font-size: 0.875rem;
+}
+
+.comparison-table thead th,
+.comparison-table tbody td {
+padding: 0.75rem 0.5rem;
+}
+
+.icon-list {
+grid-template-columns: 1fr;
+}
+}
+
 </style>
 </head>
 <body class="bg-gray-100">
@@ -1461,11 +1975,63 @@ Economics isn't just about money—it's about understanding <strong>systems of v
 </div>
 
 <div class="example-box">
-<h4>Example: Shifts in Demand</h4>
-<ul>
-<li><strong>Shift Right (Increase):</strong> Price of substitutes ↑, price of complements ↓, tastes improve, or price expected to rise.</li>
-<li><strong>Shift Left (Decrease):</strong> Price of substitutes ↓, price of complements ↑, tastes decline, or price expected to fall.</li>
-</ul>
+<h4><i class="fas fa-compass"></i> Demand Shift Examples – Quick Reference</h4>
+<p style="margin-bottom: 1rem;">When any factor <em>other than price</em> changes, the <strong>entire demand curve shifts</strong>:</p>
+
+<table class="reference-table">
+<thead>
+<tr>
+<th>Event</th>
+<th>Driver</th>
+<th>Shift Direction</th>
+<th>Concrete Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Substitute price increases</td>
+<td><strong>s ↑</strong></td>
+<td><span class="category-badge high">→ RIGHT</span></td>
+<td>Coke price ↑ → Demand for Pepsi shifts right</td>
+</tr>
+<tr>
+<td>Complement price increases</td>
+<td><strong>c ↑</strong></td>
+<td><span class="category-badge low">← LEFT</span></td>
+<td>Gas price ↑ → Demand for SUVs shifts left</td>
+</tr>
+<tr>
+<td>Consumer income increases</td>
+<td><strong>I ↑</strong></td>
+<td><span class="category-badge high">→ RIGHT</span></td>
+<td>Salary increase → Demand for restaurants shifts right</td>
+</tr>
+<tr>
+<td>Consumer income decreases</td>
+<td><strong>I ↓</strong></td>
+<td><span class="category-badge low">← LEFT</span></td>
+<td>Recession → Demand for luxury goods shifts left</td>
+</tr>
+<tr>
+<td>Tastes/preferences improve</td>
+<td><strong>t ↑</strong></td>
+<td><span class="category-badge high">→ RIGHT</span></td>
+<td>Health trend → Demand for organic food shifts right</td>
+</tr>
+<tr>
+<td>Future price expected to rise</td>
+<td><strong>e ↑</strong></td>
+<td><span class="category-badge high">→ RIGHT</span></td>
+<td>Announcement: gas tax next month → Demand today shifts right</td>
+</tr>
+</tbody>
+</table>
+
+<div class="insight-callout">
+<div class="insight-callout-title">Remember the Distinction</div>
+<p><strong>Movement ALONG the curve:</strong> Only when the good's own price changes (e.g., A → B on same curve)</p>
+<p><strong>SHIFT of the curve:</strong> When any OTHER driver changes (s, c, I, t, e) – the entire curve moves left or right</p>
+</div>
 </div>
 
 <!-- Supply Section -->
@@ -1606,11 +2172,63 @@ Economics isn't just about money—it's about understanding <strong>systems of v
 </svg>
 </div>
 <div class="example-box">
-<h4>Example: Shifts in Supply</h4>
-<ul>
-<li><strong>Shift Right (Increase):</strong> Number of firms ↑, cost of inputs ↓, or productivity ↑.</li>
-<li><strong>Shift Left (Decrease):</strong> Number of firms ↓, cost of inputs ↑, or productivity ↓.</li>
-</ul>
+<h4><i class="fas fa-compass"></i> Supply Shift Examples – Quick Reference</h4>
+<p style="margin-bottom: 1rem;">When any factor <em>other than price</em> changes, the <strong>entire supply curve shifts</strong>:</p>
+
+<table class="reference-table">
+<thead>
+<tr>
+<th>Event</th>
+<th>Driver</th>
+<th>Shift Direction</th>
+<th>Concrete Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>More firms enter market</td>
+<td><strong># ↑</strong></td>
+<td><span class="category-badge high">→ RIGHT</span></td>
+<td>New coffee shops open → Supply of coffee shifts right</td>
+</tr>
+<tr>
+<td>Firms exit market</td>
+<td><strong># ↓</strong></td>
+<td><span class="category-badge low">← LEFT</span></td>
+<td>Factories close down → Supply shifts left</td>
+</tr>
+<tr>
+<td>Input costs decrease</td>
+<td><strong>i ↓</strong></td>
+<td><span class="category-badge high">→ RIGHT</span></td>
+<td>Labor costs fall → Supply shifts right (cheaper to produce)</td>
+</tr>
+<tr>
+<td>Input costs increase</td>
+<td><strong>i ↑</strong></td>
+<td><span class="category-badge low">← LEFT</span></td>
+<td>Steel prices rise → Supply of cars shifts left</td>
+</tr>
+<tr>
+<td>Productivity improves</td>
+<td><strong>Δ ↑</strong></td>
+<td><span class="category-badge high">→ RIGHT</span></td>
+<td>Better technology → Can produce more with same inputs</td>
+</tr>
+<tr>
+<td>Productivity declines</td>
+<td><strong>Δ ↓</strong></td>
+<td><span class="category-badge low">← LEFT</span></td>
+<td>Equipment breakdown → Supply shifts left</td>
+</tr>
+</tbody>
+</table>
+
+<div class="insight-callout">
+<div class="insight-callout-title">Supply vs Demand Shifts</div>
+<p><strong>Key difference:</strong> Supply shifts when production conditions change (#, i, Δ), while demand shifts when buyer preferences or budgets change (s, c, I, t, e).</p>
+<p>💡 Both affect equilibrium, but in different ways: Supply shifts change P* and Q* with <em>opposite</em> movements, while demand shifts change them in the <em>same</em> direction.</p>
+</div>
 </div>
 
 <!-- Equilibrium Section -->
@@ -2234,43 +2852,90 @@ $$Q^* = a - b \times \frac{a - c}{b + d} = \frac{ad + bc}{b + d}$$
 <h4>Minimum Wage (Labor Market)</h4>
 <p>In the labor market, <strong>workers</strong> are the <strong>suppliers</strong> and <strong>firms</strong> are the <strong>demanders</strong>. A minimum wage is a <strong>Price Floor</strong> set <em>above</em> the equilibrium wage.</p>
 
-<div class="example-box" style="margin-top: 1rem;">
-<h4>Arguments FOR Minimum Wage:</h4>
+<h4 style="margin-top: 2rem;"><i class="fas fa-balance-scale"></i> The Minimum Wage Debate</h4>
+
+<div class="pro-con-grid">
+<div class="pro-con-card pro">
+<h4><i class="fas fa-thumbs-up"></i> Arguments FOR</h4>
 <ul>
-<li><strong>Human reasons:</strong> Ensuring decent living standards for workers</li>
-<li><strong>Productivity problem:</strong> Higher wages may increase worker productivity and motivation</li>
-<li><strong>Insider/Outsider theory:</strong> Protects employed workers from unfair competition</li>
-<li><strong>Macroeconomic issue:</strong> Maintains aggregate demand by ensuring consumers have purchasing power</li>
-<li><strong>Political motivation:</strong> Popular policy measure with broad public support</li>
+<li><strong>Human dignity:</strong> Ensures decent living standards for all workers</li>
+<li><strong>Productivity boost:</strong> Higher wages increase worker motivation and productivity</li>
+<li><strong>Worker protection:</strong> Shields employed workers from unfair wage competition (insider/outsider)</li>
+<li><strong>Economic demand:</strong> Maintains aggregate purchasing power and consumer spending</li>
+<li><strong>Political support:</strong> Widely popular policy with broad public backing</li>
 </ul>
 </div>
 
-<div class="warning-box" style="margin-top: 1rem;">
-<h4>Arguments AGAINST Minimum Wage:</h4>
-<p><strong>Microeconomic Theory Prediction:</strong> Creates unemployment (gap between labor supplied and demanded at W_min).</p>
+<div class="pro-con-card con">
+<h4><i class="fas fa-exclamation-triangle"></i> Arguments AGAINST</h4>
 <ul>
-<li>At the higher wage W_min, <strong>more people want to work</strong> (Qs on supply curve)</li>
-<li>But <strong>fewer jobs are available</strong> (Qd on demand curve)</li>
-<li>Results in unemployment of <strong>Qs - Qd</strong></li>
-<li>The surplus of labor means some willing workers cannot find jobs</li>
+<li><strong>Creates unemployment:</strong> Gap between labor supplied (Qs) and demanded (Qd) at W_min</li>
+<li><strong>Fewer jobs available:</strong> Firms hire less at higher wage W_min</li>
+<li><strong>Labor surplus:</strong> More people want to work than positions exist</li>
+<li><strong>Marginal workers lose:</strong> Some willing workers cannot find employment</li>
+<li><strong>Theory prediction:</strong> Microeconomic models predict job losses when price floors bind</li>
 </ul>
 </div>
+</div>
 
-<div class="example-box" style="margin-top: 1rem;">
-<h4>International Context: Minimum Wages as % of Median Monthly Earnings (2018)</h4>
-<p><strong>Highest:</strong></p>
-<ul>
-<li>France: 66%</li>
-<li>Portugal: 64%</li>
-<li>Slovenia: 62%</li>
-</ul>
-<p><strong>Lowest:</strong></p>
-<ul>
-<li>Estonia: 42%</li>
-<li>Malta: 43%</li>
-<li>Spain: 44%</li>
-</ul>
-<p><strong>Key Insight:</strong> The "thickness" of the market (how binding the minimum wage is relative to median earnings) varies significantly across countries, creating different labor market outcomes.</p>
+<div class="insight-callout">
+<div class="insight-callout-title">Economic Trade-Off</div>
+<p><strong>The fundamental tension:</strong> Minimum wages help employed workers earn more but may reduce total employment opportunities.</p>
+<p>Policy effectiveness depends on: elasticity of labor demand, current market conditions, and whether the wage floor is "binding" (above equilibrium).</p>
+</div>
+
+<h4 style="margin-top: 2rem;"><i class="fas fa-globe"></i> International Context: Minimum Wages</h4>
+<p style="margin-bottom: 1rem;">Minimum wage as % of median monthly earnings (2018):</p>
+
+<table class="data-table">
+<thead>
+<tr>
+<th>Country</th>
+<th class="numeric">% of Median Earnings</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>France</strong></td>
+<td class="numeric">66%</td>
+<td class="category-badge"><span class="category-badge high"><i class="fas fa-arrow-up"></i> Highest</span></td>
+</tr>
+<tr>
+<td><strong>Portugal</strong></td>
+<td class="numeric">64%</td>
+<td class="category-badge"><span class="category-badge high"><i class="fas fa-arrow-up"></i> Highest</span></td>
+</tr>
+<tr>
+<td><strong>Slovenia</strong></td>
+<td class="numeric">62%</td>
+<td class="category-badge"><span class="category-badge high"><i class="fas fa-arrow-up"></i> Highest</span></td>
+</tr>
+<tr style="background: #f9fafb;">
+<td colspan="3" style="text-align: center; font-style: italic; color: #6b7280; padding: 0.5rem;">...</td>
+</tr>
+<tr>
+<td><strong>Spain</strong></td>
+<td class="numeric">44%</td>
+<td class="category-badge"><span class="category-badge low"><i class="fas fa-arrow-down"></i> Lowest</span></td>
+</tr>
+<tr>
+<td><strong>Malta</strong></td>
+<td class="numeric">43%</td>
+<td class="category-badge"><span class="category-badge low"><i class="fas fa-arrow-down"></i> Lowest</span></td>
+</tr>
+<tr>
+<td><strong>Estonia</strong></td>
+<td class="numeric">42%</td>
+<td class="category-badge"><span class="category-badge low"><i class="fas fa-arrow-down"></i> Lowest</span></td>
+</tr>
+</tbody>
+</table>
+
+<div class="insight-callout strategy-callout">
+<div class="insight-callout-title">Market Thickness Insight</div>
+<p>The "thickness" of the labor market varies by country. A minimum wage at 66% of median (France) is far more binding than one at 42% (Estonia).</p>
+<p><strong>Implication:</strong> Countries with higher ratios face more tension between wage protection and employment – the minimum wage affects a larger share of the workforce.</p>
 </div>
 <!-- SVG GRAPH: Minimum Wage - CORRECTED DOTS -->
 <svg viewBox="0 0 500 350" class="econ-graph" aria-labelledby="min-wage-title">
@@ -2520,39 +3185,57 @@ $$Q^* = a - b \times \frac{a - c}{b + d} = \frac{ad + bc}{b + d}$$
 <div class="example-box">
 <h4>Three Degrees of Price Discrimination</h4>
 
-<div class="content-card" style="margin-top: 1rem;">
-<h5 style="color: #e74c3c;">First-Degree Price Discrimination (Perfect Discrimination)</h5>
-<p><strong>Concept:</strong> Charging each customer their exact maximum willingness to pay</p>
-<p><strong>Examples:</strong></p>
-<ul>
-<li><strong>Airline Upgrade Auctions:</strong> Air Mauritius introduced "UpgradeNow," allowing passengers to bid for premium cabin seats</li>
-<li>Airlines like Air New Zealand, Brussels Airlines, Copa Airlines, Czech Airlines, El Al, Etihad, TAP Portugal, and Virgin Atlantic allow bidding for business class</li>
-<li><strong>Why it works:</strong> Fixed costs remain almost unchanged regardless of seat occupancy, making this strategy highly profitable</li>
-</ul>
-</div>
+<table class="comparison-table">
+<thead>
+<tr>
+<th><i class="fas fa-tag"></i> Type</th>
+<th><i class="fas fa-lightbulb"></i> Concept</th>
+<th><i class="fas fa-store"></i> Real-World Examples</th>
+<th><i class="fas fa-user-check"></i> Who Pays What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>First-Degree</strong><br><span style="font-size: 0.9rem; color: #6b7280;">(Perfect Discrimination)</span></td>
+<td>Charge each customer their exact maximum willingness to pay</td>
+<td>
+• Airline upgrade auctions (Air Mauritius "UpgradeNow," Virgin Atlantic)<br>
+• Negotiated contracts<br>
+• Personalized pricing algorithms
+</td>
+<td><strong>Each customer pays maximum</strong> – captures 100% of consumer surplus</td>
+</tr>
+<tr>
+<td><strong>Second-Degree</strong><br><span style="font-size: 0.9rem; color: #6b7280;">(Non-linear Pricing)</span></td>
+<td>Price varies by quantity or self-selection; all face same price schedule</td>
+<td>
+• Bulk discounts<br>
+• Amusement park all-day passes<br>
+• "Ladies' night" pricing<br>
+• Economy vs. business class tiers
+</td>
+<td><strong>Same price schedule for all</strong> – but customers sort themselves by willingness to pay</td>
+</tr>
+<tr>
+<td><strong>Third-Degree</strong><br><span style="font-size: 0.9rem; color: #6b7280;">(Market Segmentation)</span></td>
+<td>Segment markets by observable characteristics</td>
+<td>
+• Student/senior discounts<br>
+• Geo-pricing (different countries)<br>
+• Business vs. leisure travel<br>
+• Regional software pricing
+</td>
+<td><strong>Different prices per segment</strong> – based on identifiable customer traits</td>
+</tr>
+</tbody>
+</table>
 
-<div class="content-card" style="margin-top: 1rem;">
-<h5 style="color: #3498db;">Second-Degree Price Discrimination (Non-linear Pricing)</h5>
-<p><strong>Concept:</strong> Price varies based on quantity purchased or self-selection, but all customers face the same price schedule</p>
-<p><strong>Examples:</strong></p>
-<ul>
-<li><strong>Flat rates</strong> independent of consumption amount (amusement park all-day passes)</li>
-<li><strong>"Ladies' night"</strong> at clubs (gender-based pricing)</li>
-<li>Quantity discounts (bulk purchases)</li>
-<li>Different product versions (economy vs. business class with same schedule)</li>
-</ul>
-</div>
-
-<div class="content-card" style="margin-top: 1rem;">
-<h5 style="color: #27ae60;">Third-Degree Price Discrimination (Market Segmentation)</h5>
-<p><strong>Concept:</strong> Segmenting markets based on observable characteristics and charging different prices to each segment</p>
-<p><strong>Examples:</strong></p>
-<ul>
-<li><strong>Geo-marketing:</strong> Charging different prices based on location/country</li>
-<li>Student/senior citizen discounts</li>
-<li>Business vs. leisure travel pricing</li>
-<li>Regional pricing for software and digital goods</li>
-</ul>
+<div class="insight-callout strategy-callout">
+<div class="insight-callout-title">Key Strategic Insight</div>
+<p>Price discrimination requires two conditions:</p>
+<p><strong>1. Market power</strong> – you must be able to set prices (not a perfect competitor)</p>
+<p><strong>2. Prevent resale</strong> – customers in low-price segments can't resell to high-price segments</p>
+<p>💡 <em>Success Formula:</em> More information about customers + ability to prevent arbitrage = more profit extraction</p>
 </div>
 </div>
 
@@ -3052,47 +3735,60 @@ $$Q^* = a - b \times \frac{a - c}{b + d} = \frac{ad + bc}{b + d}$$
 <p><strong>💡 Revolutionary Insight:</strong> When MC ≈ 0, the economics of business completely transform. Technology has created entire industries where producing "one more" costs almost nothing!</p>
 </div>
 
-<div class="content-card">
 <h4>🚀 Three Drivers of Zero-MC Economics</h4>
-<div class="step-container">
-<div class="step-number">1</div>
-<div class="step-content">
-<strong>📱 Digitalization</strong>
-<p>The MC of copying digital goods is zero</p>
-<div class="example-box" style="margin-top: 0.5rem;">
-<p><strong>Examples:</strong> Software, music streaming, e-books, online courses</p>
-<p style="font-size: 0.9rem; margin-top: 0.5rem;">Spotify can serve 1 or 1 million users with nearly the same cost</p>
-</div>
-</div>
-</div>
 
-<div class="step-container">
-<div class="step-number">2</div>
-<div class="step-content">
-<strong>🔗 Platform Matching</strong>
-<p>The MC of connecting one more pair is near-zero</p>
-<div class="example-box" style="margin-top: 0.5rem;">
-<p><strong>Examples:</strong> Uber (riders ↔ drivers), Airbnb (guests ↔ hosts), Amazon Marketplace (buyers ↔ sellers)</p>
-<p style="font-size: 0.9rem; margin-top: 0.5rem;">The algorithm does the work; each match costs essentially nothing</p>
-</div>
-</div>
-</div>
+<table class="comparison-table">
+<thead>
+<tr>
+<th><i class="fas fa-cog"></i> Driver</th>
+<th><i class="fas fa-lightbulb"></i> MC Concept</th>
+<th><i class="fas fa-briefcase"></i> Real-World Examples</th>
+<th><i class="fas fa-chart-line"></i> Business Model Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>📱 Digitalization</strong></td>
+<td>Cost of <strong>copying</strong> digital goods = zero</td>
+<td>
+• Software (Adobe, Microsoft 365)<br>
+• Music streaming (Spotify, Apple Music)<br>
+• E-books & audiobooks<br>
+• Online courses & MOOCs
+</td>
+<td>Spotify serves 1 user or 1 million users with nearly the same cost – <strong>infinite scalability</strong></td>
+</tr>
+<tr>
+<td><strong>🔗 Platform Matching</strong></td>
+<td>Cost of <strong>connecting</strong> one more pair ≈ zero</td>
+<td>
+• Uber (riders ↔ drivers)<br>
+• Airbnb (guests ↔ hosts)<br>
+• Amazon Marketplace (buyers ↔ sellers)<br>
+• LinkedIn (recruiters ↔ candidates)
+</td>
+<td>Algorithm handles all matching – <strong>each transaction costs nothing</strong> to facilitate</td>
+</tr>
+<tr>
+<td><strong>💤 IoT & Zero Idle Capacity</strong></td>
+<td>Cost of <strong>using</strong> existing asset ≈ zero</td>
+<td>
+• Parked cars (car sharing)<br>
+• Spare rooms (Airbnb)<br>
+• Unused equipment rentals<br>
+• Smart grids & distributed energy<br>
+• Connected logistics optimization
+</td>
+<td>Asset exists anyway – <strong>utilizing idle capacity</strong> costs almost nothing extra</td>
+</tr>
+</tbody>
+</table>
 
-<div class="step-container">
-<div class="step-number">3</div>
-<div class="step-content">
-<strong>💤 IoT, Connectedness & Zero Idle Capacity</strong>
-<p>The MC of using an already-existing asset is near-zero, especially when connected through smart systems</p>
-<div class="example-box" style="margin-top: 0.5rem;">
-<p><strong>Examples:</strong> Parked cars, spare rooms, unused equipment, smart grids, connected logistics</p>
-<p style="font-size: 0.9rem; margin-top: 0.5rem;">The asset exists anyway—using it costs almost nothing extra. Connected devices and real-time data enable optimization of idle capacity.</p>
-</div>
-</div>
-</div>
-
-<div class="important-note" style="margin-top: 1.5rem;">
-<p><strong>Combined Effect:</strong> These three elements together form the economic engine of the <strong>sharing economy</strong>.</p>
-</div>
+<div class="insight-callout strategy-callout">
+<div class="insight-callout-title">Sharing Economy Power Formula</div>
+<p><strong>Digitalization</strong> (no copy cost) + <strong>Platform Matching</strong> (no connection cost) + <strong>IoT</strong> (no usage cost) = <strong>Sharing Economy</strong></p>
+<p>💡 These three drivers together create business models that scale exponentially while costs remain flat. This is the economic revolution behind Uber, Airbnb, and the entire platform economy.</p>
+<p><strong>Strategic implication:</strong> Traditional asset-heavy businesses struggle to compete because each additional unit increases their costs, while platform businesses serve more customers at near-zero marginal cost.</p>
 </div>
 
 <div class="content-card" style="margin-top: 1.5rem;">
@@ -3723,6 +4419,57 @@ $$Q^* = a - b \times \frac{a - c}{b + d} = \frac{ad + bc}{b + d}$$
 </div>
 </div>
 </div>
+</div>
+
+<h4 style="margin-top: 2.5rem;"><i class="fas fa-table"></i> Porter's Five Forces – Summary Reference</h4>
+<table class="comparison-table">
+<thead>
+<tr>
+<th><i class="fas fa-shield-alt"></i> Force</th>
+<th><i class="fas fa-question-circle"></i> Key Question</th>
+<th><i class="fas fa-arrow-up"></i> When Force is HIGH</th>
+<th><i class="fas fa-arrow-down"></i> When Force is LOW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Rivalry Among Competitors</strong></td>
+<td>How intense is competition between current players?</td>
+<td><span class="category-badge high">Lower profits</span><br><em>Many firms fighting</em></td>
+<td><span class="category-badge low">Higher profits</span><br><em>Few firms or cooperation</em></td>
+</tr>
+<tr>
+<td><strong>2. Threat of New Entrants</strong></td>
+<td>How easily can new firms enter?</td>
+<td><span class="category-badge high">More competition</span><br><em>Low barriers to entry</em></td>
+<td><span class="category-badge low">Protected position</span><br><em>High barriers (capital, regulations)</em></td>
+</tr>
+<tr>
+<td><strong>3. Threat of Substitutes</strong></td>
+<td>Can customers meet their needs differently?</td>
+<td><span class="category-badge high">Less pricing power</span><br><em>Many alternatives available</em></td>
+<td><span class="category-badge low">More pricing power</span><br><em>Few substitutes exist</em></td>
+</tr>
+<tr>
+<td><strong>4. Bargaining Power of Buyers</strong></td>
+<td>How much leverage do customers have?</td>
+<td><span class="category-badge high">Squeezed margins</span><br><em>Large, concentrated buyers (Walmart)</em></td>
+<td><span class="category-badge low">Better margins</span><br><em>Fragmented, small buyers</em></td>
+</tr>
+<tr>
+<td><strong>5. Bargaining Power of Suppliers</strong></td>
+<td>How much leverage do suppliers have?</td>
+<td><span class="category-badge high">Higher costs</span><br><em>Few suppliers with unique inputs</em></td>
+<td><span class="category-badge low">Lower costs</span><br><em>Many competing suppliers</em></td>
+</tr>
+</tbody>
+</table>
+
+<div class="insight-callout strategy-callout">
+<div class="insight-callout-title">Strategic Analysis Framework</div>
+<p><strong>All 5 forces must be analyzed together.</strong> A firm may face weakness in one force but strength in another that offsets it.</p>
+<p>💡 <strong>High-profit industries:</strong> All five forces are weak (barriers protect firms, buyers/suppliers fragmented, few substitutes)</p>
+<p>🔥 <strong>Low-profit industries:</strong> All five forces are strong (intense competition from every angle drives profits toward zero)</p>
 </div>
 
 <!-- Competitive Intensity -->
@@ -4556,49 +5303,58 @@ Practice problems from all sessions with <strong>step-by-step solutions</strong>
 <div class="key-concept" style="background: white; border-left: 4px solid #ff9800;">
 <h4 style="color: #e65100;"><i class="fas fa-graduation-cap"></i> Essential Derivative Rules</h4>
 
-<div style="margin: 1.5rem 0;">
-<div class="formula-box" style="background: white; border-left: 4px solid #2196f3; margin-bottom: 1.5rem;">
-<h4 style="color: #1976d2;">1. Power Rule</h4>
-<p style="font-size: 1.1rem; margin: 1rem 0;"><strong>If f(Q) = Q<sup>n</sup>, then f'(Q) = n·Q<sup>(n-1)</sup></strong></p>
-<div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
-<p><strong>Examples:</strong></p>
-<ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-<li>Q² → 2Q</li>
-<li>Q³ → 3Q²</li>
-<li>5Q² → 10Q</li>
-<li>-2Q² → -4Q</li>
-<li>Q⁴ → 4Q³</li>
-</ul>
-</div>
-</div>
+<table class="reference-table">
+<thead>
+<tr>
+<th>Rule Name</th>
+<th>Formula Pattern</th>
+<th>How to Apply</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><i class="fas fa-superscript" style="color: #2196f3;"></i> Power Rule</strong></td>
+<td><code>f(Q) = Q<sup>n</sup></code> → <code>f'(Q) = n·Q<sup>(n-1)</sup></code></td>
+<td>Multiply by exponent, then reduce exponent by 1</td>
+<td>
+<code>Q²</code> → <code>2Q</code><br>
+<code>Q³</code> → <code>3Q²</code><br>
+<code>5Q²</code> → <code>10Q</code><br>
+<code>Q⁴</code> → <code>4Q³</code>
+</td>
+</tr>
+<tr>
+<td><strong><i class="fas fa-equals" style="color: #4caf50;"></i> Linear Rule</strong></td>
+<td><code>f(Q) = a·Q</code> → <code>f'(Q) = a</code></td>
+<td>The coefficient stays, Q disappears</td>
+<td>
+<code>45Q</code> → <code>45</code><br>
+<code>200Q</code> → <code>200</code><br>
+<code>-20Q</code> → <code>-20</code><br>
+<code>35Q</code> → <code>35</code>
+</td>
+</tr>
+<tr>
+<td><strong><i class="fas fa-ban" style="color: #9c27b0;"></i> Constant Rule</strong></td>
+<td><code>f(Q) = c</code> → <code>f'(Q) = 0</code></td>
+<td>Constants always disappear</td>
+<td>
+<code>100</code> → <code>0</code><br>
+<code>FC</code> → <code>0</code><br>
+<code>-50</code> → <code>0</code><br>
+<em>Any number vanishes!</em>
+</td>
+</tr>
+</tbody>
+</table>
 
-<div class="formula-box" style="background: white; border-left: 4px solid #4caf50; margin-bottom: 1.5rem;">
-<h4 style="color: #2e7d32;">2. Linear Rule</h4>
-<p style="font-size: 1.1rem; margin: 1rem 0;"><strong>If f(Q) = a·Q, then f'(Q) = a</strong></p>
-<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
-<p><strong>Examples:</strong></p>
-<ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-<li>45Q → 45</li>
-<li>200Q → 200</li>
-<li>-20Q → -20</li>
-<li>35Q → 35</li>
-</ul>
-</div>
-</div>
-
-<div class="formula-box" style="background: white; border-left: 4px solid #9c27b0; margin-bottom: 1.5rem;">
-<h4 style="color: #6a1b9a;">3. Constant Rule</h4>
-<p style="font-size: 1.1rem; margin: 1rem 0;"><strong>If f(Q) = c (constant), then f'(Q) = 0</strong></p>
-<div style="background: #f3e5f5; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
-<p><strong>Examples:</strong></p>
-<ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-<li>100 → 0</li>
-<li>Fixed Cost (FC) → 0</li>
-<li>-50 → 0</li>
-<li>Any constant disappears!</li>
-</ul>
-</div>
-</div>
+<div class="insight-callout">
+<div class="insight-callout-title">Quick Memory Aid</div>
+<p><strong>Power Rule:</strong> "Exponent comes down, then subtract 1 from exponent"</p>
+<p><strong>Linear Rule:</strong> "Q disappears, number stays"</p>
+<p><strong>Constant Rule:</strong> "No Q? Becomes zero!"</p>
+<p>💡 <strong>Pro tip:</strong> Always expand expressions BEFORE taking derivatives. Example: <code>(45-2Q)·Q</code> becomes <code>45Q - 2Q²</code> first.</p>
 </div>
 </div>
 
