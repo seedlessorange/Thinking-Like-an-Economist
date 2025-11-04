@@ -461,39 +461,97 @@ strong {
       </div>
 
       <!-- Question 2e -->
-      <p style="margin-top: 2rem;"><strong>2e. Government sets maximum price during hot summer</strong></p>
+      <p style="margin-top: 2rem;"><strong>2e. Back to scratch. A newly elected government believes ice cream has gotten too costly. They decide to implement a maximum price. What happens if this price is set above equilibrium (3 points)? What happens if the price is set below equilibrium (3 points)?</strong></p>
 
       <div class="answer-block">
         <div class="answer-header">
           <i class="fas fa-check-circle"></i>
           <span>Answer:</span>
         </div>
-        <p><strong>Key concept:</strong> Price ceilings create persistent shortages when set below equilibrium.</p>
 
-        <div class="graph-container">
-          <div class="graph-title">Ice Cream Market: Price Ceiling During Hot Summer</div>
+        <p style="margin-top: 1rem;"><strong>Case 1: Maximum Price Set ABOVE Equilibrium</strong></p>
+        <p>If the maximum price is set above the equilibrium price, there is <strong>no effect</strong>. If suppliers choose to supply at that price, supply will exceed demand and this excess will lead to a drop in price, until the price reaches equilibrium price.</p>
+
+        <div class="key-insight" style="margin-top: 1rem;">
+          <div class="key-insight-header">
+            <i class="fas fa-info-circle"></i>
+            <span>Non-Binding Price Ceiling</span>
+          </div>
+          <p>A price ceiling set above equilibrium is called "non-binding" because it doesn't constrain market behavior. The market naturally settles at the lower equilibrium price, so the ceiling has no practical effect.</p>
+        </div>
+
+        <p style="margin-top: 1.5rem;"><strong>Case 2: Maximum Price Set BELOW Equilibrium</strong></p>
+        <p>If the maximum price is set below the equilibrium price, this means that suppliers will be willing to supply less than what consumers will be willing to demand (at that price). <strong>Scarcity will result from this.</strong> If the market was totally free, the price would have gone up – but it can't since the government implemented this maximum price.</p>
+
+        <div class="graph-container" style="margin-top: 1rem;">
+          <div class="graph-title">Ice Cream Market: Price Ceiling Effects</div>
           <canvas id="priceCeilingGraph"></canvas>
         </div>
 
-        <p style="margin-top: 1rem;"><strong>Step-by-step analysis:</strong></p>
+        <p style="margin-top: 1rem;"><strong>Analysis of binding price ceiling (below equilibrium):</strong></p>
         <ol>
-          <li>Hot summer: Demand increases D₀ → D₃</li>
-          <li>Without price ceiling: Equilibrium would be (Q₃, P₃)</li>
-          <li>Government sets maximum price at P*</li>
-          <li>At price P*: Consumers want Q₃, but producers only supply Q₀</li>
-          <li>Result: <strong>Persistent shortage</strong> = Q₃ - Q₀</li>
+          <li>Government sets maximum price P_max below equilibrium P*</li>
+          <li>At P_max: Quantity demanded (Q_D) exceeds quantity supplied (Q_S)</li>
+          <li>Result: <strong>Shortage</strong> = Q_D - Q_S</li>
+          <li>Price cannot rise to eliminate shortage (it's illegal)</li>
+          <li>Non-price rationing mechanisms emerge (queuing, favoritism, black markets)</li>
         </ol>
 
-        <div class="key-insight">
+        <div class="key-insight" style="margin-top: 1rem;">
           <div class="key-insight-header">
             <i class="fas fa-exclamation-triangle"></i>
-            <span>Problems with Price Ceilings</span>
+            <span>Problems with Binding Price Ceilings</span>
           </div>
           <ul>
-            <li><strong>Shortage:</strong> Demand exceeds supply at the capped price</li>
-            <li><strong>Rationing:</strong> Not everyone who wants ice cream can get it</li>
+            <li><strong>Persistent shortage:</strong> Demand exceeds supply at the capped price</li>
+            <li><strong>Rationing required:</strong> Not everyone who wants ice cream can get it</li>
             <li><strong>Quality degradation:</strong> Firms may cut costs by reducing quality</li>
-            <li><strong>Black markets:</strong> People may pay above the legal price</li>
+            <li><strong>Black markets:</strong> People may pay above the legal price illegally</li>
+            <li><strong>Reduced investment:</strong> Lower prices discourage suppliers from expanding capacity</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Question 2f -->
+      <p style="margin-top: 2rem;"><strong>2f. Why would you criticize the measure described in (e) from a microeconomic standpoint? Explain in words (2 points) and illustrate with a graph (2 points).</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p>By setting a maximum price, the government is <strong>artificially limiting the amount of ice cream that will get traded on this market</strong>. Whereas this amount could have reached Q*, it is limited to Q_S because of this maximum price. The measure as a result is creating a <strong>deadweight loss</strong> (shown in yellow in the drawing) that society as a whole suffers from. This is why one could criticize this measure.</p>
+
+        <div class="graph-container" style="margin-top: 1rem;">
+          <div class="graph-title">Deadweight Loss from Price Ceiling</div>
+          <canvas id="deadweightLossGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Microeconomic Critique:</strong></p>
+        <ol>
+          <li><strong>Allocative inefficiency:</strong> Resources are not allocated to their highest-value use</li>
+          <li><strong>Deadweight loss:</strong> The yellow triangle represents transactions that would have benefited both buyers and sellers but don't occur</li>
+          <li><strong>Lost surplus:</strong> Total surplus (consumer + producer) is reduced compared to free market equilibrium</li>
+          <li><strong>Quantity traded falls:</strong> From Q* to Q_S, reducing overall market activity</li>
+        </ol>
+
+        <div class="key-insight" style="margin-top: 1rem;">
+          <div class="key-insight-header">
+            <i class="fas fa-brain"></i>
+            <span>Understanding Deadweight Loss</span>
+          </div>
+          <p><strong>Deadweight loss</strong> represents the value of mutually beneficial transactions that don't occur because of the price ceiling:</p>
+          <ul>
+            <li>Between Q_S and Q*, there are consumers willing to pay more than suppliers' costs</li>
+            <li>These trades would create value for both parties</li>
+            <li>The price ceiling prevents these trades from happening</li>
+            <li>Society as a whole is worse off by the area of the deadweight loss triangle</li>
+          </ul>
+
+          <p style="margin-top: 1rem;"><strong>Who wins and who loses?</strong></p>
+          <ul>
+            <li><strong>Winners:</strong> Consumers lucky enough to buy at the low price</li>
+            <li><strong>Losers:</strong> Producers (lower price and quantity), consumers who can't buy due to shortage, society overall (deadweight loss)</li>
           </ul>
         </div>
       </div>
@@ -1979,6 +2037,131 @@ new Chart(priceCeilingCtx, {
               content: 'Price Ceiling (P*)',
               enabled: true,
               position: 'end'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Deadweight Loss Graph
+const deadweightLossCtx = document.getElementById('deadweightLossGraph').getContext('2d');
+new Chart(deadweightLossCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'Q_S', 'Q*', 'Q_D', ''],
+    datasets: [
+      {
+        label: 'Demand',
+        data: [450, 300, 250, 200, 100],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Supply',
+        data: [50, 150, 250, 350, 450],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Quantity' } },
+      y: { title: { display: true, text: 'Price' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          priceCeiling: {
+            type: 'line',
+            yMin: 150,
+            yMax: 150,
+            borderColor: '#ef4444',
+            borderWidth: 3,
+            borderDash: [10, 5],
+            label: {
+              content: 'P_max (Price Ceiling)',
+              enabled: true,
+              position: 'start',
+              backgroundColor: '#ef4444',
+              color: 'white'
+            }
+          },
+          equilibriumPoint: {
+            type: 'point',
+            xValue: 'Q*',
+            yValue: 250,
+            backgroundColor: '#667eea',
+            radius: 8,
+            label: {
+              content: 'E (P*, Q*)',
+              enabled: true,
+              position: 'top'
+            }
+          },
+          deadweightLossArea: {
+            type: 'polygon',
+            xValue: 'Q_S',
+            yValue: 150,
+            sides: 3,
+            radius: 50,
+            backgroundColor: 'rgba(251, 191, 36, 0.3)',
+            borderColor: '#f59e0b',
+            borderWidth: 2,
+            label: {
+              content: 'Deadweight Loss',
+              enabled: true,
+              color: '#92400e',
+              font: {
+                weight: 'bold'
+              }
+            }
+          },
+          shortageArrow: {
+            type: 'line',
+            xMin: 'Q_S',
+            xMax: 'Q_D',
+            yMin: 150,
+            yMax: 150,
+            borderColor: '#ef4444',
+            borderWidth: 2,
+            label: {
+              content: 'Shortage',
+              enabled: true,
+              position: 'center',
+              backgroundColor: '#fef3c7',
+              color: '#92400e'
+            }
+          },
+          qsLabel: {
+            type: 'label',
+            xValue: 'Q_S',
+            yValue: 10,
+            content: 'Q_S (supplied)',
+            color: '#10b981',
+            font: {
+              weight: 'bold',
+              size: 11
+            }
+          },
+          qdLabel: {
+            type: 'label',
+            xValue: 'Q_D',
+            yValue: 10,
+            content: 'Q_D (demanded)',
+            color: '#3b82f6',
+            font: {
+              weight: 'bold',
+              size: 11
             }
           }
         }
