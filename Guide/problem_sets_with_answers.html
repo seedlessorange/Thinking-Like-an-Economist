@@ -701,9 +701,141 @@ strong {
       </div>
     </div>
 
-    <!-- Exercise 3: Paper Industry Cost Curves -->
+    <!-- Exercise 3: Labor Markets Review -->
     <div class="question-block">
-      <div class="question-number">Exercise 3: Industry Cost Curve (McKinsey Article)</div>
+      <div class="question-number">Exercise 3: Review - Labor Markets</div>
+      <p><strong>Context:</strong> Consider a labor (job) market.</p>
+
+      <!-- Question 3a -->
+      <p style="margin-top: 1.5rem;"><strong>a) Who supplies what on this market? Who demands what? (2 points)</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p>On the labor market, <strong>individual workers supply labor</strong>. <strong>Firms demand labor</strong>.</p>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-lightbulb"></i>
+            <span>Key Point</span>
+          </div>
+          <p>In labor markets, the roles are reversed from typical goods markets: workers are the suppliers (selling their labor), and firms are the demanders (buying labor services).</p>
+        </div>
+      </div>
+
+      <!-- Question 3b -->
+      <p style="margin-top: 2rem;"><strong>b) Represent in a diagram the wage w* and the number of workers n* in equilibrium. (2 points)</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p><strong>n*</strong> is now the quantity, on the horizontal axis, and <strong>w*</strong> the price, on the vertical axis. The logic is really the same otherwise.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Labor Market Equilibrium</div>
+          <canvas id="laborMarketEquilibriumGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Key Elements:</strong></p>
+        <ul>
+          <li><strong>Vertical axis:</strong> Wage (w) - the price of labor</li>
+          <li><strong>Horizontal axis:</strong> Number of workers (n) - the quantity of labor</li>
+          <li><strong>Supply curve:</strong> Upward sloping - higher wages attract more workers</li>
+          <li><strong>Demand curve:</strong> Downward sloping - higher wages reduce firms' demand for workers</li>
+          <li><strong>Equilibrium:</strong> Where supply meets demand → (n*, w*)</li>
+        </ul>
+      </div>
+
+      <!-- Question 3c -->
+      <p style="margin-top: 2rem;"><strong>c) What happens to w* and to n* in a booming economy? Explain in words and represent graphically in the same diagram. (2 points)</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p>In a booming economy, firms will need more workers to tackle the increasing demand on their respective markets. As a result, their demand for workers will increase. This means that the <strong>demand curve will shift to the right</strong>.</p>
+
+        <p style="margin-top: 1rem;">At the new point of equilibrium, the equilibrium wage and the equilibrium number of people will both increase.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Labor Market: Booming Economy Effect (Demand Shift)</div>
+          <canvas id="laborMarketBoomGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Step-by-step analysis:</strong></p>
+        <ol>
+          <li>Booming economy → Firms' product markets grow</li>
+          <li>Increased production needs → Higher demand for workers</li>
+          <li>Labor demand curve shifts RIGHT (D₀ → D₁)</li>
+          <li>Labor supply curve UNCHANGED</li>
+          <li>New equilibrium: w* increases, n* increases</li>
+        </ol>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-brain"></i>
+            <span>Economic Intuition</span>
+          </div>
+          <p>When the economy booms, firms compete more intensely for workers, driving up wages and employment simultaneously.</p>
+        </div>
+      </div>
+
+      <!-- Question 3d -->
+      <p style="margin-top: 2rem;"><strong>d) What effects will the phenomena you described in (c) have on potential workers? Explain in words and represent graphically in the same diagram. (2 points)</strong></p>
+
+      <div class="answer-block">
+        <div class="answer-header">
+          <i class="fas fa-check-circle"></i>
+          <span>Answer:</span>
+        </div>
+        <p>Some people are not on the job market – reasons may vary, but most often because the labor market is not attractive enough to them. The booming economy, improving prospects on the job market and higher wages will lead them to enter the job market, thereby <strong>increasing the supply of work</strong>.</p>
+
+        <p style="margin-top: 1rem;">The <strong>supply curve will therefore shift to the right</strong>, increasing the equilibrium number of people working but lowering the equilibrium wage.</p>
+
+        <div class="graph-container">
+          <div class="graph-title">Labor Market: Full Effect (Demand + Supply Shifts)</div>
+          <canvas id="laborMarketFullEffectGraph"></canvas>
+        </div>
+
+        <p style="margin-top: 1rem;"><strong>Complete analysis:</strong></p>
+        <ol>
+          <li><strong>First effect (from part c):</strong> Demand shifts right → ↑w*, ↑n*</li>
+          <li><strong>Second effect:</strong> Higher wages attract non-participants into labor market</li>
+          <li>Labor supply curve shifts RIGHT (S₀ → S₁)</li>
+          <li><strong>Final equilibrium:</strong>
+            <ul style="margin-top: 0.5rem;">
+              <li>n* increases (unambiguous - both shifts increase quantity)</li>
+              <li>w* effect is ambiguous (demand shift pushes up, supply shift pushes down)</li>
+              <li>In this case, supply shift partially offsets the wage increase</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="key-insight">
+          <div class="key-insight-header">
+            <i class="fas fa-brain"></i>
+            <span>Key Insight: Double Shift Analysis</span>
+          </div>
+          <p><strong>When both demand and supply shift right:</strong></p>
+          <ul>
+            <li>Quantity (n*) ALWAYS increases</li>
+            <li>Price (w*) effect depends on relative magnitude of shifts</li>
+            <li>Here, the supply response moderates (but doesn't eliminate) the wage increase</li>
+          </ul>
+
+          <p style="margin-top: 1rem;"><strong>Real-world example:</strong> During economic expansions, labor force participation rates often increase as discouraged workers, retirees, students, and caregivers enter or re-enter the job market attracted by better opportunities.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 4: Paper Industry Cost Curves -->
+    <div class="question-block">
+      <div class="question-number">Exercise 4: Industry Cost Curve (McKinsey Article)</div>
       <p><strong>Context:</strong> Paper industry with demand of 75,000 tonnes. Three firms (Alpha, Bravo, Romeo) have production units with different costs and capacities.</p>
 
       <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
@@ -1847,6 +1979,231 @@ new Chart(priceCeilingCtx, {
               content: 'Price Ceiling (P*)',
               enabled: true,
               position: 'end'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Labor Market Equilibrium Graph
+const laborMarketEquilibriumCtx = document.getElementById('laborMarketEquilibriumGraph').getContext('2d');
+new Chart(laborMarketEquilibriumCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'n*', ''],
+    datasets: [
+      {
+        label: 'Labor Demand',
+        data: [400, 250, 100],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Labor Supply',
+        data: [100, 250, 400],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Number of Workers (n)' } },
+      y: { title: { display: true, text: 'Wage (w)' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          equilibrium: {
+            type: 'point',
+            xValue: 'n*',
+            yValue: 250,
+            backgroundColor: '#667eea',
+            radius: 8,
+            label: {
+              content: 'E (w*, n*)',
+              enabled: true,
+              position: 'top'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Labor Market Boom Graph (Demand Shift)
+const laborMarketBoomCtx = document.getElementById('laborMarketBoomGraph').getContext('2d');
+new Chart(laborMarketBoomCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'n₀', 'n₁', ''],
+    datasets: [
+      {
+        label: 'D₀ (Original Labor Demand)',
+        data: [400, 250, 150, 50],
+        borderColor: '#3b82f6',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'D₁ (Booming Economy)',
+        data: [450, 300, 200, 100],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'Labor Supply',
+        data: [50, 150, 250, 350],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Number of Workers (n)' } },
+      y: { title: { display: true, text: 'Wage (w)' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          point1: {
+            type: 'point',
+            xValue: 'n₀',
+            yValue: 150,
+            backgroundColor: '#3b82f6',
+            radius: 7,
+            label: {
+              content: 'E₀',
+              enabled: true,
+              position: 'left'
+            }
+          },
+          point2: {
+            type: 'point',
+            xValue: 'n₁',
+            yValue: 200,
+            backgroundColor: '#ef4444',
+            radius: 8,
+            label: {
+              content: 'E₁',
+              enabled: true,
+              position: 'top'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+// Labor Market Full Effect Graph (Both Shifts)
+const laborMarketFullEffectCtx = document.getElementById('laborMarketFullEffectGraph').getContext('2d');
+new Chart(laborMarketFullEffectCtx, {
+  type: 'line',
+  data: {
+    labels: ['', 'n₀', 'n₁', 'n₂', ''],
+    datasets: [
+      {
+        label: 'D₀ (Original)',
+        data: [400, 280, 220, 160, 100],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'D₁ (Boom)',
+        data: [450, 330, 270, 210, 150],
+        borderColor: '#ef4444',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      },
+      {
+        label: 'S₀ (Original Supply)',
+        data: [100, 160, 220, 280, 340],
+        borderColor: '#94a3b8',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0
+      },
+      {
+        label: 'S₁ (Increased Participation)',
+        data: [80, 140, 200, 260, 320],
+        borderColor: '#10b981',
+        backgroundColor: 'transparent',
+        borderWidth: 3,
+        tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { title: { display: true, text: 'Number of Workers (n)' } },
+      y: { title: { display: true, text: 'Wage (w)' }, beginAtZero: true }
+    },
+    plugins: {
+      legend: { position: 'top' },
+      annotation: {
+        annotations: {
+          point1: {
+            type: 'point',
+            xValue: 'n₀',
+            yValue: 220,
+            backgroundColor: '#94a3b8',
+            radius: 7,
+            label: {
+              content: 'E₀',
+              enabled: true,
+              position: 'left'
+            }
+          },
+          point2: {
+            type: 'point',
+            xValue: 'n₁',
+            yValue: 270,
+            backgroundColor: '#f59e0b',
+            radius: 7,
+            label: {
+              content: 'E₁',
+              enabled: true,
+              position: 'top'
+            }
+          },
+          point3: {
+            type: 'point',
+            xValue: 'n₂',
+            yValue: 260,
+            backgroundColor: '#10b981',
+            radius: 8,
+            label: {
+              content: 'E₂ (Final)',
+              enabled: true,
+              position: 'right'
             }
           }
         }
